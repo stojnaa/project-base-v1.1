@@ -31,8 +31,8 @@ public:
 private:
     struct BlockedNode {
         _thread* thread;
-        unsigned requested;
-        int status;
+        unsigned requested;//koliko resursa ta nit trazi
+        int status;//0 probudjena pomocu signal, -1 preko close()
         BlockedNode* next;
     };
 

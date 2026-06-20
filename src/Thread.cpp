@@ -43,10 +43,22 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
         this->stack = nullptr;
         this->context.sp = 0;
     }
+    this->context.s0 = 0;
+    this->context.s1 = 0;
+    this->context.s2 = 0;
+    this->context.s3 = 0;
+    this->context.s4 = 0;
+    this->context.s5 = 0;
+    this->context.s6 = 0;
+    this->context.s7 = 0;
+    this->context.s8 = 0;
+    this->context.s9 = 0;
+    this->context.s10 = 0;
+    this->context.s11 = 0;
 
-    this->context.ra = (uint64)&_thread::threadWrapper;
+    this->context.ra = (uint64)&_thread::threadWrapper;//nit nigde nije radila pa upisujemo povratnu adresu
     this->timeSlice = DEFAULT_TIME_SLICE;
-    this->state = CREATED;
+    this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
 }
 
@@ -87,7 +99,7 @@ void _thread::dispatch() {
     running = next;
     running->state = RUNNING;
 
-    if (old != nullptr && old != running) {
+    if (old != nullptr && old != running) {//ako je scheduler vratio istu nit ne treba contextswitch
         contextSwitch(&old->context, &running->context);
     }
 }
@@ -131,7 +143,7 @@ uint64 _thread::getTimeSlice() const {
     return timeSlice;
 }
 
-void _thread::threadWrapper() {
+void _thread::threadWrapper() {//
     if (running != nullptr && running->body != nullptr) {
         running->body(running->arg);
     }

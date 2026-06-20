@@ -33,10 +33,10 @@ int mem_free(void* ptr) {
 
 
 int thread_create(thread_t* handle, void (*start_routine)(void*), void* arg){
-    if (handle == nullptr || start_routine == nullptr){
+    if (handle == nullptr || start_routine == nullptr){//handle je mesto gde kernel upisuje pokazivac na napravljenu nit
         return -1;
     }
-    void* stack = mem_alloc(DEFAULT_STACK_SIZE);
+    void* stack = mem_alloc(DEFAULT_STACK_SIZE);//stack pokazuje na pocetak alociranog prostora
     if (stack == nullptr){
         return -1;
     }

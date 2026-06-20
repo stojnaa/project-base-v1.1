@@ -49,7 +49,7 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                     break;
                 }
 
-                *handle = thread;
+                *handle = thread;//korisnik dobija rucku nove niti
                 Scheduler::put(thread);
 
                 frame->a0 = 0;
@@ -64,10 +64,10 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
 
             case 0x13: {
                 frame->sepc += 4;
-                _thread::dispatch();
+                _thread::dispatch();//nismo frame->a0 jer dispatch nema povratnu value
                 return;
             }
-            case 0x21: {
+            case 0x21: {//ne povecavamo sepc jer ne menja trenutno izvrsavanje
                 sem_t* handle = (sem_t*)arg1;
                 unsigned init = (unsigned)arg2;
 
@@ -185,11 +185,11 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
     }
 
     if (scause == 0x8000000000000001UL) {
-        Riscv::mc_sip(Riscv::SIP_SSIP);
+        Riscv::mc_sip(Riscv::SIP_SSIP);//birsanje pending bita
         return;
     }
 
-    if (scause == 0x8000000000000009UL) {
+    if (scause == 0x8000000000000009UL) {//spoljasnji hardverski prekid 9
         console_handler();
         return;
     }

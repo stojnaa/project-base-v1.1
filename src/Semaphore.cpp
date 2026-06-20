@@ -71,7 +71,7 @@ int _sem::waitN(unsigned n) {
         return 0;
     }
 
-    if (head == nullptr && val >= (int)n) {
+    if (head == nullptr && val >= (int)n) {//nema blokiranih niti i ima dovoljno resursa
         val -= (int)n;
         return 0;
     }
@@ -125,11 +125,6 @@ void _sem::block(BlockedNode* node) {
 }
 
 void _sem::unblockReady() {
-    /*
-     * FIFO:
-     * Gledamo samo prvu nit u redu.
-     * Ako za nju nema dovoljno resursa, stajemo.
-     */
     while (head != nullptr && val >= (int)head->requested) {
         BlockedNode* node = head;
 
@@ -141,7 +136,7 @@ void _sem::unblockReady() {
 
         val -= (int)node->requested;
 
-        node->status = 0;
+        node->status = 0;//znaci da ce waitN vratiti 0
         node->next = nullptr;
 
         if (node->thread != nullptr) {

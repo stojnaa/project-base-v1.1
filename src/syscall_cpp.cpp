@@ -13,10 +13,6 @@ Thread::Thread() {
 }
 
 Thread::~Thread() {
-    /*
-     * Za sada nemamo syscall za brisanje tuđe niti.
-     * Nit se sama gasi preko thread_exit().
-     */
 }
 
 int Thread::start() {
@@ -24,7 +20,7 @@ int Thread::start() {
         return thread_create(&myHandle, body, arg);
     }
 
-    return thread_create(&myHandle, Thread::threadWrapper, this);
+    return thread_create(&myHandle, Thread::threadWrapper, this);//kada korisnik ocekuje da se izvrsi run(), pa se u thread wrapper poziva run
 }
 
 void Thread::dispatch() {

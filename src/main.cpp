@@ -19,12 +19,10 @@ int main() {
     Riscv::w_stvec((uint64)&supervisorTrap);
     Riscv::ms_sstatus(Riscv::SSTATUS_SIE);
 
-    // Za tačke 1, 2, 3 ne uključujemo prekide.
-    // Riscv::ms_sstatus(Riscv::SSTATUS_SIE);
 
-    _thread mainThread(nullptr, nullptr, nullptr);
+    _thread mainThread(nullptr, nullptr, nullptr);//poziv konstruktora
     mainThread.setState(_thread::RUNNING);
-    _thread::running = &mainThread;
+    _thread::running = &mainThread;//pravimo main nit zbog dispatch-a, jer nemamo running na pocetku, i scheduler radi samo sa _thread
 
     thread_t userThread = nullptr;
     int ret = thread_create(&userThread, userMainWrapper, nullptr);

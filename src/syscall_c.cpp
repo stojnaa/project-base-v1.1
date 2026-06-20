@@ -63,6 +63,9 @@ int thread_exit() {
 void thread_dispatch() {
     doSyscall(0x13);
 }
+void thread_join(thread_t handle) {
+     doSyscall(0x14, (uint64)handle);
+}
 int sem_open(sem_t* handle, unsigned init) {
     return (int)doSyscall(0x21, (uint64)handle, (uint64)init);
 }

@@ -1,6 +1,7 @@
 #include "../h/Thread.hpp"
 #include "../h/Scheduler.hpp"
 #include "../h/MemoryAllocator.hpp"
+#include "../h/Semaphore.hpp"
 
 _thread* _thread::running = nullptr;
 
@@ -60,6 +61,8 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
     this->timeSlice = DEFAULT_TIME_SLICE;
     this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
+    this->joinSem = _sem::createSemaphore(0);
+    this->joinWaitingCount = 0;
 }
 
 _thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
@@ -74,6 +77,11 @@ int _thread::destroyThread(_thread* thread) {
     if (thread->stack != nullptr) {
         MemoryAllocator::getInstance().free(thread->stack);
         thread->stack = nullptr;
+    }
+    if (thread->joinSem != nullptr) {
+        thread->joinSem->close();
+        _sem::destroySemaphore(thread->joinSem);
+        thread->joinSem = nullptr;
     }
 
     delete thread;
@@ -109,10 +117,30 @@ int _thread::exit() {
     }
 
     running->state = FINISHED;
+    if (running->joinSem != nullptr && running->joinWaitingCount > 0) {
+        running->joinSem->signalN(running->joinWaitingCount);
+        running->joinWaitingCount = 0;
+    }
 
     dispatch();
 
     return 0;
+}
+void _thread::join(_thread* thread) {
+    if (thread == nullptr) {
+        return;
+    }
+    if (thread == running) {
+        return;
+    }
+    if (thread->state == FINISHED) {
+        return;
+    }
+    if (thread->joinSem == nullptr) {
+        return;
+    }
+    thread->joinWaitingCount++;
+    thread->joinSem->wait();
 }
 
 _thread::Body _thread::getBody() const {

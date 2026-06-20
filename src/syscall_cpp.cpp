@@ -38,6 +38,9 @@ void Thread::threadWrapper(void* thread) {
         t->run();
     }
 }
+void Thread::join() {
+    thread_join(myHandle);
+}
 
 Semaphore::Semaphore(unsigned init) {
     myHandle = nullptr;

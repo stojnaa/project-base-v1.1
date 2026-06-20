@@ -6,7 +6,7 @@
 #define PROJECT_BASE_V1_1_THREAD_HPP
 
 #include "../lib/hw.h"
-
+class _sem;
 class Scheduler;
 
 class _thread {
@@ -62,6 +62,7 @@ public:
     uint64 getTimeSlice() const;
 
     static _thread* running;
+    static void join(_thread* thread);
 
 private:
     Body body;
@@ -74,6 +75,8 @@ private:
     State state;
 
     _thread* next;
+    _sem* joinSem;
+    unsigned joinWaitingCount;
 
     static void threadWrapper();
 

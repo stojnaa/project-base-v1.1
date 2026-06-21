@@ -8,6 +8,7 @@
 #include "../lib/hw.h"
 
 class Scheduler;
+class _sem;
 
 class _thread {
 public:
@@ -62,7 +63,9 @@ public:
     uint64 getTimeSlice() const;
 
     static _thread* running;
-
+    static int addChild(_thread* child);
+    static int joinAll();
+    void childFinished();
 private:
     Body body;
     void* arg;
@@ -74,6 +77,9 @@ private:
     State state;
 
     _thread* next;
+    _sem* childSem;
+    int childrenLeft;
+    _thread* parent;
 
     static void threadWrapper();
 

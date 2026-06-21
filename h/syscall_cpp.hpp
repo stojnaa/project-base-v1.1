@@ -19,7 +19,8 @@ public:
 
     static void dispatch();
     static int sleep(time_t);
-
+    int addChild(Thread* child);
+    int joinAll();
 protected:
     Thread();
 

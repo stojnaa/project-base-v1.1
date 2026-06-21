@@ -1,6 +1,7 @@
 #include "../h/Thread.hpp"
 #include "../h/Scheduler.hpp"
 #include "../h/MemoryAllocator.hpp"
+#include "../h/Semaphore.hpp"
 
 _thread* _thread::running = nullptr;
 
@@ -60,6 +61,9 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
     this->timeSlice = DEFAULT_TIME_SLICE;
     this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
+    this->childSem = _sem::createSemaphore(0);
+    this->parent = nullptr;
+    this->childrenLeft = 0;
 }
 
 _thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
@@ -74,6 +78,11 @@ int _thread::destroyThread(_thread* thread) {
     if (thread->stack != nullptr) {
         MemoryAllocator::getInstance().free(thread->stack);
         thread->stack = nullptr;
+    }
+    if (thread->childSem != nullptr) {
+        thread->childSem->close();
+        _sem::destroySemaphore(thread->childSem);
+        thread->childSem = nullptr;
     }
 
     delete thread;
@@ -109,10 +118,57 @@ int _thread::exit() {
     }
 
     running->state = FINISHED;
+    if (running->parent != nullptr) {
+        running->parent->childFinished();
+        running->parent = nullptr;
+    }
 
     dispatch();
 
     return 0;
+}
+int _thread::addChild(_thread* child) {
+    if (running == nullptr || child == nullptr) {
+        return -1;
+    }
+    if (child == running) {
+        return -1;
+    }
+    if (child->state == FINISHED) {
+        return 0;
+    }
+    if (child->parent != nullptr) {
+        return -1;
+    }
+    child->parent = running;
+    running->childrenLeft++;
+    return 0;
+}
+int _thread::joinAll() {
+    if (running == nullptr) {
+        return -1;
+    }
+
+    if (running->childrenLeft == 0) {
+        return 0;
+    }
+
+    if (running->childSem == nullptr) {
+        return -1;
+    }
+
+    return running->childSem->wait();
+}
+void _thread::childFinished() {
+    if (childrenLeft <= 0) {
+        return;
+    }
+
+    childrenLeft--;
+
+    if (childrenLeft == 0 && childSem != nullptr) {
+        childSem->signal();
+    }
 }
 
 _thread::Body _thread::getBody() const {

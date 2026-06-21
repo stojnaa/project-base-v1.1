@@ -67,6 +67,16 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                 _thread::dispatch();//nismo frame->a0 jer dispatch nema povratnu value
                 return;
             }
+            case 0x14: {
+                thread_t child = (thread_t) arg1;
+                frame->a0 = (uint64)_thread::addChild(child);
+                break;
+            }
+            case 0x15: {
+                frame->sepc += 4;
+                frame->a0 = (uint64)_thread::joinAll();
+                return;
+            }
             case 0x21: {//ne povecavamo sepc jer ne menja trenutno izvrsavanje
                 sem_t* handle = (sem_t*)arg1;
                 unsigned init = (unsigned)arg2;

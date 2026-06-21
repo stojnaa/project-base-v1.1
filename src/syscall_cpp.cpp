@@ -26,6 +26,17 @@ int Thread::start() {
 void Thread::dispatch() {
     thread_dispatch();
 }
+int Thread::addChild(Thread* child) {
+    if (child == nullptr) {
+        return -1;
+    }
+
+    return thread_add_child(child->myHandle);
+}
+
+int Thread::joinAll() {
+    return thread_join_all();
+}
 
 int Thread::sleep(time_t time) {
     return time_sleep(time);

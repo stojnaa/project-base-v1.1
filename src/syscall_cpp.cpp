@@ -38,7 +38,21 @@ void Thread::threadWrapper(void* thread) {
         t->run();
     }
 }
+void Thread::pair(Thread* t1, Thread* t2) {
+    if (t1 == nullptr || t2 == nullptr) {
+        return;
+    }
 
+    thread_pair(t1->myHandle, t2->myHandle);
+}
+
+void Thread::sync() {
+    thread_sync();
+}
+
+int Thread::getThreadId() {
+    return ::getThreadId();
+}
 Semaphore::Semaphore(unsigned init) {
     myHandle = nullptr;
     sem_open(&myHandle, init);

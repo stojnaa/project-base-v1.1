@@ -1,8 +1,10 @@
 #include "../h/Thread.hpp"
 #include "../h/Scheduler.hpp"
 #include "../h/MemoryAllocator.hpp"
+#include "../h/Semaphore.hpp"
 
 _thread* _thread::running = nullptr;
+int _thread::nextId = 1;
 
 static size_t blocksForBytes(size_t bytes) {
     return (bytes + MEM_BLOCK_SIZE - 1) / MEM_BLOCK_SIZE;
@@ -60,6 +62,13 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
     this->timeSlice = DEFAULT_TIME_SLICE;
     this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
+    this->id = nextId++;
+
+    this->pairPartner = nullptr;
+    this->syncOwner = nullptr;
+    this->pairMutex = nullptr;
+    this->pairGate = nullptr;
+    this->pairWaiting = 0;
 }
 
 _thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
@@ -149,4 +158,74 @@ void _thread::threadWrapper() {//
     }
 
     _thread::exit();
+}
+int _thread::pair(_thread* t1, _thread* t2) {
+    if (t1 == nullptr || t2 == nullptr) {
+        return -1;
+    }
+
+    if (t1 == t2) {
+        return -1;
+    }
+
+    if (t1->pairPartner != nullptr || t2->pairPartner != nullptr) {
+        return -1;
+    }
+
+    _sem* mutex = _sem::createSemaphore(1);
+    _sem* gate = _sem::createSemaphore(0);
+
+    if (mutex == nullptr || gate == nullptr) {
+        return -1;
+    }
+
+    t1->pairPartner = t2;
+    t2->pairPartner = t1;
+
+    t1->syncOwner = t1;
+    t2->syncOwner = t1;
+
+    t1->pairMutex = mutex;
+    t2->pairMutex = mutex;
+
+    t1->pairGate = gate;
+    t2->pairGate = gate;
+
+    t1->pairWaiting = 0;
+    t2->pairWaiting = 0;
+
+    return 0;
+}
+
+int _thread::getRunningId() {
+    return running->id;
+}
+
+int _thread::sync() {
+    if (running == nullptr) {
+        return -1;
+    }
+
+    if (running->pairPartner == nullptr || running->syncOwner == nullptr) {
+        return -1;
+    }
+
+    _thread* owner = running->syncOwner;
+
+    owner->pairMutex->wait();
+
+    owner->pairWaiting++;
+
+    if (owner->pairWaiting == 1) {
+        owner->pairMutex->signal();
+
+        owner->pairGate->wait();
+    } else {
+        owner->pairWaiting = 0;
+
+        owner->pairGate->signal();
+        owner->pairMutex->signal();
+    }
+
+    return 0;
 }

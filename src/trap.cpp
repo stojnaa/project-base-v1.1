@@ -67,6 +67,28 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                 _thread::dispatch();//nismo frame->a0 jer dispatch nema povratnu value
                 return;
             }
+            case 0x14: {
+                int id = _thread::getRunningId();
+
+                frame->a0 = (uint64)id;
+                frame->sepc += 4;
+
+                _thread::dispatch();
+
+                return;
+            }
+            case 0x16: {
+                thread_t t1 = (thread_t)arg1;
+                thread_t t2 = (thread_t)arg2;
+
+                frame->a0 = (uint64)_thread::pair(t1, t2);
+                break;
+            }
+            case 0x17: {
+                frame->sepc += 4;
+                frame->a0 = (uint64)_thread::sync();
+                return;
+            }
             case 0x21: {//ne povecavamo sepc jer ne menja trenutno izvrsavanje
                 sem_t* handle = (sem_t*)arg1;
                 unsigned init = (unsigned)arg2;

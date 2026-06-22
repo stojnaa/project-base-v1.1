@@ -8,6 +8,7 @@
 #include "../lib/hw.h"
 
 class Scheduler;
+class _sem;
 
 class _thread {
 public:
@@ -62,6 +63,10 @@ public:
     uint64 getTimeSlice() const;
 
     static _thread* running;
+    static int pair(_thread* t1, _thread* t2);
+    static int sync();
+    static int nextId;
+    static int getRunningId();
 
 private:
     Body body;
@@ -74,6 +79,15 @@ private:
     State state;
 
     _thread* next;
+    _thread* pairPartner;
+    _thread* syncOwner;
+
+    _sem* pairMutex;
+    _sem* pairGate;
+
+    int pairWaiting;
+    int id;
+
 
     static void threadWrapper();
 

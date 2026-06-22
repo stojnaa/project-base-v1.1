@@ -19,6 +19,9 @@ public:
 
     static void dispatch();
     static int sleep(time_t);
+    static void pair(Thread* t1, Thread* t2);
+    void sync();
+    static int getThreadId();
 
 protected:
     Thread();

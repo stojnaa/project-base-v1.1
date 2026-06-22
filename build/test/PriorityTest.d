@@ -1,9 +1,6 @@
-build/test/buffer_CPP_API.o: test/buffer_CPP_API.cpp \
- test/buffer_CPP_API.hpp test/../h/syscall_cpp.hpp \
- test/../h/syscall_c.hpp test/../h/../lib/hw.h \
+build/test/PriorityTest.o: test/PriorityTest.cpp \
+ test/../h/syscall_cpp.hpp test/../h/syscall_c.hpp test/../h/../lib/hw.h \
  test/../h/ThreadPriority.hpp test/printing.hpp test/../h/syscall_c.h
-
-test/buffer_CPP_API.hpp:
 
 test/../h/syscall_cpp.hpp:
 

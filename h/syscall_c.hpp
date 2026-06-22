@@ -2,6 +2,7 @@
 #define PROJECT_BASE_V1_1_SYSCALL_C_HPP
 
 #include "../lib/hw.h"
+#include "ThreadPriority.hpp"
 typedef unsigned long uint64;
 
 class _thread;
@@ -21,6 +22,12 @@ int thread_create(
     thread_t* handle,
     void (*start_routine)(void*),
     void* arg
+);
+int thread_create_priority(
+    thread_t* handle,
+    void (*start_routine)(void*),
+    void* arg,
+    ThreadPriority priority
 );
 
 int thread_exit();

@@ -1,0 +1,12 @@
+//
+// Created by os on 6/20/26.
+//
+
+#ifndef PROJECT_BASE_V1_1_THREADPRIORITY_HPP
+#define PROJECT_BASE_V1_1_THREADPRIORITY_HPP
+enum ThreadPriority {
+    HIGH,
+    MEDIUM,
+    LOW
+};
+#endif //PROJECT_BASE_V1_1_THREADPRIORITY_HPP

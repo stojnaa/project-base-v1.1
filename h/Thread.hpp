@@ -6,13 +6,13 @@
 #define PROJECT_BASE_V1_1_THREAD_HPP
 
 #include "../lib/hw.h"
+#include "ThreadPriority.hpp"
 
 class Scheduler;
 
 class _thread {
 public:
     using Body = void (*)(void*);
-
     enum State {
         CREATED,
         READY,
@@ -43,9 +43,9 @@ public:
     void operator delete(void* ptr);
     void operator delete[](void* ptr);
 
-    _thread(Body body, void* arg, void* stackSpace);
+    _thread(Body body, void* arg, void* stackSpace, ThreadPriority priority = LOW);
 
-    static _thread* createThread(Body body, void* arg, void* stackSpace);
+    static _thread* createThread(Body body, void* arg, void* stackSpace, ThreadPriority priority = LOW);
     static int destroyThread(_thread* thread);
     static void dispatch();
     static int exit();
@@ -58,6 +58,7 @@ public:
 
     State getState() const;
     void setState(State state);
+    ThreadPriority getPriority() const;
 
     uint64 getTimeSlice() const;
 
@@ -72,6 +73,7 @@ private:
 
     uint64 timeSlice;
     State state;
+    ThreadPriority priority;
 
     _thread* next;
 

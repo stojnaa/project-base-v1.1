@@ -1,0 +1,2052 @@
+GAS LISTING /tmp/cctSdPUI.s 			page 1
+
+
+   1              		.file	"PriorityTest.cpp"
+   2              		.option pic
+   3              		.option norelax
+   4              		.text
+   5              	.Ltext0:
+   6              		.section	.rodata._ZN18PriorityMainThread3runEv.str1.8,"aMS",@progbits,1
+   7              		.align	3
+   8              	.LC0:
+   9 0000 5072696F 		.string	"Priority threads created\n"
+   9      72697479 
+   9      20746872 
+   9      65616473 
+   9      20637265 
+  10 001a 00000000 		.align	3
+  10      0000
+  11              	.LC1:
+  12 0020 5052494F 		.string	"PRIORITY TEST FINISHED\n"
+  12      52495459 
+  12      20544553 
+  12      54204649 
+  12      4E495348 
+  13              		.section	.text._ZN18PriorityMainThread3runEv,"axG",@progbits,_ZN18PriorityMainThread3runEv,comdat
+  14              		.align	2
+  15              		.weak	_ZN18PriorityMainThread3runEv
+  17              	_ZN18PriorityMainThread3runEv:
+  18              	.LFB18:
+  19              		.file 1 "test/PriorityTest.cpp"
+   1:test/PriorityTest.cpp **** #include "../h/syscall_cpp.hpp"
+   2:test/PriorityTest.cpp **** #include "printing.hpp"
+   3:test/PriorityTest.cpp **** 
+   4:test/PriorityTest.cpp **** static volatile bool highFinished = false;
+   5:test/PriorityTest.cpp **** static volatile bool mediumFinished = false;
+   6:test/PriorityTest.cpp **** static volatile bool lowFinished = false;
+   7:test/PriorityTest.cpp **** static volatile bool testFinished = false;
+   8:test/PriorityTest.cpp **** 
+   9:test/PriorityTest.cpp **** static void work(const char* name) {
+  10:test/PriorityTest.cpp ****     for (int i = 0; i < 5; i++) {
+  11:test/PriorityTest.cpp ****         printString(name);
+  12:test/PriorityTest.cpp ****         printString(": i=");
+  13:test/PriorityTest.cpp ****         printInt(i);
+  14:test/PriorityTest.cpp ****         printString("\n");
+  15:test/PriorityTest.cpp **** 
+  16:test/PriorityTest.cpp ****         Thread::dispatch();
+  17:test/PriorityTest.cpp ****     }
+  18:test/PriorityTest.cpp **** }
+  19:test/PriorityTest.cpp **** 
+  20:test/PriorityTest.cpp **** class HighThread : public Thread {
+  21:test/PriorityTest.cpp **** public:
+  22:test/PriorityTest.cpp ****     HighThread() : Thread(HIGH) {}
+  23:test/PriorityTest.cpp **** 
+  24:test/PriorityTest.cpp ****     void run() override {
+  25:test/PriorityTest.cpp ****         work("HIGH");
+  26:test/PriorityTest.cpp ****         highFinished = true;
+  27:test/PriorityTest.cpp ****     }
+  28:test/PriorityTest.cpp **** };
+  29:test/PriorityTest.cpp **** 
+  30:test/PriorityTest.cpp **** class MediumThread : public Thread {
+GAS LISTING /tmp/cctSdPUI.s 			page 2
+
+
+  31:test/PriorityTest.cpp **** public:
+  32:test/PriorityTest.cpp ****     MediumThread() : Thread(MEDIUM) {}
+  33:test/PriorityTest.cpp **** 
+  34:test/PriorityTest.cpp ****     void run() override {
+  35:test/PriorityTest.cpp ****         work("MEDIUM");
+  36:test/PriorityTest.cpp ****         mediumFinished = true;
+  37:test/PriorityTest.cpp ****     }
+  38:test/PriorityTest.cpp **** };
+  39:test/PriorityTest.cpp **** 
+  40:test/PriorityTest.cpp **** class LowThread : public Thread {
+  41:test/PriorityTest.cpp **** public:
+  42:test/PriorityTest.cpp ****     LowThread() : Thread(LOW) {}
+  43:test/PriorityTest.cpp **** 
+  44:test/PriorityTest.cpp ****     void run() override {
+  45:test/PriorityTest.cpp ****         work("LOW");
+  46:test/PriorityTest.cpp ****         lowFinished = true;
+  47:test/PriorityTest.cpp ****     }
+  48:test/PriorityTest.cpp **** };
+  49:test/PriorityTest.cpp **** 
+  50:test/PriorityTest.cpp **** class PriorityMainThread : public Thread {
+  51:test/PriorityTest.cpp **** public:
+  52:test/PriorityTest.cpp ****     PriorityMainThread() : Thread(LOW) {}
+  53:test/PriorityTest.cpp **** 
+  54:test/PriorityTest.cpp ****     void run() override {
+  20              		.loc 1 54 10
+  21              		.cfi_startproc
+  22              		.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+  23              		.cfi_lsda 0x1b,.LLSDA18
+  24              	.LVL0:
+  25 0000 130101FD 		addi	sp,sp,-48
+  26              		.cfi_def_cfa_offset 48
+  27 0004 23341102 		sd	ra,40(sp)
+  28 0008 23308102 		sd	s0,32(sp)
+  29 000c 233C9100 		sd	s1,24(sp)
+  30 0010 23382101 		sd	s2,16(sp)
+  31 0014 23343101 		sd	s3,8(sp)
+  32              		.cfi_offset 1, -8
+  33              		.cfi_offset 8, -16
+  34              		.cfi_offset 9, -24
+  35              		.cfi_offset 18, -32
+  36              		.cfi_offset 19, -40
+  37 0018 13040103 		addi	s0,sp,48
+  38              		.cfi_def_cfa 8, 0
+  55:test/PriorityTest.cpp ****         Thread* low = new LowThread();
+  39              		.loc 1 55 9
+  40              		.loc 1 55 37 is_stmt 0
+  41 001c 13058002 		li	a0,40
+  42              	.LVL1:
+  43              	.LEHB0:
+  44 0020 97000000 		call	_Znwm@plt
+  44      E7800000 
+  45              	.LVL2:
+  46              	.LEHE0:
+  47 0028 93090500 		mv	s3,a0
+  48              	.LVL3:
+  49              	.LBB26:
+  50              	.LBB27:
+GAS LISTING /tmp/cctSdPUI.s 			page 3
+
+
+  42:test/PriorityTest.cpp **** 
+  51              		.loc 1 42 29
+  52 002c 93052000 		li	a1,2
+  53              	.LEHB1:
+  54 0030 97000000 		call	_ZN6ThreadC2E14ThreadPriority@plt
+  54      E7800000 
+  55              	.LVL4:
+  56              	.LEHE1:
+  57 0038 97070000 		lla	a5,_ZTV9LowThread+16
+  57      93870700 
+  58 0040 23B0F900 		sd	a5,0(s3)
+  59              	.LVL5:
+  60              	.LBE27:
+  61              	.LBE26:
+  56:test/PriorityTest.cpp ****         Thread* medium = new MediumThread();
+  62              		.loc 1 56 9 is_stmt 1
+  63              		.loc 1 56 43 is_stmt 0
+  64 0044 13058002 		li	a0,40
+  65              	.LEHB2:
+  66 0048 97000000 		call	_Znwm@plt
+  66      E7800000 
+  67              	.LVL6:
+  68              	.LEHE2:
+  69 0050 13090500 		mv	s2,a0
+  70              	.LVL7:
+  71              	.LBB28:
+  72              	.LBB29:
+  32:test/PriorityTest.cpp **** 
+  73              		.loc 1 32 35
+  74 0054 93051000 		li	a1,1
+  75              	.LEHB3:
+  76 0058 97000000 		call	_ZN6ThreadC2E14ThreadPriority@plt
+  76      E7800000 
+  77              	.LVL8:
+  78              	.LEHE3:
+  79 0060 97070000 		lla	a5,_ZTV12MediumThread+16
+  79      93870700 
+  80 0068 2330F900 		sd	a5,0(s2)
+  81              	.LVL9:
+  82              	.LBE29:
+  83              	.LBE28:
+  57:test/PriorityTest.cpp ****         Thread* high = new HighThread();
+  84              		.loc 1 57 9 is_stmt 1
+  85              		.loc 1 57 39 is_stmt 0
+  86 006c 13058002 		li	a0,40
+  87              	.LEHB4:
+  88 0070 97000000 		call	_Znwm@plt
+  88      E7800000 
+  89              	.LVL10:
+  90              	.LEHE4:
+  91 0078 93040500 		mv	s1,a0
+  92              	.LVL11:
+  93              	.LBB30:
+  94              	.LBB31:
+  22:test/PriorityTest.cpp **** 
+  95              		.loc 1 22 31
+  96 007c 93050000 		li	a1,0
+GAS LISTING /tmp/cctSdPUI.s 			page 4
+
+
+  97              	.LEHB5:
+  98 0080 97000000 		call	_ZN6ThreadC2E14ThreadPriority@plt
+  98      E7800000 
+  99              	.LVL12:
+ 100              	.LEHE5:
+ 101 0088 97070000 		lla	a5,_ZTV10HighThread+16
+ 101      93870700 
+ 102 0090 23B0F400 		sd	a5,0(s1)
+ 103              	.LVL13:
+ 104              	.LBE31:
+ 105              	.LBE30:
+  58:test/PriorityTest.cpp **** 
+  59:test/PriorityTest.cpp ****         printString("Priority threads created\n");
+ 106              		.loc 1 59 9 is_stmt 1
+ 107              		.loc 1 59 20 is_stmt 0
+ 108 0094 17050000 		lla	a0,.LC0
+ 108      13050500 
+ 109              	.LEHB6:
+ 110 009c 97000000 		call	_Z11printStringPKc@plt
+ 110      E7800000 
+ 111              	.LVL14:
+  60:test/PriorityTest.cpp **** 
+  61:test/PriorityTest.cpp ****         low->start();
+ 112              		.loc 1 61 9 is_stmt 1
+ 113              		.loc 1 61 19 is_stmt 0
+ 114 00a4 13850900 		mv	a0,s3
+ 115 00a8 97000000 		call	_ZN6Thread5startEv@plt
+ 115      E7800000 
+ 116              	.LVL15:
+  62:test/PriorityTest.cpp ****         medium->start();
+ 117              		.loc 1 62 9 is_stmt 1
+ 118              		.loc 1 62 22 is_stmt 0
+ 119 00b0 13050900 		mv	a0,s2
+ 120 00b4 97000000 		call	_ZN6Thread5startEv@plt
+ 120      E7800000 
+ 121              	.LVL16:
+  63:test/PriorityTest.cpp ****         high->start();
+ 122              		.loc 1 63 9 is_stmt 1
+ 123              		.loc 1 63 20 is_stmt 0
+ 124 00bc 13850400 		mv	a0,s1
+ 125 00c0 97000000 		call	_ZN6Thread5startEv@plt
+ 125      E7800000 
+ 126              	.LVL17:
+ 127 00c8 6F00C000 		j	.L5
+ 128              	.L2:
+  64:test/PriorityTest.cpp **** 
+  65:test/PriorityTest.cpp ****         while (!(highFinished && mediumFinished && lowFinished)) {
+  66:test/PriorityTest.cpp ****             Thread::dispatch();
+ 129              		.loc 1 66 13 is_stmt 1
+ 130              		.loc 1 66 29 is_stmt 0
+ 131 00cc 97000000 		call	_ZN6Thread8dispatchEv@plt
+ 131      E7800000 
+ 132              	.LVL18:
+ 133              	.L5:
+  65:test/PriorityTest.cpp ****             Thread::dispatch();
+ 134              		.loc 1 65 9 is_stmt 1
+  65:test/PriorityTest.cpp ****             Thread::dispatch();
+GAS LISTING /tmp/cctSdPUI.s 			page 5
+
+
+ 135              		.loc 1 65 16
+  65:test/PriorityTest.cpp ****             Thread::dispatch();
+ 136              		.loc 1 65 18 is_stmt 0
+ 137 00d4 97070000 		lbu	a5,.LANCHOR0
+ 137      83C70700 
+  65:test/PriorityTest.cpp ****             Thread::dispatch();
+ 138              		.loc 1 65 16
+ 139 00dc E38807FE 		beqz	a5,.L2
+  65:test/PriorityTest.cpp ****             Thread::dispatch();
+ 140              		.loc 1 65 34 discriminator 2
+ 141 00e0 97070000 		lbu	a5,.LANCHOR0+1
+ 141      83C70700 
+  65:test/PriorityTest.cpp ****             Thread::dispatch();
+ 142              		.loc 1 65 31 discriminator 2
+ 143 00e8 E38207FE 		beqz	a5,.L2
+  65:test/PriorityTest.cpp ****             Thread::dispatch();
+ 144              		.loc 1 65 52 discriminator 4
+ 145 00ec 97070000 		lbu	a5,.LANCHOR0+2
+ 145      83C70700 
+  65:test/PriorityTest.cpp ****             Thread::dispatch();
+ 146              		.loc 1 65 16 discriminator 4
+ 147 00f4 E38C07FC 		beqz	a5,.L2
+  67:test/PriorityTest.cpp ****         }
+  68:test/PriorityTest.cpp **** 
+  69:test/PriorityTest.cpp ****         delete low;
+ 148              		.loc 1 69 9 is_stmt 1
+ 149              		.loc 1 69 19 is_stmt 0
+ 150 00f8 638A0900 		beqz	s3,.L4
+ 151              		.loc 1 69 16 discriminator 1
+ 152 00fc 83B70900 		ld	a5,0(s3)
+ 153 0100 83B78700 		ld	a5,8(a5)
+ 154 0104 13850900 		mv	a0,s3
+ 155 0108 E7800700 		jalr	a5
+ 156              	.LVL19:
+ 157              	.L4:
+  70:test/PriorityTest.cpp ****         delete medium;
+ 158              		.loc 1 70 9 is_stmt 1
+ 159              		.loc 1 70 22 is_stmt 0
+ 160 010c 630A0900 		beqz	s2,.L6
+ 161              		.loc 1 70 16 discriminator 1
+ 162 0110 83370900 		ld	a5,0(s2)
+ 163 0114 83B78700 		ld	a5,8(a5)
+ 164 0118 13050900 		mv	a0,s2
+ 165 011c E7800700 		jalr	a5
+ 166              	.LVL20:
+ 167              	.L6:
+  71:test/PriorityTest.cpp ****         delete high;
+ 168              		.loc 1 71 9 is_stmt 1
+ 169              		.loc 1 71 20 is_stmt 0
+ 170 0120 638A0400 		beqz	s1,.L7
+ 171              		.loc 1 71 16 discriminator 1
+ 172 0124 83B70400 		ld	a5,0(s1)
+ 173 0128 83B78700 		ld	a5,8(a5)
+ 174 012c 13850400 		mv	a0,s1
+ 175 0130 E7800700 		jalr	a5
+ 176              	.LVL21:
+ 177              	.L7:
+GAS LISTING /tmp/cctSdPUI.s 			page 6
+
+
+  72:test/PriorityTest.cpp **** 
+  73:test/PriorityTest.cpp ****         printString("PRIORITY TEST FINISHED\n");
+ 178              		.loc 1 73 9 is_stmt 1
+ 179              		.loc 1 73 20 is_stmt 0
+ 180 0134 17050000 		lla	a0,.LC1
+ 180      13050500 
+ 181 013c 97000000 		call	_Z11printStringPKc@plt
+ 181      E7800000 
+ 182              	.LVL22:
+ 183              	.LEHE6:
+  74:test/PriorityTest.cpp **** 
+  75:test/PriorityTest.cpp ****         testFinished = true;
+ 184              		.loc 1 75 9 is_stmt 1
+ 185              		.loc 1 75 22 is_stmt 0
+ 186 0144 93071000 		li	a5,1
+ 187 0148 17070000 		sb	a5,.LANCHOR0+3,a4
+ 187      2300F700 
+  76:test/PriorityTest.cpp ****     }
+ 188              		.loc 1 76 5
+ 189 0150 83308102 		ld	ra,40(sp)
+ 190              		.cfi_remember_state
+ 191              		.cfi_restore 1
+ 192 0154 03340102 		ld	s0,32(sp)
+ 193              		.cfi_restore 8
+ 194              		.cfi_def_cfa 2, 48
+ 195 0158 83348101 		ld	s1,24(sp)
+ 196              		.cfi_restore 9
+ 197              	.LVL23:
+ 198 015c 03390101 		ld	s2,16(sp)
+ 199              		.cfi_restore 18
+ 200              	.LVL24:
+ 201 0160 83398100 		ld	s3,8(sp)
+ 202              		.cfi_restore 19
+ 203              	.LVL25:
+ 204 0164 13010103 		addi	sp,sp,48
+ 205              		.cfi_def_cfa_offset 0
+ 206 0168 67800000 		jr	ra
+ 207              	.LVL26:
+ 208              	.L11:
+ 209              		.cfi_restore_state
+ 210 016c 93040500 		mv	s1,a0
+  55:test/PriorityTest.cpp ****         Thread* medium = new MediumThread();
+ 211              		.loc 1 55 37
+ 212 0170 13850900 		mv	a0,s3
+ 213 0174 97000000 		call	_ZdlPv@plt
+ 213      E7800000 
+ 214              	.LVL27:
+ 215 017c 13850400 		mv	a0,s1
+ 216              	.LEHB7:
+ 217 0180 97000000 		call	_Unwind_Resume@plt
+ 217      E7800000 
+ 218              	.LVL28:
+ 219              	.LEHE7:
+ 220              	.L12:
+ 221 0188 93040500 		mv	s1,a0
+  56:test/PriorityTest.cpp ****         Thread* high = new HighThread();
+ 222              		.loc 1 56 43
+GAS LISTING /tmp/cctSdPUI.s 			page 7
+
+
+ 223 018c 13050900 		mv	a0,s2
+ 224 0190 97000000 		call	_ZdlPv@plt
+ 224      E7800000 
+ 225              	.LVL29:
+ 226 0198 13850400 		mv	a0,s1
+ 227              	.LEHB8:
+ 228 019c 97000000 		call	_Unwind_Resume@plt
+ 228      E7800000 
+ 229              	.LVL30:
+ 230              	.LEHE8:
+ 231              	.L13:
+ 232 01a4 13090500 		mv	s2,a0
+ 233              	.LVL31:
+  57:test/PriorityTest.cpp **** 
+ 234              		.loc 1 57 39
+ 235 01a8 13850400 		mv	a0,s1
+ 236 01ac 97000000 		call	_ZdlPv@plt
+ 236      E7800000 
+ 237              	.LVL32:
+ 238 01b4 13050900 		mv	a0,s2
+ 239              	.LEHB9:
+ 240 01b8 97000000 		call	_Unwind_Resume@plt
+ 240      E7800000 
+ 241              	.LVL33:
+ 242              	.LEHE9:
+ 243              		.cfi_endproc
+ 244              	.LFE18:
+ 245              		.globl	__gxx_personality_v0
+ 246              		.section	.gcc_except_table._ZN18PriorityMainThread3runEv,"aG",@progbits,_ZN18PriorityMainThread3ru
+ 247              	.LLSDA18:
+ 248 0000 FF       		.byte	0xff
+ 249 0001 FF       		.byte	0xff
+ 250 0002 03       		.byte	0x3
+ 251 0003 8201     		.byte	0x82,0x1
+ 252 0005 00000000 		.4byte	.LEHB0-.LFB18
+ 253 0009 00000000 		.4byte	.LEHE0-.LEHB0
+ 254 000d 00000000 		.4byte	0
+ 255 0011 00       		.byte	0
+ 256 0012 00000000 		.4byte	.LEHB1-.LFB18
+ 257 0016 00000000 		.4byte	.LEHE1-.LEHB1
+ 258 001a 00000000 		.4byte	.L11-.LFB18
+ 259 001e 00       		.byte	0
+ 260 001f 00000000 		.4byte	.LEHB2-.LFB18
+ 261 0023 00000000 		.4byte	.LEHE2-.LEHB2
+ 262 0027 00000000 		.4byte	0
+ 263 002b 00       		.byte	0
+ 264 002c 00000000 		.4byte	.LEHB3-.LFB18
+ 265 0030 00000000 		.4byte	.LEHE3-.LEHB3
+ 266 0034 00000000 		.4byte	.L12-.LFB18
+ 267 0038 00       		.byte	0
+ 268 0039 00000000 		.4byte	.LEHB4-.LFB18
+ 269 003d 00000000 		.4byte	.LEHE4-.LEHB4
+ 270 0041 00000000 		.4byte	0
+ 271 0045 00       		.byte	0
+ 272 0046 00000000 		.4byte	.LEHB5-.LFB18
+ 273 004a 00000000 		.4byte	.LEHE5-.LEHB5
+ 274 004e 00000000 		.4byte	.L13-.LFB18
+GAS LISTING /tmp/cctSdPUI.s 			page 8
+
+
+ 275 0052 00       		.byte	0
+ 276 0053 00000000 		.4byte	.LEHB6-.LFB18
+ 277 0057 00000000 		.4byte	.LEHE6-.LEHB6
+ 278 005b 00000000 		.4byte	0
+ 279 005f 00       		.byte	0
+ 280 0060 00000000 		.4byte	.LEHB7-.LFB18
+ 281 0064 00000000 		.4byte	.LEHE7-.LEHB7
+ 282 0068 00000000 		.4byte	0
+ 283 006c 00       		.byte	0
+ 284 006d 00000000 		.4byte	.LEHB8-.LFB18
+ 285 0071 00000000 		.4byte	.LEHE8-.LEHB8
+ 286 0075 00000000 		.4byte	0
+ 287 0079 00       		.byte	0
+ 288 007a 00000000 		.4byte	.LEHB9-.LFB18
+ 289 007e 00000000 		.4byte	.LEHE9-.LEHB9
+ 290 0082 00000000 		.4byte	0
+ 291 0086 00       		.byte	0
+ 292              		.section	.text._ZN18PriorityMainThread3runEv,"axG",@progbits,_ZN18PriorityMainThread3runEv,comdat
+ 294              		.section	.rodata.str1.8,"aMS",@progbits,1
+ 295              		.align	3
+ 296              	.LC2:
+ 297 0000 3A20693D 		.string	": i="
+ 297      00
+ 298 0005 000000   		.align	3
+ 299              	.LC3:
+ 300 0008 0A00     		.string	"\n"
+ 301              		.text
+ 302              		.align	2
+ 304              	_ZL4workPKc:
+ 305              	.LFB2:
+   9:test/PriorityTest.cpp ****     for (int i = 0; i < 5; i++) {
+ 306              		.loc 1 9 36 is_stmt 1
+ 307              		.cfi_startproc
+ 308              	.LVL34:
+ 309 0000 130101FE 		addi	sp,sp,-32
+ 310              		.cfi_def_cfa_offset 32
+ 311 0004 233C1100 		sd	ra,24(sp)
+ 312 0008 23388100 		sd	s0,16(sp)
+ 313 000c 23349100 		sd	s1,8(sp)
+ 314 0010 23302101 		sd	s2,0(sp)
+ 315              		.cfi_offset 1, -8
+ 316              		.cfi_offset 8, -16
+ 317              		.cfi_offset 9, -24
+ 318              		.cfi_offset 18, -32
+ 319 0014 13040102 		addi	s0,sp,32
+ 320              		.cfi_def_cfa 8, 0
+ 321 0018 13090500 		mv	s2,a0
+  10:test/PriorityTest.cpp ****         printString(name);
+ 322              		.loc 1 10 5
+ 323              	.LVL35:
+ 324              	.LBB32:
+  10:test/PriorityTest.cpp ****         printString(name);
+ 325              		.loc 1 10 14 is_stmt 0
+ 326 001c 93040000 		li	s1,0
+ 327              	.LVL36:
+ 328              	.L18:
+  10:test/PriorityTest.cpp ****         printString(name);
+GAS LISTING /tmp/cctSdPUI.s 			page 9
+
+
+ 329              		.loc 1 10 23 is_stmt 1 discriminator 3
+ 330 0020 93074000 		li	a5,4
+ 331 0024 63CA9704 		bgt	s1,a5,.L16
+  11:test/PriorityTest.cpp ****         printString(": i=");
+ 332              		.loc 1 11 9 discriminator 2
+  11:test/PriorityTest.cpp ****         printString(": i=");
+ 333              		.loc 1 11 20 is_stmt 0 discriminator 2
+ 334 0028 13050900 		mv	a0,s2
+ 335 002c 97000000 		call	_Z11printStringPKc@plt
+ 335      E7800000 
+ 336              	.LVL37:
+  12:test/PriorityTest.cpp ****         printInt(i);
+ 337              		.loc 1 12 9 is_stmt 1 discriminator 2
+  12:test/PriorityTest.cpp ****         printInt(i);
+ 338              		.loc 1 12 20 is_stmt 0 discriminator 2
+ 339 0034 17050000 		lla	a0,.LC2
+ 339      13050500 
+ 340 003c 97000000 		call	_Z11printStringPKc@plt
+ 340      E7800000 
+ 341              	.LVL38:
+  13:test/PriorityTest.cpp ****         printString("\n");
+ 342              		.loc 1 13 9 is_stmt 1 discriminator 2
+  13:test/PriorityTest.cpp ****         printString("\n");
+ 343              		.loc 1 13 17 is_stmt 0 discriminator 2
+ 344 0044 13060000 		li	a2,0
+ 345 0048 9305A000 		li	a1,10
+ 346 004c 13850400 		mv	a0,s1
+ 347 0050 97000000 		call	_Z8printIntiii@plt
+ 347      E7800000 
+ 348              	.LVL39:
+  14:test/PriorityTest.cpp **** 
+ 349              		.loc 1 14 9 is_stmt 1 discriminator 2
+  14:test/PriorityTest.cpp **** 
+ 350              		.loc 1 14 20 is_stmt 0 discriminator 2
+ 351 0058 17050000 		lla	a0,.LC3
+ 351      13050500 
+ 352 0060 97000000 		call	_Z11printStringPKc@plt
+ 352      E7800000 
+ 353              	.LVL40:
+  16:test/PriorityTest.cpp ****     }
+ 354              		.loc 1 16 9 is_stmt 1 discriminator 2
+  16:test/PriorityTest.cpp ****     }
+ 355              		.loc 1 16 25 is_stmt 0 discriminator 2
+ 356 0068 97000000 		call	_ZN6Thread8dispatchEv@plt
+ 356      E7800000 
+ 357              	.LVL41:
+  10:test/PriorityTest.cpp ****         printString(name);
+ 358              		.loc 1 10 5 is_stmt 1 discriminator 2
+ 359 0070 9B841400 		addiw	s1,s1,1
+ 360              	.LVL42:
+ 361 0074 6FF0DFFA 		j	.L18
+ 362              	.LVL43:
+ 363              	.L16:
+ 364              	.LBE32:
+  18:test/PriorityTest.cpp **** 
+ 365              		.loc 1 18 1 is_stmt 0
+ 366 0078 83308101 		ld	ra,24(sp)
+GAS LISTING /tmp/cctSdPUI.s 			page 10
+
+
+ 367              		.cfi_restore 1
+ 368 007c 03340101 		ld	s0,16(sp)
+ 369              		.cfi_restore 8
+ 370              		.cfi_def_cfa 2, 32
+ 371 0080 83348100 		ld	s1,8(sp)
+ 372              		.cfi_restore 9
+ 373              	.LVL44:
+ 374 0084 03390100 		ld	s2,0(sp)
+ 375              		.cfi_restore 18
+ 376              	.LVL45:
+ 377 0088 13010102 		addi	sp,sp,32
+ 378              		.cfi_def_cfa_offset 0
+ 379 008c 67800000 		jr	ra
+ 380              		.cfi_endproc
+ 381              	.LFE2:
+ 383              		.section	.rodata._ZN9LowThread3runEv.str1.8,"aMS",@progbits,1
+ 384              		.align	3
+ 385              	.LC4:
+ 386 0000 4C4F5700 		.string	"LOW"
+ 387              		.section	.text._ZN9LowThread3runEv,"axG",@progbits,_ZN9LowThread3runEv,comdat
+ 388              		.align	2
+ 389              		.weak	_ZN9LowThread3runEv
+ 391              	_ZN9LowThread3runEv:
+ 392              	.LFB14:
+  44:test/PriorityTest.cpp ****         work("LOW");
+ 393              		.loc 1 44 10 is_stmt 1
+ 394              		.cfi_startproc
+ 395              	.LVL46:
+ 396 0000 130101FF 		addi	sp,sp,-16
+ 397              		.cfi_def_cfa_offset 16
+ 398 0004 23341100 		sd	ra,8(sp)
+ 399 0008 23308100 		sd	s0,0(sp)
+ 400              		.cfi_offset 1, -8
+ 401              		.cfi_offset 8, -16
+ 402 000c 13040101 		addi	s0,sp,16
+ 403              		.cfi_def_cfa 8, 0
+  45:test/PriorityTest.cpp ****         lowFinished = true;
+ 404              		.loc 1 45 9
+  45:test/PriorityTest.cpp ****         lowFinished = true;
+ 405              		.loc 1 45 13 is_stmt 0
+ 406 0010 17050000 		lla	a0,.LC4
+ 406      13050500 
+ 407              	.LVL47:
+ 408 0018 97000000 		call	_ZL4workPKc
+ 408      E7800000 
+ 409              	.LVL48:
+  46:test/PriorityTest.cpp ****     }
+ 410              		.loc 1 46 9 is_stmt 1
+  46:test/PriorityTest.cpp ****     }
+ 411              		.loc 1 46 21 is_stmt 0
+ 412 0020 93071000 		li	a5,1
+ 413 0024 17070000 		sb	a5,.LANCHOR0+2,a4
+ 413      2300F700 
+  47:test/PriorityTest.cpp **** };
+ 414              		.loc 1 47 5
+ 415 002c 83308100 		ld	ra,8(sp)
+ 416              		.cfi_restore 1
+GAS LISTING /tmp/cctSdPUI.s 			page 11
+
+
+ 417 0030 03340100 		ld	s0,0(sp)
+ 418              		.cfi_restore 8
+ 419              		.cfi_def_cfa 2, 16
+ 420 0034 13010101 		addi	sp,sp,16
+ 421              		.cfi_def_cfa_offset 0
+ 422 0038 67800000 		jr	ra
+ 423              		.cfi_endproc
+ 424              	.LFE14:
+ 426              		.section	.rodata._ZN12MediumThread3runEv.str1.8,"aMS",@progbits,1
+ 427              		.align	3
+ 428              	.LC5:
+ 429 0000 4D454449 		.string	"MEDIUM"
+ 429      554D00
+ 430              		.section	.text._ZN12MediumThread3runEv,"axG",@progbits,_ZN12MediumThread3runEv,comdat
+ 431              		.align	2
+ 432              		.weak	_ZN12MediumThread3runEv
+ 434              	_ZN12MediumThread3runEv:
+ 435              	.LFB10:
+  34:test/PriorityTest.cpp ****         work("MEDIUM");
+ 436              		.loc 1 34 10 is_stmt 1
+ 437              		.cfi_startproc
+ 438              	.LVL49:
+ 439 0000 130101FF 		addi	sp,sp,-16
+ 440              		.cfi_def_cfa_offset 16
+ 441 0004 23341100 		sd	ra,8(sp)
+ 442 0008 23308100 		sd	s0,0(sp)
+ 443              		.cfi_offset 1, -8
+ 444              		.cfi_offset 8, -16
+ 445 000c 13040101 		addi	s0,sp,16
+ 446              		.cfi_def_cfa 8, 0
+  35:test/PriorityTest.cpp ****         mediumFinished = true;
+ 447              		.loc 1 35 9
+  35:test/PriorityTest.cpp ****         mediumFinished = true;
+ 448              		.loc 1 35 13 is_stmt 0
+ 449 0010 17050000 		lla	a0,.LC5
+ 449      13050500 
+ 450              	.LVL50:
+ 451 0018 97000000 		call	_ZL4workPKc
+ 451      E7800000 
+ 452              	.LVL51:
+  36:test/PriorityTest.cpp ****     }
+ 453              		.loc 1 36 9 is_stmt 1
+  36:test/PriorityTest.cpp ****     }
+ 454              		.loc 1 36 24 is_stmt 0
+ 455 0020 93071000 		li	a5,1
+ 456 0024 17070000 		sb	a5,.LANCHOR0+1,a4
+ 456      2300F700 
+  37:test/PriorityTest.cpp **** };
+ 457              		.loc 1 37 5
+ 458 002c 83308100 		ld	ra,8(sp)
+ 459              		.cfi_restore 1
+ 460 0030 03340100 		ld	s0,0(sp)
+ 461              		.cfi_restore 8
+ 462              		.cfi_def_cfa 2, 16
+ 463 0034 13010101 		addi	sp,sp,16
+ 464              		.cfi_def_cfa_offset 0
+ 465 0038 67800000 		jr	ra
+GAS LISTING /tmp/cctSdPUI.s 			page 12
+
+
+ 466              		.cfi_endproc
+ 467              	.LFE10:
+ 469              		.section	.rodata._ZN10HighThread3runEv.str1.8,"aMS",@progbits,1
+ 470              		.align	3
+ 471              	.LC6:
+ 472 0000 48494748 		.string	"HIGH"
+ 472      00
+ 473              		.section	.text._ZN10HighThread3runEv,"axG",@progbits,_ZN10HighThread3runEv,comdat
+ 474              		.align	2
+ 475              		.weak	_ZN10HighThread3runEv
+ 477              	_ZN10HighThread3runEv:
+ 478              	.LFB6:
+  24:test/PriorityTest.cpp ****         work("HIGH");
+ 479              		.loc 1 24 10 is_stmt 1
+ 480              		.cfi_startproc
+ 481              	.LVL52:
+ 482 0000 130101FF 		addi	sp,sp,-16
+ 483              		.cfi_def_cfa_offset 16
+ 484 0004 23341100 		sd	ra,8(sp)
+ 485 0008 23308100 		sd	s0,0(sp)
+ 486              		.cfi_offset 1, -8
+ 487              		.cfi_offset 8, -16
+ 488 000c 13040101 		addi	s0,sp,16
+ 489              		.cfi_def_cfa 8, 0
+  25:test/PriorityTest.cpp ****         highFinished = true;
+ 490              		.loc 1 25 9
+  25:test/PriorityTest.cpp ****         highFinished = true;
+ 491              		.loc 1 25 13 is_stmt 0
+ 492 0010 17050000 		lla	a0,.LC6
+ 492      13050500 
+ 493              	.LVL53:
+ 494 0018 97000000 		call	_ZL4workPKc
+ 494      E7800000 
+ 495              	.LVL54:
+  26:test/PriorityTest.cpp ****     }
+ 496              		.loc 1 26 9 is_stmt 1
+  26:test/PriorityTest.cpp ****     }
+ 497              		.loc 1 26 22 is_stmt 0
+ 498 0020 93071000 		li	a5,1
+ 499 0024 17070000 		sb	a5,.LANCHOR0,a4
+ 499      2300F700 
+  27:test/PriorityTest.cpp **** };
+ 500              		.loc 1 27 5
+ 501 002c 83308100 		ld	ra,8(sp)
+ 502              		.cfi_restore 1
+ 503 0030 03340100 		ld	s0,0(sp)
+ 504              		.cfi_restore 8
+ 505              		.cfi_def_cfa 2, 16
+ 506 0034 13010101 		addi	sp,sp,16
+ 507              		.cfi_def_cfa_offset 0
+ 508 0038 67800000 		jr	ra
+ 509              		.cfi_endproc
+ 510              	.LFE6:
+ 512              		.section	.text._ZN9LowThreadD2Ev,"axG",@progbits,_ZN9LowThreadD5Ev,comdat
+ 513              		.align	2
+ 514              		.weak	_ZN9LowThreadD2Ev
+ 516              	_ZN9LowThreadD2Ev:
+GAS LISTING /tmp/cctSdPUI.s 			page 13
+
+
+ 517              	.LFB25:
+  40:test/PriorityTest.cpp **** public:
+ 518              		.loc 1 40 7 is_stmt 1
+ 519              		.cfi_startproc
+ 520              	.LVL55:
+ 521 0000 130101FF 		addi	sp,sp,-16
+ 522              		.cfi_def_cfa_offset 16
+ 523 0004 23341100 		sd	ra,8(sp)
+ 524 0008 23308100 		sd	s0,0(sp)
+ 525              		.cfi_offset 1, -8
+ 526              		.cfi_offset 8, -16
+ 527 000c 13040101 		addi	s0,sp,16
+ 528              		.cfi_def_cfa 8, 0
+ 529              	.LBB33:
+  40:test/PriorityTest.cpp **** public:
+ 530              		.loc 1 40 7 is_stmt 0
+ 531 0010 97070000 		lla	a5,_ZTV9LowThread+16
+ 531      93870700 
+ 532 0018 2330F500 		sd	a5,0(a0)
+ 533 001c 97000000 		call	_ZN6ThreadD2Ev@plt
+ 533      E7800000 
+ 534              	.LVL56:
+ 535              	.LBE33:
+ 536 0024 83308100 		ld	ra,8(sp)
+ 537              		.cfi_restore 1
+ 538 0028 03340100 		ld	s0,0(sp)
+ 539              		.cfi_restore 8
+ 540              		.cfi_def_cfa 2, 16
+ 541 002c 13010101 		addi	sp,sp,16
+ 542              		.cfi_def_cfa_offset 0
+ 543 0030 67800000 		jr	ra
+ 544              		.cfi_endproc
+ 545              	.LFE25:
+ 547              		.weak	_ZN9LowThreadD1Ev
+ 548              		.set	_ZN9LowThreadD1Ev,_ZN9LowThreadD2Ev
+ 549              		.section	.text._ZN9LowThreadD0Ev,"axG",@progbits,_ZN9LowThreadD5Ev,comdat
+ 550              		.align	2
+ 551              		.weak	_ZN9LowThreadD0Ev
+ 553              	_ZN9LowThreadD0Ev:
+ 554              	.LFB27:
+  40:test/PriorityTest.cpp **** public:
+ 555              		.loc 1 40 7 is_stmt 1
+ 556              		.cfi_startproc
+ 557              	.LVL57:
+ 558 0000 130101FE 		addi	sp,sp,-32
+ 559              		.cfi_def_cfa_offset 32
+ 560 0004 233C1100 		sd	ra,24(sp)
+ 561 0008 23388100 		sd	s0,16(sp)
+ 562 000c 23349100 		sd	s1,8(sp)
+ 563              		.cfi_offset 1, -8
+ 564              		.cfi_offset 8, -16
+ 565              		.cfi_offset 9, -24
+ 566 0010 13040102 		addi	s0,sp,32
+ 567              		.cfi_def_cfa 8, 0
+ 568 0014 93040500 		mv	s1,a0
+ 569              	.LVL58:
+ 570              	.LBB34:
+GAS LISTING /tmp/cctSdPUI.s 			page 14
+
+
+ 571              	.LBB35:
+  40:test/PriorityTest.cpp **** public:
+ 572              		.loc 1 40 7 is_stmt 0
+ 573 0018 97070000 		lla	a5,_ZTV9LowThread+16
+ 573      93870700 
+ 574 0020 2330F500 		sd	a5,0(a0)
+ 575 0024 97000000 		call	_ZN6ThreadD2Ev@plt
+ 575      E7800000 
+ 576              	.LVL59:
+ 577              	.LBE35:
+ 578              	.LBE34:
+ 579 002c 13850400 		mv	a0,s1
+ 580 0030 97000000 		call	_ZdlPv@plt
+ 580      E7800000 
+ 581              	.LVL60:
+ 582 0038 83308101 		ld	ra,24(sp)
+ 583              		.cfi_restore 1
+ 584 003c 03340101 		ld	s0,16(sp)
+ 585              		.cfi_restore 8
+ 586              		.cfi_def_cfa 2, 32
+ 587 0040 83348100 		ld	s1,8(sp)
+ 588              		.cfi_restore 9
+ 589              	.LVL61:
+ 590 0044 13010102 		addi	sp,sp,32
+ 591              		.cfi_def_cfa_offset 0
+ 592 0048 67800000 		jr	ra
+ 593              		.cfi_endproc
+ 594              	.LFE27:
+ 596              		.section	.text._ZN12MediumThreadD2Ev,"axG",@progbits,_ZN12MediumThreadD5Ev,comdat
+ 597              		.align	2
+ 598              		.weak	_ZN12MediumThreadD2Ev
+ 600              	_ZN12MediumThreadD2Ev:
+ 601              	.LFB29:
+  30:test/PriorityTest.cpp **** public:
+ 602              		.loc 1 30 7 is_stmt 1
+ 603              		.cfi_startproc
+ 604              	.LVL62:
+ 605 0000 130101FF 		addi	sp,sp,-16
+ 606              		.cfi_def_cfa_offset 16
+ 607 0004 23341100 		sd	ra,8(sp)
+ 608 0008 23308100 		sd	s0,0(sp)
+ 609              		.cfi_offset 1, -8
+ 610              		.cfi_offset 8, -16
+ 611 000c 13040101 		addi	s0,sp,16
+ 612              		.cfi_def_cfa 8, 0
+ 613              	.LBB36:
+  30:test/PriorityTest.cpp **** public:
+ 614              		.loc 1 30 7 is_stmt 0
+ 615 0010 97070000 		lla	a5,_ZTV12MediumThread+16
+ 615      93870700 
+ 616 0018 2330F500 		sd	a5,0(a0)
+ 617 001c 97000000 		call	_ZN6ThreadD2Ev@plt
+ 617      E7800000 
+ 618              	.LVL63:
+ 619              	.LBE36:
+ 620 0024 83308100 		ld	ra,8(sp)
+ 621              		.cfi_restore 1
+GAS LISTING /tmp/cctSdPUI.s 			page 15
+
+
+ 622 0028 03340100 		ld	s0,0(sp)
+ 623              		.cfi_restore 8
+ 624              		.cfi_def_cfa 2, 16
+ 625 002c 13010101 		addi	sp,sp,16
+ 626              		.cfi_def_cfa_offset 0
+ 627 0030 67800000 		jr	ra
+ 628              		.cfi_endproc
+ 629              	.LFE29:
+ 631              		.weak	_ZN12MediumThreadD1Ev
+ 632              		.set	_ZN12MediumThreadD1Ev,_ZN12MediumThreadD2Ev
+ 633              		.section	.text._ZN12MediumThreadD0Ev,"axG",@progbits,_ZN12MediumThreadD5Ev,comdat
+ 634              		.align	2
+ 635              		.weak	_ZN12MediumThreadD0Ev
+ 637              	_ZN12MediumThreadD0Ev:
+ 638              	.LFB31:
+  30:test/PriorityTest.cpp **** public:
+ 639              		.loc 1 30 7 is_stmt 1
+ 640              		.cfi_startproc
+ 641              	.LVL64:
+ 642 0000 130101FE 		addi	sp,sp,-32
+ 643              		.cfi_def_cfa_offset 32
+ 644 0004 233C1100 		sd	ra,24(sp)
+ 645 0008 23388100 		sd	s0,16(sp)
+ 646 000c 23349100 		sd	s1,8(sp)
+ 647              		.cfi_offset 1, -8
+ 648              		.cfi_offset 8, -16
+ 649              		.cfi_offset 9, -24
+ 650 0010 13040102 		addi	s0,sp,32
+ 651              		.cfi_def_cfa 8, 0
+ 652 0014 93040500 		mv	s1,a0
+ 653              	.LVL65:
+ 654              	.LBB37:
+ 655              	.LBB38:
+  30:test/PriorityTest.cpp **** public:
+ 656              		.loc 1 30 7 is_stmt 0
+ 657 0018 97070000 		lla	a5,_ZTV12MediumThread+16
+ 657      93870700 
+ 658 0020 2330F500 		sd	a5,0(a0)
+ 659 0024 97000000 		call	_ZN6ThreadD2Ev@plt
+ 659      E7800000 
+ 660              	.LVL66:
+ 661              	.LBE38:
+ 662              	.LBE37:
+ 663 002c 13850400 		mv	a0,s1
+ 664 0030 97000000 		call	_ZdlPv@plt
+ 664      E7800000 
+ 665              	.LVL67:
+ 666 0038 83308101 		ld	ra,24(sp)
+ 667              		.cfi_restore 1
+ 668 003c 03340101 		ld	s0,16(sp)
+ 669              		.cfi_restore 8
+ 670              		.cfi_def_cfa 2, 32
+ 671 0040 83348100 		ld	s1,8(sp)
+ 672              		.cfi_restore 9
+ 673              	.LVL68:
+ 674 0044 13010102 		addi	sp,sp,32
+ 675              		.cfi_def_cfa_offset 0
+GAS LISTING /tmp/cctSdPUI.s 			page 16
+
+
+ 676 0048 67800000 		jr	ra
+ 677              		.cfi_endproc
+ 678              	.LFE31:
+ 680              		.section	.text._ZN10HighThreadD2Ev,"axG",@progbits,_ZN10HighThreadD5Ev,comdat
+ 681              		.align	2
+ 682              		.weak	_ZN10HighThreadD2Ev
+ 684              	_ZN10HighThreadD2Ev:
+ 685              	.LFB33:
+  20:test/PriorityTest.cpp **** public:
+ 686              		.loc 1 20 7 is_stmt 1
+ 687              		.cfi_startproc
+ 688              	.LVL69:
+ 689 0000 130101FF 		addi	sp,sp,-16
+ 690              		.cfi_def_cfa_offset 16
+ 691 0004 23341100 		sd	ra,8(sp)
+ 692 0008 23308100 		sd	s0,0(sp)
+ 693              		.cfi_offset 1, -8
+ 694              		.cfi_offset 8, -16
+ 695 000c 13040101 		addi	s0,sp,16
+ 696              		.cfi_def_cfa 8, 0
+ 697              	.LBB39:
+  20:test/PriorityTest.cpp **** public:
+ 698              		.loc 1 20 7 is_stmt 0
+ 699 0010 97070000 		lla	a5,_ZTV10HighThread+16
+ 699      93870700 
+ 700 0018 2330F500 		sd	a5,0(a0)
+ 701 001c 97000000 		call	_ZN6ThreadD2Ev@plt
+ 701      E7800000 
+ 702              	.LVL70:
+ 703              	.LBE39:
+ 704 0024 83308100 		ld	ra,8(sp)
+ 705              		.cfi_restore 1
+ 706 0028 03340100 		ld	s0,0(sp)
+ 707              		.cfi_restore 8
+ 708              		.cfi_def_cfa 2, 16
+ 709 002c 13010101 		addi	sp,sp,16
+ 710              		.cfi_def_cfa_offset 0
+ 711 0030 67800000 		jr	ra
+ 712              		.cfi_endproc
+ 713              	.LFE33:
+ 715              		.weak	_ZN10HighThreadD1Ev
+ 716              		.set	_ZN10HighThreadD1Ev,_ZN10HighThreadD2Ev
+ 717              		.section	.text._ZN10HighThreadD0Ev,"axG",@progbits,_ZN10HighThreadD5Ev,comdat
+ 718              		.align	2
+ 719              		.weak	_ZN10HighThreadD0Ev
+ 721              	_ZN10HighThreadD0Ev:
+ 722              	.LFB35:
+  20:test/PriorityTest.cpp **** public:
+ 723              		.loc 1 20 7 is_stmt 1
+ 724              		.cfi_startproc
+ 725              	.LVL71:
+ 726 0000 130101FE 		addi	sp,sp,-32
+ 727              		.cfi_def_cfa_offset 32
+ 728 0004 233C1100 		sd	ra,24(sp)
+ 729 0008 23388100 		sd	s0,16(sp)
+ 730 000c 23349100 		sd	s1,8(sp)
+ 731              		.cfi_offset 1, -8
+GAS LISTING /tmp/cctSdPUI.s 			page 17
+
+
+ 732              		.cfi_offset 8, -16
+ 733              		.cfi_offset 9, -24
+ 734 0010 13040102 		addi	s0,sp,32
+ 735              		.cfi_def_cfa 8, 0
+ 736 0014 93040500 		mv	s1,a0
+ 737              	.LVL72:
+ 738              	.LBB40:
+ 739              	.LBB41:
+  20:test/PriorityTest.cpp **** public:
+ 740              		.loc 1 20 7 is_stmt 0
+ 741 0018 97070000 		lla	a5,_ZTV10HighThread+16
+ 741      93870700 
+ 742 0020 2330F500 		sd	a5,0(a0)
+ 743 0024 97000000 		call	_ZN6ThreadD2Ev@plt
+ 743      E7800000 
+ 744              	.LVL73:
+ 745              	.LBE41:
+ 746              	.LBE40:
+ 747 002c 13850400 		mv	a0,s1
+ 748 0030 97000000 		call	_ZdlPv@plt
+ 748      E7800000 
+ 749              	.LVL74:
+ 750 0038 83308101 		ld	ra,24(sp)
+ 751              		.cfi_restore 1
+ 752 003c 03340101 		ld	s0,16(sp)
+ 753              		.cfi_restore 8
+ 754              		.cfi_def_cfa 2, 32
+ 755 0040 83348100 		ld	s1,8(sp)
+ 756              		.cfi_restore 9
+ 757              	.LVL75:
+ 758 0044 13010102 		addi	sp,sp,32
+ 759              		.cfi_def_cfa_offset 0
+ 760 0048 67800000 		jr	ra
+ 761              		.cfi_endproc
+ 762              	.LFE35:
+ 764              		.section	.text._ZN18PriorityMainThreadD2Ev,"axG",@progbits,_ZN18PriorityMainThreadD5Ev,comdat
+ 765              		.align	2
+ 766              		.weak	_ZN18PriorityMainThreadD2Ev
+ 768              	_ZN18PriorityMainThreadD2Ev:
+ 769              	.LFB21:
+  50:test/PriorityTest.cpp **** public:
+ 770              		.loc 1 50 7 is_stmt 1
+ 771              		.cfi_startproc
+ 772              	.LVL76:
+ 773 0000 130101FF 		addi	sp,sp,-16
+ 774              		.cfi_def_cfa_offset 16
+ 775 0004 23341100 		sd	ra,8(sp)
+ 776 0008 23308100 		sd	s0,0(sp)
+ 777              		.cfi_offset 1, -8
+ 778              		.cfi_offset 8, -16
+ 779 000c 13040101 		addi	s0,sp,16
+ 780              		.cfi_def_cfa 8, 0
+ 781              	.LBB42:
+  50:test/PriorityTest.cpp **** public:
+ 782              		.loc 1 50 7 is_stmt 0
+ 783 0010 97070000 		lla	a5,_ZTV18PriorityMainThread+16
+ 783      93870700 
+GAS LISTING /tmp/cctSdPUI.s 			page 18
+
+
+ 784 0018 2330F500 		sd	a5,0(a0)
+ 785 001c 97000000 		call	_ZN6ThreadD2Ev@plt
+ 785      E7800000 
+ 786              	.LVL77:
+ 787              	.LBE42:
+ 788 0024 83308100 		ld	ra,8(sp)
+ 789              		.cfi_restore 1
+ 790 0028 03340100 		ld	s0,0(sp)
+ 791              		.cfi_restore 8
+ 792              		.cfi_def_cfa 2, 16
+ 793 002c 13010101 		addi	sp,sp,16
+ 794              		.cfi_def_cfa_offset 0
+ 795 0030 67800000 		jr	ra
+ 796              		.cfi_endproc
+ 797              	.LFE21:
+ 799              		.weak	_ZN18PriorityMainThreadD1Ev
+ 800              		.set	_ZN18PriorityMainThreadD1Ev,_ZN18PriorityMainThreadD2Ev
+ 801              		.section	.text._ZN18PriorityMainThreadD0Ev,"axG",@progbits,_ZN18PriorityMainThreadD5Ev,comdat
+ 802              		.align	2
+ 803              		.weak	_ZN18PriorityMainThreadD0Ev
+ 805              	_ZN18PriorityMainThreadD0Ev:
+ 806              	.LFB23:
+  50:test/PriorityTest.cpp **** public:
+ 807              		.loc 1 50 7 is_stmt 1
+ 808              		.cfi_startproc
+ 809              	.LVL78:
+ 810 0000 130101FE 		addi	sp,sp,-32
+ 811              		.cfi_def_cfa_offset 32
+ 812 0004 233C1100 		sd	ra,24(sp)
+ 813 0008 23388100 		sd	s0,16(sp)
+ 814 000c 23349100 		sd	s1,8(sp)
+ 815              		.cfi_offset 1, -8
+ 816              		.cfi_offset 8, -16
+ 817              		.cfi_offset 9, -24
+ 818 0010 13040102 		addi	s0,sp,32
+ 819              		.cfi_def_cfa 8, 0
+ 820 0014 93040500 		mv	s1,a0
+ 821              	.LVL79:
+ 822              	.LBB43:
+ 823              	.LBB44:
+  50:test/PriorityTest.cpp **** public:
+ 824              		.loc 1 50 7 is_stmt 0
+ 825 0018 97070000 		lla	a5,_ZTV18PriorityMainThread+16
+ 825      93870700 
+ 826 0020 2330F500 		sd	a5,0(a0)
+ 827 0024 97000000 		call	_ZN6ThreadD2Ev@plt
+ 827      E7800000 
+ 828              	.LVL80:
+ 829              	.LBE44:
+ 830              	.LBE43:
+ 831 002c 13850400 		mv	a0,s1
+ 832 0030 97000000 		call	_ZdlPv@plt
+ 832      E7800000 
+ 833              	.LVL81:
+ 834 0038 83308101 		ld	ra,24(sp)
+ 835              		.cfi_restore 1
+ 836 003c 03340101 		ld	s0,16(sp)
+GAS LISTING /tmp/cctSdPUI.s 			page 19
+
+
+ 837              		.cfi_restore 8
+ 838              		.cfi_def_cfa 2, 32
+ 839 0040 83348100 		ld	s1,8(sp)
+ 840              		.cfi_restore 9
+ 841              	.LVL82:
+ 842 0044 13010102 		addi	sp,sp,32
+ 843              		.cfi_def_cfa_offset 0
+ 844 0048 67800000 		jr	ra
+ 845              		.cfi_endproc
+ 846              	.LFE23:
+ 848              		.text
+ 849              		.align	2
+ 850              		.globl	_Z12PriorityTestv
+ 852              	_Z12PriorityTestv:
+ 853              	.LFB19:
+  77:test/PriorityTest.cpp **** };
+  78:test/PriorityTest.cpp **** 
+  79:test/PriorityTest.cpp **** void PriorityTest() {
+ 854              		.loc 1 79 21 is_stmt 1
+ 855              		.cfi_startproc
+ 856              		.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+ 857              		.cfi_lsda 0x1b,.LLSDA19
+ 858 0090 130101FE 		addi	sp,sp,-32
+ 859              		.cfi_def_cfa_offset 32
+ 860 0094 233C1100 		sd	ra,24(sp)
+ 861 0098 23388100 		sd	s0,16(sp)
+ 862 009c 23349100 		sd	s1,8(sp)
+ 863 00a0 23302101 		sd	s2,0(sp)
+ 864              		.cfi_offset 1, -8
+ 865              		.cfi_offset 8, -16
+ 866              		.cfi_offset 9, -24
+ 867              		.cfi_offset 18, -32
+ 868 00a4 13040102 		addi	s0,sp,32
+ 869              		.cfi_def_cfa 8, 0
+  80:test/PriorityTest.cpp ****     Thread* test = new PriorityMainThread();
+ 870              		.loc 1 80 5
+ 871              		.loc 1 80 43 is_stmt 0
+ 872 00a8 13058002 		li	a0,40
+ 873              	.LEHB10:
+ 874 00ac 97000000 		call	_Znwm@plt
+ 874      E7800000 
+ 875              	.LVL83:
+ 876              	.LEHE10:
+ 877 00b4 93040500 		mv	s1,a0
+ 878              	.LVL84:
+ 879              	.LBB45:
+ 880              	.LBB46:
+  52:test/PriorityTest.cpp **** 
+ 881              		.loc 1 52 38
+ 882 00b8 93052000 		li	a1,2
+ 883              	.LEHB11:
+ 884 00bc 97000000 		call	_ZN6ThreadC2E14ThreadPriority@plt
+ 884      E7800000 
+ 885              	.LVL85:
+ 886              	.LEHE11:
+ 887 00c4 97070000 		lla	a5,_ZTV18PriorityMainThread+16
+ 887      93870700 
+GAS LISTING /tmp/cctSdPUI.s 			page 20
+
+
+ 888 00cc 23B0F400 		sd	a5,0(s1)
+ 889              	.LVL86:
+ 890              	.LBE46:
+ 891              	.LBE45:
+  81:test/PriorityTest.cpp **** 
+  82:test/PriorityTest.cpp ****     test->start();
+ 892              		.loc 1 82 5 is_stmt 1
+ 893              		.loc 1 82 16 is_stmt 0
+ 894 00d0 13850400 		mv	a0,s1
+ 895              	.LEHB12:
+ 896 00d4 97000000 		call	_ZN6Thread5startEv@plt
+ 896      E7800000 
+ 897              	.LVL87:
+ 898              	.L44:
+  83:test/PriorityTest.cpp **** 
+  84:test/PriorityTest.cpp ****     while (!testFinished) {
+ 899              		.loc 1 84 5 is_stmt 1
+ 900              		.loc 1 84 12
+ 901              		.loc 1 84 13 is_stmt 0
+ 902 00dc 97070000 		lbu	a5,.LANCHOR0+3
+ 902      83C70700 
+ 903              		.loc 1 84 12
+ 904 00e4 63980700 		bnez	a5,.L43
+  85:test/PriorityTest.cpp ****         Thread::dispatch();
+ 905              		.loc 1 85 9 is_stmt 1
+ 906              		.loc 1 85 25 is_stmt 0
+ 907 00e8 97000000 		call	_ZN6Thread8dispatchEv@plt
+ 907      E7800000 
+ 908              	.LVL88:
+ 909              	.LEHE12:
+  84:test/PriorityTest.cpp ****         Thread::dispatch();
+ 910              		.loc 1 84 5
+ 911 00f0 6FF0DFFE 		j	.L44
+ 912              	.L43:
+  86:test/PriorityTest.cpp ****     }
+  87:test/PriorityTest.cpp **** 
+  88:test/PriorityTest.cpp ****     delete test;
+ 913              		.loc 1 88 5 is_stmt 1
+ 914              		.loc 1 88 16 is_stmt 0
+ 915 00f4 638A0400 		beqz	s1,.L42
+ 916              		.loc 1 88 12 discriminator 1
+ 917 00f8 83B70400 		ld	a5,0(s1)
+ 918 00fc 83B78700 		ld	a5,8(a5)
+ 919 0100 13850400 		mv	a0,s1
+ 920 0104 E7800700 		jalr	a5
+ 921              	.LVL89:
+ 922              	.L42:
+  89:test/PriorityTest.cpp **** }...
+ 923              		.loc 1 89 1
+ 924 0108 83308101 		ld	ra,24(sp)
+ 925              		.cfi_remember_state
+ 926              		.cfi_restore 1
+ 927 010c 03340101 		ld	s0,16(sp)
+ 928              		.cfi_restore 8
+ 929              		.cfi_def_cfa 2, 32
+ 930 0110 83348100 		ld	s1,8(sp)
+ 931              		.cfi_restore 9
+GAS LISTING /tmp/cctSdPUI.s 			page 21
+
+
+ 932              	.LVL90:
+ 933 0114 03390100 		ld	s2,0(sp)
+ 934              		.cfi_restore 18
+ 935 0118 13010102 		addi	sp,sp,32
+ 936              		.cfi_def_cfa_offset 0
+ 937 011c 67800000 		jr	ra
+ 938              	.LVL91:
+ 939              	.L47:
+ 940              		.cfi_restore_state
+ 941 0120 13090500 		mv	s2,a0
+  80:test/PriorityTest.cpp ****     Thread* test = new PriorityMainThread();
+ 942              		.loc 1 80 43
+ 943 0124 13850400 		mv	a0,s1
+ 944 0128 97000000 		call	_ZdlPv@plt
+ 944      E7800000 
+ 945              	.LVL92:
+ 946 0130 13050900 		mv	a0,s2
+ 947              	.LEHB13:
+ 948 0134 97000000 		call	_Unwind_Resume@plt
+ 948      E7800000 
+ 949              	.LVL93:
+ 950              	.LEHE13:
+ 951              		.cfi_endproc
+ 952              	.LFE19:
+ 953              		.section	.gcc_except_table,"a",@progbits
+ 954              	.LLSDA19:
+ 955 0000 FF       		.byte	0xff
+ 956 0001 FF       		.byte	0xff
+ 957 0002 03       		.byte	0x3
+ 958 0003 34       		.byte	0x34
+ 959 0004 00000000 		.4byte	.LEHB10-.LFB19
+ 960 0008 00000000 		.4byte	.LEHE10-.LEHB10
+ 961 000c 00000000 		.4byte	0
+ 962 0010 00       		.byte	0
+ 963 0011 00000000 		.4byte	.LEHB11-.LFB19
+ 964 0015 00000000 		.4byte	.LEHE11-.LEHB11
+ 965 0019 00000000 		.4byte	.L47-.LFB19
+ 966 001d 00       		.byte	0
+ 967 001e 00000000 		.4byte	.LEHB12-.LFB19
+ 968 0022 00000000 		.4byte	.LEHE12-.LEHB12
+ 969 0026 00000000 		.4byte	0
+ 970 002a 00       		.byte	0
+ 971 002b 00000000 		.4byte	.LEHB13-.LFB19
+ 972 002f 00000000 		.4byte	.LEHE13-.LEHB13
+ 973 0033 00000000 		.4byte	0
+ 974 0037 00       		.byte	0
+ 975              		.text
+ 977              		.weak	_ZTV10HighThread
+ 978              		.section	.data.rel.ro.local._ZTV10HighThread,"awG",@progbits,_ZTV10HighThread,comdat
+ 979              		.align	3
+ 982              	_ZTV10HighThread:
+ 983 0000 00000000 		.dword	0
+ 983      00000000 
+ 984 0008 00000000 		.dword	0
+ 984      00000000 
+ 985 0010 00000000 		.dword	_ZN10HighThreadD1Ev
+ 985      00000000 
+GAS LISTING /tmp/cctSdPUI.s 			page 22
+
+
+ 986 0018 00000000 		.dword	_ZN10HighThreadD0Ev
+ 986      00000000 
+ 987 0020 00000000 		.dword	_ZN10HighThread3runEv
+ 987      00000000 
+ 988              		.weak	_ZTV12MediumThread
+ 989              		.section	.data.rel.ro.local._ZTV12MediumThread,"awG",@progbits,_ZTV12MediumThread,comdat
+ 990              		.align	3
+ 993              	_ZTV12MediumThread:
+ 994 0000 00000000 		.dword	0
+ 994      00000000 
+ 995 0008 00000000 		.dword	0
+ 995      00000000 
+ 996 0010 00000000 		.dword	_ZN12MediumThreadD1Ev
+ 996      00000000 
+ 997 0018 00000000 		.dword	_ZN12MediumThreadD0Ev
+ 997      00000000 
+ 998 0020 00000000 		.dword	_ZN12MediumThread3runEv
+ 998      00000000 
+ 999              		.weak	_ZTV9LowThread
+ 1000              		.section	.data.rel.ro.local._ZTV9LowThread,"awG",@progbits,_ZTV9LowThread,comdat
+ 1001              		.align	3
+ 1004              	_ZTV9LowThread:
+ 1005 0000 00000000 		.dword	0
+ 1005      00000000 
+ 1006 0008 00000000 		.dword	0
+ 1006      00000000 
+ 1007 0010 00000000 		.dword	_ZN9LowThreadD1Ev
+ 1007      00000000 
+ 1008 0018 00000000 		.dword	_ZN9LowThreadD0Ev
+ 1008      00000000 
+ 1009 0020 00000000 		.dword	_ZN9LowThread3runEv
+ 1009      00000000 
+ 1010              		.weak	_ZTV18PriorityMainThread
+ 1011              		.section	.data.rel.ro.local._ZTV18PriorityMainThread,"awG",@progbits,_ZTV18PriorityMainThread,comd
+ 1012              		.align	3
+ 1015              	_ZTV18PriorityMainThread:
+ 1016 0000 00000000 		.dword	0
+ 1016      00000000 
+ 1017 0008 00000000 		.dword	0
+ 1017      00000000 
+ 1018 0010 00000000 		.dword	_ZN18PriorityMainThreadD1Ev
+ 1018      00000000 
+ 1019 0018 00000000 		.dword	_ZN18PriorityMainThreadD0Ev
+ 1019      00000000 
+ 1020 0020 00000000 		.dword	_ZN18PriorityMainThread3runEv
+ 1020      00000000 
+ 1021              		.bss
+ 1022              		.set	.LANCHOR0,. + 0
+ 1025              	_ZL12highFinished:
+ 1026 0000 00       		.zero	1
+ 1029              	_ZL14mediumFinished:
+ 1030 0001 00       		.zero	1
+ 1033              	_ZL11lowFinished:
+ 1034 0002 00       		.zero	1
+ 1037              	_ZL12testFinished:
+ 1038 0003 00       		.zero	1
+ 1039              		.text
+GAS LISTING /tmp/cctSdPUI.s 			page 23
+
+
+ 1040              	.Letext0:
+ 1041              		.file 2 "test/../h/../lib/hw.h"
+ 1042              		.file 3 "test/../h/syscall_cpp.hpp"
+ 1043              		.file 4 "test/../h/syscall_c.hpp"
+ 1044              		.file 5 "test/printing.hpp"
+ 1045              		.file 6 "test/../h/ThreadPriority.hpp"
+ 3942              		.align	3
+ 3945              	DW.ref.__gxx_personality_v0:
+ 3946 0000 00000000 		.dword	__gxx_personality_v0
+ 3946      00000000 
+ 3947              		.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04) 9.4.0"
+ 3948              		.section	.note.GNU-stack,"",@progbits
+GAS LISTING /tmp/cctSdPUI.s 			page 24
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 PriorityTest.cpp
+     /tmp/cctSdPUI.s:17     .text._ZN18PriorityMainThread3runEv:0000000000000000 _ZN18PriorityMainThread3runEv
+     /tmp/cctSdPUI.s:21     .text._ZN18PriorityMainThread3runEv:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:3945   .data.rel.local.DW.ref.__gxx_personality_v0:0000000000000000 DW.ref.__gxx_personality_v0
+     /tmp/cctSdPUI.s:25     .text._ZN18PriorityMainThread3runEv:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:26     .text._ZN18PriorityMainThread3runEv:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:32     .text._ZN18PriorityMainThread3runEv:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:33     .text._ZN18PriorityMainThread3runEv:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:34     .text._ZN18PriorityMainThread3runEv:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:35     .text._ZN18PriorityMainThread3runEv:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:36     .text._ZN18PriorityMainThread3runEv:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:38     .text._ZN18PriorityMainThread3runEv:000000000000001c .L0 
+     /tmp/cctSdPUI.s:40     .text._ZN18PriorityMainThread3runEv:000000000000001c .L0 
+     /tmp/cctSdPUI.s:41     .text._ZN18PriorityMainThread3runEv:000000000000001c .L0 
+     /tmp/cctSdPUI.s:52     .text._ZN18PriorityMainThread3runEv:000000000000002c .L0 
+     /tmp/cctSdPUI.s:1004   .data.rel.ro.local._ZTV9LowThread:0000000000000000 _ZTV9LowThread
+     /tmp/cctSdPUI.s:63     .text._ZN18PriorityMainThread3runEv:0000000000000044 .L0 
+     /tmp/cctSdPUI.s:64     .text._ZN18PriorityMainThread3runEv:0000000000000044 .L0 
+     /tmp/cctSdPUI.s:74     .text._ZN18PriorityMainThread3runEv:0000000000000054 .L0 
+     /tmp/cctSdPUI.s:993    .data.rel.ro.local._ZTV12MediumThread:0000000000000000 _ZTV12MediumThread
+     /tmp/cctSdPUI.s:85     .text._ZN18PriorityMainThread3runEv:000000000000006c .L0 
+     /tmp/cctSdPUI.s:86     .text._ZN18PriorityMainThread3runEv:000000000000006c .L0 
+     /tmp/cctSdPUI.s:96     .text._ZN18PriorityMainThread3runEv:000000000000007c .L0 
+     /tmp/cctSdPUI.s:982    .data.rel.ro.local._ZTV10HighThread:0000000000000000 _ZTV10HighThread
+     /tmp/cctSdPUI.s:107    .text._ZN18PriorityMainThread3runEv:0000000000000094 .L0 
+     /tmp/cctSdPUI.s:108    .text._ZN18PriorityMainThread3runEv:0000000000000094 .L0 
+     /tmp/cctSdPUI.s:113    .text._ZN18PriorityMainThread3runEv:00000000000000a4 .L0 
+     /tmp/cctSdPUI.s:114    .text._ZN18PriorityMainThread3runEv:00000000000000a4 .L0 
+     /tmp/cctSdPUI.s:118    .text._ZN18PriorityMainThread3runEv:00000000000000b0 .L0 
+     /tmp/cctSdPUI.s:119    .text._ZN18PriorityMainThread3runEv:00000000000000b0 .L0 
+     /tmp/cctSdPUI.s:123    .text._ZN18PriorityMainThread3runEv:00000000000000bc .L0 
+     /tmp/cctSdPUI.s:124    .text._ZN18PriorityMainThread3runEv:00000000000000bc .L0 
+     /tmp/cctSdPUI.s:130    .text._ZN18PriorityMainThread3runEv:00000000000000cc .L0 
+     /tmp/cctSdPUI.s:131    .text._ZN18PriorityMainThread3runEv:00000000000000cc .L0 
+     /tmp/cctSdPUI.s:135    .text._ZN18PriorityMainThread3runEv:00000000000000d4 .L0 
+     /tmp/cctSdPUI.s:136    .text._ZN18PriorityMainThread3runEv:00000000000000d4 .L0 
+     /tmp/cctSdPUI.s:137    .text._ZN18PriorityMainThread3runEv:00000000000000d4 .L0 
+     /tmp/cctSdPUI.s:139    .text._ZN18PriorityMainThread3runEv:00000000000000dc .L0 
+     /tmp/cctSdPUI.s:141    .text._ZN18PriorityMainThread3runEv:00000000000000e0 .L0 
+     /tmp/cctSdPUI.s:143    .text._ZN18PriorityMainThread3runEv:00000000000000e8 .L0 
+     /tmp/cctSdPUI.s:145    .text._ZN18PriorityMainThread3runEv:00000000000000ec .L0 
+     /tmp/cctSdPUI.s:147    .text._ZN18PriorityMainThread3runEv:00000000000000f4 .L0 
+     /tmp/cctSdPUI.s:149    .text._ZN18PriorityMainThread3runEv:00000000000000f8 .L0 
+     /tmp/cctSdPUI.s:150    .text._ZN18PriorityMainThread3runEv:00000000000000f8 .L0 
+     /tmp/cctSdPUI.s:152    .text._ZN18PriorityMainThread3runEv:00000000000000fc .L0 
+     /tmp/cctSdPUI.s:159    .text._ZN18PriorityMainThread3runEv:000000000000010c .L0 
+     /tmp/cctSdPUI.s:160    .text._ZN18PriorityMainThread3runEv:000000000000010c .L0 
+     /tmp/cctSdPUI.s:162    .text._ZN18PriorityMainThread3runEv:0000000000000110 .L0 
+     /tmp/cctSdPUI.s:169    .text._ZN18PriorityMainThread3runEv:0000000000000120 .L0 
+     /tmp/cctSdPUI.s:170    .text._ZN18PriorityMainThread3runEv:0000000000000120 .L0 
+     /tmp/cctSdPUI.s:172    .text._ZN18PriorityMainThread3runEv:0000000000000124 .L0 
+     /tmp/cctSdPUI.s:179    .text._ZN18PriorityMainThread3runEv:0000000000000134 .L0 
+     /tmp/cctSdPUI.s:180    .text._ZN18PriorityMainThread3runEv:0000000000000134 .L0 
+     /tmp/cctSdPUI.s:185    .text._ZN18PriorityMainThread3runEv:0000000000000144 .L0 
+     /tmp/cctSdPUI.s:186    .text._ZN18PriorityMainThread3runEv:0000000000000144 .L0 
+     /tmp/cctSdPUI.s:189    .text._ZN18PriorityMainThread3runEv:0000000000000150 .L0 
+GAS LISTING /tmp/cctSdPUI.s 			page 25
+
+
+     /tmp/cctSdPUI.s:190    .text._ZN18PriorityMainThread3runEv:0000000000000154 .L0 
+     /tmp/cctSdPUI.s:191    .text._ZN18PriorityMainThread3runEv:0000000000000154 .L0 
+     /tmp/cctSdPUI.s:193    .text._ZN18PriorityMainThread3runEv:0000000000000158 .L0 
+     /tmp/cctSdPUI.s:194    .text._ZN18PriorityMainThread3runEv:0000000000000158 .L0 
+     /tmp/cctSdPUI.s:196    .text._ZN18PriorityMainThread3runEv:000000000000015c .L0 
+     /tmp/cctSdPUI.s:199    .text._ZN18PriorityMainThread3runEv:0000000000000160 .L0 
+     /tmp/cctSdPUI.s:202    .text._ZN18PriorityMainThread3runEv:0000000000000164 .L0 
+     /tmp/cctSdPUI.s:205    .text._ZN18PriorityMainThread3runEv:0000000000000168 .L0 
+     /tmp/cctSdPUI.s:209    .text._ZN18PriorityMainThread3runEv:000000000000016c .L0 
+     /tmp/cctSdPUI.s:212    .text._ZN18PriorityMainThread3runEv:0000000000000170 .L0 
+     /tmp/cctSdPUI.s:223    .text._ZN18PriorityMainThread3runEv:000000000000018c .L0 
+     /tmp/cctSdPUI.s:235    .text._ZN18PriorityMainThread3runEv:00000000000001a8 .L0 
+     /tmp/cctSdPUI.s:243    .text._ZN18PriorityMainThread3runEv:00000000000001c0 .L0 
+     /tmp/cctSdPUI.s:304    .text:0000000000000000 _ZL4workPKc
+     /tmp/cctSdPUI.s:307    .text:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:309    .text:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:310    .text:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:315    .text:0000000000000014 .L0 
+     /tmp/cctSdPUI.s:316    .text:0000000000000014 .L0 
+     /tmp/cctSdPUI.s:317    .text:0000000000000014 .L0 
+     /tmp/cctSdPUI.s:318    .text:0000000000000014 .L0 
+     /tmp/cctSdPUI.s:320    .text:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:325    .text:000000000000001c .L0 
+     /tmp/cctSdPUI.s:326    .text:000000000000001c .L0 
+     /tmp/cctSdPUI.s:330    .text:0000000000000020 .L0 
+     /tmp/cctSdPUI.s:333    .text:0000000000000028 .L0 
+     /tmp/cctSdPUI.s:334    .text:0000000000000028 .L0 
+     /tmp/cctSdPUI.s:338    .text:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:339    .text:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:343    .text:0000000000000044 .L0 
+     /tmp/cctSdPUI.s:344    .text:0000000000000044 .L0 
+     /tmp/cctSdPUI.s:350    .text:0000000000000058 .L0 
+     /tmp/cctSdPUI.s:351    .text:0000000000000058 .L0 
+     /tmp/cctSdPUI.s:355    .text:0000000000000068 .L0 
+     /tmp/cctSdPUI.s:356    .text:0000000000000068 .L0 
+     /tmp/cctSdPUI.s:359    .text:0000000000000070 .L0 
+     /tmp/cctSdPUI.s:366    .text:0000000000000078 .L0 
+     /tmp/cctSdPUI.s:367    .text:000000000000007c .L0 
+     /tmp/cctSdPUI.s:369    .text:0000000000000080 .L0 
+     /tmp/cctSdPUI.s:370    .text:0000000000000080 .L0 
+     /tmp/cctSdPUI.s:372    .text:0000000000000084 .L0 
+     /tmp/cctSdPUI.s:375    .text:0000000000000088 .L0 
+     /tmp/cctSdPUI.s:378    .text:000000000000008c .L0 
+     /tmp/cctSdPUI.s:380    .text:0000000000000090 .L0 
+     /tmp/cctSdPUI.s:391    .text._ZN9LowThread3runEv:0000000000000000 _ZN9LowThread3runEv
+     /tmp/cctSdPUI.s:394    .text._ZN9LowThread3runEv:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:396    .text._ZN9LowThread3runEv:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:397    .text._ZN9LowThread3runEv:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:400    .text._ZN9LowThread3runEv:000000000000000c .L0 
+     /tmp/cctSdPUI.s:401    .text._ZN9LowThread3runEv:000000000000000c .L0 
+     /tmp/cctSdPUI.s:403    .text._ZN9LowThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:405    .text._ZN9LowThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:406    .text._ZN9LowThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:411    .text._ZN9LowThread3runEv:0000000000000020 .L0 
+     /tmp/cctSdPUI.s:412    .text._ZN9LowThread3runEv:0000000000000020 .L0 
+     /tmp/cctSdPUI.s:415    .text._ZN9LowThread3runEv:000000000000002c .L0 
+     /tmp/cctSdPUI.s:416    .text._ZN9LowThread3runEv:0000000000000030 .L0 
+GAS LISTING /tmp/cctSdPUI.s 			page 26
+
+
+     /tmp/cctSdPUI.s:418    .text._ZN9LowThread3runEv:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:419    .text._ZN9LowThread3runEv:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:421    .text._ZN9LowThread3runEv:0000000000000038 .L0 
+     /tmp/cctSdPUI.s:423    .text._ZN9LowThread3runEv:000000000000003c .L0 
+     /tmp/cctSdPUI.s:434    .text._ZN12MediumThread3runEv:0000000000000000 _ZN12MediumThread3runEv
+     /tmp/cctSdPUI.s:437    .text._ZN12MediumThread3runEv:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:439    .text._ZN12MediumThread3runEv:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:440    .text._ZN12MediumThread3runEv:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:443    .text._ZN12MediumThread3runEv:000000000000000c .L0 
+     /tmp/cctSdPUI.s:444    .text._ZN12MediumThread3runEv:000000000000000c .L0 
+     /tmp/cctSdPUI.s:446    .text._ZN12MediumThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:448    .text._ZN12MediumThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:449    .text._ZN12MediumThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:454    .text._ZN12MediumThread3runEv:0000000000000020 .L0 
+     /tmp/cctSdPUI.s:455    .text._ZN12MediumThread3runEv:0000000000000020 .L0 
+     /tmp/cctSdPUI.s:458    .text._ZN12MediumThread3runEv:000000000000002c .L0 
+     /tmp/cctSdPUI.s:459    .text._ZN12MediumThread3runEv:0000000000000030 .L0 
+     /tmp/cctSdPUI.s:461    .text._ZN12MediumThread3runEv:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:462    .text._ZN12MediumThread3runEv:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:464    .text._ZN12MediumThread3runEv:0000000000000038 .L0 
+     /tmp/cctSdPUI.s:466    .text._ZN12MediumThread3runEv:000000000000003c .L0 
+     /tmp/cctSdPUI.s:477    .text._ZN10HighThread3runEv:0000000000000000 _ZN10HighThread3runEv
+     /tmp/cctSdPUI.s:480    .text._ZN10HighThread3runEv:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:482    .text._ZN10HighThread3runEv:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:483    .text._ZN10HighThread3runEv:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:486    .text._ZN10HighThread3runEv:000000000000000c .L0 
+     /tmp/cctSdPUI.s:487    .text._ZN10HighThread3runEv:000000000000000c .L0 
+     /tmp/cctSdPUI.s:489    .text._ZN10HighThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:491    .text._ZN10HighThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:492    .text._ZN10HighThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:497    .text._ZN10HighThread3runEv:0000000000000020 .L0 
+     /tmp/cctSdPUI.s:498    .text._ZN10HighThread3runEv:0000000000000020 .L0 
+     /tmp/cctSdPUI.s:501    .text._ZN10HighThread3runEv:000000000000002c .L0 
+     /tmp/cctSdPUI.s:502    .text._ZN10HighThread3runEv:0000000000000030 .L0 
+     /tmp/cctSdPUI.s:504    .text._ZN10HighThread3runEv:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:505    .text._ZN10HighThread3runEv:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:507    .text._ZN10HighThread3runEv:0000000000000038 .L0 
+     /tmp/cctSdPUI.s:509    .text._ZN10HighThread3runEv:000000000000003c .L0 
+     /tmp/cctSdPUI.s:516    .text._ZN9LowThreadD2Ev:0000000000000000 _ZN9LowThreadD2Ev
+     /tmp/cctSdPUI.s:519    .text._ZN9LowThreadD2Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:521    .text._ZN9LowThreadD2Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:522    .text._ZN9LowThreadD2Ev:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:525    .text._ZN9LowThreadD2Ev:000000000000000c .L0 
+     /tmp/cctSdPUI.s:526    .text._ZN9LowThreadD2Ev:000000000000000c .L0 
+     /tmp/cctSdPUI.s:528    .text._ZN9LowThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:531    .text._ZN9LowThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:537    .text._ZN9LowThreadD2Ev:0000000000000028 .L0 
+     /tmp/cctSdPUI.s:539    .text._ZN9LowThreadD2Ev:000000000000002c .L0 
+     /tmp/cctSdPUI.s:540    .text._ZN9LowThreadD2Ev:000000000000002c .L0 
+     /tmp/cctSdPUI.s:542    .text._ZN9LowThreadD2Ev:0000000000000030 .L0 
+     /tmp/cctSdPUI.s:544    .text._ZN9LowThreadD2Ev:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:516    .text._ZN9LowThreadD2Ev:0000000000000000 _ZN9LowThreadD1Ev
+     /tmp/cctSdPUI.s:553    .text._ZN9LowThreadD0Ev:0000000000000000 _ZN9LowThreadD0Ev
+     /tmp/cctSdPUI.s:556    .text._ZN9LowThreadD0Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:558    .text._ZN9LowThreadD0Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:559    .text._ZN9LowThreadD0Ev:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:563    .text._ZN9LowThreadD0Ev:0000000000000010 .L0 
+GAS LISTING /tmp/cctSdPUI.s 			page 27
+
+
+     /tmp/cctSdPUI.s:564    .text._ZN9LowThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:565    .text._ZN9LowThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:567    .text._ZN9LowThreadD0Ev:0000000000000014 .L0 
+     /tmp/cctSdPUI.s:573    .text._ZN9LowThreadD0Ev:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:583    .text._ZN9LowThreadD0Ev:000000000000003c .L0 
+     /tmp/cctSdPUI.s:585    .text._ZN9LowThreadD0Ev:0000000000000040 .L0 
+     /tmp/cctSdPUI.s:586    .text._ZN9LowThreadD0Ev:0000000000000040 .L0 
+     /tmp/cctSdPUI.s:588    .text._ZN9LowThreadD0Ev:0000000000000044 .L0 
+     /tmp/cctSdPUI.s:591    .text._ZN9LowThreadD0Ev:0000000000000048 .L0 
+     /tmp/cctSdPUI.s:593    .text._ZN9LowThreadD0Ev:000000000000004c .L0 
+     /tmp/cctSdPUI.s:600    .text._ZN12MediumThreadD2Ev:0000000000000000 _ZN12MediumThreadD2Ev
+     /tmp/cctSdPUI.s:603    .text._ZN12MediumThreadD2Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:605    .text._ZN12MediumThreadD2Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:606    .text._ZN12MediumThreadD2Ev:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:609    .text._ZN12MediumThreadD2Ev:000000000000000c .L0 
+     /tmp/cctSdPUI.s:610    .text._ZN12MediumThreadD2Ev:000000000000000c .L0 
+     /tmp/cctSdPUI.s:612    .text._ZN12MediumThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:615    .text._ZN12MediumThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:621    .text._ZN12MediumThreadD2Ev:0000000000000028 .L0 
+     /tmp/cctSdPUI.s:623    .text._ZN12MediumThreadD2Ev:000000000000002c .L0 
+     /tmp/cctSdPUI.s:624    .text._ZN12MediumThreadD2Ev:000000000000002c .L0 
+     /tmp/cctSdPUI.s:626    .text._ZN12MediumThreadD2Ev:0000000000000030 .L0 
+     /tmp/cctSdPUI.s:628    .text._ZN12MediumThreadD2Ev:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:600    .text._ZN12MediumThreadD2Ev:0000000000000000 _ZN12MediumThreadD1Ev
+     /tmp/cctSdPUI.s:637    .text._ZN12MediumThreadD0Ev:0000000000000000 _ZN12MediumThreadD0Ev
+     /tmp/cctSdPUI.s:640    .text._ZN12MediumThreadD0Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:642    .text._ZN12MediumThreadD0Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:643    .text._ZN12MediumThreadD0Ev:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:647    .text._ZN12MediumThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:648    .text._ZN12MediumThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:649    .text._ZN12MediumThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:651    .text._ZN12MediumThreadD0Ev:0000000000000014 .L0 
+     /tmp/cctSdPUI.s:657    .text._ZN12MediumThreadD0Ev:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:667    .text._ZN12MediumThreadD0Ev:000000000000003c .L0 
+     /tmp/cctSdPUI.s:669    .text._ZN12MediumThreadD0Ev:0000000000000040 .L0 
+     /tmp/cctSdPUI.s:670    .text._ZN12MediumThreadD0Ev:0000000000000040 .L0 
+     /tmp/cctSdPUI.s:672    .text._ZN12MediumThreadD0Ev:0000000000000044 .L0 
+     /tmp/cctSdPUI.s:675    .text._ZN12MediumThreadD0Ev:0000000000000048 .L0 
+     /tmp/cctSdPUI.s:677    .text._ZN12MediumThreadD0Ev:000000000000004c .L0 
+     /tmp/cctSdPUI.s:684    .text._ZN10HighThreadD2Ev:0000000000000000 _ZN10HighThreadD2Ev
+     /tmp/cctSdPUI.s:687    .text._ZN10HighThreadD2Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:689    .text._ZN10HighThreadD2Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:690    .text._ZN10HighThreadD2Ev:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:693    .text._ZN10HighThreadD2Ev:000000000000000c .L0 
+     /tmp/cctSdPUI.s:694    .text._ZN10HighThreadD2Ev:000000000000000c .L0 
+     /tmp/cctSdPUI.s:696    .text._ZN10HighThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:699    .text._ZN10HighThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:705    .text._ZN10HighThreadD2Ev:0000000000000028 .L0 
+     /tmp/cctSdPUI.s:707    .text._ZN10HighThreadD2Ev:000000000000002c .L0 
+     /tmp/cctSdPUI.s:708    .text._ZN10HighThreadD2Ev:000000000000002c .L0 
+     /tmp/cctSdPUI.s:710    .text._ZN10HighThreadD2Ev:0000000000000030 .L0 
+     /tmp/cctSdPUI.s:712    .text._ZN10HighThreadD2Ev:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:684    .text._ZN10HighThreadD2Ev:0000000000000000 _ZN10HighThreadD1Ev
+     /tmp/cctSdPUI.s:721    .text._ZN10HighThreadD0Ev:0000000000000000 _ZN10HighThreadD0Ev
+     /tmp/cctSdPUI.s:724    .text._ZN10HighThreadD0Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:726    .text._ZN10HighThreadD0Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:727    .text._ZN10HighThreadD0Ev:0000000000000004 .L0 
+GAS LISTING /tmp/cctSdPUI.s 			page 28
+
+
+     /tmp/cctSdPUI.s:731    .text._ZN10HighThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:732    .text._ZN10HighThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:733    .text._ZN10HighThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:735    .text._ZN10HighThreadD0Ev:0000000000000014 .L0 
+     /tmp/cctSdPUI.s:741    .text._ZN10HighThreadD0Ev:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:751    .text._ZN10HighThreadD0Ev:000000000000003c .L0 
+     /tmp/cctSdPUI.s:753    .text._ZN10HighThreadD0Ev:0000000000000040 .L0 
+     /tmp/cctSdPUI.s:754    .text._ZN10HighThreadD0Ev:0000000000000040 .L0 
+     /tmp/cctSdPUI.s:756    .text._ZN10HighThreadD0Ev:0000000000000044 .L0 
+     /tmp/cctSdPUI.s:759    .text._ZN10HighThreadD0Ev:0000000000000048 .L0 
+     /tmp/cctSdPUI.s:761    .text._ZN10HighThreadD0Ev:000000000000004c .L0 
+     /tmp/cctSdPUI.s:768    .text._ZN18PriorityMainThreadD2Ev:0000000000000000 _ZN18PriorityMainThreadD2Ev
+     /tmp/cctSdPUI.s:771    .text._ZN18PriorityMainThreadD2Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:773    .text._ZN18PriorityMainThreadD2Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:774    .text._ZN18PriorityMainThreadD2Ev:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:777    .text._ZN18PriorityMainThreadD2Ev:000000000000000c .L0 
+     /tmp/cctSdPUI.s:778    .text._ZN18PriorityMainThreadD2Ev:000000000000000c .L0 
+     /tmp/cctSdPUI.s:780    .text._ZN18PriorityMainThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:1015   .data.rel.ro.local._ZTV18PriorityMainThread:0000000000000000 _ZTV18PriorityMainThread
+     /tmp/cctSdPUI.s:783    .text._ZN18PriorityMainThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:789    .text._ZN18PriorityMainThreadD2Ev:0000000000000028 .L0 
+     /tmp/cctSdPUI.s:791    .text._ZN18PriorityMainThreadD2Ev:000000000000002c .L0 
+     /tmp/cctSdPUI.s:792    .text._ZN18PriorityMainThreadD2Ev:000000000000002c .L0 
+     /tmp/cctSdPUI.s:794    .text._ZN18PriorityMainThreadD2Ev:0000000000000030 .L0 
+     /tmp/cctSdPUI.s:796    .text._ZN18PriorityMainThreadD2Ev:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:768    .text._ZN18PriorityMainThreadD2Ev:0000000000000000 _ZN18PriorityMainThreadD1Ev
+     /tmp/cctSdPUI.s:805    .text._ZN18PriorityMainThreadD0Ev:0000000000000000 _ZN18PriorityMainThreadD0Ev
+     /tmp/cctSdPUI.s:808    .text._ZN18PriorityMainThreadD0Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:810    .text._ZN18PriorityMainThreadD0Ev:0000000000000000 .L0 
+     /tmp/cctSdPUI.s:811    .text._ZN18PriorityMainThreadD0Ev:0000000000000004 .L0 
+     /tmp/cctSdPUI.s:815    .text._ZN18PriorityMainThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:816    .text._ZN18PriorityMainThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:817    .text._ZN18PriorityMainThreadD0Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:819    .text._ZN18PriorityMainThreadD0Ev:0000000000000014 .L0 
+     /tmp/cctSdPUI.s:825    .text._ZN18PriorityMainThreadD0Ev:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:835    .text._ZN18PriorityMainThreadD0Ev:000000000000003c .L0 
+     /tmp/cctSdPUI.s:837    .text._ZN18PriorityMainThreadD0Ev:0000000000000040 .L0 
+     /tmp/cctSdPUI.s:838    .text._ZN18PriorityMainThreadD0Ev:0000000000000040 .L0 
+     /tmp/cctSdPUI.s:840    .text._ZN18PriorityMainThreadD0Ev:0000000000000044 .L0 
+     /tmp/cctSdPUI.s:843    .text._ZN18PriorityMainThreadD0Ev:0000000000000048 .L0 
+     /tmp/cctSdPUI.s:845    .text._ZN18PriorityMainThreadD0Ev:000000000000004c .L0 
+     /tmp/cctSdPUI.s:852    .text:0000000000000090 _Z12PriorityTestv
+     /tmp/cctSdPUI.s:855    .text:0000000000000090 .L0 
+     /tmp/cctSdPUI.s:858    .text:0000000000000090 .L0 
+     /tmp/cctSdPUI.s:859    .text:0000000000000094 .L0 
+     /tmp/cctSdPUI.s:864    .text:00000000000000a4 .L0 
+     /tmp/cctSdPUI.s:865    .text:00000000000000a4 .L0 
+     /tmp/cctSdPUI.s:866    .text:00000000000000a4 .L0 
+     /tmp/cctSdPUI.s:867    .text:00000000000000a4 .L0 
+     /tmp/cctSdPUI.s:869    .text:00000000000000a8 .L0 
+     /tmp/cctSdPUI.s:871    .text:00000000000000a8 .L0 
+     /tmp/cctSdPUI.s:872    .text:00000000000000a8 .L0 
+     /tmp/cctSdPUI.s:882    .text:00000000000000b8 .L0 
+     /tmp/cctSdPUI.s:893    .text:00000000000000d0 .L0 
+     /tmp/cctSdPUI.s:894    .text:00000000000000d0 .L0 
+     /tmp/cctSdPUI.s:900    .text:00000000000000dc .L0 
+     /tmp/cctSdPUI.s:901    .text:00000000000000dc .L0 
+GAS LISTING /tmp/cctSdPUI.s 			page 29
+
+
+     /tmp/cctSdPUI.s:902    .text:00000000000000dc .L0 
+     /tmp/cctSdPUI.s:904    .text:00000000000000e4 .L0 
+     /tmp/cctSdPUI.s:906    .text:00000000000000e8 .L0 
+     /tmp/cctSdPUI.s:907    .text:00000000000000e8 .L0 
+     /tmp/cctSdPUI.s:911    .text:00000000000000f0 .L0 
+     /tmp/cctSdPUI.s:914    .text:00000000000000f4 .L0 
+     /tmp/cctSdPUI.s:915    .text:00000000000000f4 .L0 
+     /tmp/cctSdPUI.s:917    .text:00000000000000f8 .L0 
+     /tmp/cctSdPUI.s:924    .text:0000000000000108 .L0 
+     /tmp/cctSdPUI.s:925    .text:000000000000010c .L0 
+     /tmp/cctSdPUI.s:926    .text:000000000000010c .L0 
+     /tmp/cctSdPUI.s:928    .text:0000000000000110 .L0 
+     /tmp/cctSdPUI.s:929    .text:0000000000000110 .L0 
+     /tmp/cctSdPUI.s:931    .text:0000000000000114 .L0 
+     /tmp/cctSdPUI.s:934    .text:0000000000000118 .L0 
+     /tmp/cctSdPUI.s:936    .text:000000000000011c .L0 
+     /tmp/cctSdPUI.s:940    .text:0000000000000120 .L0 
+     /tmp/cctSdPUI.s:943    .text:0000000000000124 .L0 
+     /tmp/cctSdPUI.s:951    .text:000000000000013c .L0 
+     /tmp/cctSdPUI.s:1022   .bss:0000000000000000 .LANCHOR0
+     /tmp/cctSdPUI.s:1025   .bss:0000000000000000 _ZL12highFinished
+     /tmp/cctSdPUI.s:1029   .bss:0000000000000001 _ZL14mediumFinished
+     /tmp/cctSdPUI.s:1033   .bss:0000000000000002 _ZL11lowFinished
+     /tmp/cctSdPUI.s:1037   .bss:0000000000000003 _ZL12testFinished
+     /tmp/cctSdPUI.s:294    .text._ZN18PriorityMainThread3runEv:00000000000001c0 .L0 
+     /tmp/cctSdPUI.s:1046   .text:000000000000013c .L0 
+     /tmp/cctSdPUI.s:426    .text._ZN9LowThread3runEv:000000000000003c .L0 
+     /tmp/cctSdPUI.s:469    .text._ZN12MediumThread3runEv:000000000000003c .L0 
+     /tmp/cctSdPUI.s:512    .text._ZN10HighThread3runEv:000000000000003c .L0 
+     /tmp/cctSdPUI.s:549    .text._ZN9LowThreadD2Ev:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:596    .text._ZN9LowThreadD0Ev:000000000000004c .L0 
+     /tmp/cctSdPUI.s:633    .text._ZN12MediumThreadD2Ev:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:680    .text._ZN12MediumThreadD0Ev:000000000000004c .L0 
+     /tmp/cctSdPUI.s:717    .text._ZN10HighThreadD2Ev:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:764    .text._ZN10HighThreadD0Ev:000000000000004c .L0 
+     /tmp/cctSdPUI.s:801    .text._ZN18PriorityMainThreadD2Ev:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:848    .text._ZN18PriorityMainThreadD0Ev:000000000000004c .L0 
+     /tmp/cctSdPUI.s:296    .rodata.str1.8:0000000000000000 .LC2
+     /tmp/cctSdPUI.s:339    .text:0000000000000034 .L0 
+     /tmp/cctSdPUI.s:299    .rodata.str1.8:0000000000000008 .LC3
+     /tmp/cctSdPUI.s:351    .text:0000000000000058 .L0 
+     /tmp/cctSdPUI.s:887    .text:00000000000000c4 .L0 
+     /tmp/cctSdPUI.s:902    .text:00000000000000dc .L0 
+     /tmp/cctSdPUI.s:363    .text:0000000000000078 .L16
+     /tmp/cctSdPUI.s:328    .text:0000000000000020 .L18
+     /tmp/cctSdPUI.s:912    .text:00000000000000f4 .L43
+     /tmp/cctSdPUI.s:898    .text:00000000000000dc .L44
+     /tmp/cctSdPUI.s:922    .text:0000000000000108 .L42
+     /tmp/cctSdPUI.s:57     .text._ZN18PriorityMainThread3runEv:0000000000000038 .L0 
+     /tmp/cctSdPUI.s:79     .text._ZN18PriorityMainThread3runEv:0000000000000060 .L0 
+     /tmp/cctSdPUI.s:101    .text._ZN18PriorityMainThread3runEv:0000000000000088 .L0 
+     /tmp/cctSdPUI.s:8      .rodata._ZN18PriorityMainThread3runEv.str1.8:0000000000000000 .LC0
+     /tmp/cctSdPUI.s:108    .text._ZN18PriorityMainThread3runEv:0000000000000094 .L0 
+     /tmp/cctSdPUI.s:137    .text._ZN18PriorityMainThread3runEv:00000000000000d4 .L0 
+     /tmp/cctSdPUI.s:141    .text._ZN18PriorityMainThread3runEv:00000000000000e0 .L0 
+     /tmp/cctSdPUI.s:145    .text._ZN18PriorityMainThread3runEv:00000000000000ec .L0 
+     /tmp/cctSdPUI.s:11     .rodata._ZN18PriorityMainThread3runEv.str1.8:0000000000000020 .LC1
+GAS LISTING /tmp/cctSdPUI.s 			page 30
+
+
+     /tmp/cctSdPUI.s:180    .text._ZN18PriorityMainThread3runEv:0000000000000134 .L0 
+     /tmp/cctSdPUI.s:187    .text._ZN18PriorityMainThread3runEv:0000000000000148 .L0 
+     /tmp/cctSdPUI.s:133    .text._ZN18PriorityMainThread3runEv:00000000000000d4 .L5
+     /tmp/cctSdPUI.s:128    .text._ZN18PriorityMainThread3runEv:00000000000000cc .L2
+     /tmp/cctSdPUI.s:157    .text._ZN18PriorityMainThread3runEv:000000000000010c .L4
+     /tmp/cctSdPUI.s:167    .text._ZN18PriorityMainThread3runEv:0000000000000120 .L6
+     /tmp/cctSdPUI.s:177    .text._ZN18PriorityMainThread3runEv:0000000000000134 .L7
+     /tmp/cctSdPUI.s:43     .text._ZN18PriorityMainThread3runEv:0000000000000020 .LEHB0
+     /tmp/cctSdPUI.s:18     .text._ZN18PriorityMainThread3runEv:0000000000000000 .LFB18
+     /tmp/cctSdPUI.s:46     .text._ZN18PriorityMainThread3runEv:0000000000000028 .LEHE0
+     /tmp/cctSdPUI.s:53     .text._ZN18PriorityMainThread3runEv:0000000000000030 .LEHB1
+     /tmp/cctSdPUI.s:56     .text._ZN18PriorityMainThread3runEv:0000000000000038 .LEHE1
+     /tmp/cctSdPUI.s:208    .text._ZN18PriorityMainThread3runEv:000000000000016c .L11
+     /tmp/cctSdPUI.s:65     .text._ZN18PriorityMainThread3runEv:0000000000000048 .LEHB2
+     /tmp/cctSdPUI.s:68     .text._ZN18PriorityMainThread3runEv:0000000000000050 .LEHE2
+     /tmp/cctSdPUI.s:75     .text._ZN18PriorityMainThread3runEv:0000000000000058 .LEHB3
+     /tmp/cctSdPUI.s:78     .text._ZN18PriorityMainThread3runEv:0000000000000060 .LEHE3
+     /tmp/cctSdPUI.s:220    .text._ZN18PriorityMainThread3runEv:0000000000000188 .L12
+     /tmp/cctSdPUI.s:87     .text._ZN18PriorityMainThread3runEv:0000000000000070 .LEHB4
+     /tmp/cctSdPUI.s:90     .text._ZN18PriorityMainThread3runEv:0000000000000078 .LEHE4
+     /tmp/cctSdPUI.s:97     .text._ZN18PriorityMainThread3runEv:0000000000000080 .LEHB5
+     /tmp/cctSdPUI.s:100    .text._ZN18PriorityMainThread3runEv:0000000000000088 .LEHE5
+     /tmp/cctSdPUI.s:231    .text._ZN18PriorityMainThread3runEv:00000000000001a4 .L13
+     /tmp/cctSdPUI.s:109    .text._ZN18PriorityMainThread3runEv:000000000000009c .LEHB6
+     /tmp/cctSdPUI.s:183    .text._ZN18PriorityMainThread3runEv:0000000000000144 .LEHE6
+     /tmp/cctSdPUI.s:216    .text._ZN18PriorityMainThread3runEv:0000000000000180 .LEHB7
+     /tmp/cctSdPUI.s:219    .text._ZN18PriorityMainThread3runEv:0000000000000188 .LEHE7
+     /tmp/cctSdPUI.s:227    .text._ZN18PriorityMainThread3runEv:000000000000019c .LEHB8
+     /tmp/cctSdPUI.s:230    .text._ZN18PriorityMainThread3runEv:00000000000001a4 .LEHE8
+     /tmp/cctSdPUI.s:239    .text._ZN18PriorityMainThread3runEv:00000000000001b8 .LEHB9
+     /tmp/cctSdPUI.s:242    .text._ZN18PriorityMainThread3runEv:00000000000001c0 .LEHE9
+     /tmp/cctSdPUI.s:385    .rodata._ZN9LowThread3runEv.str1.8:0000000000000000 .LC4
+     /tmp/cctSdPUI.s:406    .text._ZN9LowThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:413    .text._ZN9LowThread3runEv:0000000000000024 .L0 
+     /tmp/cctSdPUI.s:428    .rodata._ZN12MediumThread3runEv.str1.8:0000000000000000 .LC5
+     /tmp/cctSdPUI.s:449    .text._ZN12MediumThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:456    .text._ZN12MediumThread3runEv:0000000000000024 .L0 
+     /tmp/cctSdPUI.s:471    .rodata._ZN10HighThread3runEv.str1.8:0000000000000000 .LC6
+     /tmp/cctSdPUI.s:492    .text._ZN10HighThread3runEv:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:499    .text._ZN10HighThread3runEv:0000000000000024 .L0 
+     /tmp/cctSdPUI.s:531    .text._ZN9LowThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:573    .text._ZN9LowThreadD0Ev:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:615    .text._ZN12MediumThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:657    .text._ZN12MediumThreadD0Ev:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:699    .text._ZN10HighThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:741    .text._ZN10HighThreadD0Ev:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:783    .text._ZN18PriorityMainThreadD2Ev:0000000000000010 .L0 
+     /tmp/cctSdPUI.s:825    .text._ZN18PriorityMainThreadD0Ev:0000000000000018 .L0 
+     /tmp/cctSdPUI.s:873    .text:00000000000000ac .LEHB10
+     /tmp/cctSdPUI.s:853    .text:0000000000000090 .LFB19
+     /tmp/cctSdPUI.s:876    .text:00000000000000b4 .LEHE10
+     /tmp/cctSdPUI.s:883    .text:00000000000000bc .LEHB11
+     /tmp/cctSdPUI.s:886    .text:00000000000000c4 .LEHE11
+     /tmp/cctSdPUI.s:939    .text:0000000000000120 .L47
+     /tmp/cctSdPUI.s:895    .text:00000000000000d4 .LEHB12
+     /tmp/cctSdPUI.s:909    .text:00000000000000f0 .LEHE12
+     /tmp/cctSdPUI.s:947    .text:0000000000000134 .LEHB13
+GAS LISTING /tmp/cctSdPUI.s 			page 31
+
+
+     /tmp/cctSdPUI.s:950    .text:000000000000013c .LEHE13
+     /tmp/cctSdPUI.s:2605   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/cctSdPUI.s:3909   .debug_str:0000000000000510 .LASF82
+     /tmp/cctSdPUI.s:3795   .debug_str:0000000000000157 .LASF83
+     /tmp/cctSdPUI.s:3797   .debug_str:000000000000016d .LASF84
+     /tmp/cctSdPUI.s:3721   .debug_ranges:0000000000000000 .Ldebug_ranges0
+     /tmp/cctSdPUI.s:3751   .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/cctSdPUI.s:3857   .debug_str:0000000000000345 .LASF0
+     /tmp/cctSdPUI.s:3867   .debug_str:000000000000039f .LASF1
+     /tmp/cctSdPUI.s:3849   .debug_str:000000000000030b .LASF2
+     /tmp/cctSdPUI.s:3823   .debug_str:0000000000000249 .LASF4
+     /tmp/cctSdPUI.s:3899   .debug_str:00000000000004c4 .LASF3
+     /tmp/cctSdPUI.s:3769   .debug_str:000000000000007f .LASF5
+     /tmp/cctSdPUI.s:3873   .debug_str:00000000000003d7 .LASF6
+     /tmp/cctSdPUI.s:3855   .debug_str:0000000000000332 .LASF7
+     /tmp/cctSdPUI.s:3921   .debug_str:0000000000000624 .LASF8
+     /tmp/cctSdPUI.s:3813   .debug_str:0000000000000217 .LASF9
+     /tmp/cctSdPUI.s:3879   .debug_str:0000000000000405 .LASF10
+     /tmp/cctSdPUI.s:3913   .debug_str:00000000000005ea .LASF11
+     /tmp/cctSdPUI.s:3773   .debug_str:000000000000009c .LASF12
+     /tmp/cctSdPUI.s:3759   .debug_str:0000000000000028 .LASF13
+     /tmp/cctSdPUI.s:3783   .debug_str:00000000000000f7 .LASF14
+     /tmp/cctSdPUI.s:3897   .debug_str:00000000000004ae .LASF15
+     /tmp/cctSdPUI.s:3799   .debug_str:0000000000000190 .LASF16
+     /tmp/cctSdPUI.s:3789   .debug_str:000000000000011c .LASF85
+     /tmp/cctSdPUI.s:3775   .debug_str:00000000000000ac .LASF17
+     /tmp/cctSdPUI.s:3787   .debug_str:0000000000000115 .LASF18
+     /tmp/cctSdPUI.s:3875   .debug_str:00000000000003ea .LASF19
+     /tmp/cctSdPUI.s:3851   .debug_str:0000000000000319 .LASF20
+     /tmp/cctSdPUI.s:3807   .debug_str:00000000000001e9 .LASF21
+     /tmp/cctSdPUI.s:3861   .debug_str:000000000000036a .LASF22
+     /tmp/cctSdPUI.s:3905   .debug_str:00000000000004f9 .LASF23
+     /tmp/cctSdPUI.s:3763   .debug_str:0000000000000044 .LASF24
+     /tmp/cctSdPUI.s:3901   .debug_str:00000000000004d6 .LASF25
+     /tmp/cctSdPUI.s:3777   .debug_str:00000000000000b1 .LASF26
+     /tmp/cctSdPUI.s:3779   .debug_str:00000000000000cf .LASF27
+     /tmp/cctSdPUI.s:3895   .debug_str:0000000000000492 .LASF35
+     /tmp/cctSdPUI.s:3881   .debug_str:0000000000000414 .LASF37
+     /tmp/cctSdPUI.s:3833   .debug_str:000000000000028a .LASF39
+     /tmp/cctSdPUI.s:3935   .debug_str:0000000000000690 .LASF41
+     /tmp/cctSdPUI.s:3917   .debug_str:000000000000060b .LASF86
+     /tmp/cctSdPUI.s:3811   .debug_str:0000000000000204 .LASF28
+     /tmp/cctSdPUI.s:3815   .debug_str:0000000000000225 .LASF30
+     /tmp/cctSdPUI.s:3809   .debug_str:00000000000001ee .LASF29
+     /tmp/cctSdPUI.s:3929   .debug_str:0000000000000665 .LASF31
+     /tmp/cctSdPUI.s:3865   .debug_str:0000000000000395 .LASF32
+     /tmp/cctSdPUI.s:3891   .debug_str:0000000000000469 .LASF33
+     /tmp/cctSdPUI.s:3893   .debug_str:000000000000047d .LASF34
+     /tmp/cctSdPUI.s:3919   .debug_str:0000000000000612 .LASF36
+     /tmp/cctSdPUI.s:3805   .debug_str:00000000000001d5 .LASF38
+     /tmp/cctSdPUI.s:3907   .debug_str:0000000000000505 .LASF40
+     /tmp/cctSdPUI.s:3927   .debug_str:0000000000000653 .LASF42
+     /tmp/cctSdPUI.s:3937   .debug_str:00000000000006ac .LASF43
+     /tmp/cctSdPUI.s:3767   .debug_str:0000000000000067 .LASF44
+     /tmp/cctSdPUI.s:3883   .debug_str:0000000000000432 .LASF45
+     /tmp/cctSdPUI.s:3825   .debug_str:0000000000000250 .LASF46
+     /tmp/cctSdPUI.s:3859   .debug_str:0000000000000352 .LASF47
+GAS LISTING /tmp/cctSdPUI.s 			page 32
+
+
+     /tmp/cctSdPUI.s:3933   .debug_str:0000000000000682 .LASF48
+     /tmp/cctSdPUI.s:3877   .debug_str:00000000000003ef .LASF49
+     /tmp/cctSdPUI.s:3829   .debug_str:0000000000000278 .LASF50
+     /tmp/cctSdPUI.s:3753   .debug_str:0000000000000000 .LASF51
+     /tmp/cctSdPUI.s:3835   .debug_str:000000000000029e .LASF52
+     /tmp/cctSdPUI.s:3843   .debug_str:00000000000002dc .LASF53
+     /tmp/cctSdPUI.s:3765   .debug_str:0000000000000051 .LASF54
+     /tmp/cctSdPUI.s:3853   .debug_str:0000000000000326 .LASF55
+     /tmp/cctSdPUI.s:3845   .debug_str:00000000000002f0 .LASF56
+     /tmp/cctSdPUI.s:3885   .debug_str:000000000000044b .LASF57
+     /tmp/cctSdPUI.s:3819   .debug_str:000000000000023a .LASF58
+     /tmp/cctSdPUI.s:3791   .debug_str:000000000000012b .LASF59
+     /tmp/cctSdPUI.s:722    .text._ZN10HighThreadD0Ev:0000000000000000 .LFB35
+     /tmp/cctSdPUI.s:762    .text._ZN10HighThreadD0Ev:000000000000004c .LFE35
+     /tmp/cctSdPUI.s:3334   .debug_loc:0000000000000000 .LLST19
+     /tmp/cctSdPUI.s:738    .text._ZN10HighThreadD0Ev:0000000000000018 .LBB40
+     /tmp/cctSdPUI.s:746    .text._ZN10HighThreadD0Ev:000000000000002c .LBE40
+     /tmp/cctSdPUI.s:3352   .debug_loc:000000000000004c .LLST20
+     /tmp/cctSdPUI.s:744    .text._ZN10HighThreadD0Ev:000000000000002c .LVL73
+     /tmp/cctSdPUI.s:749    .text._ZN10HighThreadD0Ev:0000000000000038 .LVL74
+     /tmp/cctSdPUI.s:3931   .debug_str:000000000000066e .LASF60
+     /tmp/cctSdPUI.s:685    .text._ZN10HighThreadD2Ev:0000000000000000 .LFB33
+     /tmp/cctSdPUI.s:713    .text._ZN10HighThreadD2Ev:0000000000000034 .LFE33
+     /tmp/cctSdPUI.s:3363   .debug_loc:0000000000000082 .LLST18
+     /tmp/cctSdPUI.s:702    .text._ZN10HighThreadD2Ev:0000000000000024 .LVL70
+     /tmp/cctSdPUI.s:3771   .debug_str:0000000000000086 .LASF61
+     /tmp/cctSdPUI.s:638    .text._ZN12MediumThreadD0Ev:0000000000000000 .LFB31
+     /tmp/cctSdPUI.s:678    .text._ZN12MediumThreadD0Ev:000000000000004c .LFE31
+     /tmp/cctSdPUI.s:3377   .debug_loc:00000000000000bb .LLST16
+     /tmp/cctSdPUI.s:654    .text._ZN12MediumThreadD0Ev:0000000000000018 .LBB37
+     /tmp/cctSdPUI.s:662    .text._ZN12MediumThreadD0Ev:000000000000002c .LBE37
+     /tmp/cctSdPUI.s:3395   .debug_loc:0000000000000107 .LLST17
+     /tmp/cctSdPUI.s:660    .text._ZN12MediumThreadD0Ev:000000000000002c .LVL66
+     /tmp/cctSdPUI.s:665    .text._ZN12MediumThreadD0Ev:0000000000000038 .LVL67
+     /tmp/cctSdPUI.s:3911   .debug_str:00000000000005d4 .LASF62
+     /tmp/cctSdPUI.s:601    .text._ZN12MediumThreadD2Ev:0000000000000000 .LFB29
+     /tmp/cctSdPUI.s:629    .text._ZN12MediumThreadD2Ev:0000000000000034 .LFE29
+     /tmp/cctSdPUI.s:3406   .debug_loc:000000000000013d .LLST15
+     /tmp/cctSdPUI.s:618    .text._ZN12MediumThreadD2Ev:0000000000000024 .LVL63
+     /tmp/cctSdPUI.s:3827   .debug_str:0000000000000266 .LASF63
+     /tmp/cctSdPUI.s:554    .text._ZN9LowThreadD0Ev:0000000000000000 .LFB27
+     /tmp/cctSdPUI.s:594    .text._ZN9LowThreadD0Ev:000000000000004c .LFE27
+     /tmp/cctSdPUI.s:3420   .debug_loc:0000000000000176 .LLST13
+     /tmp/cctSdPUI.s:570    .text._ZN9LowThreadD0Ev:0000000000000018 .LBB34
+     /tmp/cctSdPUI.s:578    .text._ZN9LowThreadD0Ev:000000000000002c .LBE34
+     /tmp/cctSdPUI.s:3438   .debug_loc:00000000000001c2 .LLST14
+     /tmp/cctSdPUI.s:576    .text._ZN9LowThreadD0Ev:000000000000002c .LVL59
+     /tmp/cctSdPUI.s:581    .text._ZN9LowThreadD0Ev:0000000000000038 .LVL60
+     /tmp/cctSdPUI.s:3785   .debug_str:0000000000000103 .LASF64
+     /tmp/cctSdPUI.s:517    .text._ZN9LowThreadD2Ev:0000000000000000 .LFB25
+     /tmp/cctSdPUI.s:545    .text._ZN9LowThreadD2Ev:0000000000000034 .LFE25
+     /tmp/cctSdPUI.s:3449   .debug_loc:00000000000001f8 .LLST12
+     /tmp/cctSdPUI.s:534    .text._ZN9LowThreadD2Ev:0000000000000024 .LVL56
+     /tmp/cctSdPUI.s:3837   .debug_str:00000000000002b5 .LASF65
+     /tmp/cctSdPUI.s:806    .text._ZN18PriorityMainThreadD0Ev:0000000000000000 .LFB23
+     /tmp/cctSdPUI.s:846    .text._ZN18PriorityMainThreadD0Ev:000000000000004c .LFE23
+     /tmp/cctSdPUI.s:3463   .debug_loc:0000000000000231 .LLST22
+GAS LISTING /tmp/cctSdPUI.s 			page 33
+
+
+     /tmp/cctSdPUI.s:822    .text._ZN18PriorityMainThreadD0Ev:0000000000000018 .LBB43
+     /tmp/cctSdPUI.s:830    .text._ZN18PriorityMainThreadD0Ev:000000000000002c .LBE43
+     /tmp/cctSdPUI.s:3481   .debug_loc:000000000000027d .LLST23
+     /tmp/cctSdPUI.s:828    .text._ZN18PriorityMainThreadD0Ev:000000000000002c .LVL80
+     /tmp/cctSdPUI.s:833    .text._ZN18PriorityMainThreadD0Ev:0000000000000038 .LVL81
+     /tmp/cctSdPUI.s:3801   .debug_str:00000000000001a6 .LASF66
+     /tmp/cctSdPUI.s:769    .text._ZN18PriorityMainThreadD2Ev:0000000000000000 .LFB21
+     /tmp/cctSdPUI.s:797    .text._ZN18PriorityMainThreadD2Ev:0000000000000034 .LFE21
+     /tmp/cctSdPUI.s:3492   .debug_loc:00000000000002b3 .LLST21
+     /tmp/cctSdPUI.s:786    .text._ZN18PriorityMainThreadD2Ev:0000000000000024 .LVL77
+     /tmp/cctSdPUI.s:3757   .debug_str:000000000000001b .LASF87
+     /tmp/cctSdPUI.s:3915   .debug_str:00000000000005f9 .LASF88
+     /tmp/cctSdPUI.s:952    .text:000000000000013c .LFE19
+     /tmp/cctSdPUI.s:3889   .debug_str:0000000000000464 .LASF67
+     /tmp/cctSdPUI.s:3506   .debug_loc:00000000000002ec .LLST24
+     /tmp/cctSdPUI.s:879    .text:00000000000000b8 .LBB45
+     /tmp/cctSdPUI.s:891    .text:00000000000000d0 .LBE45
+     /tmp/cctSdPUI.s:3513   .debug_loc:000000000000030f .LLST25
+     /tmp/cctSdPUI.s:885    .text:00000000000000c4 .LVL85
+     /tmp/cctSdPUI.s:875    .text:00000000000000b4 .LVL83
+     /tmp/cctSdPUI.s:897    .text:00000000000000dc .LVL87
+     /tmp/cctSdPUI.s:908    .text:00000000000000f0 .LVL88
+     /tmp/cctSdPUI.s:921    .text:0000000000000108 .LVL89
+     /tmp/cctSdPUI.s:945    .text:0000000000000130 .LVL92
+     /tmp/cctSdPUI.s:949    .text:000000000000013c .LVL93
+     /tmp/cctSdPUI.s:244    .text._ZN18PriorityMainThread3runEv:00000000000001c0 .LFE18
+     /tmp/cctSdPUI.s:3524   .debug_loc:0000000000000345 .LLST0
+     /tmp/cctSdPUI.s:3538   .debug_loc:000000000000037e .LLST1
+     /tmp/cctSdPUI.s:3831   .debug_str:0000000000000283 .LASF68
+     /tmp/cctSdPUI.s:3549   .debug_loc:00000000000003b4 .LLST2
+     /tmp/cctSdPUI.s:3821   .debug_str:0000000000000244 .LASF69
+     /tmp/cctSdPUI.s:3560   .debug_loc:00000000000003ea .LLST3
+     /tmp/cctSdPUI.s:49     .text._ZN18PriorityMainThread3runEv:000000000000002c .LBB26
+     /tmp/cctSdPUI.s:61     .text._ZN18PriorityMainThread3runEv:0000000000000044 .LBE26
+     /tmp/cctSdPUI.s:3567   .debug_loc:000000000000040d .LLST4
+     /tmp/cctSdPUI.s:55     .text._ZN18PriorityMainThread3runEv:0000000000000038 .LVL4
+     /tmp/cctSdPUI.s:71     .text._ZN18PriorityMainThread3runEv:0000000000000054 .LBB28
+     /tmp/cctSdPUI.s:83     .text._ZN18PriorityMainThread3runEv:000000000000006c .LBE28
+     /tmp/cctSdPUI.s:3582   .debug_loc:0000000000000456 .LLST5
+     /tmp/cctSdPUI.s:77     .text._ZN18PriorityMainThread3runEv:0000000000000060 .LVL8
+     /tmp/cctSdPUI.s:93     .text._ZN18PriorityMainThread3runEv:000000000000007c .LBB30
+     /tmp/cctSdPUI.s:105    .text._ZN18PriorityMainThread3runEv:0000000000000094 .LBE30
+     /tmp/cctSdPUI.s:3597   .debug_loc:000000000000049f .LLST6
+     /tmp/cctSdPUI.s:99     .text._ZN18PriorityMainThread3runEv:0000000000000088 .LVL12
+     /tmp/cctSdPUI.s:45     .text._ZN18PriorityMainThread3runEv:0000000000000028 .LVL2
+     /tmp/cctSdPUI.s:67     .text._ZN18PriorityMainThread3runEv:0000000000000050 .LVL6
+     /tmp/cctSdPUI.s:89     .text._ZN18PriorityMainThread3runEv:0000000000000078 .LVL10
+     /tmp/cctSdPUI.s:111    .text._ZN18PriorityMainThread3runEv:00000000000000a4 .LVL14
+     /tmp/cctSdPUI.s:116    .text._ZN18PriorityMainThread3runEv:00000000000000b0 .LVL15
+     /tmp/cctSdPUI.s:121    .text._ZN18PriorityMainThread3runEv:00000000000000bc .LVL16
+     /tmp/cctSdPUI.s:126    .text._ZN18PriorityMainThread3runEv:00000000000000c8 .LVL17
+     /tmp/cctSdPUI.s:132    .text._ZN18PriorityMainThread3runEv:00000000000000d4 .LVL18
+     /tmp/cctSdPUI.s:156    .text._ZN18PriorityMainThread3runEv:000000000000010c .LVL19
+     /tmp/cctSdPUI.s:166    .text._ZN18PriorityMainThread3runEv:0000000000000120 .LVL20
+     /tmp/cctSdPUI.s:176    .text._ZN18PriorityMainThread3runEv:0000000000000134 .LVL21
+     /tmp/cctSdPUI.s:182    .text._ZN18PriorityMainThread3runEv:0000000000000144 .LVL22
+     /tmp/cctSdPUI.s:214    .text._ZN18PriorityMainThread3runEv:000000000000017c .LVL27
+GAS LISTING /tmp/cctSdPUI.s 			page 34
+
+
+     /tmp/cctSdPUI.s:218    .text._ZN18PriorityMainThread3runEv:0000000000000188 .LVL28
+     /tmp/cctSdPUI.s:225    .text._ZN18PriorityMainThread3runEv:0000000000000198 .LVL29
+     /tmp/cctSdPUI.s:229    .text._ZN18PriorityMainThread3runEv:00000000000001a4 .LVL30
+     /tmp/cctSdPUI.s:237    .text._ZN18PriorityMainThread3runEv:00000000000001b4 .LVL32
+     /tmp/cctSdPUI.s:241    .text._ZN18PriorityMainThread3runEv:00000000000001c0 .LVL33
+     /tmp/cctSdPUI.s:3863   .debug_str:0000000000000379 .LASF70
+     /tmp/cctSdPUI.s:392    .text._ZN9LowThread3runEv:0000000000000000 .LFB14
+     /tmp/cctSdPUI.s:424    .text._ZN9LowThread3runEv:000000000000003c .LFE14
+     /tmp/cctSdPUI.s:3608   .debug_loc:00000000000004d5 .LLST9
+     /tmp/cctSdPUI.s:409    .text._ZN9LowThread3runEv:0000000000000020 .LVL48
+     /tmp/cctSdPUI.s:3923   .debug_str:0000000000000634 .LASF71
+     /tmp/cctSdPUI.s:435    .text._ZN12MediumThread3runEv:0000000000000000 .LFB10
+     /tmp/cctSdPUI.s:467    .text._ZN12MediumThread3runEv:000000000000003c .LFE10
+     /tmp/cctSdPUI.s:3622   .debug_loc:000000000000050e .LLST10
+     /tmp/cctSdPUI.s:452    .text._ZN12MediumThread3runEv:0000000000000020 .LVL51
+     /tmp/cctSdPUI.s:3871   .debug_str:00000000000003c1 .LASF72
+     /tmp/cctSdPUI.s:478    .text._ZN10HighThread3runEv:0000000000000000 .LFB6
+     /tmp/cctSdPUI.s:510    .text._ZN10HighThread3runEv:000000000000003c .LFE6
+     /tmp/cctSdPUI.s:3636   .debug_loc:0000000000000547 .LLST11
+     /tmp/cctSdPUI.s:495    .text._ZN10HighThread3runEv:0000000000000020 .LVL54
+     /tmp/cctSdPUI.s:3887   .debug_str:0000000000000450 .LASF73
+     /tmp/cctSdPUI.s:3755   .debug_str:0000000000000016 .LASF89
+     /tmp/cctSdPUI.s:305    .text:0000000000000000 .LFB2
+     /tmp/cctSdPUI.s:381    .text:0000000000000090 .LFE2
+     /tmp/cctSdPUI.s:3839   .debug_str:00000000000002d1 .LASF90
+     /tmp/cctSdPUI.s:3650   .debug_loc:0000000000000580 .LLST7
+     /tmp/cctSdPUI.s:324    .text:000000000000001c .LBB32
+     /tmp/cctSdPUI.s:364    .text:0000000000000078 .LBE32
+     /tmp/cctSdPUI.s:3668   .debug_loc:00000000000005cc .LLST8
+     /tmp/cctSdPUI.s:336    .text:0000000000000034 .LVL37
+     /tmp/cctSdPUI.s:341    .text:0000000000000044 .LVL38
+     /tmp/cctSdPUI.s:348    .text:0000000000000058 .LVL39
+     /tmp/cctSdPUI.s:353    .text:0000000000000068 .LVL40
+     /tmp/cctSdPUI.s:357    .text:0000000000000070 .LVL41
+     /tmp/cctSdPUI.s:3847   .debug_str:0000000000000304 .LASF74
+     /tmp/cctSdPUI.s:3903   .debug_str:00000000000004e9 .LASF75
+     /tmp/cctSdPUI.s:3841   .debug_str:00000000000002d6 .LASF76
+     /tmp/cctSdPUI.s:3925   .debug_str:0000000000000646 .LASF77
+     /tmp/cctSdPUI.s:3817   .debug_str:000000000000022b .LASF91
+     /tmp/cctSdPUI.s:3793   .debug_str:000000000000013f .LASF92
+     /tmp/cctSdPUI.s:3803   .debug_str:00000000000001c2 .LASF78
+     /tmp/cctSdPUI.s:3761   .debug_str:0000000000000038 .LASF79
+     /tmp/cctSdPUI.s:3869   .debug_str:00000000000003b2 .LASF80
+     /tmp/cctSdPUI.s:3781   .debug_str:00000000000000ee .LASF81
+     /tmp/cctSdPUI.s:725    .text._ZN10HighThreadD0Ev:0000000000000000 .LVL71
+     /tmp/cctSdPUI.s:757    .text._ZN10HighThreadD0Ev:0000000000000044 .LVL75
+     /tmp/cctSdPUI.s:737    .text._ZN10HighThreadD0Ev:0000000000000018 .LVL72
+     /tmp/cctSdPUI.s:688    .text._ZN10HighThreadD2Ev:0000000000000000 .LVL69
+     /tmp/cctSdPUI.s:641    .text._ZN12MediumThreadD0Ev:0000000000000000 .LVL64
+     /tmp/cctSdPUI.s:673    .text._ZN12MediumThreadD0Ev:0000000000000044 .LVL68
+     /tmp/cctSdPUI.s:653    .text._ZN12MediumThreadD0Ev:0000000000000018 .LVL65
+     /tmp/cctSdPUI.s:604    .text._ZN12MediumThreadD2Ev:0000000000000000 .LVL62
+     /tmp/cctSdPUI.s:557    .text._ZN9LowThreadD0Ev:0000000000000000 .LVL57
+     /tmp/cctSdPUI.s:589    .text._ZN9LowThreadD0Ev:0000000000000044 .LVL61
+     /tmp/cctSdPUI.s:569    .text._ZN9LowThreadD0Ev:0000000000000018 .LVL58
+     /tmp/cctSdPUI.s:520    .text._ZN9LowThreadD2Ev:0000000000000000 .LVL55
+     /tmp/cctSdPUI.s:809    .text._ZN18PriorityMainThreadD0Ev:0000000000000000 .LVL78
+GAS LISTING /tmp/cctSdPUI.s 			page 35
+
+
+     /tmp/cctSdPUI.s:841    .text._ZN18PriorityMainThreadD0Ev:0000000000000044 .LVL82
+     /tmp/cctSdPUI.s:821    .text._ZN18PriorityMainThreadD0Ev:0000000000000018 .LVL79
+     /tmp/cctSdPUI.s:772    .text._ZN18PriorityMainThreadD2Ev:0000000000000000 .LVL76
+     /tmp/cctSdPUI.s:889    .text:00000000000000d0 .LVL86
+     /tmp/cctSdPUI.s:932    .text:0000000000000114 .LVL90
+     /tmp/cctSdPUI.s:878    .text:00000000000000b8 .LVL84
+     /tmp/cctSdPUI.s:938    .text:0000000000000120 .LVL91
+     /tmp/cctSdPUI.s:24     .text._ZN18PriorityMainThread3runEv:0000000000000000 .LVL0
+     /tmp/cctSdPUI.s:42     .text._ZN18PriorityMainThread3runEv:0000000000000020 .LVL1
+     /tmp/cctSdPUI.s:59     .text._ZN18PriorityMainThread3runEv:0000000000000044 .LVL5
+     /tmp/cctSdPUI.s:203    .text._ZN18PriorityMainThread3runEv:0000000000000164 .LVL25
+     /tmp/cctSdPUI.s:81     .text._ZN18PriorityMainThread3runEv:000000000000006c .LVL9
+     /tmp/cctSdPUI.s:200    .text._ZN18PriorityMainThread3runEv:0000000000000160 .LVL24
+     /tmp/cctSdPUI.s:233    .text._ZN18PriorityMainThread3runEv:00000000000001a8 .LVL31
+     /tmp/cctSdPUI.s:103    .text._ZN18PriorityMainThread3runEv:0000000000000094 .LVL13
+     /tmp/cctSdPUI.s:197    .text._ZN18PriorityMainThread3runEv:000000000000015c .LVL23
+     /tmp/cctSdPUI.s:48     .text._ZN18PriorityMainThread3runEv:000000000000002c .LVL3
+     /tmp/cctSdPUI.s:207    .text._ZN18PriorityMainThread3runEv:000000000000016c .LVL26
+     /tmp/cctSdPUI.s:70     .text._ZN18PriorityMainThread3runEv:0000000000000054 .LVL7
+     /tmp/cctSdPUI.s:92     .text._ZN18PriorityMainThread3runEv:000000000000007c .LVL11
+     /tmp/cctSdPUI.s:395    .text._ZN9LowThread3runEv:0000000000000000 .LVL46
+     /tmp/cctSdPUI.s:407    .text._ZN9LowThread3runEv:0000000000000018 .LVL47
+     /tmp/cctSdPUI.s:438    .text._ZN12MediumThread3runEv:0000000000000000 .LVL49
+     /tmp/cctSdPUI.s:450    .text._ZN12MediumThread3runEv:0000000000000018 .LVL50
+     /tmp/cctSdPUI.s:481    .text._ZN10HighThread3runEv:0000000000000000 .LVL52
+     /tmp/cctSdPUI.s:493    .text._ZN10HighThread3runEv:0000000000000018 .LVL53
+     /tmp/cctSdPUI.s:308    .text:0000000000000000 .LVL34
+     /tmp/cctSdPUI.s:327    .text:0000000000000020 .LVL36
+     /tmp/cctSdPUI.s:376    .text:0000000000000088 .LVL45
+     /tmp/cctSdPUI.s:323    .text:000000000000001c .LVL35
+     /tmp/cctSdPUI.s:360    .text:0000000000000074 .LVL42
+     /tmp/cctSdPUI.s:362    .text:0000000000000078 .LVL43
+     /tmp/cctSdPUI.s:373    .text:0000000000000084 .LVL44
+     /tmp/cctSdPUI.s:1047   .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/cctSdPUI.s:5      .text:0000000000000000 .Ltext0
+     /tmp/cctSdPUI.s:1040   .text:000000000000013c .Letext0
+     /tmp/cctSdPUI.s:247    .gcc_except_table._ZN18PriorityMainThread3runEv:0000000000000000 .LLSDA18
+     /tmp/cctSdPUI.s:954    .gcc_except_table:0000000000000000 .LLSDA19
+                           .group:0000000000000000 _ZN9LowThreadD5Ev
+                           .group:0000000000000000 _ZN12MediumThreadD5Ev
+                           .group:0000000000000000 _ZN10HighThreadD5Ev
+                           .group:0000000000000000 _ZN18PriorityMainThreadD5Ev
+
+UNDEFINED SYMBOLS
+_Znwm
+_ZN6ThreadC2E14ThreadPriority
+_Z11printStringPKc
+_ZN6Thread5startEv
+_ZN6Thread8dispatchEv
+_ZdlPv
+_Unwind_Resume
+__gxx_personality_v0
+_Z8printIntiii
+_ZN6ThreadD2Ev

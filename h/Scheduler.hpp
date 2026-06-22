@@ -12,11 +12,17 @@ public:
     static void put(_thread* thread);
     static _thread* get();
 
-    static bool isEmpty();
-
 private:
-    static _thread* head;
-    static _thread* tail;
+    static _thread* highHead;
+    static _thread* highTail;
+
+    static _thread* mediumHead;
+    static _thread* mediumTail;
+
+    static _thread* lowHead;
+    static _thread* lowTail;
+    static void putInList(_thread* thread, _thread*& head, _thread*& tail);
+    static _thread* getFromList(_thread*& head, _thread*& tail);
 };
 
 #endif //PROJECT_BASE_V1_1_SCHEDULER_H

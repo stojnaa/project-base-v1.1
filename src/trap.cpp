@@ -19,6 +19,7 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
         uint64 arg2 = frame->a2;
         uint64 arg3 = frame->a3;
         uint64 arg4 = frame->a4;
+        uint64 arg5 = frame->a5;
 
         switch (syscallCode) {
             case 0x01: {
@@ -42,14 +43,14 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                     break;
                 }
 
-                _thread* thread = _thread::createThread(body, arg, stackSpace);
+                _thread* thread = _thread::createThread(body, arg, stackSpace, LOW);
 
                 if (thread == nullptr) {
                     frame->a0 = (uint64)-1;
                     break;
                 }
 
-                *handle = thread;//korisnik dobija rucku nove niti
+                *handle = thread;
                 Scheduler::put(thread);
 
                 frame->a0 = 0;
@@ -66,6 +67,31 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                 frame->sepc += 4;
                 _thread::dispatch();//nismo frame->a0 jer dispatch nema povratnu value
                 return;
+            }
+            case 0x14: {
+                thread_t* handle = (thread_t*)arg1;
+                _thread::Body body = (_thread::Body)arg2;
+                void* arg = (void*)arg3;
+                void* stackSpace = (void*)arg4;
+                ThreadPriority priority = (ThreadPriority)arg5;
+
+                if (handle == nullptr || body == nullptr || stackSpace == nullptr) {
+                    frame->a0 = (uint64)-1;
+                    break;
+                }
+
+                _thread* thread = _thread::createThread(body, arg, stackSpace, priority);
+
+                if (thread == nullptr) {
+                    frame->a0 = (uint64)-1;
+                    break;
+                }
+
+                *handle = thread;
+                Scheduler::put(thread);
+
+                frame->a0 = 0;
+                break;
             }
             case 0x21: {//ne povecavamo sepc jer ne menja trenutno izvrsavanje
                 sem_t* handle = (sem_t*)arg1;

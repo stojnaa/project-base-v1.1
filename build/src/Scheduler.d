@@ -1,8 +1,10 @@
 build/src/Scheduler.o: src/Scheduler.cpp src/../h/Scheduler.hpp \
- src/../h/Thread.hpp src/../h/../lib/hw.h
+ src/../h/Thread.hpp src/../h/../lib/hw.h src/../h/ThreadPriority.hpp
 
 src/../h/Scheduler.hpp:
 
 src/../h/Thread.hpp:
 
 src/../h/../lib/hw.h:
+
+src/../h/ThreadPriority.hpp:

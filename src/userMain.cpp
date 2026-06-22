@@ -11,6 +11,7 @@
 #include "../test/Threads_CPP_API_test.hpp"
 // TEST 7 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnickom rezimu)
 #include "../test/System_Mode_test.hpp"
+#include "../test/PriorityTest.hpp"
 #endif
 
 #if LEVEL_3_IMPLEMENTED == 1
@@ -97,6 +98,12 @@ void userMain() {
             System_Mode_test();
             printString("Test se nije uspesno zavrsio\n");
             printString("TEST 7 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnickom rezimu)\n");
+#endif
+            break;
+        case 8:
+#if LEVEL_2_IMPLEMENTED == 1
+            PriorityTest();
+            printString("TEST 8 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnickom rezimu)\n");
 #endif
             break;
         default:

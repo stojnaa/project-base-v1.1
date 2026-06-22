@@ -1,9 +1,9 @@
 #include "../h/syscall_c.hpp"
 
 static uint64 doSyscall(uint64 code, uint64 arg1 = 0, uint64 arg2 = 0,
-                        uint64 arg3 = 0, uint64 arg4 = 0) {
+                        uint64 arg3 = 0, uint64 arg4 = 0, uint64 arg5 = 0) {
     uint64 ret;
-
+    asm volatile("mv a5, %0" : : "r"(arg5));
     asm volatile("mv a4, %0" : : "r"(arg4));
     asm volatile("mv a3, %0" : : "r"(arg3));
     asm volatile("mv a2, %0" : : "r"(arg2));
@@ -31,31 +31,48 @@ int mem_free(void* ptr) {
     return (int)doSyscall(0x02, (uint64)ptr);
 }
 
-
-int thread_create(thread_t* handle, void (*start_routine)(void*), void* arg){
-    if (handle == nullptr || start_routine == nullptr){//handle je mesto gde kernel upisuje pokazivac na napravljenu nit
+int thread_create(thread_t* handle, void (*start_routine)(void*), void* arg) {
+    if (handle == nullptr || start_routine == nullptr) {
         return -1;
     }
-    void* stack = mem_alloc(DEFAULT_STACK_SIZE);//stack pokazuje na pocetak alociranog prostora
-    if (stack == nullptr){
+
+    void* stack = mem_alloc(DEFAULT_STACK_SIZE);
+
+    if (stack == nullptr) {
         return -1;
     }
-    uint64 stackTop = (uint64)stack + DEFAULT_STACK_SIZE;//stek raste na dole, pocetni sp na kraju alociranog prostora
-    stackTop &= ~((uint64)0xF);//obrisemo poslednja 4 bita adrese jer deljivo sa 16
 
-    int ret = (int)doSyscall(
-            0x11,
+    uint64 stackTop = (uint64)stack + DEFAULT_STACK_SIZE;
+    stackTop &= ~((uint64)0xF);
+
+    return (int)doSyscall(
+        0x11,
+        (uint64)handle,
+        (uint64)start_routine,
+        (uint64)arg,
+        stackTop
+    );
+}
+
+int thread_create_priority(thread_t* handle, void (*start_routine)(void*), void* arg, ThreadPriority priority) {
+        if (handle == nullptr || start_routine == nullptr){//handle je mesto gde kernel upisuje pokazivac na napravljenu nit
+            return -1;
+        }
+        void* stack = mem_alloc(DEFAULT_STACK_SIZE);//stack pokazuje na pocetak alociranog prostora
+        if (stack == nullptr){
+            return -1;
+        }
+        uint64 stackTop = (uint64)stack + DEFAULT_STACK_SIZE;//stek raste na dole, pocetni sp na kraju alociranog prostora
+        stackTop &= ~((uint64)0xF);//obrisemo poslednja 4 bita adrese jer deljivo sa 16
+
+        return (int)doSyscall(
+            0x14,
             (uint64)handle,
             (uint64)start_routine,
             (uint64)arg,
-            stackTop
-    );
-
-    if (ret < 0) {
-        mem_free(stack);
-    }
-
-    return ret;
+            stackTop,
+            (uint64)priority
+        );
 }
 int thread_exit() {
     return (int)doSyscall(0x12);

@@ -32,7 +32,7 @@ void _thread::operator delete[](void* ptr) {
     MemoryAllocator::getInstance().free(ptr);
 }
 
-_thread::_thread(Body body, void* arg, void* stackSpace) {
+_thread::_thread(Body body, void* arg, void* stackSpace, ThreadPriority priority) {
     this->body = body;
     this->arg = arg;
 
@@ -60,10 +60,11 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
     this->timeSlice = DEFAULT_TIME_SLICE;
     this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
+    this->priority = priority;
 }
 
-_thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
-    return new _thread(body, arg, stackSpace);
+_thread* _thread::createThread(Body body, void* arg, void* stackSpace, ThreadPriority priority) {
+    return new _thread(body, arg, stackSpace, priority);
 }
 
 int _thread::destroyThread(_thread* thread) {
@@ -133,6 +134,9 @@ _thread::Context* _thread::getContext() {
 
 _thread::State _thread::getState() const {
     return state;
+}
+ThreadPriority _thread::getPriority() const {
+    return priority;
 }
 
 void _thread::setState(State state) {

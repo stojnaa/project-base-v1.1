@@ -6,6 +6,7 @@
 #include "../h/syscall_c.hpp"
 #include "../h/Semaphore.hpp"
 #include "../lib/console.h"
+#include "../test/printing.hpp"
 
 extern "C" void handleSupervisorTrap(TrapFrame* frame);
 
@@ -194,6 +195,12 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
         return;
     }
     if (scause == 2) { // illegal instruction
+        printString("ERROR, scause: ");
+        printInt(scause);
+        printString(",sepc ");
+        printInt(frame->sepc);
+        printString("\n");
+
         frame->sepc += 4;
         Riscv::w_sepc(frame->sepc);
         return;

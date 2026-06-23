@@ -26,7 +26,8 @@ int thread_create(
 int thread_exit();
 
 void thread_dispatch();
-
+int thread_addChild(thread_t child);
+int thread_joinAll();
 int sem_open(sem_t* handle, unsigned init);
 int sem_close(sem_t handle);
 

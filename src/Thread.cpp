@@ -3,6 +3,7 @@
 #include "../h/MemoryAllocator.hpp"
 #include "../h/riscv.hpp"
 #include "../h/syscall_c.hpp"
+#include "../h/Semaphore.hpp"
 
 _thread* _thread::running = nullptr;
 
@@ -62,6 +63,10 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
     this->timeSlice = DEFAULT_TIME_SLICE;
     this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
+    this->parent = nullptr;
+    this->activeDescendants = 0;
+    this->waitingJoinAll = false;
+    this->joinAllSem = _sem::createSemaphore(0);
 }
 
 _thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
@@ -76,6 +81,11 @@ int _thread::destroyThread(_thread* thread) {
     if (thread->stack != nullptr) {
         MemoryAllocator::getInstance().free(thread->stack);
         thread->stack = nullptr;
+    }
+    if (thread->joinAllSem != nullptr) {
+        thread->joinAllSem->close();
+        _sem::destroySemaphore(thread->joinAllSem);
+        thread->joinAllSem = nullptr;
     }
 
     delete thread;
@@ -111,6 +121,7 @@ int _thread::exit() {
     }
 
     running->state = FINISHED;
+    running->notifyFinished();
 
     dispatch();
 
@@ -153,4 +164,57 @@ void _thread::threadWrapper() {
     }
 
     thread_exit();
+}
+int _thread::addChild(_thread* child) {
+    if (running == nullptr || child == nullptr) {
+        return -1;
+    }
+
+    if (child == running) {
+        return -1;
+    }
+
+    if (child->parent != nullptr) {
+        return -1;
+    }
+
+    child->parent = running;
+
+    int added = child->activeDescendants;
+
+    if (child->state != FINISHED) {
+        added++;
+    }
+
+    for (_thread* t = running; t != nullptr; t = t->parent) {
+        t->activeDescendants += added;
+    }
+
+    return 0;
+}
+
+int _thread::joinAll() {
+    if (running == nullptr) {
+        return -1;
+    }
+
+    if (running->activeDescendants == 0) {
+        return 0;
+    }
+
+    running->waitingJoinAll = true;
+    return running->joinAllSem->wait();
+}
+
+void _thread::notifyFinished() {
+    for (_thread* t = parent; t != nullptr; t = t->parent) {
+        if (t->activeDescendants > 0) {
+            t->activeDescendants--;
+        }
+
+        if (t->waitingJoinAll && t->activeDescendants == 0) {
+            t->waitingJoinAll = false;
+            t->joinAllSem->signal();
+        }
+    }
 }

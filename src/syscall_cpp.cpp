@@ -38,6 +38,17 @@ void Thread::threadWrapper(void* thread) {
         t->run();
     }
 }
+int Thread::addChild(Thread* child) {
+    if (child == nullptr) {
+        return -1;
+    }
+
+    return thread_addChild(child->myHandle);
+}
+
+int Thread::joinAll() {
+    return thread_joinAll();
+}
 
 Semaphore::Semaphore(unsigned init) {
     myHandle = nullptr;

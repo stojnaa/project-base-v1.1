@@ -11,6 +11,7 @@
 #include "../test/Threads_CPP_API_test.hpp"
 // TEST 7 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnickom rezimu)
 #include "../test/System_Mode_test.hpp"
+#include "../test/mod.hpp"
 #endif
 
 #if LEVEL_3_IMPLEMENTED == 1
@@ -98,6 +99,10 @@ void userMain() {
             printString("Test se nije uspesno zavrsio\n");
             printString("TEST 7 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnickom rezimu)\n");
 #endif
+            break;
+        case 8:
+            mod();
+            printString("TEST 8 histogram poslednje cifre matrice\n");
             break;
         default:
             printString("Niste uneli odgovarajuci broj za test\n");

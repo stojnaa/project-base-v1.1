@@ -55,15 +55,15 @@ public:
     static void popSppSpie() {
         uint64 target;
 
-        asm volatile("la %0, 1f" : "=r"(target));
+        asm volatile("la %0, 1f" : "=r"(target));//skoci na adresu odmah posle sret-a, labela 1
 
         asm volatile("csrw sepc, %0" : : "r"(target));
-        asm volatile("csrc sstatus, %0" : : "r"(SSTATUS_SPP));
-        asm volatile("csrs sstatus, %0" : : "r"(SSTATUS_SPIE));
+        asm volatile("csrc sstatus, %0" : : "r"(SSTATUS_SPP));//vrati se u user mode
+        asm volatile("csrs sstatus, %0" : : "r"(SSTATUS_SPIE));//enable prekide posle sret-a
 
         asm volatile(
-            "sret\n"
-            "1:\n"
+            "sret\n"//sret menja rezim
+            "1:\n"//procesor posle sret skoci ovde, da bi se vratio u threadWrapper
         );
     }
 };

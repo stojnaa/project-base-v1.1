@@ -9,6 +9,8 @@ class Riscv {
 public:
     static const uint64 SSTATUS_SIE = (1UL << 1);
     static const uint64 SIP_SSIP = (1UL << 1);
+    static const uint64 SSTATUS_SPIE = (1UL << 5);
+    static const uint64 SSTATUS_SPP = (1UL << 8);
 
     static uint64 r_scause() {
         uint64 x;
@@ -50,7 +52,20 @@ public:
     static void mc_sip(uint64 mask) {
         asm volatile("csrc sip, %0" : : "r"(mask));
     }
+    static void popSppSpie() {
+        uint64 target;
 
+        asm volatile("la %0, 1f" : "=r"(target));
+
+        asm volatile("csrw sepc, %0" : : "r"(target));
+        asm volatile("csrc sstatus, %0" : : "r"(SSTATUS_SPP));
+        asm volatile("csrs sstatus, %0" : : "r"(SSTATUS_SPIE));
+
+        asm volatile(
+            "sret\n"
+            "1:\n"
+        );
+    }
 };
 
 #endif //PROJECT_BASE_V1_1_RISCV_H

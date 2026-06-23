@@ -1,6 +1,8 @@
 #include "../h/Thread.hpp"
 #include "../h/Scheduler.hpp"
 #include "../h/MemoryAllocator.hpp"
+#include "../h/riscv.hpp"
+#include "../h/syscall_c.hpp"
 
 _thread* _thread::running = nullptr;
 
@@ -143,10 +145,12 @@ uint64 _thread::getTimeSlice() const {
     return timeSlice;
 }
 
-void _thread::threadWrapper() {//
+void _thread::threadWrapper() {
+    Riscv::popSppSpie();
+
     if (running != nullptr && running->body != nullptr) {
         running->body(running->arg);
     }
 
-    _thread::exit();
+    thread_exit();
 }

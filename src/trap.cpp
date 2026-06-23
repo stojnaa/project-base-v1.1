@@ -193,6 +193,11 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
         console_handler();
         return;
     }
+    if (scause == 2) { // illegal instruction
+        frame->sepc += 4;
+        Riscv::w_sepc(frame->sepc);
+        return;
+    }
 
     while (true) {}
 }

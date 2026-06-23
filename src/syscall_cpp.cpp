@@ -38,6 +38,13 @@ void Thread::threadWrapper(void* thread) {
         t->run();
     }
 }
+void Thread::send(char* message) {
+    ::send(myHandle, message);
+}
+
+char* Thread::receive() {
+    return ::receive();
+}
 
 Semaphore::Semaphore(unsigned init) {
     myHandle = nullptr;

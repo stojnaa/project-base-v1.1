@@ -1,0 +1,8 @@
+//
+// Created by os on 6/23/26.
+//
+
+#ifndef PROJECT_BASE_V1_1_MESSAGETEST_HPP
+#define PROJECT_BASE_V1_1_MESSAGETEST_HPP
+void MessageTest();
+#endif //PROJECT_BASE_V1_1_MESSAGETEST_HPP

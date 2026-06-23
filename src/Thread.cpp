@@ -1,7 +1,7 @@
 #include "../h/Thread.hpp"
 #include "../h/Scheduler.hpp"
 #include "../h/MemoryAllocator.hpp"
-
+#include "../h/Semaphore.hpp"
 _thread* _thread::running = nullptr;
 
 static size_t blocksForBytes(size_t bytes) {
@@ -60,6 +60,9 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
     this->timeSlice = DEFAULT_TIME_SLICE;
     this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
+    this->message = nullptr;
+    this->itemAvailable = _sem::createSemaphore(0);
+    this->spaceAvailable = _sem::createSemaphore(1);
 }
 
 _thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
@@ -149,4 +152,28 @@ void _thread::threadWrapper() {//
     }
 
     _thread::exit();
+}
+
+int _thread::send(_thread *handle, char *message) {
+    if (handle == nullptr || message== nullptr) {
+        return -1;
+    }
+    handle->spaceAvailable->wait();
+    handle->message = message;
+    handle->itemAvailable->signal();
+    return 0;
+}
+char* _thread::receive() {
+    if (running == nullptr) {
+        return nullptr;
+    }
+
+    running->itemAvailable->wait();
+
+    char* message = running->message;
+    running->message = nullptr;
+
+    running->spaceAvailable->signal();
+
+    return message;
 }

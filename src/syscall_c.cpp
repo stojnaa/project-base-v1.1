@@ -63,6 +63,14 @@ int thread_exit() {
 void thread_dispatch() {
     doSyscall(0x13);
 }
+void send(thread_t handle, char* message) {
+    doSyscall(0x18, (uint64)handle, (uint64)message);
+}
+
+char* receive() {
+    return (char*)doSyscall(0x19);
+}
+
 int sem_open(sem_t* handle, unsigned init) {
     return (int)doSyscall(0x21, (uint64)handle, (uint64)init);
 }

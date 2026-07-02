@@ -3,8 +3,11 @@
 #include "../h/MemoryAllocator.hpp"
 #include "../h/riscv.hpp"
 #include "../h/syscall_c.hpp"
-
+#include "../h/Semaphore.hpp"
 _thread* _thread::running = nullptr;
+_sem* _thread::limitSem = nullptr;
+int _thread::nextId = 0;
+int _thread::maxThreads = 5;
 
 static size_t blocksForBytes(size_t bytes) {
     return (bytes + MEM_BLOCK_SIZE - 1) / MEM_BLOCK_SIZE;
@@ -62,10 +65,28 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
     this->timeSlice = DEFAULT_TIME_SLICE;
     this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
+    this->id = nextId++;
+    this->hasLimitPermit = false;
 }
 
 _thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
     return new _thread(body, arg, stackSpace);
+}
+
+int _thread::getThreadId() {
+    return id;
+}
+
+void _thread::setMaximumThreads(int num) {
+    if (num <=0) {
+        num = 5;
+    }
+    maxThreads = num;
+    if (limitSem!=nullptr) {
+        limitSem->close();
+        _sem::destroySemaphore(limitSem);
+    }
+    limitSem = _sem::createSemaphore(maxThreads);
 }
 
 int _thread::destroyThread(_thread* thread) {
@@ -109,6 +130,10 @@ int _thread::exit() {
     if (running == nullptr) {
         return -1;
     }
+    if (running->hasLimitPermit && limitSem!=nullptr) {
+        running->hasLimitPermit = false;
+        limitSem->signal();
+    }
 
     running->state = FINISHED;
 
@@ -146,6 +171,11 @@ uint64 _thread::getTimeSlice() const {
 }
 
 void _thread::threadWrapper() {
+    if (limitSem== nullptr) {
+        limitSem = _sem::createSemaphore(maxThreads);
+    }
+    limitSem->wait();
+    running->hasLimitPermit = true;
     Riscv::popSppSpie();
 
     if (running != nullptr && running->body != nullptr) {

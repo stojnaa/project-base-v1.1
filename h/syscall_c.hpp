@@ -22,7 +22,8 @@ int thread_create(
     void (*start_routine)(void*),
     void* arg
 );
-
+int getThreadId();
+void setMaximumThreads(int num);
 int thread_exit();
 
 void thread_dispatch();

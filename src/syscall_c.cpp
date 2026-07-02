@@ -67,6 +67,13 @@ int sem_open(sem_t* handle, unsigned init) {
     return (int)doSyscall(0x21, (uint64)handle, (uint64)init);
 }
 
+int getThreadId() {
+    return (int)doSyscall(0x14);
+}
+void setMaximumThreads(int num) {
+    doSyscall(0x15, (uint64)num);
+}
+
 int sem_close(sem_t handle) {
     return (int)doSyscall(0x22, (uint64)handle);
 }

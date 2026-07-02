@@ -31,6 +31,14 @@ int Thread::sleep(time_t time) {
     return time_sleep(time);
 }
 
+int Thread::getThreadId() {
+    return ::getThreadId();
+}
+
+void Thread::setMaximumThreads(int num) {
+    ::setMaximumThreads(num);
+}
+
 void Thread::threadWrapper(void* thread) {
     Thread* t = (Thread*)thread;
 

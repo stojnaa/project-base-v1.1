@@ -5,6 +5,7 @@
 #include "../h/syscall_c.hpp"
 
 _thread* _thread::running = nullptr;
+int _thread::nextId = 0;
 
 static size_t blocksForBytes(size_t bytes) {
     return (bytes + MEM_BLOCK_SIZE - 1) / MEM_BLOCK_SIZE;
@@ -62,10 +63,15 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
     this->timeSlice = DEFAULT_TIME_SLICE;
     this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
+    this->id = nextId++;
 }
 
 _thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
     return new _thread(body, arg, stackSpace);
+}
+
+int _thread::getId() const {
+    return id;
 }
 
 int _thread::destroyThread(_thread* thread) {

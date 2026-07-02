@@ -27,6 +27,10 @@ void Thread::dispatch() {
     thread_dispatch();
 }
 
+int Thread::getThreadId() {
+    return ::getThreadId();
+}
+
 int Thread::sleep(time_t time) {
     return time_sleep(time);
 }

@@ -22,7 +22,7 @@ int thread_create(
     void (*start_routine)(void*),
     void* arg
 );
-
+int getThreadId();
 int thread_exit();
 
 void thread_dispatch();

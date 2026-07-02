@@ -62,11 +62,14 @@ public:
     uint64 getTimeSlice() const;
 
     static _thread* running;
+    static int nextId;
+    int getId() const;
 
 private:
     Body body;
     void* arg;
     void* stack;
+    int id;
 
     Context context;
 

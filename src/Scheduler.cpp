@@ -1,5 +1,6 @@
 #include "../h/Scheduler.hpp"
 #include "../h/Thread.hpp"
+#include "../h/Semaphore.hpp"
 
 _thread* Scheduler::head = nullptr;
 _thread* Scheduler::tail = nullptr;
@@ -25,9 +26,14 @@ void Scheduler::put(_thread* thread) {
     }
 }
 
+
 _thread* Scheduler::get() {
     if (head == nullptr) {
-        return nullptr;
+        _sem::unblockOne();
+
+        if (head == nullptr) {
+            return nullptr;
+        }
     }
 
     _thread* thread = head;
@@ -36,6 +42,7 @@ _thread* Scheduler::get() {
 
     if (head == nullptr) {
         tail = nullptr;
+        _sem::unblockOne();
     }
 
     thread->next = nullptr;

@@ -2,7 +2,9 @@
 #include "../h/Thread.hpp"
 #include "../h/Scheduler.hpp"
 #include "../h/MemoryAllocator.hpp"
-
+#include "../test/printing.hpp"
+_sem* _sem::allHead = nullptr;
+_sem* _sem::allTail = nullptr;
 static size_t blocksForBytesSemaphore(size_t bytes) {
     return (bytes + MEM_BLOCK_SIZE - 1) / MEM_BLOCK_SIZE;
 }
@@ -22,10 +24,49 @@ void _sem::operator delete(void* ptr) {
 _sem::_sem(unsigned init) {
     val = (int)init;
     closed = false;
+
     head = nullptr;
     tail = nullptr;
-}
 
+    allNext = nullptr;
+
+    if (allHead == nullptr) {
+        allHead = this;
+        allTail = this;
+    } else {
+        allTail->allNext = this;
+        allTail = this;
+    }
+}
+void _sem::removeFromAll(_sem* sem) {
+    if (sem == nullptr) {
+        return;
+    }
+
+    _sem* prev = nullptr;
+    _sem* curr = allHead;
+
+    while (curr != nullptr && curr != sem) {
+        prev = curr;
+        curr = curr->allNext;
+    }
+
+    if (curr == nullptr) {
+        return;
+    }
+
+    if (prev == nullptr) {
+        allHead = curr->allNext;
+    } else {
+        prev->allNext = curr->allNext;
+    }
+
+    if (allTail == curr) {
+        allTail = prev;
+    }
+
+    curr->allNext = nullptr;
+}
 _sem* _sem::createSemaphore(unsigned init) {
     return new _sem(init);
 }
@@ -34,11 +75,24 @@ int _sem::destroySemaphore(_sem* sem) {
     if (sem == nullptr) {
         return -1;
     }
+    removeFromAll(sem);
 
     delete sem;
     return 0;
 }
+void _sem::unblockOne() {
+    _sem* curr = allHead;
 
+    while (curr != nullptr) {
+        if (!curr->closed && curr->head != nullptr) {
+            printString("unblockOne found blocked thread\n");
+            curr->signal();
+            return;
+        }
+
+        curr = curr->allNext;
+    }
+}
 int _sem::close() {
     if (closed) {
         return -1;

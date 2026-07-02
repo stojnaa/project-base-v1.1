@@ -27,6 +27,7 @@ public:
 
     int waitN(unsigned n);
     int signalN(unsigned n);
+    static void unblockOne();
 
 private:
     struct BlockedNode {
@@ -41,6 +42,11 @@ private:
 
     BlockedNode* head;
     BlockedNode* tail;
+    static _sem* allHead;
+    static _sem* allTail;
+    _sem* allNext;
+    static void removeFromAll(_sem* sem);
+
 
     void block(BlockedNode* node);
     void unblockReady();

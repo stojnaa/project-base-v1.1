@@ -62,6 +62,8 @@ public:
     uint64 getTimeSlice() const;
 
     static _thread* running;
+    static int nextId;
+    int getId();
 
 private:
     Body body;
@@ -74,6 +76,7 @@ private:
     State state;
 
     _thread* next;
+    int id;
 
     static void threadWrapper();
 

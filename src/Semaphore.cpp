@@ -118,8 +118,26 @@ void _sem::block(BlockedNode* node) {
     if (head == nullptr) {
         head = node;
         tail = node;
-    } else {
-        tail->next = node;
+        return;
+    }
+    if (node->thread->getId() < head->thread->getId()) {
+        node->next = head;
+        head = node;
+        return;
+    }
+
+    BlockedNode* prev = head;
+    BlockedNode* curr = head->next;
+
+    while (curr != nullptr && curr->thread->getId() < node->thread->getId()) {
+        prev = curr;
+        curr = curr->next;
+    }
+
+    node->next = curr;
+    prev->next = node;
+
+    if (curr == nullptr) {
         tail = node;
     }
 }

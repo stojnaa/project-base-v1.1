@@ -60,6 +60,15 @@ int thread_create(thread_t* handle, void (*start_routine)(void*), void* arg){
 int thread_exit() {
     return (int)doSyscall(0x12);
 }
+
+int getThreadId() {
+    return (int)doSyscall(0x14);
+}
+
+void setMaximumThreads(int numOfThreads) {
+    doSyscall(0x15, (uint64)numOfThreads);
+}
+
 void thread_dispatch() {
     doSyscall(0x13);
 }

@@ -39,6 +39,14 @@ void Thread::threadWrapper(void* thread) {
     }
 }
 
+void Thread::setMaximumThreads(int num) {
+    ::setMaximumThreads(num);
+}
+
+int Thread::getThreadId() {
+    return ::getThreadId();
+}
+
 Semaphore::Semaphore(unsigned init) {
     myHandle = nullptr;
     sem_open(&myHandle, init);

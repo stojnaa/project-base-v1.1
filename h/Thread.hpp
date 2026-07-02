@@ -8,6 +8,7 @@
 #include "../lib/hw.h"
 
 class Scheduler;
+class _sem;
 
 class _thread {
 public:
@@ -62,6 +63,8 @@ public:
     uint64 getTimeSlice() const;
 
     static _thread* running;
+    static void setMaximumThreads(int num);
+    static int getThreadId();
 
 private:
     Body body;
@@ -74,6 +77,11 @@ private:
     State state;
 
     _thread* next;
+    static _sem* limitSem;
+    static int nextId;
+    int id;
+    static int numOfThreads;
+    bool hasLimitPermit;
 
     static void threadWrapper();
 

@@ -19,6 +19,8 @@ public:
 
     static void dispatch();
     static int sleep(time_t);
+    static int getThreadId();
+    static void setMaximumThreads(int num);
 
 protected:
     Thread();

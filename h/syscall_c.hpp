@@ -26,6 +26,8 @@ int thread_create(
 int thread_exit();
 
 void thread_dispatch();
+int getThreadId();
+void setMaximumThreads(int numOfThreads);
 
 int sem_open(sem_t* handle, unsigned init);
 int sem_close(sem_t handle);

@@ -22,7 +22,7 @@ int thread_create(
     void (*start_routine)(void*),
     void* arg
 );
-
+int ping(thread_t handle);
 int thread_exit();
 
 void thread_dispatch();

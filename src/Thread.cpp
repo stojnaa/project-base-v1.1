@@ -3,7 +3,7 @@
 #include "../h/MemoryAllocator.hpp"
 #include "../h/riscv.hpp"
 #include "../h/syscall_c.hpp"
-
+#include "../test/printing.hpp"
 _thread* _thread::running = nullptr;
 
 static size_t blocksForBytes(size_t bytes) {
@@ -62,8 +62,24 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
     this->timeSlice = DEFAULT_TIME_SLICE;
     this->state = CREATED;//nakon ovoga u trap.cpp radimo ready
     this->next = nullptr;
+    this->pinged = false;
+    this->allocatedBlocks = 0;
 }
 
+void _thread::addAllocatedBlocks(size_t blocks) {
+    allocatedBlocks += blocks;
+}
+
+uint64 _thread::getAllocatedBlocks() {
+    return allocatedBlocks;
+}
+void _thread::setPinged(bool value) {
+    pinged = value;
+}
+
+bool _thread::isPinged() {
+    return pinged;
+}
 _thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
     return new _thread(body, arg, stackSpace);
 }
@@ -102,6 +118,13 @@ void _thread::dispatch() {
     running->state = RUNNING;
 
     if (old != nullptr && old != running) {//ako je scheduler vratio istu nit ne treba contextswitch
+        if (old->pinged) {
+            printString("PING: thread allocated ");
+            printInt(old->allocatedBlocks);
+            printString(" blocks before losing context\n");
+
+            old->pinged = false;
+        }
         contextSwitch(&old->context, &running->context);
     }
 }

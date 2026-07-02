@@ -62,7 +62,10 @@ public:
     uint64 getTimeSlice() const;
 
     static _thread* running;
-
+    void addAllocatedBlocks(size_t blocks);
+    uint64 getAllocatedBlocks();
+    void setPinged(bool value);
+    bool isPinged();
 private:
     Body body;
     void* arg;
@@ -72,6 +75,8 @@ private:
 
     uint64 timeSlice;
     State state;
+    uint64 allocatedBlocks;
+    bool pinged;
 
     _thread* next;
 

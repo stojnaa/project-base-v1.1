@@ -23,7 +23,9 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
 
         switch (syscallCode) {
             case 0x01: {
-                frame->a0 = (uint64)MemoryAllocator::getInstance().malloc((size_t)arg1);
+                void* ptr= MemoryAllocator::getInstance().malloc((size_t)arg1);
+                _thread::running->addAllocatedBlocks((size_t)arg1);
+                frame->a0 = (uint64)ptr;
                 break;
             }
 
@@ -89,7 +91,12 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                 frame->a0 = 0;
                 break;
             }
-
+            case 0x50: {
+                thread_t target = (thread_t)arg1;
+                target->setPinged(true);
+                frame->a0 = 0;
+                break;
+            }
             case 0x22: {
                 sem_t sem = (sem_t)arg1;
 

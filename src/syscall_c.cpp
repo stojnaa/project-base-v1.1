@@ -60,6 +60,11 @@ int thread_create(thread_t* handle, void (*start_routine)(void*), void* arg){
 int thread_exit() {
     return (int)doSyscall(0x12);
 }
+
+int ping(thread_t handle) {
+    return doSyscall(0x50,(uint64)handle);
+}
+
 void thread_dispatch() {
     doSyscall(0x13);
 }

@@ -6,6 +6,7 @@
 #include "../h/syscall_c.hpp"
 #include "../h/Semaphore.hpp"
 #include "../lib/console.h"
+#include "../test/printing.hpp"
 
 extern "C" void handleSupervisorTrap(TrapFrame* frame);
 
@@ -67,12 +68,13 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                 _thread::dispatch();//nismo frame->a0 jer dispatch nema povratnu value
                 return;
             }
-            case 0x14: {
-                thread_t thread = (thread_t)arg1;
-                frame->sepc += 4;
-                _thread::join(thread);
-                return;
-            }
+            case 0x14:
+                {
+                    thread_t handle = (thread_t)arg1;
+                    frame->sepc += 4;
+                    _thread::join(handle);
+                    return;
+                }
             case 0x21: {//ne povecavamo sepc jer ne menja trenutno izvrsavanje
                 sem_t* handle = (sem_t*)arg1;
                 unsigned init = (unsigned)arg2;
@@ -197,6 +199,17 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
 
     if (scause == 0x8000000000000009UL) {//spoljasnji hardverski prekid 9
         console_handler();
+        return;
+    }
+    if (scause == 2) { // illegal instruction
+        printString("ERROR, scause: ");
+        printInt(scause);
+        printString(",sepc ");
+        printInt(frame->sepc);
+        printString("\n");
+
+        frame->sepc += 4;
+        Riscv::w_sepc(frame->sepc);
         return;
     }
 

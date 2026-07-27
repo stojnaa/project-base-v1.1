@@ -60,11 +60,14 @@ int thread_create(thread_t* handle, void (*start_routine)(void*), void* arg){
 int thread_exit() {
     return (int)doSyscall(0x12);
 }
+
+void join(thread_t handle)
+{
+    doSyscall(0x14, (uint64)handle);
+}
+
 void thread_dispatch() {
     doSyscall(0x13);
-}
-void thread_join(thread_t handle) {
-     doSyscall(0x14, (uint64)handle);
 }
 int sem_open(sem_t* handle, unsigned init) {
     return (int)doSyscall(0x21, (uint64)handle, (uint64)init);

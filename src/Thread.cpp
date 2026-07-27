@@ -1,6 +1,8 @@
 #include "../h/Thread.hpp"
 #include "../h/Scheduler.hpp"
 #include "../h/MemoryAllocator.hpp"
+#include "../h/riscv.hpp"
+#include "../h/syscall_c.hpp"
 #include "../h/Semaphore.hpp"
 
 _thread* _thread::running = nullptr;
@@ -78,11 +80,6 @@ int _thread::destroyThread(_thread* thread) {
         MemoryAllocator::getInstance().free(thread->stack);
         thread->stack = nullptr;
     }
-    if (thread->joinSem != nullptr) {
-        thread->joinSem->close();
-        _sem::destroySemaphore(thread->joinSem);
-        thread->joinSem = nullptr;
-    }
 
     delete thread;
     return 0;
@@ -111,13 +108,31 @@ void _thread::dispatch() {
         contextSwitch(&old->context, &running->context);
     }
 }
+void _thread::join(_thread* thread)
+{
+    if (thread == nullptr)
+    {
+        return;
+    }
+    if (thread == running)
+    {
+        return;
+    }
+    if (thread->state == FINISHED)
+    {
+        return;
+    }
+    thread->joinWaitingCount++;
+    thread->joinSem->wait();
+}
 int _thread::exit() {
     if (running == nullptr) {
         return -1;
     }
 
     running->state = FINISHED;
-    if (running->joinSem != nullptr && running->joinWaitingCount > 0) {
+    if (running->joinWaitingCount > 0)
+    {
         running->joinSem->signalN(running->joinWaitingCount);
         running->joinWaitingCount = 0;
     }
@@ -125,22 +140,6 @@ int _thread::exit() {
     dispatch();
 
     return 0;
-}
-void _thread::join(_thread* thread) {
-    if (thread == nullptr) {
-        return;
-    }
-    if (thread == running) {
-        return;
-    }
-    if (thread->state == FINISHED) {
-        return;
-    }
-    if (thread->joinSem == nullptr) {
-        return;
-    }
-    thread->joinWaitingCount++;
-    thread->joinSem->wait();
 }
 
 _thread::Body _thread::getBody() const {
@@ -171,10 +170,12 @@ uint64 _thread::getTimeSlice() const {
     return timeSlice;
 }
 
-void _thread::threadWrapper() {//
+void _thread::threadWrapper() {
+    Riscv::popSppSpie();
+
     if (running != nullptr && running->body != nullptr) {
         running->body(running->arg);
     }
 
-    _thread::exit();
+    thread_exit();
 }

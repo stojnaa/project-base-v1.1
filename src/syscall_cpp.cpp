@@ -31,15 +31,17 @@ int Thread::sleep(time_t time) {
     return time_sleep(time);
 }
 
+void Thread::join()
+{
+    ::join(myHandle);
+}
+
 void Thread::threadWrapper(void* thread) {
     Thread* t = (Thread*)thread;
 
     if (t != nullptr) {
         t->run();
     }
-}
-void Thread::join() {
-    thread_join(myHandle);
 }
 
 Semaphore::Semaphore(unsigned init) {

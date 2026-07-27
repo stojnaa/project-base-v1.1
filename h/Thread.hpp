@@ -6,7 +6,8 @@
 #define PROJECT_BASE_V1_1_THREAD_HPP
 
 #include "../lib/hw.h"
-class _sem;
+#include "../test/printing.hpp"
+
 class Scheduler;
 
 class _thread {
@@ -75,10 +76,10 @@ private:
     State state;
 
     _thread* next;
-    _sem* joinSem;
-    unsigned joinWaitingCount;
 
     static void threadWrapper();
+    _sem* joinSem;
+    int joinWaitingCount;
 
     friend class Scheduler;
 };

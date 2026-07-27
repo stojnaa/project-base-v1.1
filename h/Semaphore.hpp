@@ -27,6 +27,7 @@ public:
 
     int waitN(unsigned n);
     int signalN(unsigned n);
+    static void sem_pair(_sem* sem1, _sem* sem2);
 
 private:
     struct BlockedNode {
@@ -35,9 +36,16 @@ private:
         int status;//0 probudjena pomocu signal, -1 preko close()
         BlockedNode* next;
     };
+    struct SemNode
+    {
+        _sem* sem;
+        SemNode* next;
+    };
 
     int val;
     bool closed;
+    SemNode* head1;
+    SemNode* tail1;
 
     BlockedNode* head;
     BlockedNode* tail;

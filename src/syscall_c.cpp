@@ -75,6 +75,11 @@ int sem_wait(sem_t id) {
     return (int)doSyscall(0x23, (uint64)id);
 }
 
+void sem_pair(sem_t sem1, sem_t sem2)
+{
+    doSyscall(0x27, (uint64)sem1, (uint64)sem2);
+}
+
 int sem_signal(sem_t id) {
     return (int)doSyscall(0x24, (uint64)id);
 }

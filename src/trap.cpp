@@ -120,6 +120,14 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                 frame->a0 = (uint64)sem->wait();
                 return;
             }
+        case 0x27: {
+            sem_t sem1 = (sem_t)arg1;
+            sem_t sem2 = (sem_t)arg2;
+
+            frame->sepc += 4;
+            _sem::sem_pair(sem1, sem2);
+            return;
+        }
 
             case 0x24: {
                 sem_t sem = (sem_t)arg1;

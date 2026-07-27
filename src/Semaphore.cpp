@@ -24,6 +24,32 @@ _sem::_sem(unsigned init) {
     closed = false;
     head = nullptr;
     tail = nullptr;
+    head1 = nullptr;
+    tail1 = nullptr;
+}
+
+void _sem::sem_pair(_sem* sem1, _sem* sem2)
+{
+    SemNode* node1 = new SemNode();
+    node1->sem = sem2;
+    node1->next = nullptr;
+    if (sem1->head1 == nullptr) {
+        sem1->head1 = node1;
+        sem1->tail1 = node1;
+    } else {
+        sem1->tail1->next = node1;
+        sem1->tail1 = node1;
+    }
+    SemNode* node2 = new SemNode();
+    node2->sem = sem1;
+    node2->next = nullptr;
+    if (sem2->head1 == nullptr) {
+        sem2->head1 = node2;
+        sem2->tail1 = node2;
+    } else {
+        sem2->tail1->next = node2;
+        sem2->tail1 = node2;
+    }
 }
 
 _sem* _sem::createSemaphore(unsigned init) {
@@ -74,6 +100,15 @@ int _sem::waitN(unsigned n) {
     if (head == nullptr && val >= (int)n) {//nema blokiranih niti i ima dovoljno resursa
         val -= (int)n;
         return 0;
+    }
+    SemNode* curr = head1;
+    while (curr != nullptr)
+    {
+        if (curr->sem->head == nullptr && curr->sem->val >= (int)n) {//nema blokiranih niti i ima dovoljno resursa
+            curr->sem->val -= (int)n;
+            return 1;
+        }
+        curr = curr->next;
     }
 
     BlockedNode node;

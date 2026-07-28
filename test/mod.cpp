@@ -1,15 +1,15 @@
 #include "mod.hpp"
 #include  "printing.hpp"
 
-Resource::Resource(int N) {
-    available = N;
+Resource::Resource(int n) {
+    available = n;
     head = nullptr;
     tail = nullptr;
-    sem_open(&mutex,1);
+    sem_open(&mutex, 1);
 }
 
 void Resource::tryToUnblock() {
-    while (head!= nullptr && available >= head->num) {
+    while (head != nullptr && available >= head->num) {
         Request* req = head;
         available -= req->num;
         head = head->next;
@@ -27,7 +27,7 @@ void Resource::take(int num) {
     }
     sem_wait(mutex);
     if (head == nullptr && available >= num) {
-        available-=num;
+        available -= num;
         printString("Resource take: thread took ");
         printInt(num);
         printString(" instances, remaining = ");
@@ -53,139 +53,92 @@ void Resource::take(int num) {
     printString(" instances, available = ");
     printInt(available);
     printString("\n");
-
     tryToUnblock();
-
     sem_signal(mutex);
-
     sem_wait(req.ready);
-
     sem_close(req.ready);
-
     printString("Resource take: thread got ");
     printInt(num);
     printString(" instances after waiting\n");
 }
+
 int Resource::give_back(int num) {
     if (num <= 0) {
         return available;
     }
-
     sem_wait(mutex);
-
     available += num;
-
     printString("Resource give_back: thread returned ");
     printInt(num);
     printString(" instances, available = ");
     printInt(available);
     printString("\n");
-
     tryToUnblock();
-
-    int ret = available;
-
+    int result = available;
     sem_signal(mutex);
-
-    return ret;
+    return result;
 }
-
-struct ResourceThreadArg {
-    Resource* resource;
-    char name;
+static Resource* resource;
+static volatile int finishedCount = 0;
+struct  Args{
     int need;
-    int work;
+    int id;
 };
 
-static void resourceBusyWait() {
-    volatile int counter = 0;
-
-    for (int i = 0; i < 3000; i++) {
-        counter++;
-    }
-}
-
-static void resourceWorker(void* arg) {
-    ResourceThreadArg* threadArg = (ResourceThreadArg*) arg;
-
-    for (int i = 0; i < 3; i++) {
-        printString("Thread ");
-        putc(threadArg->name);
-        printString(" tries to take ");
-        printInt(threadArg->need);
-        printString(" resources, iteration ");
-        printInt(i);
-        printString("\n");
-
-        threadArg->resource->take(threadArg->need);
-
-        printString(">>> Thread ");
-        putc(threadArg->name);
-        printString(" ENTERED with ");
-        printInt(threadArg->need);
-        printString(" resources, iteration ");
-        printInt(i);
-        printString("\n");
-
-        resourceBusyWait();
-
-        thread_dispatch();
-
-        resourceBusyWait();
-
-        printString("<<< Thread ");
-        putc(threadArg->name);
-        printString(" EXITS and returns ");
-        printInt(threadArg->need);
-        printString(" resources, iteration ");
-        printInt(i);
-        printString("\n");
-
-        threadArg->resource->give_back(threadArg->need);
-
-        thread_dispatch();
-    }
+static void worker(void* arg) {
+    Args* data = (Args*)arg;
 
     printString("Thread ");
-    putc(threadArg->name);
+    printInt(data->id);
+    printString(" requests ");
+    printInt(data->need);
+    printString(" instances\n");
+
+    resource->take(data->need);
+
+    for (uint64 i = 0; i < 10000; i++) {
+        for (uint64 j = 0; j < 30000; j++) {
+            // busy wait
+        }
+
+        thread_dispatch();
+    }
+
+    resource->give_back(data->need);
+
+    printString("Thread ");
+    printInt(data->id);
     printString(" finished\n");
+
+    finishedCount++;
 }
 
 void resourceTest() {
-    printString("Resource test started\n");
+    thread_t threads[3];
+    Args args[3];
 
-    Resource resource(5);
+    finishedCount = 0;
 
-    thread_t threads[6];
-
-    ResourceThreadArg args[6];
-
-    args[0].name = 'A';
+    args[0].id = 0;
     args[0].need = 3;
 
-    args[1].name = 'B';
+    args[1].id = 1;
     args[1].need = 2;
 
-    args[2].name = 'C';
+    args[2].id = 2;
     args[2].need = 4;
 
-    args[3].name = 'D';
-    args[3].need = 1;
+    resource = new Resource(5);
 
-    args[4].name = 'E';
-    args[4].need = 5;
+    thread_create(&threads[0], worker, &args[0]);
+    thread_create(&threads[1], worker, &args[1]);
+    thread_create(&threads[2], worker, &args[2]);
 
-    args[5].name = 'F';
-    args[5].need = 2;
-
-    for (int i = 0; i < 6; i++) {
-        args[i].resource = &resource;
-        thread_create(&threads[i], resourceWorker, &args[i]);
-    }
-
-    for (int i = 0; i < 5000; i++) {
+    while (finishedCount < 3) {
         thread_dispatch();
     }
 
-    printString("Resource test finished\n");
+    printString("All resource threads finished\n");
+
+    delete resource;
 }

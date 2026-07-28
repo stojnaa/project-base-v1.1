@@ -7,18 +7,18 @@
 #include "../h/syscall_c.hpp"
 class Resource {
 public:
-    Resource(int N);
+    Resource(int n);
     void take(int num);
     int give_back(int num);
 private:
     struct Request {
         int num;
-        sem_t ready;
         Request* next;
+        sem_t ready;
     };
     int available;
-    sem_t mutex;
     Request* head;
+    sem_t mutex;
     Request* tail;
     void tryToUnblock();
 };

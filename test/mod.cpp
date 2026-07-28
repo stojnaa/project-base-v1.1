@@ -1,73 +1,63 @@
-#include "mod.hpp"
-#include "../h/syscall_c.hpp"
+#include "../h/syscall_c.h"
 #include "printing.hpp"
+#include "mod.hpp"
 
-static const int THREAD_COUNT = 50;
-static const int ITERATIONS = 3;
-
-struct Data {
-    sem_t sharedSem;
-};
-struct Args {
-    Data* data;
+static sem_t sharedSem;
+static volatile int finishedCount = 0;
+struct ThreadData
+{
     int id;
 };
-static void busyWait(int id) {
-    int limit = 1000+id*300;
-    for (int i = 0; i < limit; i++) {}
-}
-
-static void workerBodyA(void* arg) {
-    Args* args = (Args*) arg;
-    Data* data = (Data*) args->data;
-    int id = args->id;
-    for (int i = 0; i < ITERATIONS; i++) {
+static void worker(void *arg)
+{
+    ThreadData *data = (ThreadData *)arg;
+    for (int i = 0; i < 3; i++)
+    {
+        sem_wait(sharedSem);
         printString("Thread ");
-        printInt(id);
-        printString(" trying to enter, iteration ");
+        printInt(data->id);
+        printString(" entered, iteration ");
+        printInt(i);
+        printString("\n");
+        for (int j = 0; j < 1000 + data->id * 300; j++) {
+            for (int k = 0; k < 1000; k++) {
+                // busy wait
+            }
+            thread_dispatch();
+        }
+        printString("Thread ");
+        printInt(data->id);
+        printString(" exited, iteration ");
         printInt(i);
         printString("\n");
 
-        sem_wait(data->sharedSem);
-
-        printString(">>> Thread ");
-        printInt(id);
-        printString(" ENTERED critical section, iteration ");
-        printInt(i);
-        printString("\n");
-        busyWait(id);
-        thread_dispatch();
-
-        busyWait(id);
-
-        printString("<<< Thread ");
-        printInt(id);
-        printString(" EXITED critical section, iteration ");
-        printInt(i);
-        printString("\n");
-
-        sem_signal(data->sharedSem);
-
-        thread_dispatch();
+        sem_signal(sharedSem);
     }
+    finishedCount++;
 }
+void modC() {
+    thread_t threads[10];
+    ThreadData data[10];
 
-void mod() {
-    printString("Semaphore priority test started\n");
-    Data data;
-    sem_open(&data.sharedSem, 5);
-    thread_t threads[THREAD_COUNT];
-    Args args[THREAD_COUNT];
-    for (int i = 0; i < THREAD_COUNT; i++) {
-        args[i].data = &data;
-        args[i].id = i;
-        thread_create(&threads[i], workerBodyA, (void*) &args[i]);
+    finishedCount = 0;
+
+    sem_open(&sharedSem, 5);
+
+    for (int i = 0; i < 10; i++) {
+        data[i].id = i;
+
+        thread_create(
+            &threads[i],
+            worker,
+            &data[i]
+        );
     }
-    for (int i = 0; i < 10000; i++) {
+
+    while (finishedCount < 10) {
         thread_dispatch();
     }
 
-    sem_close(data.sharedSem);
+    printString("All threads finished!\n");
 
-    printString("Semaphore priority test finished\n");
+    sem_close(sharedSem);
 }

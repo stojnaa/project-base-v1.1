@@ -1,106 +1,148 @@
-#include "printing.hpp"
 #include "../h/syscall_cpp.hpp"
+#include "printing.hpp"
 #include "mod.hpp"
 
-static const int MAX = 10;
 struct MatrixData {
     int** matrix;
-    int* rowsSums;
-    int rows;
+    int* rowSums;
+    int row;
     int cols;
-    Semaphore* done;
 };
-class Worker: public Thread {
+
+static volatile int finishedCount = 0;
+
+class Worker : public Thread {
+private:
+    MatrixData* data;
+
 public:
-    Worker(MatrixData* data, int row):Thread() {
-        this->row = row;
-        this->data = data;
-    }
+    Worker(MatrixData* data) : Thread(), data(data) {}
 
     void run() override {
         int sum = 0;
-        for (int i = 0; i < data->cols; i++) {
-            sum += data->matrix[row][i];
-        }
-        data->rowsSums[row] = sum;
-        data->done->signal();
-    }
-private:
-    MatrixData* data;
-    int row;
-};
-void mod() {
-    printString("Matrix row test started - C++ API\n");
 
-    MatrixData data;
+        for (int j = 0; j < data->cols; j++) {
+            sum += data->matrix[data->row][j];
+        }
+
+        data->rowSums[data->row] = sum;
+
+        printString("Row ");
+        printInt(data->row);
+        printString(" sum = ");
+        printInt(sum);
+        printString("\n");
+
+        finishedCount++;
+    }
+};
+
+void mod() {
     char input[30];
 
-    printString("Unesite M broj redova: ");
+    printString("Unesite broj redova: ");
     getString(input, 30);
-    data.rows = stringToInt(input);
+    int rows = stringToInt(input);
 
-    printString("Unesite N broj kolona: ");
+    printString("Unesite broj kolona: ");
     getString(input, 30);
-    data.cols = stringToInt(input);
-    data.matrix = (int**) mem_alloc(data.rows * sizeof(int*));
-    data.rowsSums = (int*) mem_alloc(data.rows * sizeof(int));
-    for (int i = 0; i < data.rows; i++) {
-        data.matrix[i] = (int*) mem_alloc(data.cols * sizeof(int));
+    int cols = stringToInt(input);
 
-        if (data.matrix[i] == nullptr) {
+    if (rows <= 0 || cols <= 0) {
+        printString("Neispravne dimenzije matrice\n");
+        return;
+    }
+
+    int** matrix =
+        (int**)mem_alloc(rows * sizeof(int*));
+
+    if (matrix == nullptr) {
+        printString("Greska pri alokaciji matrice\n");
+        return;
+    }
+
+    for (int i = 0; i < rows; i++) {
+        matrix[i] =
+            (int*)mem_alloc(cols * sizeof(int));
+
+        if (matrix[i] == nullptr) {
             printString("Greska pri alokaciji reda matrice\n");
             return;
         }
-
-        data.rowsSums[i] = 0;
     }
-    int expectedSum = 0;
-    int counter = 1;
-    for (int i = 0; i < data.rows; i++) {
-        for (int j = 0; j < data.cols; j++) {
-            printInt(counter);
-            printString(". element: ");
+
+    int* rowSums =
+        (int*)mem_alloc(rows * sizeof(int));
+
+    MatrixData* data =
+        (MatrixData*)mem_alloc(rows * sizeof(MatrixData));
+
+    Thread** threads =
+        (Thread**)mem_alloc(rows * sizeof(Thread*));
+
+    if (rowSums == nullptr ||
+        data == nullptr ||
+        threads == nullptr) {
+        printString("Greska pri alokaciji\n");
+        return;
+    }
+
+    /*
+     * Za jednostavan test svaki element postavljamo na 1.
+     * Ako korisnik treba da unosi elemente, ovde se samo
+     * zameni dodela matrix[i][j] = 1 unosom broja.
+     */
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printString("matrix[");
+            printInt(i);
+            printString("][");
+            printInt(j);
+            printString("] = ");
 
             getString(input, 30);
-
-            data.matrix[i][j] = stringToInt(input);
-            expectedSum += data.matrix[i][j];
-
-            counter++;
+            matrix[i][j] = stringToInt(input);
         }
-    }
-    Semaphore done(0);
-    data.done = &done;
-    Worker* workers[MAX];
-    for (int i = 0; i < data.rows; i++) {
-        workers[i] = new Worker(&data, i);
-        workers[i]->start();
-    }
-    for (int i = 0; i < data.rows; i++) {
-        done.wait();
+
+        rowSums[i] = 0;
     }
 
-    int finalSum = 0;
+    finishedCount = 0;
 
-    printString("\nZbirovi redova:\n");
+    for (int i = 0; i < rows; i++) {
+        data[i].matrix = matrix;
+        data[i].rowSums = rowSums;
+        data[i].row = i;
+        data[i].cols = cols;
 
-    for (int i = 0; i < data.rows; i++) {
-        printString("Red ");
-        printInt(i);
-        printString(": ");
-        printInt(data.rowsSums[i]);
-        printString("\n");
-
-        finalSum += data.rowsSums[i];
+        threads[i] = new Worker(&data[i]);
+        threads[i]->start();
     }
 
-    printString("\nFinal matrix sum = ");
-    printInt(finalSum);
+    while (finishedCount < rows) {
+        Thread::dispatch();
+    }
+
+    int totalSum = 0;
+
+    for (int i = 0; i < rows; i++) {
+        totalSum += rowSums[i];
+    }
+
+    printString("Total matrix sum = ");
+    printInt(totalSum);
     printString("\n");
-    for (int i = 0; i < data.rows; i++) {
-        mem_free(data.matrix[i]);
+
+    for (int i = 0; i < rows; i++) {
+        delete threads[i];
     }
 
-    mem_free(data.matrix);
-    mem_free(data.rowsSums);
+    for (int i = 0; i < rows; i++) {
+        mem_free(matrix[i]);
+    }
+
+    mem_free(matrix);
+    mem_free(rowSums);
+    mem_free(data);
+    mem_free(threads);
 }

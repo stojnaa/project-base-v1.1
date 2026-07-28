@@ -63,9 +63,16 @@ public:
 
     static _thread* running;
     void addAllocatedBlocks(size_t blocks);
+<<<<<<< Updated upstream
     uint64 getAllocatedBlocks();
     void setPinged(bool value);
     bool isPinged();
+=======
+    uint64 getAllocatedBlocks() const;
+    void setPinged(bool value);
+    bool isPinged() const;
+
+>>>>>>> Stashed changes
 private:
     Body body;
     void* arg;
@@ -81,6 +88,8 @@ private:
     _thread* next;
 
     static void threadWrapper();
+    uint64 allocatedBlocks;
+    bool pinged;
 
     friend class Scheduler;
 };

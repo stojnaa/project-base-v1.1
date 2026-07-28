@@ -4,6 +4,10 @@
 #include "../h/riscv.hpp"
 #include "../h/syscall_c.hpp"
 #include "../test/printing.hpp"
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 _thread* _thread::running = nullptr;
 
 static size_t blocksForBytes(size_t bytes) {
@@ -69,6 +73,7 @@ _thread::_thread(Body body, void* arg, void* stackSpace) {
 void _thread::addAllocatedBlocks(size_t blocks) {
     allocatedBlocks += blocks;
 }
+<<<<<<< Updated upstream
 
 uint64 _thread::getAllocatedBlocks() {
     return allocatedBlocks;
@@ -78,6 +83,15 @@ void _thread::setPinged(bool value) {
 }
 
 bool _thread::isPinged() {
+=======
+uint64 _thread::getAllocatedBlocks() const {
+    return allocatedBlocks;
+}
+void _thread::setPinged(bool pinged) {
+    this->pinged = pinged;
+}
+bool _thread::isPinged() const {
+>>>>>>> Stashed changes
     return pinged;
 }
 _thread* _thread::createThread(Body body, void* arg, void* stackSpace) {
@@ -118,11 +132,18 @@ void _thread::dispatch() {
     running->state = RUNNING;
 
     if (old != nullptr && old != running) {//ako je scheduler vratio istu nit ne treba contextswitch
+<<<<<<< Updated upstream
         if (old->pinged) {
             printString("PING: thread allocated ");
             printInt(old->allocatedBlocks);
             printString(" blocks before losing context\n");
 
+=======
+        if (old->pinged == true) {
+            printString("PING thread allocated: ");
+            printInt(old->allocatedBlocks);
+            printString(" blocks before losing context\n");
+>>>>>>> Stashed changes
             old->pinged = false;
         }
         contextSwitch(&old->context, &running->context);

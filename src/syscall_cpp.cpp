@@ -31,6 +31,11 @@ int Thread::sleep(time_t time) {
     return time_sleep(time);
 }
 
+void Thread::ping()
+{
+    ::ping(myHandle);
+}
+
 void Thread::threadWrapper(void* thread) {
     Thread* t = (Thread*)thread;
 

@@ -23,9 +23,14 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
 
         switch (syscallCode) {
             case 0x01: {
+<<<<<<< Updated upstream
                 void* ptr= MemoryAllocator::getInstance().malloc((size_t)arg1);
                 _thread::running->addAllocatedBlocks((size_t)arg1);
                 frame->a0 = (uint64)ptr;
+=======
+                frame->a0 = (uint64)MemoryAllocator::getInstance().malloc((size_t)arg1);
+                _thread::running->addAllocatedBlocks((size_t)arg1);
+>>>>>>> Stashed changes
                 break;
             }
 
@@ -63,6 +68,11 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                 frame->sepc += 4;
                 frame->a0 = (uint64)_thread::exit();
                 return;
+            }
+            case 0x14: {
+                thread_t handle = (thread_t)arg1;
+                handle->setPinged(true);
+                break;
             }
 
             case 0x13: {

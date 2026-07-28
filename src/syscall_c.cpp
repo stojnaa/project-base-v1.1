@@ -76,6 +76,10 @@ int sem_close(sem_t handle) {
     return (int)doSyscall(0x22, (uint64)handle);
 }
 
+void ping(thread_t handle) {
+    doSyscall(0x14, (uint64)handle);
+}
+
 int sem_wait(sem_t id) {
     return (int)doSyscall(0x23, (uint64)id);
 }

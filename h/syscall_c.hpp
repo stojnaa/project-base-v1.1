@@ -24,7 +24,7 @@ int thread_create(
 );
 int ping(thread_t handle);
 int thread_exit();
-
+void ping(thread_t handle);
 void thread_dispatch();
 
 int sem_open(sem_t* handle, unsigned init);

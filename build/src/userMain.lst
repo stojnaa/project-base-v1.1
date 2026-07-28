@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 GAS LISTING /tmp/cc41ijYY.s 			page 1
+=======
+GAS LISTING /tmp/ccC8kFRY.s 			page 1
+>>>>>>> Stashed changes
 
 
    1              		.file	"userMain.cpp"
@@ -58,7 +62,11 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
   27      6E696A65 
   27      20757370 
   27      65736E6F 
+<<<<<<< Updated upstream
 GAS LISTING /tmp/cc41ijYY.s 			page 2
+=======
+GAS LISTING /tmp/ccC8kFRY.s 			page 2
+>>>>>>> Stashed changes
 
 
   28 0196 0000     		.align	3
@@ -118,7 +126,11 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
   42              		.cfi_startproc
   43 0000 130101FE 		addi	sp,sp,-32
   44              		.cfi_def_cfa_offset 32
+<<<<<<< Updated upstream
 GAS LISTING /tmp/cc41ijYY.s 			page 3
+=======
+GAS LISTING /tmp/ccC8kFRY.s 			page 3
+>>>>>>> Stashed changes
 
 
   45 0004 233C1100 		sd	ra,24(sp)
@@ -178,7 +190,11 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
   76 0040 1B09B9FC 		addiw	s2,s2,-53
   77              		.loc 1 52 5
   78 0044 93071000 		li	a5,1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/cc41ijYY.s 			page 4
+=======
+GAS LISTING /tmp/ccC8kFRY.s 			page 4
+>>>>>>> Stashed changes
 
 
   79 0048 63F42703 		bleu	s2,a5,.L13
@@ -191,7 +207,11 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
   59:src/userMain.cpp ****     switch (test) {
   80              		.loc 1 59 5 is_stmt 1
   81 004c 93078000 		li	a5,8
+<<<<<<< Updated upstream
   82 0050 63E8970E 		bgtu	s1,a5,.L4
+=======
+  82 0050 63E89710 		bgtu	s1,a5,.L4
+>>>>>>> Stashed changes
   83 0054 93942400 		slli	s1,s1,2
   84 0058 17070000 		lla	a4,.L6
   84      13070700 
@@ -238,7 +258,11 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
   67:src/userMain.cpp **** #if LEVEL_2_IMPLEMENTED == 1
   68:src/userMain.cpp ****             Threads_CPP_API_test();
   69:src/userMain.cpp ****             printString("TEST 2 (zadatak 2., niti CPP API i sinhrona promena konteksta)\n");
+<<<<<<< Updated upstream
 GAS LISTING /tmp/cc41ijYY.s 			page 5
+=======
+GAS LISTING /tmp/ccC8kFRY.s 			page 5
+>>>>>>> Stashed changes
 
 
   70:src/userMain.cpp **** #endif
@@ -274,6 +298,7 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
  100:src/userMain.cpp ****             printString("TEST 7 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnic
  101:src/userMain.cpp **** #endif
  102:src/userMain.cpp ****             break;
+<<<<<<< Updated upstream
  103:src/userMain.cpp ****         case 8:
  104:src/userMain.cpp ****             modCplus();
  105:src/userMain.cpp ****             break;
@@ -282,6 +307,20 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
  108:src/userMain.cpp ****     }
  109:src/userMain.cpp **** }...
  112              		.loc 1 109 1 is_stmt 0
+=======
+ 103:src/userMain.cpp ****     case 8:
+ 104:src/userMain.cpp **** #if LEVEL_2_IMPLEMENTED == 1
+ 105:src/userMain.cpp ****         modC();
+ 106:src/userMain.cpp ****         printString("Test se nije uspesno zavrsio\n");
+ 107:src/userMain.cpp ****         printString("TEST 7 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnickom 
+ 108:src/userMain.cpp **** #endif
+ 109:src/userMain.cpp ****         break;
+ 110:src/userMain.cpp ****         default:
+ 111:src/userMain.cpp ****             printString("Niste uneli odgovarajuci broj za test\n");
+ 112:src/userMain.cpp ****     }
+ 113:src/userMain.cpp **** }...
+ 112              		.loc 1 113 1 is_stmt 0
+>>>>>>> Stashed changes
  113 0080 83308101 		ld	ra,24(sp)
  114              		.cfi_remember_state
  115              		.cfi_restore 1
@@ -294,6 +333,7 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
  122              		.cfi_restore 18
  123 0090 13010102 		addi	sp,sp,32
  124              		.cfi_def_cfa_offset 0
+<<<<<<< Updated upstream
  125 0094 67800000 		jr	ra
  126              	.L11:
  127              		.cfi_restore_state
@@ -301,6 +341,15 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
 GAS LISTING /tmp/cc41ijYY.s 			page 6
 
 
+=======
+GAS LISTING /tmp/ccC8kFRY.s 			page 6
+
+
+ 125 0094 67800000 		jr	ra
+ 126              	.L11:
+ 127              		.cfi_restore_state
+  60:src/userMain.cpp ****         case 1:
+>>>>>>> Stashed changes
  128              		.loc 1 60 9 is_stmt 1
   62:src/userMain.cpp ****             Threads_C_API_test();
  129              		.loc 1 62 13
@@ -354,6 +403,7 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
  157      E7800000 
  158              	.LVL9:
   75:src/userMain.cpp ****             printString("TEST 3 (zadatak 3., kompletan C API sa semaforima, sinhrona promena kontek
+<<<<<<< Updated upstream
  159              		.loc 1 75 13 is_stmt 1
   75:src/userMain.cpp ****             printString("TEST 3 (zadatak 3., kompletan C API sa semaforima, sinhrona promena kontek
  160              		.loc 1 75 24 is_stmt 0
@@ -361,6 +411,15 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
 GAS LISTING /tmp/cc41ijYY.s 			page 7
 
 
+=======
+GAS LISTING /tmp/ccC8kFRY.s 			page 7
+
+
+ 159              		.loc 1 75 13 is_stmt 1
+  75:src/userMain.cpp ****             printString("TEST 3 (zadatak 3., kompletan C API sa semaforima, sinhrona promena kontek
+ 160              		.loc 1 75 24 is_stmt 0
+ 161 00d8 17050000 		lla	a0,.LC4
+>>>>>>> Stashed changes
  161      13050500 
  162 00e0 97000000 		call	_Z11printStringPKc@plt
  162      E7800000 
@@ -414,6 +473,7 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
  100:src/userMain.cpp ****             printString("TEST 7 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnic
  191              		.loc 1 100 24 is_stmt 0
  192 0120 17050000 		lla	a0,.LC7
+<<<<<<< Updated upstream
  192      13050500 
  193 0128 97000000 		call	_Z11printStringPKc@plt
  193      E7800000 
@@ -421,10 +481,20 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
 GAS LISTING /tmp/cc41ijYY.s 			page 8
 
 
+=======
+GAS LISTING /tmp/ccC8kFRY.s 			page 8
+
+
+ 192      13050500 
+ 193 0128 97000000 		call	_Z11printStringPKc@plt
+ 193      E7800000 
+ 194              	.LVL15:
+>>>>>>> Stashed changes
  102:src/userMain.cpp ****             break;
  195              		.loc 1 102 13 is_stmt 1
  196 0130 6FF01FF5 		j	.L1
  197              	.L5:
+<<<<<<< Updated upstream
  103:src/userMain.cpp ****         case 8:
  198              		.loc 1 103 9
  104:src/userMain.cpp ****             modCplus();
@@ -463,10 +533,72 @@ GAS LISTING /tmp/cc41ijYY.s 			page 1
  224              		.file 9 "src/../test/System_Mode_test.hpp"
  225              		.file 10 "src/../test/mod.hpp"
 GAS LISTING /tmp/cc41ijYY.s 			page 9
+=======
+ 103:src/userMain.cpp ****     case 8:
+ 198              		.loc 1 103 5
+ 105:src/userMain.cpp ****         modC();
+ 199              		.loc 1 105 9
+ 105:src/userMain.cpp ****         modC();
+ 200              		.loc 1 105 13 is_stmt 0
+ 201 0134 97000000 		call	_Z4modCv@plt
+ 201      E7800000 
+ 202              	.LVL16:
+ 106:src/userMain.cpp ****         printString("Test se nije uspesno zavrsio\n");
+ 203              		.loc 1 106 9 is_stmt 1
+ 106:src/userMain.cpp ****         printString("Test se nije uspesno zavrsio\n");
+ 204              		.loc 1 106 20 is_stmt 0
+ 205 013c 17050000 		lla	a0,.LC6
+ 205      13050500 
+ 206 0144 97000000 		call	_Z11printStringPKc@plt
+ 206      E7800000 
+ 207              	.LVL17:
+ 107:src/userMain.cpp ****         printString("TEST 7 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnickom 
+ 208              		.loc 1 107 9 is_stmt 1
+ 107:src/userMain.cpp ****         printString("TEST 7 (zadatak 2., testiranje da li se korisnicki kod izvrsava u korisnickom 
+ 209              		.loc 1 107 20 is_stmt 0
+ 210 014c 17050000 		lla	a0,.LC7
+ 210      13050500 
+ 211 0154 97000000 		call	_Z11printStringPKc@plt
+ 211      E7800000 
+ 212              	.LVL18:
+ 109:src/userMain.cpp ****         break;
+ 213              		.loc 1 109 9 is_stmt 1
+ 214 015c 6FF05FF2 		j	.L1
+ 215              	.L4:
+ 110:src/userMain.cpp ****         default:
+ 216              		.loc 1 110 9
+ 111:src/userMain.cpp ****             printString("Niste uneli odgovarajuci broj za test\n");
+ 217              		.loc 1 111 13
+ 111:src/userMain.cpp ****             printString("Niste uneli odgovarajuci broj za test\n");
+ 218              		.loc 1 111 24 is_stmt 0
+ 219 0160 17050000 		lla	a0,.LC8
+ 219      13050500 
+ 220 0168 97000000 		call	_Z11printStringPKc@plt
+ 220      E7800000 
+ 221              	.LVL19:
+ 222 0170 6FF01FF1 		j	.L1
+ 223              		.cfi_endproc
+ 224              	.LFE0:
+ 226              	.Letext0:
+ 227              		.file 2 "src/../test/../h/../lib/hw.h"
+ 228              		.file 3 "src/../test/printing.hpp"
+ 229              		.file 4 "src/../test/../h/syscall_c.hpp"
+GAS LISTING /tmp/ccC8kFRY.s 			page 9
+
+
+ 230              		.file 5 "src/../test/Threads_C_API_test.hpp"
+ 231              		.file 6 "src/../test/Threads_CPP_API_test.hpp"
+ 232              		.file 7 "src/../test/ConsumerProducer_C_API_test.hpp"
+ 233              		.file 8 "src/../test/ConsumerProducer_CPP_Sync_API_test.hpp"
+ 234              		.file 9 "src/../test/System_Mode_test.hpp"
+ 235              		.file 10 "src/../test/mod.hpp"
+GAS LISTING /tmp/ccC8kFRY.s 			page 10
+>>>>>>> Stashed changes
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 userMain.cpp
+<<<<<<< Updated upstream
      /tmp/cc41ijYY.s:38     .text:0000000000000000 _Z8userMainv
      /tmp/cc41ijYY.s:42     .text:0000000000000000 .L0 
      /tmp/cc41ijYY.s:43     .text:0000000000000000 .L0 
@@ -583,8 +715,126 @@ DEFINED SYMBOLS
      /tmp/cc41ijYY.s:216    .text:0000000000000154 .Letext0
      /tmp/cc41ijYY.s:826    .debug_line:0000000000000000 .Ldebug_line0
 GAS LISTING /tmp/cc41ijYY.s 			page 11
+=======
+     /tmp/ccC8kFRY.s:38     .text:0000000000000000 _Z8userMainv
+     /tmp/ccC8kFRY.s:42     .text:0000000000000000 .L0 
+     /tmp/ccC8kFRY.s:43     .text:0000000000000000 .L0 
+     /tmp/ccC8kFRY.s:44     .text:0000000000000004 .L0 
+     /tmp/ccC8kFRY.s:49     .text:0000000000000014 .L0 
+     /tmp/ccC8kFRY.s:50     .text:0000000000000014 .L0 
+     /tmp/ccC8kFRY.s:51     .text:0000000000000014 .L0 
+     /tmp/ccC8kFRY.s:52     .text:0000000000000014 .L0 
+     /tmp/ccC8kFRY.s:54     .text:0000000000000018 .L0 
+     /tmp/ccC8kFRY.s:56     .text:0000000000000018 .L0 
+     /tmp/ccC8kFRY.s:57     .text:0000000000000018 .L0 
+     /tmp/ccC8kFRY.s:61     .text:0000000000000028 .L0 
+     /tmp/ccC8kFRY.s:62     .text:0000000000000028 .L0 
+     /tmp/ccC8kFRY.s:66     .text:0000000000000034 .L0 
+     /tmp/ccC8kFRY.s:69     .text:0000000000000038 .L0 
+     /tmp/ccC8kFRY.s:70     .text:0000000000000038 .L0 
+     /tmp/ccC8kFRY.s:73     .text:0000000000000040 .L0 
+     /tmp/ccC8kFRY.s:74     .text:0000000000000040 .L0 
+     /tmp/ccC8kFRY.s:75     .text:0000000000000040 .L0 
+     /tmp/ccC8kFRY.s:76     .text:0000000000000040 .L0 
+     /tmp/ccC8kFRY.s:78     .text:0000000000000044 .L0 
+     /tmp/ccC8kFRY.s:81     .text:000000000000004c .L0 
+     /tmp/ccC8kFRY.s:105    .text:0000000000000070 .L0 
+     /tmp/ccC8kFRY.s:106    .text:0000000000000070 .L0 
+     /tmp/ccC8kFRY.s:107    .text:0000000000000070 .L0 
+     /tmp/ccC8kFRY.s:112    .text:0000000000000080 .L0 
+     /tmp/ccC8kFRY.s:113    .text:0000000000000080 .L0 
+     /tmp/ccC8kFRY.s:114    .text:0000000000000084 .L0 
+     /tmp/ccC8kFRY.s:115    .text:0000000000000084 .L0 
+     /tmp/ccC8kFRY.s:117    .text:0000000000000088 .L0 
+     /tmp/ccC8kFRY.s:118    .text:0000000000000088 .L0 
+     /tmp/ccC8kFRY.s:120    .text:000000000000008c .L0 
+     /tmp/ccC8kFRY.s:122    .text:0000000000000090 .L0 
+     /tmp/ccC8kFRY.s:124    .text:0000000000000094 .L0 
+     /tmp/ccC8kFRY.s:127    .text:0000000000000098 .L0 
+     /tmp/ccC8kFRY.s:129    .text:0000000000000098 .L0 
+     /tmp/ccC8kFRY.s:130    .text:0000000000000098 .L0 
+     /tmp/ccC8kFRY.s:131    .text:0000000000000098 .L0 
+     /tmp/ccC8kFRY.s:134    .text:00000000000000a0 .L0 
+     /tmp/ccC8kFRY.s:135    .text:00000000000000a0 .L0 
+     /tmp/ccC8kFRY.s:139    .text:00000000000000b0 .L0 
+     /tmp/ccC8kFRY.s:142    .text:00000000000000b4 .L0 
+     /tmp/ccC8kFRY.s:143    .text:00000000000000b4 .L0 
+     /tmp/ccC8kFRY.s:144    .text:00000000000000b4 .L0 
+     /tmp/ccC8kFRY.s:147    .text:00000000000000bc .L0 
+     /tmp/ccC8kFRY.s:148    .text:00000000000000bc .L0 
+     /tmp/ccC8kFRY.s:152    .text:00000000000000cc .L0 
+     /tmp/ccC8kFRY.s:155    .text:00000000000000d0 .L0 
+     /tmp/ccC8kFRY.s:156    .text:00000000000000d0 .L0 
+     /tmp/ccC8kFRY.s:157    .text:00000000000000d0 .L0 
+     /tmp/ccC8kFRY.s:160    .text:00000000000000d8 .L0 
+     /tmp/ccC8kFRY.s:161    .text:00000000000000d8 .L0 
+     /tmp/ccC8kFRY.s:165    .text:00000000000000e8 .L0 
+     /tmp/ccC8kFRY.s:168    .text:00000000000000ec .L0 
+     /tmp/ccC8kFRY.s:169    .text:00000000000000ec .L0 
+GAS LISTING /tmp/ccC8kFRY.s 			page 11
 
+>>>>>>> Stashed changes
 
+     /tmp/ccC8kFRY.s:170    .text:00000000000000ec .L0 
+     /tmp/ccC8kFRY.s:173    .text:00000000000000f4 .L0 
+     /tmp/ccC8kFRY.s:174    .text:00000000000000f4 .L0 
+     /tmp/ccC8kFRY.s:178    .text:0000000000000104 .L0 
+     /tmp/ccC8kFRY.s:181    .text:0000000000000108 .L0 
+     /tmp/ccC8kFRY.s:182    .text:0000000000000108 .L0 
+     /tmp/ccC8kFRY.s:183    .text:0000000000000108 .L0 
+     /tmp/ccC8kFRY.s:186    .text:0000000000000110 .L0 
+     /tmp/ccC8kFRY.s:187    .text:0000000000000110 .L0 
+     /tmp/ccC8kFRY.s:191    .text:0000000000000120 .L0 
+     /tmp/ccC8kFRY.s:192    .text:0000000000000120 .L0 
+     /tmp/ccC8kFRY.s:196    .text:0000000000000130 .L0 
+     /tmp/ccC8kFRY.s:199    .text:0000000000000134 .L0 
+     /tmp/ccC8kFRY.s:200    .text:0000000000000134 .L0 
+     /tmp/ccC8kFRY.s:201    .text:0000000000000134 .L0 
+     /tmp/ccC8kFRY.s:204    .text:000000000000013c .L0 
+     /tmp/ccC8kFRY.s:205    .text:000000000000013c .L0 
+     /tmp/ccC8kFRY.s:209    .text:000000000000014c .L0 
+     /tmp/ccC8kFRY.s:210    .text:000000000000014c .L0 
+     /tmp/ccC8kFRY.s:214    .text:000000000000015c .L0 
+     /tmp/ccC8kFRY.s:217    .text:0000000000000160 .L0 
+     /tmp/ccC8kFRY.s:218    .text:0000000000000160 .L0 
+     /tmp/ccC8kFRY.s:219    .text:0000000000000160 .L0 
+     /tmp/ccC8kFRY.s:223    .text:0000000000000174 .L0 
+     /tmp/ccC8kFRY.s:236    .text:0000000000000174 .L0 
+     /tmp/ccC8kFRY.s:8      .rodata.str1.8:0000000000000000 .LC0
+     /tmp/ccC8kFRY.s:57     .text:0000000000000018 .L0 
+     /tmp/ccC8kFRY.s:92     .rodata:0000000000000000 .L6
+     /tmp/ccC8kFRY.s:84     .text:0000000000000058 .L0 
+     /tmp/ccC8kFRY.s:11     .rodata.str1.8:0000000000000020 .LC1
+     /tmp/ccC8kFRY.s:107    .text:0000000000000070 .L0 
+     /tmp/ccC8kFRY.s:14     .rodata.str1.8:0000000000000050 .LC2
+     /tmp/ccC8kFRY.s:135    .text:00000000000000a0 .L0 
+     /tmp/ccC8kFRY.s:17     .rodata.str1.8:0000000000000090 .LC3
+     /tmp/ccC8kFRY.s:148    .text:00000000000000bc .L0 
+     /tmp/ccC8kFRY.s:20     .rodata.str1.8:00000000000000d0 .LC4
+     /tmp/ccC8kFRY.s:161    .text:00000000000000d8 .L0 
+     /tmp/ccC8kFRY.s:23     .rodata.str1.8:0000000000000120 .LC5
+     /tmp/ccC8kFRY.s:174    .text:00000000000000f4 .L0 
+     /tmp/ccC8kFRY.s:26     .rodata.str1.8:0000000000000178 .LC6
+     /tmp/ccC8kFRY.s:187    .text:0000000000000110 .L0 
+     /tmp/ccC8kFRY.s:29     .rodata.str1.8:0000000000000198 .LC7
+     /tmp/ccC8kFRY.s:192    .text:0000000000000120 .L0 
+     /tmp/ccC8kFRY.s:205    .text:000000000000013c .L0 
+     /tmp/ccC8kFRY.s:210    .text:000000000000014c .L0 
+     /tmp/ccC8kFRY.s:32     .rodata.str1.8:00000000000001f0 .LC8
+     /tmp/ccC8kFRY.s:219    .text:0000000000000160 .L0 
+     /tmp/ccC8kFRY.s:103    .text:0000000000000070 .L13
+     /tmp/ccC8kFRY.s:215    .text:0000000000000160 .L4
+     /tmp/ccC8kFRY.s:111    .text:0000000000000080 .L1
+     /tmp/ccC8kFRY.s:126    .text:0000000000000098 .L11
+     /tmp/ccC8kFRY.s:140    .text:00000000000000b4 .L10
+     /tmp/ccC8kFRY.s:153    .text:00000000000000d0 .L9
+     /tmp/ccC8kFRY.s:166    .text:00000000000000ec .L8
+     /tmp/ccC8kFRY.s:179    .text:0000000000000108 .L7
+     /tmp/ccC8kFRY.s:197    .text:0000000000000134 .L5
+     /tmp/ccC8kFRY.s:584    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+GAS LISTING /tmp/ccC8kFRY.s 			page 12
+
+<<<<<<< Updated upstream
      /tmp/cc41ijYY.s:832    .debug_str:0000000000000023 .LASF0
      /tmp/cc41ijYY.s:888    .debug_str:000000000000021d .LASF1
      /tmp/cc41ijYY.s:866    .debug_str:0000000000000144 .LASF2
@@ -643,9 +893,82 @@ DEFINED SYMBOLS
      /tmp/cc41ijYY.s:830    .debug_str:000000000000001a .LASF33
      /tmp/cc41ijYY.s:67     .text:0000000000000038 .LVL2
 GAS LISTING /tmp/cc41ijYY.s 			page 12
+=======
+>>>>>>> Stashed changes
 
+     /tmp/ccC8kFRY.s:922    .debug_str:0000000000000230 .LASF34
+     /tmp/ccC8kFRY.s:912    .debug_str:00000000000001d3 .LASF35
+     /tmp/ccC8kFRY.s:888    .debug_str:00000000000000ee .LASF36
+     /tmp/ccC8kFRY.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccC8kFRY.s:226    .text:0000000000000174 .Letext0
+     /tmp/ccC8kFRY.s:858    .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccC8kFRY.s:862    .debug_str:000000000000001a .LASF0
+     /tmp/ccC8kFRY.s:920    .debug_str:000000000000021d .LASF1
+     /tmp/ccC8kFRY.s:898    .debug_str:0000000000000144 .LASF2
+     /tmp/ccC8kFRY.s:892    .debug_str:0000000000000124 .LASF4
+     /tmp/ccC8kFRY.s:882    .debug_str:00000000000000a6 .LASF3
+     /tmp/ccC8kFRY.s:872    .debug_str:0000000000000071 .LASF5
+     /tmp/ccC8kFRY.s:890    .debug_str:0000000000000111 .LASF6
+     /tmp/ccC8kFRY.s:918    .debug_str:000000000000020a .LASF7
+     /tmp/ccC8kFRY.s:928    .debug_str:0000000000000308 .LASF8
+     /tmp/ccC8kFRY.s:868    .debug_str:0000000000000054 .LASF9
+     /tmp/ccC8kFRY.s:870    .debug_str:0000000000000062 .LASF10
+     /tmp/ccC8kFRY.s:924    .debug_str:00000000000002f4 .LASF11
+     /tmp/ccC8kFRY.s:874    .debug_str:0000000000000078 .LASF12
+     /tmp/ccC8kFRY.s:934    .debug_str:0000000000000326 .LASF13
+     /tmp/ccC8kFRY.s:896    .debug_str:0000000000000138 .LASF14
+     /tmp/ccC8kFRY.s:906    .debug_str:0000000000000183 .LASF15
+     /tmp/ccC8kFRY.s:904    .debug_str:000000000000016d .LASF16
+     /tmp/ccC8kFRY.s:930    .debug_str:0000000000000318 .LASF37
+     /tmp/ccC8kFRY.s:894    .debug_str:000000000000012b .LASF38
+     /tmp/ccC8kFRY.s:39     .text:0000000000000000 .LFB0
+     /tmp/ccC8kFRY.s:224    .text:0000000000000174 .LFE0
+     /tmp/ccC8kFRY.s:926    .debug_str:0000000000000303 .LASF17
+     /tmp/ccC8kFRY.s:836    .debug_loc:0000000000000000 .LLST0
+     /tmp/ccC8kFRY.s:59     .text:0000000000000028 .LVL0
+     /tmp/ccC8kFRY.s:63     .text:0000000000000030 .LVL1
+     /tmp/ccC8kFRY.s:71     .text:0000000000000040 .LVL3
+     /tmp/ccC8kFRY.s:109    .text:0000000000000080 .LVL4
+     /tmp/ccC8kFRY.s:132    .text:00000000000000a0 .LVL5
+     /tmp/ccC8kFRY.s:137    .text:00000000000000b0 .LVL6
+     /tmp/ccC8kFRY.s:145    .text:00000000000000bc .LVL7
+     /tmp/ccC8kFRY.s:150    .text:00000000000000cc .LVL8
+     /tmp/ccC8kFRY.s:158    .text:00000000000000d8 .LVL9
+     /tmp/ccC8kFRY.s:163    .text:00000000000000e8 .LVL10
+     /tmp/ccC8kFRY.s:171    .text:00000000000000f4 .LVL11
+     /tmp/ccC8kFRY.s:176    .text:0000000000000104 .LVL12
+     /tmp/ccC8kFRY.s:184    .text:0000000000000110 .LVL13
+     /tmp/ccC8kFRY.s:189    .text:0000000000000120 .LVL14
+     /tmp/ccC8kFRY.s:194    .text:0000000000000130 .LVL15
+     /tmp/ccC8kFRY.s:202    .text:000000000000013c .LVL16
+     /tmp/ccC8kFRY.s:207    .text:000000000000014c .LVL17
+     /tmp/ccC8kFRY.s:212    .text:000000000000015c .LVL18
+     /tmp/ccC8kFRY.s:221    .text:0000000000000170 .LVL19
+     /tmp/ccC8kFRY.s:914    .debug_str:00000000000001e4 .LASF18
+     /tmp/ccC8kFRY.s:876    .debug_str:0000000000000088 .LASF20
+     /tmp/ccC8kFRY.s:880    .debug_str:000000000000009d .LASF19
+     /tmp/ccC8kFRY.s:902    .debug_str:0000000000000168 .LASF21
+     /tmp/ccC8kFRY.s:884    .debug_str:00000000000000b8 .LASF22
+     /tmp/ccC8kFRY.s:916    .debug_str:00000000000001f7 .LASF23
+     /tmp/ccC8kFRY.s:860    .debug_str:0000000000000000 .LASF24
+     /tmp/ccC8kFRY.s:936    .debug_str:0000000000000336 .LASF25
+     /tmp/ccC8kFRY.s:864    .debug_str:0000000000000027 .LASF26
+GAS LISTING /tmp/ccC8kFRY.s 			page 13
 
+<<<<<<< Updated upstream
      /tmp/cc41ijYY.s:227    .debug_info:0000000000000000 .Ldebug_info0
+=======
+
+     /tmp/ccC8kFRY.s:908    .debug_str:0000000000000199 .LASF27
+     /tmp/ccC8kFRY.s:910    .debug_str:00000000000001b0 .LASF28
+     /tmp/ccC8kFRY.s:886    .debug_str:00000000000000d0 .LASF29
+     /tmp/ccC8kFRY.s:900    .debug_str:0000000000000152 .LASF30
+     /tmp/ccC8kFRY.s:866    .debug_str:0000000000000043 .LASF31
+     /tmp/ccC8kFRY.s:878    .debug_str:0000000000000094 .LASF32
+     /tmp/ccC8kFRY.s:932    .debug_str:0000000000000321 .LASF33
+     /tmp/ccC8kFRY.s:67     .text:0000000000000038 .LVL2
+     /tmp/ccC8kFRY.s:237    .debug_info:0000000000000000 .Ldebug_info0
+>>>>>>> Stashed changes
 
 UNDEFINED SYMBOLS
 _Z11printStringPKc
@@ -655,4 +978,8 @@ _Z20Threads_CPP_API_testv
 _Z22producerConsumer_C_APIv
 _Z29producerConsumer_CPP_Sync_APIv
 _Z16System_Mode_testv
+<<<<<<< Updated upstream
 _Z8modCplusv
+=======
+_Z4modCv
+>>>>>>> Stashed changes

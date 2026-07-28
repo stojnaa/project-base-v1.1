@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 1
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 1
+>>>>>>> Stashed changes
 
 
    1              		.file	"trap.cpp"
@@ -58,7 +62,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
   39              		.cfi_def_cfa 8, 0
   40 001c 93040500 		mv	s1,a0
   14:src/trap.cpp  ****     uint64 scause = Riscv::r_scause();
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 2
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 2
+>>>>>>> Stashed changes
 
 
   41              		.loc 1 14 5
@@ -118,7 +126,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
   27:src/trap.cpp  ****                 break;
   28:src/trap.cpp  ****             }
   29:src/trap.cpp  **** 
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 3
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 3
+>>>>>>> Stashed changes
 
 
   30:src/trap.cpp  ****             case 0x02: {
@@ -162,6 +174,7 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
   68:src/trap.cpp  ****                 _thread::dispatch();//nismo frame->a0 jer dispatch nema povratnu value
   69:src/trap.cpp  ****                 return;
   70:src/trap.cpp  ****             }
+<<<<<<< Updated upstream
   71:src/trap.cpp  ****             case 0x14: {
   72:src/trap.cpp  ****                 frame->sepc += 4;
   73:src/trap.cpp  ****                 frame->a0 = (uint64)_thread::running->getThreadId();
@@ -173,12 +186,29 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
   79:src/trap.cpp  ****                 _thread::setMaximumThreads(num);
   80:src/trap.cpp  ****                 break;
   81:src/trap.cpp  ****             }
+=======
+  71:src/trap.cpp  ****         case 0x14: {
+  72:src/trap.cpp  ****             frame->sepc += 4;
+  73:src/trap.cpp  ****             frame->a0 = (uint64)_thread::running->getThreadId();
+  74:src/trap.cpp  ****             _thread::dispatch();//nismo frame->a0 jer dispatch nema povratnu value
+  75:src/trap.cpp  ****             return;
+  76:src/trap.cpp  ****         }
+  77:src/trap.cpp  ****         case 0x15: {
+  78:src/trap.cpp  ****             int num = (int)arg1;
+  79:src/trap.cpp  ****             _thread::setMaximumThreads(num);
+  80:src/trap.cpp  ****             break;
+  81:src/trap.cpp  ****         }
+>>>>>>> Stashed changes
   82:src/trap.cpp  ****             case 0x21: {//ne povecavamo sepc jer ne menja trenutno izvrsavanje
   83:src/trap.cpp  ****                 sem_t* handle = (sem_t*)arg1;
   84:src/trap.cpp  ****                 unsigned init = (unsigned)arg2;
   85:src/trap.cpp  **** 
   86:src/trap.cpp  ****                 if (handle == nullptr) {
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 4
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 4
+>>>>>>> Stashed changes
 
 
   87:src/trap.cpp  ****                     frame->a0 = (uint64)-1;
@@ -238,7 +268,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  141:src/trap.cpp  ****                 }
  142:src/trap.cpp  **** 
  143:src/trap.cpp  ****                 frame->a0 = (uint64)sem->signal();
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 5
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 5
+>>>>>>> Stashed changes
 
 
  144:src/trap.cpp  ****                 break;
@@ -298,7 +332,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  198:src/trap.cpp  **** 
  199:src/trap.cpp  ****     if (scause == 0x8000000000000001UL) {
   65              		.loc 1 199 5 is_stmt 1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 6
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 6
+>>>>>>> Stashed changes
 
 
   66 0030 9307F0FF 		li	a5,-1
@@ -358,7 +396,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
   20:src/trap.cpp  ****         uint64 arg3 = frame->a3;
   94              		.loc 1 20 16 is_stmt 0
   95 0064 03350505 		ld	a0,80(a0)
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 7
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 7
+>>>>>>> Stashed changes
 
 
   96              	.LVL4:
@@ -418,7 +460,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  144 0060 00000000 		.word	.L3-.L5
  145 0064 00000000 		.word	.L3-.L5
  146 0068 00000000 		.word	.L3-.L5
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 8
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 8
+>>>>>>> Stashed changes
 
 
  147 006c 00000000 		.word	.L3-.L5
@@ -478,7 +524,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
   26:src/trap.cpp  ****                 break;
  196              		.loc 1 26 74
  197 009c 93050900 		mv	a1,s2
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 9
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 9
+>>>>>>> Stashed changes
 
 
  198 00a0 97000000 		call	_ZN15MemoryAllocator6mallocEm@plt
@@ -538,7 +588,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  241              		.loc 1 31 66 is_stmt 0
  242 00d4 97000000 		call	_ZN15MemoryAllocator11getInstanceEv@plt
  242      E7800000 
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 10
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 10
+>>>>>>> Stashed changes
 
 
  243              	.LVL14:
@@ -598,7 +652,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  279 0108 97000000 		call	_ZN7_thread12createThreadEPFvPvES0_S0_@plt
  279      E7800000 
  280              	.LVL19:
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 11
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 11
+>>>>>>> Stashed changes
 
 
   48:src/trap.cpp  ****                 if (thread == nullptr) {
@@ -658,7 +716,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  316              	.LVL23:
   62:src/trap.cpp  ****                 frame->a0 = (uint64)_thread::exit();
  317              		.loc 1 62 27
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 12
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 12
+>>>>>>> Stashed changes
 
 
  318 0148 23B0A404 		sd	a0,64(s1)
@@ -690,6 +752,7 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  335 0164 6FF05FF5 		j	.L1
  336              	.LVL26:
  337              	.L15:
+<<<<<<< Updated upstream
   71:src/trap.cpp  ****             case 0x14: {
  338              		.loc 1 71 13
   71:src/trap.cpp  ****             case 0x14: {
@@ -705,10 +768,28 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  345              		.loc 1 73 17 is_stmt 1
   73:src/trap.cpp  ****                 frame->a0 = (uint64)_thread::running->getThreadId();
  346              		.loc 1 73 66 is_stmt 0
+=======
+  71:src/trap.cpp  ****         case 0x14: {
+ 338              		.loc 1 71 9
+  71:src/trap.cpp  ****         case 0x14: {
+ 339              		.loc 1 71 20
+  72:src/trap.cpp  ****             frame->sepc += 4;
+ 340              		.loc 1 72 13
+  72:src/trap.cpp  ****             frame->sepc += 4;
+ 341              		.loc 1 72 25 is_stmt 0
+ 342 0168 83B7040F 		ld	a5,240(s1)
+ 343 016c 93874700 		addi	a5,a5,4
+ 344 0170 23B8F40E 		sd	a5,240(s1)
+  73:src/trap.cpp  ****             frame->a0 = (uint64)_thread::running->getThreadId();
+ 345              		.loc 1 73 13 is_stmt 1
+  73:src/trap.cpp  ****             frame->a0 = (uint64)_thread::running->getThreadId();
+ 346              		.loc 1 73 62 is_stmt 0
+>>>>>>> Stashed changes
  347 0174 97070000 		la	a5,_ZN7_thread7runningE
  347      83B70700 
  348 017c 03B50700 		ld	a0,0(a5)
  349              	.LVL27:
+<<<<<<< Updated upstream
  350 0180 97000000 		call	_ZN7_thread11getThreadIdEv@plt
  350      E7800000 
  351              	.LVL28:
@@ -741,13 +822,52 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  366              		.loc 1 79 17
   79:src/trap.cpp  ****                 _thread::setMaximumThreads(num);
  367              		.loc 1 79 43 is_stmt 0
+=======
+ 350 0180 97000000 		call	_ZNK7_thread11getThreadIdEv@plt
+ 350      E7800000 
+ 351              	.LVL28:
+  73:src/trap.cpp  ****             frame->a0 = (uint64)_thread::running->getThreadId();
+ 352              		.loc 1 73 23
+ 353 0188 23B0A404 		sd	a0,64(s1)
+  74:src/trap.cpp  ****             _thread::dispatch();//nismo frame->a0 jer dispatch nema povratnu value
+ 354              		.loc 1 74 13 is_stmt 1
+  74:src/trap.cpp  ****             _thread::dispatch();//nismo frame->a0 jer dispatch nema povratnu value
+GAS LISTING /tmp/ccTpuTiJ.s 			page 13
+
+
+ 355              		.loc 1 74 30 is_stmt 0
+ 356 018c 97000000 		call	_ZN7_thread8dispatchEv@plt
+ 356      E7800000 
+ 357              	.LVL29:
+  75:src/trap.cpp  ****             return;
+ 358              		.loc 1 75 13 is_stmt 1
+ 359 0194 6FF05FF2 		j	.L1
+ 360              	.LVL30:
+ 361              	.L14:
+  77:src/trap.cpp  ****         case 0x15: {
+ 362              		.loc 1 77 9
+  77:src/trap.cpp  ****         case 0x15: {
+ 363              		.loc 1 77 20
+ 364              	.LBB26:
+  78:src/trap.cpp  ****             int num = (int)arg1;
+ 365              		.loc 1 78 13
+  79:src/trap.cpp  ****             _thread::setMaximumThreads(num);
+ 366              		.loc 1 79 13
+  79:src/trap.cpp  ****             _thread::setMaximumThreads(num);
+ 367              		.loc 1 79 39 is_stmt 0
+>>>>>>> Stashed changes
  368 0198 1B050900 		sext.w	a0,s2
  369              	.LVL31:
  370 019c 97000000 		call	_ZN7_thread17setMaximumThreadsEi@plt
  370      E7800000 
  371              	.LVL32:
+<<<<<<< Updated upstream
   80:src/trap.cpp  ****                 break;
  372              		.loc 1 80 17 is_stmt 1
+=======
+  80:src/trap.cpp  ****             break;
+ 372              		.loc 1 80 13 is_stmt 1
+>>>>>>> Stashed changes
  373 01a4 6FF09FF0 		j	.L21
  374              	.LVL33:
  375              	.L13:
@@ -778,7 +898,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
   88:src/trap.cpp  ****                     break;
  392              		.loc 1 88 21 is_stmt 1
  393 01b8 6FF05FEF 		j	.L21
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 14
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 14
+>>>>>>> Stashed changes
 
 
  394              	.LVL36:
@@ -838,7 +962,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  430              	.LVL39:
  109:src/trap.cpp  ****                     break;
  431              		.loc 1 109 21 is_stmt 1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 15
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 15
+>>>>>>> Stashed changes
 
 
  432 01ec 6FF01FEC 		j	.L21
@@ -898,7 +1026,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  126:src/trap.cpp  ****                     frame->a0 = (uint64)-1;
  471              		.loc 1 126 31 is_stmt 0
  472 0220 9307F0FF 		li	a5,-1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 16
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 16
+>>>>>>> Stashed changes
 
 
  473 0224 23B0F404 		sd	a5,64(s1)
@@ -958,7 +1090,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  143:src/trap.cpp  ****                 frame->a0 = (uint64)sem->signal();
  512              		.loc 1 143 17
  143:src/trap.cpp  ****                 frame->a0 = (uint64)sem->signal();
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 17
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 17
+>>>>>>> Stashed changes
 
 
  513              		.loc 1 143 48 is_stmt 0
@@ -1018,7 +1154,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  551 0290 13050900 		mv	a0,s2
  552              	.LVL62:
  553 0294 97000000 		call	_ZN4_sem5waitNEj@plt
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 18
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 18
+>>>>>>> Stashed changes
 
 
  553      E7800000 
@@ -1078,7 +1218,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  591              	.LVL70:
  592              	.L7:
  593              	.LBE32:
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 19
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 19
+>>>>>>> Stashed changes
 
 
  173:src/trap.cpp  ****             case 0x31: { // time_sleep
@@ -1138,7 +1282,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  628              		.loc 1 186 17 is_stmt 1
  629 02f8 6FF05FDB 		j	.L21
  630              	.LVL77:
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 20
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 20
+>>>>>>> Stashed changes
 
 
  631              	.L3:
@@ -1198,7 +1346,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
   49:src/../h/riscv.hpp ****     static void mc_sstatus(uint64 mask) {
   50:src/../h/riscv.hpp ****         asm volatile("csrc sstatus, %0" : : "r"(mask));//vrati prekide
   51:src/../h/riscv.hpp ****     }
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 21
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 21
+>>>>>>> Stashed changes
 
 
   52:src/../h/riscv.hpp ****     static void mc_sip(uint64 mask) {
@@ -1258,7 +1410,11 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  685 034c 97000000 		call	_Z11printStringPKc@plt
  685      E7800000 
  686              	.LVL84:
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 22
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 22
+>>>>>>> Stashed changes
 
 
  212:src/trap.cpp  ****         printInt(frame->sepc);
@@ -1318,15 +1474,24 @@ GAS LISTING /tmp/ccs2Q4sU.s 			page 1
  729              		.file 8 "src/../h/Scheduler.hpp"
  730              		.file 9 "src/../h/syscall_c.hpp"
  731              		.file 10 "src/../lib/console.h"
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccs2Q4sU.s 			page 23
 
 
  732              		.file 11 "src/../test/printing.hpp"
 GAS LISTING /tmp/ccs2Q4sU.s 			page 24
+=======
+GAS LISTING /tmp/ccTpuTiJ.s 			page 23
+
+
+ 732              		.file 11 "src/../test/printing.hpp"
+GAS LISTING /tmp/ccTpuTiJ.s 			page 24
+>>>>>>> Stashed changes
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 trap.cpp
+<<<<<<< Updated upstream
      /tmp/ccs2Q4sU.s:20     .text:0000000000000000 handleSupervisorTrap
      /tmp/ccs2Q4sU.s:24     .text:0000000000000000 .L0 
      /tmp/ccs2Q4sU.s:26     .text:0000000000000000 .L0 
@@ -1989,6 +2154,670 @@ DEFINED SYMBOLS
      /tmp/ccs2Q4sU.s:213    .text:00000000000000b8 .LBE23
      /tmp/ccs2Q4sU.s:236    .text:00000000000000d4 .LBB34
      /tmp/ccs2Q4sU.s:644    .text:0000000000000308 .LBE34
+=======
+     /tmp/ccTpuTiJ.s:20     .text:0000000000000000 handleSupervisorTrap
+     /tmp/ccTpuTiJ.s:24     .text:0000000000000000 .L0 
+     /tmp/ccTpuTiJ.s:26     .text:0000000000000000 .L0 
+     /tmp/ccTpuTiJ.s:27     .text:0000000000000004 .L0 
+     /tmp/ccTpuTiJ.s:33     .text:0000000000000018 .L0 
+     /tmp/ccTpuTiJ.s:34     .text:0000000000000018 .L0 
+     /tmp/ccTpuTiJ.s:35     .text:0000000000000018 .L0 
+     /tmp/ccTpuTiJ.s:36     .text:0000000000000018 .L0 
+     /tmp/ccTpuTiJ.s:37     .text:0000000000000018 .L0 
+     /tmp/ccTpuTiJ.s:39     .text:000000000000001c .L0 
+     /tmp/ccTpuTiJ.s:45     .text:0000000000000020 .L0 
+     /tmp/ccTpuTiJ.s:46     .text:0000000000000020 .L0 
+     /tmp/ccTpuTiJ.s:47     .text:0000000000000020 .L0 
+  src/../h/riscv.hpp:17     .text:0000000000000020 .L0 
+     /tmp/ccTpuTiJ.s:57     .text:0000000000000024 .L0 
+     /tmp/ccTpuTiJ.s:59     .text:0000000000000024 .L0 
+     /tmp/ccTpuTiJ.s:60     .text:0000000000000024 .L0 
+     /tmp/ccTpuTiJ.s:62     .text:0000000000000028 .L0 
+     /tmp/ccTpuTiJ.s:66     .text:0000000000000030 .L0 
+     /tmp/ccTpuTiJ.s:71     .text:0000000000000040 .L0 
+     /tmp/ccTpuTiJ.s:76     .text:0000000000000050 .L0 
+     /tmp/ccTpuTiJ.s:80     .text:0000000000000058 .L0 
+     /tmp/ccTpuTiJ.s:81     .text:0000000000000058 .L0 
+     /tmp/ccTpuTiJ.s:86     .text:000000000000005c .L0 
+     /tmp/ccTpuTiJ.s:87     .text:000000000000005c .L0 
+     /tmp/ccTpuTiJ.s:90     .text:0000000000000060 .L0 
+     /tmp/ccTpuTiJ.s:91     .text:0000000000000060 .L0 
+     /tmp/ccTpuTiJ.s:94     .text:0000000000000064 .L0 
+     /tmp/ccTpuTiJ.s:95     .text:0000000000000064 .L0 
+     /tmp/ccTpuTiJ.s:98     .text:0000000000000068 .L0 
+     /tmp/ccTpuTiJ.s:99     .text:0000000000000068 .L0 
+     /tmp/ccTpuTiJ.s:102    .text:000000000000006c .L0 
+     /tmp/ccTpuTiJ.s:103    .text:000000000000006c .L0 
+     /tmp/ccTpuTiJ.s:106    .text:0000000000000070 .L0 
+     /tmp/ccTpuTiJ.s:191    .text:0000000000000094 .L0 
+     /tmp/ccTpuTiJ.s:192    .text:0000000000000094 .L0 
+     /tmp/ccTpuTiJ.s:193    .text:0000000000000094 .L0 
+     /tmp/ccTpuTiJ.s:194    .text:0000000000000094 .L0 
+     /tmp/ccTpuTiJ.s:197    .text:000000000000009c .L0 
+     /tmp/ccTpuTiJ.s:201    .text:00000000000000a8 .L0 
+     /tmp/ccTpuTiJ.s:205    .text:00000000000000ac .L0 
+     /tmp/ccTpuTiJ.s:206    .text:00000000000000ac .L0 
+     /tmp/ccTpuTiJ.s:207    .text:00000000000000ac .L0 
+     /tmp/ccTpuTiJ.s:215    .text:00000000000000b8 .L0 
+     /tmp/ccTpuTiJ.s:216    .text:00000000000000b8 .L0 
+     /tmp/ccTpuTiJ.s:217    .text:00000000000000bc .L0 
+     /tmp/ccTpuTiJ.s:218    .text:00000000000000bc .L0 
+     /tmp/ccTpuTiJ.s:220    .text:00000000000000c0 .L0 
+     /tmp/ccTpuTiJ.s:221    .text:00000000000000c0 .L0 
+     /tmp/ccTpuTiJ.s:223    .text:00000000000000c4 .L0 
+     /tmp/ccTpuTiJ.s:226    .text:00000000000000c8 .L0 
+     /tmp/ccTpuTiJ.s:228    .text:00000000000000cc .L0 
+     /tmp/ccTpuTiJ.s:230    .text:00000000000000d0 .L0 
+     /tmp/ccTpuTiJ.s:234    .text:00000000000000d4 .L0 
+     /tmp/ccTpuTiJ.s:239    .text:00000000000000d4 .L0 
+GAS LISTING /tmp/ccTpuTiJ.s 			page 25
+
+
+     /tmp/ccTpuTiJ.s:240    .text:00000000000000d4 .L0 
+     /tmp/ccTpuTiJ.s:241    .text:00000000000000d4 .L0 
+     /tmp/ccTpuTiJ.s:242    .text:00000000000000d4 .L0 
+     /tmp/ccTpuTiJ.s:245    .text:00000000000000dc .L0 
+     /tmp/ccTpuTiJ.s:249    .text:00000000000000e8 .L0 
+     /tmp/ccTpuTiJ.s:251    .text:00000000000000ec .L0 
+     /tmp/ccTpuTiJ.s:255    .text:00000000000000f0 .L0 
+     /tmp/ccTpuTiJ.s:257    .text:00000000000000f0 .L0 
+     /tmp/ccTpuTiJ.s:258    .text:00000000000000f0 .L0 
+     /tmp/ccTpuTiJ.s:259    .text:00000000000000f0 .L0 
+     /tmp/ccTpuTiJ.s:260    .text:00000000000000f0 .L0 
+     /tmp/ccTpuTiJ.s:261    .text:00000000000000f0 .L0 
+     /tmp/ccTpuTiJ.s:262    .text:00000000000000f0 .L0 
+     /tmp/ccTpuTiJ.s:264    .text:00000000000000f4 .L0 
+     /tmp/ccTpuTiJ.s:266    .text:00000000000000f8 .L0 
+     /tmp/ccTpuTiJ.s:269    .text:00000000000000fc .L0 
+     /tmp/ccTpuTiJ.s:270    .text:00000000000000fc .L0 
+     /tmp/ccTpuTiJ.s:274    .text:0000000000000104 .L0 
+     /tmp/ccTpuTiJ.s:278    .text:0000000000000108 .L0 
+     /tmp/ccTpuTiJ.s:279    .text:0000000000000108 .L0 
+     /tmp/ccTpuTiJ.s:282    .text:0000000000000110 .L0 
+     /tmp/ccTpuTiJ.s:284    .text:0000000000000114 .L0 
+     /tmp/ccTpuTiJ.s:285    .text:0000000000000114 .L0 
+     /tmp/ccTpuTiJ.s:287    .text:0000000000000118 .L0 
+     /tmp/ccTpuTiJ.s:288    .text:0000000000000118 .L0 
+     /tmp/ccTpuTiJ.s:291    .text:0000000000000120 .L0 
+     /tmp/ccTpuTiJ.s:292    .text:0000000000000120 .L0 
+     /tmp/ccTpuTiJ.s:294    .text:0000000000000124 .L0 
+     /tmp/ccTpuTiJ.s:298    .text:0000000000000128 .L0 
+     /tmp/ccTpuTiJ.s:299    .text:0000000000000128 .L0 
+     /tmp/ccTpuTiJ.s:302    .text:0000000000000130 .L0 
+     /tmp/ccTpuTiJ.s:307    .text:0000000000000134 .L0 
+     /tmp/ccTpuTiJ.s:308    .text:0000000000000134 .L0 
+     /tmp/ccTpuTiJ.s:309    .text:0000000000000134 .L0 
+     /tmp/ccTpuTiJ.s:310    .text:0000000000000134 .L0 
+     /tmp/ccTpuTiJ.s:314    .text:0000000000000140 .L0 
+     /tmp/ccTpuTiJ.s:315    .text:0000000000000140 .L0 
+     /tmp/ccTpuTiJ.s:318    .text:0000000000000148 .L0 
+     /tmp/ccTpuTiJ.s:320    .text:000000000000014c .L0 
+     /tmp/ccTpuTiJ.s:324    .text:0000000000000150 .L0 
+     /tmp/ccTpuTiJ.s:325    .text:0000000000000150 .L0 
+     /tmp/ccTpuTiJ.s:326    .text:0000000000000150 .L0 
+     /tmp/ccTpuTiJ.s:327    .text:0000000000000150 .L0 
+     /tmp/ccTpuTiJ.s:331    .text:000000000000015c .L0 
+     /tmp/ccTpuTiJ.s:332    .text:000000000000015c .L0 
+     /tmp/ccTpuTiJ.s:335    .text:0000000000000164 .L0 
+     /tmp/ccTpuTiJ.s:339    .text:0000000000000168 .L0 
+     /tmp/ccTpuTiJ.s:340    .text:0000000000000168 .L0 
+     /tmp/ccTpuTiJ.s:341    .text:0000000000000168 .L0 
+     /tmp/ccTpuTiJ.s:342    .text:0000000000000168 .L0 
+     /tmp/ccTpuTiJ.s:346    .text:0000000000000174 .L0 
+     /tmp/ccTpuTiJ.s:347    .text:0000000000000174 .L0 
+     /tmp/ccTpuTiJ.s:353    .text:0000000000000188 .L0 
+     /tmp/ccTpuTiJ.s:355    .text:000000000000018c .L0 
+     /tmp/ccTpuTiJ.s:356    .text:000000000000018c .L0 
+     /tmp/ccTpuTiJ.s:359    .text:0000000000000194 .L0 
+     /tmp/ccTpuTiJ.s:363    .text:0000000000000198 .L0 
+GAS LISTING /tmp/ccTpuTiJ.s 			page 26
+
+
+     /tmp/ccTpuTiJ.s:365    .text:0000000000000198 .L0 
+     /tmp/ccTpuTiJ.s:366    .text:0000000000000198 .L0 
+     /tmp/ccTpuTiJ.s:367    .text:0000000000000198 .L0 
+     /tmp/ccTpuTiJ.s:368    .text:0000000000000198 .L0 
+     /tmp/ccTpuTiJ.s:373    .text:00000000000001a4 .L0 
+     /tmp/ccTpuTiJ.s:378    .text:00000000000001a8 .L0 
+     /tmp/ccTpuTiJ.s:380    .text:00000000000001a8 .L0 
+     /tmp/ccTpuTiJ.s:381    .text:00000000000001a8 .L0 
+     /tmp/ccTpuTiJ.s:382    .text:00000000000001a8 .L0 
+     /tmp/ccTpuTiJ.s:383    .text:00000000000001a8 .L0 
+     /tmp/ccTpuTiJ.s:386    .text:00000000000001ac .L0 
+     /tmp/ccTpuTiJ.s:388    .text:00000000000001b0 .L0 
+     /tmp/ccTpuTiJ.s:389    .text:00000000000001b0 .L0 
+     /tmp/ccTpuTiJ.s:393    .text:00000000000001b8 .L0 
+     /tmp/ccTpuTiJ.s:397    .text:00000000000001bc .L0 
+     /tmp/ccTpuTiJ.s:398    .text:00000000000001bc .L0 
+     /tmp/ccTpuTiJ.s:401    .text:00000000000001c4 .L0 
+     /tmp/ccTpuTiJ.s:403    .text:00000000000001c8 .L0 
+     /tmp/ccTpuTiJ.s:404    .text:00000000000001c8 .L0 
+     /tmp/ccTpuTiJ.s:406    .text:00000000000001cc .L0 
+     /tmp/ccTpuTiJ.s:407    .text:00000000000001cc .L0 
+     /tmp/ccTpuTiJ.s:409    .text:00000000000001d0 .L0 
+     /tmp/ccTpuTiJ.s:412    .text:00000000000001d4 .L0 
+     /tmp/ccTpuTiJ.s:413    .text:00000000000001d4 .L0 
+     /tmp/ccTpuTiJ.s:416    .text:00000000000001dc .L0 
+     /tmp/ccTpuTiJ.s:421    .text:00000000000001e0 .L0 
+     /tmp/ccTpuTiJ.s:423    .text:00000000000001e0 .L0 
+     /tmp/ccTpuTiJ.s:424    .text:00000000000001e0 .L0 
+     /tmp/ccTpuTiJ.s:425    .text:00000000000001e0 .L0 
+     /tmp/ccTpuTiJ.s:427    .text:00000000000001e4 .L0 
+     /tmp/ccTpuTiJ.s:428    .text:00000000000001e4 .L0 
+     /tmp/ccTpuTiJ.s:432    .text:00000000000001ec .L0 
+     /tmp/ccTpuTiJ.s:436    .text:00000000000001f0 .L0 
+     /tmp/ccTpuTiJ.s:437    .text:00000000000001f0 .L0 
+     /tmp/ccTpuTiJ.s:444    .text:0000000000000200 .L0 
+     /tmp/ccTpuTiJ.s:448    .text:0000000000000204 .L0 
+     /tmp/ccTpuTiJ.s:449    .text:0000000000000204 .L0 
+     /tmp/ccTpuTiJ.s:451    .text:0000000000000208 .L0 
+     /tmp/ccTpuTiJ.s:455    .text:000000000000020c .L0 
+     /tmp/ccTpuTiJ.s:456    .text:000000000000020c .L0 
+     /tmp/ccTpuTiJ.s:465    .text:000000000000021c .L0 
+     /tmp/ccTpuTiJ.s:467    .text:000000000000021c .L0 
+     /tmp/ccTpuTiJ.s:468    .text:000000000000021c .L0 
+     /tmp/ccTpuTiJ.s:469    .text:000000000000021c .L0 
+     /tmp/ccTpuTiJ.s:471    .text:0000000000000220 .L0 
+     /tmp/ccTpuTiJ.s:472    .text:0000000000000220 .L0 
+     /tmp/ccTpuTiJ.s:476    .text:0000000000000228 .L0 
+     /tmp/ccTpuTiJ.s:480    .text:000000000000022c .L0 
+     /tmp/ccTpuTiJ.s:481    .text:000000000000022c .L0 
+     /tmp/ccTpuTiJ.s:485    .text:0000000000000238 .L0 
+     /tmp/ccTpuTiJ.s:486    .text:0000000000000238 .L0 
+     /tmp/ccTpuTiJ.s:491    .text:0000000000000244 .L0 
+     /tmp/ccTpuTiJ.s:493    .text:0000000000000248 .L0 
+     /tmp/ccTpuTiJ.s:498    .text:000000000000024c .L0 
+     /tmp/ccTpuTiJ.s:500    .text:000000000000024c .L0 
+     /tmp/ccTpuTiJ.s:501    .text:000000000000024c .L0 
+     /tmp/ccTpuTiJ.s:502    .text:000000000000024c .L0 
+GAS LISTING /tmp/ccTpuTiJ.s 			page 27
+
+
+     /tmp/ccTpuTiJ.s:504    .text:0000000000000250 .L0 
+     /tmp/ccTpuTiJ.s:505    .text:0000000000000250 .L0 
+     /tmp/ccTpuTiJ.s:509    .text:0000000000000258 .L0 
+     /tmp/ccTpuTiJ.s:513    .text:000000000000025c .L0 
+     /tmp/ccTpuTiJ.s:514    .text:000000000000025c .L0 
+     /tmp/ccTpuTiJ.s:519    .text:0000000000000268 .L0 
+     /tmp/ccTpuTiJ.s:521    .text:000000000000026c .L0 
+     /tmp/ccTpuTiJ.s:526    .text:0000000000000270 .L0 
+     /tmp/ccTpuTiJ.s:528    .text:0000000000000270 .L0 
+     /tmp/ccTpuTiJ.s:529    .text:0000000000000270 .L0 
+     /tmp/ccTpuTiJ.s:530    .text:0000000000000270 .L0 
+     /tmp/ccTpuTiJ.s:531    .text:0000000000000270 .L0 
+     /tmp/ccTpuTiJ.s:534    .text:0000000000000274 .L0 
+     /tmp/ccTpuTiJ.s:536    .text:0000000000000278 .L0 
+     /tmp/ccTpuTiJ.s:537    .text:0000000000000278 .L0 
+     /tmp/ccTpuTiJ.s:541    .text:0000000000000280 .L0 
+     /tmp/ccTpuTiJ.s:545    .text:0000000000000284 .L0 
+     /tmp/ccTpuTiJ.s:546    .text:0000000000000284 .L0 
+     /tmp/ccTpuTiJ.s:550    .text:0000000000000290 .L0 
+     /tmp/ccTpuTiJ.s:551    .text:0000000000000290 .L0 
+     /tmp/ccTpuTiJ.s:556    .text:000000000000029c .L0 
+     /tmp/ccTpuTiJ.s:558    .text:00000000000002a0 .L0 
+     /tmp/ccTpuTiJ.s:563    .text:00000000000002a4 .L0 
+     /tmp/ccTpuTiJ.s:565    .text:00000000000002a4 .L0 
+     /tmp/ccTpuTiJ.s:566    .text:00000000000002a4 .L0 
+     /tmp/ccTpuTiJ.s:567    .text:00000000000002a4 .L0 
+     /tmp/ccTpuTiJ.s:568    .text:00000000000002a4 .L0 
+     /tmp/ccTpuTiJ.s:571    .text:00000000000002a8 .L0 
+     /tmp/ccTpuTiJ.s:573    .text:00000000000002ac .L0 
+     /tmp/ccTpuTiJ.s:574    .text:00000000000002ac .L0 
+     /tmp/ccTpuTiJ.s:578    .text:00000000000002b4 .L0 
+     /tmp/ccTpuTiJ.s:582    .text:00000000000002b8 .L0 
+     /tmp/ccTpuTiJ.s:583    .text:00000000000002b8 .L0 
+     /tmp/ccTpuTiJ.s:588    .text:00000000000002c4 .L0 
+     /tmp/ccTpuTiJ.s:590    .text:00000000000002c8 .L0 
+     /tmp/ccTpuTiJ.s:595    .text:00000000000002cc .L0 
+     /tmp/ccTpuTiJ.s:596    .text:00000000000002cc .L0 
+     /tmp/ccTpuTiJ.s:597    .text:00000000000002cc .L0 
+     /tmp/ccTpuTiJ.s:598    .text:00000000000002cc .L0 
+     /tmp/ccTpuTiJ.s:602    .text:00000000000002d4 .L0 
+     /tmp/ccTpuTiJ.s:606    .text:00000000000002d8 .L0 
+     /tmp/ccTpuTiJ.s:607    .text:00000000000002d8 .L0 
+     /tmp/ccTpuTiJ.s:608    .text:00000000000002d8 .L0 
+     /tmp/ccTpuTiJ.s:609    .text:00000000000002d8 .L0 
+     /tmp/ccTpuTiJ.s:612    .text:00000000000002e0 .L0 
+     /tmp/ccTpuTiJ.s:614    .text:00000000000002e4 .L0 
+     /tmp/ccTpuTiJ.s:618    .text:00000000000002e8 .L0 
+     /tmp/ccTpuTiJ.s:619    .text:00000000000002e8 .L0 
+     /tmp/ccTpuTiJ.s:620    .text:00000000000002e8 .L0 
+     /tmp/ccTpuTiJ.s:621    .text:00000000000002e8 .L0 
+     /tmp/ccTpuTiJ.s:626    .text:00000000000002f4 .L0 
+     /tmp/ccTpuTiJ.s:627    .text:00000000000002f4 .L0 
+     /tmp/ccTpuTiJ.s:629    .text:00000000000002f8 .L0 
+     /tmp/ccTpuTiJ.s:633    .text:00000000000002fc .L0 
+     /tmp/ccTpuTiJ.s:634    .text:00000000000002fc .L0 
+     /tmp/ccTpuTiJ.s:635    .text:00000000000002fc .L0 
+     /tmp/ccTpuTiJ.s:636    .text:00000000000002fc .L0 
+GAS LISTING /tmp/ccTpuTiJ.s 			page 28
+
+
+     /tmp/ccTpuTiJ.s:640    .text:0000000000000304 .L0 
+     /tmp/ccTpuTiJ.s:649    .text:0000000000000308 .L0 
+     /tmp/ccTpuTiJ.s:650    .text:0000000000000308 .L0 
+     /tmp/ccTpuTiJ.s:651    .text:0000000000000308 .L0 
+     /tmp/ccTpuTiJ.s:661    .text:0000000000000310 .L0 
+     /tmp/ccTpuTiJ.s:664    .text:0000000000000314 .L0 
+     /tmp/ccTpuTiJ.s:665    .text:0000000000000314 .L0 
+     /tmp/ccTpuTiJ.s:668    .text:000000000000031c .L0 
+     /tmp/ccTpuTiJ.s:671    .text:0000000000000320 .L0 
+     /tmp/ccTpuTiJ.s:672    .text:0000000000000320 .L0 
+     /tmp/ccTpuTiJ.s:676    .text:0000000000000330 .L0 
+     /tmp/ccTpuTiJ.s:677    .text:0000000000000330 .L0 
+     /tmp/ccTpuTiJ.s:683    .text:0000000000000344 .L0 
+     /tmp/ccTpuTiJ.s:684    .text:0000000000000344 .L0 
+     /tmp/ccTpuTiJ.s:688    .text:0000000000000354 .L0 
+     /tmp/ccTpuTiJ.s:689    .text:0000000000000354 .L0 
+     /tmp/ccTpuTiJ.s:695    .text:0000000000000368 .L0 
+     /tmp/ccTpuTiJ.s:696    .text:0000000000000368 .L0 
+     /tmp/ccTpuTiJ.s:700    .text:0000000000000378 .L0 
+     /tmp/ccTpuTiJ.s:701    .text:0000000000000378 .L0 
+     /tmp/ccTpuTiJ.s:708    .text:0000000000000384 .L0 
+     /tmp/ccTpuTiJ.s:709    .text:0000000000000384 .L0 
+  src/../h/riscv.hpp:28     .text:0000000000000384 .L0 
+     /tmp/ccTpuTiJ.s:719    .text:0000000000000388 .L0 
+     /tmp/ccTpuTiJ.s:720    .text:000000000000038c .L0 
+     /tmp/ccTpuTiJ.s:733    .text:000000000000038c .L0 
+     /tmp/ccTpuTiJ.s:119    .rodata:0000000000000000 .L5
+     /tmp/ccTpuTiJ.s:111    .text:000000000000007c .L0 
+     /tmp/ccTpuTiJ.s:347    .text:0000000000000174 .L0 
+     /tmp/ccTpuTiJ.s:8      .rodata.str1.8:0000000000000000 .LC0
+     /tmp/ccTpuTiJ.s:672    .text:0000000000000320 .L0 
+     /tmp/ccTpuTiJ.s:11     .rodata.str1.8:0000000000000010 .LC1
+     /tmp/ccTpuTiJ.s:684    .text:0000000000000344 .L0 
+     /tmp/ccTpuTiJ.s:14     .rodata.str1.8:0000000000000018 .LC2
+     /tmp/ccTpuTiJ.s:696    .text:0000000000000368 .L0 
+     /tmp/ccTpuTiJ.s:82     .text:000000000000005c .L38
+     /tmp/ccTpuTiJ.s:642    .text:0000000000000308 .L39
+     /tmp/ccTpuTiJ.s:662    .text:0000000000000314 .L40
+     /tmp/ccTpuTiJ.s:669    .text:0000000000000320 .L41
+     /tmp/ccTpuTiJ.s:78     .text:0000000000000058 .L36
+     /tmp/ccTpuTiJ.s:631    .text:00000000000002fc .L3
+     /tmp/ccTpuTiJ.s:203    .text:00000000000000ac .L21
+     /tmp/ccTpuTiJ.s:267    .text:00000000000000fc .L22
+     /tmp/ccTpuTiJ.s:276    .text:0000000000000108 .L23
+     /tmp/ccTpuTiJ.s:296    .text:0000000000000128 .L42
+     /tmp/ccTpuTiJ.s:212    .text:00000000000000b8 .L1
+     /tmp/ccTpuTiJ.s:395    .text:00000000000001bc .L26
+     /tmp/ccTpuTiJ.s:410    .text:00000000000001d4 .L43
+     /tmp/ccTpuTiJ.s:434    .text:00000000000001f0 .L28
+     /tmp/ccTpuTiJ.s:453    .text:000000000000020c .L44
+     /tmp/ccTpuTiJ.s:446    .text:0000000000000204 .L29
+     /tmp/ccTpuTiJ.s:478    .text:000000000000022c .L30
+     /tmp/ccTpuTiJ.s:511    .text:000000000000025c .L31
+     /tmp/ccTpuTiJ.s:543    .text:0000000000000284 .L32
+     /tmp/ccTpuTiJ.s:580    .text:00000000000002b8 .L33
+     /tmp/ccTpuTiJ.s:188    .text:0000000000000094 .L20
+     /tmp/ccTpuTiJ.s:233    .text:00000000000000d4 .L19
+GAS LISTING /tmp/ccTpuTiJ.s 			page 29
+
+
+     /tmp/ccTpuTiJ.s:253    .text:00000000000000f0 .L18
+     /tmp/ccTpuTiJ.s:304    .text:0000000000000134 .L17
+     /tmp/ccTpuTiJ.s:322    .text:0000000000000150 .L16
+     /tmp/ccTpuTiJ.s:337    .text:0000000000000168 .L15
+     /tmp/ccTpuTiJ.s:361    .text:0000000000000198 .L14
+     /tmp/ccTpuTiJ.s:375    .text:00000000000001a8 .L13
+     /tmp/ccTpuTiJ.s:418    .text:00000000000001e0 .L12
+     /tmp/ccTpuTiJ.s:462    .text:000000000000021c .L11
+     /tmp/ccTpuTiJ.s:495    .text:000000000000024c .L10
+     /tmp/ccTpuTiJ.s:523    .text:0000000000000270 .L9
+     /tmp/ccTpuTiJ.s:560    .text:00000000000002a4 .L8
+     /tmp/ccTpuTiJ.s:592    .text:00000000000002cc .L7
+     /tmp/ccTpuTiJ.s:604    .text:00000000000002d8 .L6
+     /tmp/ccTpuTiJ.s:616    .text:00000000000002e8 .L4
+     /tmp/ccTpuTiJ.s:2739   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccTpuTiJ.s:4630   .debug_str:00000000000007fc .LASF170
+     /tmp/ccTpuTiJ.s:4660   .debug_str:000000000000098e .LASF171
+     /tmp/ccTpuTiJ.s:4640   .debug_str:00000000000008f0 .LASF172
+     /tmp/ccTpuTiJ.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccTpuTiJ.s:723    .text:000000000000038c .Letext0
+     /tmp/ccTpuTiJ.s:4344   .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccTpuTiJ.s:4458   .debug_str:0000000000000322 .LASF0
+     /tmp/ccTpuTiJ.s:4480   .debug_str:00000000000003d9 .LASF1
+     /tmp/ccTpuTiJ.s:4568   .debug_str:0000000000000655 .LASF2
+     /tmp/ccTpuTiJ.s:4578   .debug_str:00000000000006aa .LASF4
+     /tmp/ccTpuTiJ.s:4466   .debug_str:000000000000035b .LASF3
+     /tmp/ccTpuTiJ.s:4362   .debug_str:0000000000000074 .LASF5
+     /tmp/ccTpuTiJ.s:4530   .debug_str:000000000000053e .LASF6
+     /tmp/ccTpuTiJ.s:4474   .debug_str:00000000000003ae .LASF7
+     /tmp/ccTpuTiJ.s:4442   .debug_str:00000000000002be .LASF8
+     /tmp/ccTpuTiJ.s:4448   .debug_str:00000000000002e0 .LASF9
+     /tmp/ccTpuTiJ.s:4402   .debug_str:00000000000001a3 .LASF10
+     /tmp/ccTpuTiJ.s:4438   .debug_str:00000000000002a5 .LASF11
+     /tmp/ccTpuTiJ.s:4408   .debug_str:00000000000001ca .LASF12
+     /tmp/ccTpuTiJ.s:4400   .debug_str:0000000000000193 .LASF13
+     /tmp/ccTpuTiJ.s:4614   .debug_str:00000000000007a6 .LASF14
+     /tmp/ccTpuTiJ.s:4428   .debug_str:000000000000025b .LASF15
+     /tmp/ccTpuTiJ.s:4598   .debug_str:0000000000000743 .LASF16
+     /tmp/ccTpuTiJ.s:4676   .debug_str:00000000000009e8 .LASF41
+     /tmp/ccTpuTiJ.s:4434   .debug_str:0000000000000287 .LASF17
+     /tmp/ccTpuTiJ.s:4488   .debug_str:000000000000041a .LASF18
+     /tmp/ccTpuTiJ.s:4628   .debug_str:00000000000007ef .LASF19
+     /tmp/ccTpuTiJ.s:4414   .debug_str:00000000000001fc .LASF20
+     /tmp/ccTpuTiJ.s:4658   .debug_str:0000000000000985 .LASF21
+     /tmp/ccTpuTiJ.s:4644   .debug_str:000000000000091b .LASF23
+     /tmp/ccTpuTiJ.s:4544   .debug_str:00000000000005a1 .LASF22
+     /tmp/ccTpuTiJ.s:4552   .debug_str:00000000000005c0 .LASF24
+     /tmp/ccTpuTiJ.s:4516   .debug_str:00000000000004cd .LASF27
+     /tmp/ccTpuTiJ.s:4476   .debug_str:00000000000003c1 .LASF29
+     /tmp/ccTpuTiJ.s:4678   .debug_str:00000000000009ee .LASF25
+     /tmp/ccTpuTiJ.s:4690   .debug_str:0000000000000a2d .LASF26
+     /tmp/ccTpuTiJ.s:4672   .debug_str:00000000000009d7 .LASF28
+     /tmp/ccTpuTiJ.s:4504   .debug_str:000000000000047b .LASF30
+     /tmp/ccTpuTiJ.s:4512   .debug_str:00000000000004c0 .LASF31
+     /tmp/ccTpuTiJ.s:4518   .debug_str:00000000000004d4 .LASF32
+     /tmp/ccTpuTiJ.s:4364   .debug_str:000000000000007b .LASF33
+     /tmp/ccTpuTiJ.s:4572   .debug_str:000000000000066d .LASF34
+GAS LISTING /tmp/ccTpuTiJ.s 			page 30
+
+
+     /tmp/ccTpuTiJ.s:4566   .debug_str:000000000000064a .LASF35
+     /tmp/ccTpuTiJ.s:4704   .debug_str:0000000000000ab8 .LASF36
+     /tmp/ccTpuTiJ.s:4580   .debug_str:00000000000006b1 .LASF37
+     /tmp/ccTpuTiJ.s:4406   .debug_str:00000000000001b7 .LASF38
+     /tmp/ccTpuTiJ.s:4450   .debug_str:00000000000002ee .LASF80
+     /tmp/ccTpuTiJ.s:4454   .debug_str:0000000000000304 .LASF82
+     /tmp/ccTpuTiJ.s:4550   .debug_str:00000000000005b6 .LASF43
+     /tmp/ccTpuTiJ.s:4632   .debug_str:00000000000008c0 .LASF39
+     /tmp/ccTpuTiJ.s:4680   .debug_str:00000000000009f8 .LASF40
+     /tmp/ccTpuTiJ.s:4528   .debug_str:000000000000052e .LASF42
+     /tmp/ccTpuTiJ.s:4560   .debug_str:000000000000060f .LASF44
+     /tmp/ccTpuTiJ.s:4478   .debug_str:00000000000003d4 .LASF45
+     /tmp/ccTpuTiJ.s:4404   .debug_str:00000000000001b2 .LASF46
+     /tmp/ccTpuTiJ.s:4370   .debug_str:00000000000000a5 .LASF47
+     /tmp/ccTpuTiJ.s:4686   .debug_str:0000000000000a1a .LASF48
+     /tmp/ccTpuTiJ.s:4348   .debug_str:0000000000000011 .LASF49
+     /tmp/ccTpuTiJ.s:4354   .debug_str:0000000000000045 .LASF50
+     /tmp/ccTpuTiJ.s:4486   .debug_str:00000000000003fc .LASF52
+     /tmp/ccTpuTiJ.s:4522   .debug_str:0000000000000517 .LASF51
+     /tmp/ccTpuTiJ.s:4470   .debug_str:0000000000000375 .LASF53
+     /tmp/ccTpuTiJ.s:4556   .debug_str:00000000000005e3 .LASF54
+     /tmp/ccTpuTiJ.s:4570   .debug_str:0000000000000663 .LASF173
+     /tmp/ccTpuTiJ.s:4662   .debug_str:000000000000099b .LASF174
+     /tmp/ccTpuTiJ.s:4492   .debug_str:0000000000000436 .LASF150
+     /tmp/ccTpuTiJ.s:4538   .debug_str:0000000000000582 .LASF55
+     /tmp/ccTpuTiJ.s:4682   .debug_str:0000000000000a00 .LASF56
+     /tmp/ccTpuTiJ.s:4368   .debug_str:000000000000008c .LASF57
+     /tmp/ccTpuTiJ.s:4378   .debug_str:00000000000000d4 .LASF58
+     /tmp/ccTpuTiJ.s:4638   .debug_str:00000000000008d4 .LASF59
+     /tmp/ccTpuTiJ.s:4462   .debug_str:000000000000033a .LASF143
+     /tmp/ccTpuTiJ.s:4520   .debug_str:00000000000004e8 .LASF145
+     /tmp/ccTpuTiJ.s:4498   .debug_str:0000000000000460 .LASF60
+     /tmp/ccTpuTiJ.s:4372   .debug_str:00000000000000aa .LASF61
+     /tmp/ccTpuTiJ.s:4624   .debug_str:00000000000007e1 .LASF175
+     /tmp/ccTpuTiJ.s:4542   .debug_str:0000000000000599 .LASF62
+     /tmp/ccTpuTiJ.s:4392   .debug_str:0000000000000153 .LASF63
+     /tmp/ccTpuTiJ.s:4586   .debug_str:00000000000006d2 .LASF64
+     /tmp/ccTpuTiJ.s:4350   .debug_str:0000000000000035 .LASF65
+     /tmp/ccTpuTiJ.s:4382   .debug_str:00000000000000f4 .LASF66
+     /tmp/ccTpuTiJ.s:4622   .debug_str:00000000000007d9 .LASF176
+     /tmp/ccTpuTiJ.s:4706   .debug_str:0000000000000ad0 .LASF67
+     /tmp/ccTpuTiJ.s:4558   .debug_str:00000000000005ff .LASF69
+     /tmp/ccTpuTiJ.s:4386   .debug_str:000000000000010b .LASF68
+     /tmp/ccTpuTiJ.s:4554   .debug_str:00000000000005d3 .LASF70
+     /tmp/ccTpuTiJ.s:4358   .debug_str:0000000000000051 .LASF71
+     /tmp/ccTpuTiJ.s:4616   .debug_str:00000000000007b2 .LASF72
+     /tmp/ccTpuTiJ.s:4596   .debug_str:0000000000000730 .LASF73
+     /tmp/ccTpuTiJ.s:4346   .debug_str:0000000000000000 .LASF74
+     /tmp/ccTpuTiJ.s:4380   .debug_str:00000000000000d9 .LASF75
+     /tmp/ccTpuTiJ.s:4524   .debug_str:000000000000051c .LASF177
+     /tmp/ccTpuTiJ.s:4612   .debug_str:0000000000000799 .LASF76
+     /tmp/ccTpuTiJ.s:4702   .debug_str:0000000000000a91 .LASF77
+     /tmp/ccTpuTiJ.s:4540   .debug_str:000000000000058b .LASF78
+     /tmp/ccTpuTiJ.s:4390   .debug_str:0000000000000134 .LASF79
+     /tmp/ccTpuTiJ.s:4416   .debug_str:0000000000000208 .LASF81
+     /tmp/ccTpuTiJ.s:4412   .debug_str:00000000000001e5 .LASF83
+     /tmp/ccTpuTiJ.s:4592   .debug_str:0000000000000709 .LASF84
+GAS LISTING /tmp/ccTpuTiJ.s 			page 31
+
+
+     /tmp/ccTpuTiJ.s:4360   .debug_str:0000000000000061 .LASF85
+     /tmp/ccTpuTiJ.s:4548   .debug_str:00000000000005ae .LASF86
+     /tmp/ccTpuTiJ.s:4464   .debug_str:0000000000000344 .LASF87
+     /tmp/ccTpuTiJ.s:4506   .debug_str:0000000000000491 .LASF88
+     /tmp/ccTpuTiJ.s:4426   .debug_str:0000000000000245 .LASF89
+     /tmp/ccTpuTiJ.s:4502   .debug_str:0000000000000472 .LASF90
+     /tmp/ccTpuTiJ.s:4510   .debug_str:00000000000004a8 .LASF91
+     /tmp/ccTpuTiJ.s:4452   .debug_str:00000000000002f9 .LASF92
+     /tmp/ccTpuTiJ.s:4494   .debug_str:000000000000043f .LASF93
+     /tmp/ccTpuTiJ.s:4584   .debug_str:00000000000006c9 .LASF94
+     /tmp/ccTpuTiJ.s:4590   .debug_str:00000000000006f1 .LASF95
+     /tmp/ccTpuTiJ.s:4574   .debug_str:0000000000000685 .LASF96
+     /tmp/ccTpuTiJ.s:4418   .debug_str:0000000000000211 .LASF97
+     /tmp/ccTpuTiJ.s:4500   .debug_str:0000000000000465 .LASF98
+     /tmp/ccTpuTiJ.s:4394   .debug_str:0000000000000159 .LASF99
+     /tmp/ccTpuTiJ.s:4626   .debug_str:00000000000007e7 .LASF100
+     /tmp/ccTpuTiJ.s:4482   .debug_str:00000000000003ec .LASF101
+     /tmp/ccTpuTiJ.s:4352   .debug_str:000000000000003d .LASF102
+     /tmp/ccTpuTiJ.s:4436   .debug_str:0000000000000293 .LASF103
+     /tmp/ccTpuTiJ.s:4564   .debug_str:0000000000000629 .LASF104
+     /tmp/ccTpuTiJ.s:4460   .debug_str:000000000000032f .LASF105
+     /tmp/ccTpuTiJ.s:4694   .debug_str:0000000000000a4f .LASF106
+     /tmp/ccTpuTiJ.s:4576   .debug_str:000000000000068e .LASF107
+     /tmp/ccTpuTiJ.s:4356   .debug_str:000000000000004c .LASF108
+     /tmp/ccTpuTiJ.s:4700   .debug_str:0000000000000a8b .LASF109
+     /tmp/ccTpuTiJ.s:4642   .debug_str:0000000000000913 .LASF110
+     /tmp/ccTpuTiJ.s:4636   .debug_str:00000000000008ca .LASF111
+     /tmp/ccTpuTiJ.s:4422   .debug_str:0000000000000237 .LASF112
+     /tmp/ccTpuTiJ.s:4384   .debug_str:00000000000000fd .LASF178
+     /tmp/ccTpuTiJ.s:4646   .debug_str:0000000000000930 .LASF179
+     /tmp/ccTpuTiJ.s:4620   .debug_str:00000000000007ca .LASF113
+     /tmp/ccTpuTiJ.s:4608   .debug_str:0000000000000787 .LASF114
+     /tmp/ccTpuTiJ.s:4446   .debug_str:00000000000002d4 .LASF115
+     /tmp/ccTpuTiJ.s:4430   .debug_str:0000000000000271 .LASF116
+     /tmp/ccTpuTiJ.s:4648   .debug_str:000000000000094d .LASF117
+     /tmp/ccTpuTiJ.s:4668   .debug_str:00000000000009c7 .LASF118
+     /tmp/ccTpuTiJ.s:4710   .debug_str:0000000000000ae9 .LASF119
+     /tmp/ccTpuTiJ.s:4684   .debug_str:0000000000000a0c .LASF120
+     /tmp/ccTpuTiJ.s:4526   .debug_str:0000000000000521 .LASF121
+     /tmp/ccTpuTiJ.s:4562   .debug_str:0000000000000619 .LASF122
+     /tmp/ccTpuTiJ.s:4696   .debug_str:0000000000000a5b .LASF123
+     /tmp/ccTpuTiJ.s:4374   .debug_str:00000000000000b2 .LASF124
+     /tmp/ccTpuTiJ.s:4656   .debug_str:0000000000000966 .LASF125
+     /tmp/ccTpuTiJ.s:4366   .debug_str:0000000000000086 .LASF126
+     /tmp/ccTpuTiJ.s:4376   .debug_str:00000000000000c3 .LASF127
+     /tmp/ccTpuTiJ.s:4634   .debug_str:00000000000008c5 .LASF128
+     /tmp/ccTpuTiJ.s:4508   .debug_str:0000000000000498 .LASF129
+     /tmp/ccTpuTiJ.s:4618   .debug_str:00000000000007c3 .LASF130
+     /tmp/ccTpuTiJ.s:4602   .debug_str:0000000000000769 .LASF131
+     /tmp/ccTpuTiJ.s:4546   .debug_str:00000000000005a8 .LASF132
+     /tmp/ccTpuTiJ.s:4582   .debug_str:00000000000006b8 .LASF133
+     /tmp/ccTpuTiJ.s:4468   .debug_str:000000000000036d .LASF134
+     /tmp/ccTpuTiJ.s:4490   .debug_str:0000000000000423 .LASF135
+     /tmp/ccTpuTiJ.s:4674   .debug_str:00000000000009e1 .LASF136
+     /tmp/ccTpuTiJ.s:4606   .debug_str:0000000000000782 .LASF137
+     /tmp/ccTpuTiJ.s:4514   .debug_str:00000000000004c8 .LASF138
+     /tmp/ccTpuTiJ.s:4456   .debug_str:000000000000031c .LASF139
+GAS LISTING /tmp/ccTpuTiJ.s 			page 32
+
+
+     /tmp/ccTpuTiJ.s:4594   .debug_str:000000000000070e .LASF140
+     /tmp/ccTpuTiJ.s:4610   .debug_str:000000000000078c .LASF141
+     /tmp/ccTpuTiJ.s:4388   .debug_str:000000000000011b .LASF142
+     /tmp/ccTpuTiJ.s:4410   .debug_str:00000000000001da .LASF144
+     /tmp/ccTpuTiJ.s:4588   .debug_str:00000000000006da .LASF146
+     /tmp/ccTpuTiJ.s:4440   .debug_str:00000000000002b4 .LASF147
+     /tmp/ccTpuTiJ.s:4472   .debug_str:0000000000000392 .LASF180
+     /tmp/ccTpuTiJ.s:4698   .debug_str:0000000000000a77 .LASF181
+     /tmp/ccTpuTiJ.s:4424   .debug_str:000000000000023d .LASF148
+     /tmp/ccTpuTiJ.s:4398   .debug_str:000000000000017b .LASF149
+     /tmp/ccTpuTiJ.s:4670   .debug_str:00000000000009ce .LASF151
+     /tmp/ccTpuTiJ.s:4444   .debug_str:00000000000002ce .LASF152
+     /tmp/ccTpuTiJ.s:4536   .debug_str:000000000000056d .LASF153
+     /tmp/ccTpuTiJ.s:21     .text:0000000000000000 .LFB10
+     /tmp/ccTpuTiJ.s:721    .text:000000000000038c .LFE10
+     /tmp/ccTpuTiJ.s:4420   .debug_str:0000000000000231 .LASF182
+     /tmp/ccTpuTiJ.s:3748   .debug_loc:0000000000000000 .LLST0
+     /tmp/ccTpuTiJ.s:4604   .debug_str:000000000000077b .LASF154
+     /tmp/ccTpuTiJ.s:3770   .debug_loc:000000000000005f .LLST1
+     /tmp/ccTpuTiJ.s:4336   .debug_ranges:0000000000000000 .Ldebug_ranges0
+     /tmp/ccTpuTiJ.s:4708   .debug_str:0000000000000add .LASF155
+     /tmp/ccTpuTiJ.s:3787   .debug_loc:00000000000000aa .LLST2
+     /tmp/ccTpuTiJ.s:4396   .debug_str:0000000000000176 .LASF156
+     /tmp/ccTpuTiJ.s:3914   .debug_loc:00000000000002c5 .LLST3
+     /tmp/ccTpuTiJ.s:4650   .debug_str:0000000000000957 .LASF157
+     /tmp/ccTpuTiJ.s:3925   .debug_loc:00000000000002fb .LLST4
+     /tmp/ccTpuTiJ.s:4652   .debug_str:000000000000095c .LASF158
+     /tmp/ccTpuTiJ.s:4037   .debug_loc:00000000000004f8 .LLST5
+     /tmp/ccTpuTiJ.s:4654   .debug_str:0000000000000961 .LASF159
+     /tmp/ccTpuTiJ.s:4114   .debug_loc:0000000000000662 .LLST6
+     /tmp/ccTpuTiJ.s:256    .text:00000000000000f0 .LBB25
+     /tmp/ccTpuTiJ.s:305    .text:0000000000000134 .LBE25
+     /tmp/ccTpuTiJ.s:4688   .debug_str:0000000000000a26 .LASF160
+     /tmp/ccTpuTiJ.s:4181   .debug_loc:00000000000007a2 .LLST7
+     /tmp/ccTpuTiJ.s:4188   .debug_loc:00000000000007c5 .LLST8
+     /tmp/ccTpuTiJ.s:4195   .debug_loc:00000000000007e8 .LLST9
+     /tmp/ccTpuTiJ.s:4664   .debug_str:00000000000009b7 .LASF161
+     /tmp/ccTpuTiJ.s:4202   .debug_loc:000000000000080b .LLST10
+     /tmp/ccTpuTiJ.s:4209   .debug_loc:000000000000082e .LLST11
+     /tmp/ccTpuTiJ.s:280    .text:0000000000000110 .LVL19
+     /tmp/ccTpuTiJ.s:289    .text:0000000000000120 .LVL20
+     /tmp/ccTpuTiJ.s:364    .text:0000000000000198 .LBB26
+     /tmp/ccTpuTiJ.s:376    .text:00000000000001a8 .LBE26
+     /tmp/ccTpuTiJ.s:4220   .debug_loc:0000000000000864 .LLST12
+     /tmp/ccTpuTiJ.s:371    .text:00000000000001a4 .LVL32
+     /tmp/ccTpuTiJ.s:379    .text:00000000000001a8 .LBB27
+     /tmp/ccTpuTiJ.s:419    .text:00000000000001e0 .LBE27
+     /tmp/ccTpuTiJ.s:4227   .debug_loc:0000000000000887 .LLST13
+     /tmp/ccTpuTiJ.s:4234   .debug_loc:00000000000008aa .LLST14
+     /tmp/ccTpuTiJ.s:4241   .debug_loc:00000000000008cd .LLST15
+     /tmp/ccTpuTiJ.s:399    .text:00000000000001c4 .LVL37
+     /tmp/ccTpuTiJ.s:422    .text:00000000000001e0 .LBB28
+     /tmp/ccTpuTiJ.s:463    .text:000000000000021c .LBE28
+     /tmp/ccTpuTiJ.s:4248   .debug_loc:00000000000008f0 .LLST16
+     /tmp/ccTpuTiJ.s:4255   .debug_loc:0000000000000913 .LLST17
+     /tmp/ccTpuTiJ.s:440    .text:00000000000001fc .LVL42
+     /tmp/ccTpuTiJ.s:459    .text:0000000000000218 .LVL47
+GAS LISTING /tmp/ccTpuTiJ.s 			page 33
+
+
+     /tmp/ccTpuTiJ.s:466    .text:000000000000021c .LBB29
+     /tmp/ccTpuTiJ.s:496    .text:000000000000024c .LBE29
+     /tmp/ccTpuTiJ.s:4266   .debug_loc:0000000000000949 .LLST18
+     /tmp/ccTpuTiJ.s:489    .text:0000000000000244 .LVL52
+     /tmp/ccTpuTiJ.s:499    .text:000000000000024c .LBB30
+     /tmp/ccTpuTiJ.s:524    .text:0000000000000270 .LBE30
+     /tmp/ccTpuTiJ.s:4273   .debug_loc:000000000000096c .LLST19
+     /tmp/ccTpuTiJ.s:517    .text:0000000000000268 .LVL57
+     /tmp/ccTpuTiJ.s:527    .text:0000000000000270 .LBB31
+     /tmp/ccTpuTiJ.s:561    .text:00000000000002a4 .LBE31
+     /tmp/ccTpuTiJ.s:4280   .debug_loc:000000000000098f .LLST20
+     /tmp/ccTpuTiJ.s:4287   .debug_loc:00000000000009b2 .LLST21
+     /tmp/ccTpuTiJ.s:554    .text:000000000000029c .LVL63
+     /tmp/ccTpuTiJ.s:564    .text:00000000000002a4 .LBB32
+     /tmp/ccTpuTiJ.s:593    .text:00000000000002cc .LBE32
+     /tmp/ccTpuTiJ.s:4294   .debug_loc:00000000000009d5 .LLST22
+     /tmp/ccTpuTiJ.s:4301   .debug_loc:00000000000009f8 .LLST23
+     /tmp/ccTpuTiJ.s:586    .text:00000000000002c4 .LVL69
+     /tmp/ccTpuTiJ.s:195    .text:000000000000009c .LVL9
+     /tmp/ccTpuTiJ.s:199    .text:00000000000000a8 .LVL10
+     /tmp/ccTpuTiJ.s:243    .text:00000000000000dc .LVL14
+     /tmp/ccTpuTiJ.s:247    .text:00000000000000e8 .LVL15
+     /tmp/ccTpuTiJ.s:316    .text:0000000000000148 .LVL23
+     /tmp/ccTpuTiJ.s:333    .text:0000000000000164 .LVL25
+     /tmp/ccTpuTiJ.s:351    .text:0000000000000188 .LVL28
+     /tmp/ccTpuTiJ.s:357    .text:0000000000000194 .LVL29
+     /tmp/ccTpuTiJ.s:610    .text:00000000000002e0 .LVL73
+     /tmp/ccTpuTiJ.s:624    .text:00000000000002f4 .LVL76
+     /tmp/ccTpuTiJ.s:42     .text:0000000000000020 .LBB20
+     /tmp/ccTpuTiJ.s:56     .text:0000000000000024 .LBE20
+     /tmp/ccTpuTiJ.s:647    .text:0000000000000308 .LBB37
+     /tmp/ccTpuTiJ.s:659    .text:0000000000000310 .LBE37
+     /tmp/ccTpuTiJ.s:4308   .debug_loc:0000000000000a1b .LLST24
+     /tmp/ccTpuTiJ.s:706    .text:0000000000000384 .LBB39
+     /tmp/ccTpuTiJ.s:717    .text:0000000000000388 .LBE39
+     /tmp/ccTpuTiJ.s:4316   .debug_loc:0000000000000a3f .LLST25
+     /tmp/ccTpuTiJ.s:666    .text:000000000000031c .LVL81
+     /tmp/ccTpuTiJ.s:674    .text:0000000000000330 .LVL82
+     /tmp/ccTpuTiJ.s:681    .text:0000000000000344 .LVL83
+     /tmp/ccTpuTiJ.s:686    .text:0000000000000354 .LVL84
+     /tmp/ccTpuTiJ.s:693    .text:0000000000000368 .LVL85
+     /tmp/ccTpuTiJ.s:698    .text:0000000000000378 .LVL86
+     /tmp/ccTpuTiJ.s:4666   .debug_str:00000000000009c2 .LASF162
+     /tmp/ccTpuTiJ.s:4484   .debug_str:00000000000003f5 .LASF163
+     /tmp/ccTpuTiJ.s:4496   .debug_str:0000000000000459 .LASF164
+     /tmp/ccTpuTiJ.s:4600   .debug_str:0000000000000759 .LASF165
+     /tmp/ccTpuTiJ.s:4534   .debug_str:000000000000055a .LASF166
+     /tmp/ccTpuTiJ.s:4692   .debug_str:0000000000000a43 .LASF167
+     /tmp/ccTpuTiJ.s:4432   .debug_str:0000000000000278 .LASF168
+     /tmp/ccTpuTiJ.s:4532   .debug_str:0000000000000551 .LASF169
+     /tmp/ccTpuTiJ.s:25     .text:0000000000000000 .LVL0
+     /tmp/ccTpuTiJ.s:96     .text:0000000000000068 .LVL4
+     /tmp/ccTpuTiJ.s:224    .text:00000000000000c4 .LVL12
+     /tmp/ccTpuTiJ.s:232    .text:00000000000000d4 .LVL13
+     /tmp/ccTpuTiJ.s:52     .text:0000000000000024 .LVL1
+     /tmp/ccTpuTiJ.s:92     .text:0000000000000064 .LVL3
+     /tmp/ccTpuTiJ.s:107    .text:0000000000000074 .LVL7
+GAS LISTING /tmp/ccTpuTiJ.s 			page 34
+
+
+     /tmp/ccTpuTiJ.s:641    .text:0000000000000308 .LVL79
+     /tmp/ccTpuTiJ.s:88     .text:0000000000000060 .LVL2
+     /tmp/ccTpuTiJ.s:110    .text:000000000000007c .LVL8
+     /tmp/ccTpuTiJ.s:252    .text:00000000000000f0 .LVL16
+     /tmp/ccTpuTiJ.s:272    .text:0000000000000104 .LVL17
+     /tmp/ccTpuTiJ.s:275    .text:0000000000000108 .LVL18
+     /tmp/ccTpuTiJ.s:303    .text:0000000000000134 .LVL22
+     /tmp/ccTpuTiJ.s:321    .text:0000000000000150 .LVL24
+     /tmp/ccTpuTiJ.s:336    .text:0000000000000168 .LVL26
+     /tmp/ccTpuTiJ.s:360    .text:0000000000000198 .LVL30
+     /tmp/ccTpuTiJ.s:374    .text:00000000000001a8 .LVL33
+     /tmp/ccTpuTiJ.s:391    .text:00000000000001b8 .LVL35
+     /tmp/ccTpuTiJ.s:394    .text:00000000000001bc .LVL36
+     /tmp/ccTpuTiJ.s:417    .text:00000000000001e0 .LVL38
+     /tmp/ccTpuTiJ.s:430    .text:00000000000001ec .LVL39
+     /tmp/ccTpuTiJ.s:433    .text:00000000000001f0 .LVL40
+     /tmp/ccTpuTiJ.s:461    .text:000000000000021c .LVL48
+     /tmp/ccTpuTiJ.s:474    .text:0000000000000228 .LVL49
+     /tmp/ccTpuTiJ.s:477    .text:000000000000022c .LVL50
+     /tmp/ccTpuTiJ.s:494    .text:000000000000024c .LVL53
+     /tmp/ccTpuTiJ.s:507    .text:0000000000000258 .LVL54
+     /tmp/ccTpuTiJ.s:510    .text:000000000000025c .LVL55
+     /tmp/ccTpuTiJ.s:522    .text:0000000000000270 .LVL58
+     /tmp/ccTpuTiJ.s:539    .text:0000000000000280 .LVL60
+     /tmp/ccTpuTiJ.s:542    .text:0000000000000284 .LVL61
+     /tmp/ccTpuTiJ.s:559    .text:00000000000002a4 .LVL64
+     /tmp/ccTpuTiJ.s:576    .text:00000000000002b4 .LVL66
+     /tmp/ccTpuTiJ.s:579    .text:00000000000002b8 .LVL67
+     /tmp/ccTpuTiJ.s:591    .text:00000000000002cc .LVL70
+     /tmp/ccTpuTiJ.s:600    .text:00000000000002d4 .LVL71
+     /tmp/ccTpuTiJ.s:603    .text:00000000000002d8 .LVL72
+     /tmp/ccTpuTiJ.s:615    .text:00000000000002e8 .LVL74
+     /tmp/ccTpuTiJ.s:630    .text:00000000000002fc .LVL77
+     /tmp/ccTpuTiJ.s:638    .text:0000000000000304 .LVL78
+     /tmp/ccTpuTiJ.s:211    .text:00000000000000b8 .LVL11
+     /tmp/ccTpuTiJ.s:349    .text:0000000000000180 .LVL27
+     /tmp/ccTpuTiJ.s:369    .text:000000000000019c .LVL31
+     /tmp/ccTpuTiJ.s:384    .text:00000000000001ac .LVL34
+     /tmp/ccTpuTiJ.s:438    .text:00000000000001f4 .LVL41
+     /tmp/ccTpuTiJ.s:487    .text:000000000000023c .LVL51
+     /tmp/ccTpuTiJ.s:515    .text:0000000000000260 .LVL56
+     /tmp/ccTpuTiJ.s:552    .text:0000000000000294 .LVL62
+     /tmp/ccTpuTiJ.s:584    .text:00000000000002bc .LVL68
+     /tmp/ccTpuTiJ.s:622    .text:00000000000002ec .LVL75
+     /tmp/ccTpuTiJ.s:100    .text:000000000000006c .LVL5
+     /tmp/ccTpuTiJ.s:532    .text:0000000000000274 .LVL59
+     /tmp/ccTpuTiJ.s:569    .text:00000000000002a8 .LVL65
+     /tmp/ccTpuTiJ.s:104    .text:0000000000000070 .LVL6
+     /tmp/ccTpuTiJ.s:295    .text:0000000000000128 .LVL21
+     /tmp/ccTpuTiJ.s:442    .text:0000000000000200 .LVL43
+     /tmp/ccTpuTiJ.s:445    .text:0000000000000204 .LVL44
+     /tmp/ccTpuTiJ.s:452    .text:000000000000020c .LVL45
+     /tmp/ccTpuTiJ.s:457    .text:0000000000000210 .LVL46
+     /tmp/ccTpuTiJ.s:656    .text:0000000000000310 .LVL80
+     /tmp/ccTpuTiJ.s:705    .text:0000000000000384 .LVL87
+     /tmp/ccTpuTiJ.s:714    .text:0000000000000388 .LVL88
+     /tmp/ccTpuTiJ.s:734    .debug_info:0000000000000000 .Ldebug_info0
+GAS LISTING /tmp/ccTpuTiJ.s 			page 35
+
+
+     /tmp/ccTpuTiJ.s:84     .text:000000000000005c .LBB23
+     /tmp/ccTpuTiJ.s:213    .text:00000000000000b8 .LBE23
+     /tmp/ccTpuTiJ.s:236    .text:00000000000000d4 .LBB34
+     /tmp/ccTpuTiJ.s:644    .text:0000000000000308 .LBE34
+>>>>>>> Stashed changes
 
 UNDEFINED SYMBOLS
 _ZN15MemoryAllocator11getInstanceEv
@@ -1999,7 +2828,11 @@ _ZN9Scheduler3putEP7_thread
 _ZN7_thread4exitEv
 _ZN7_thread8dispatchEv
 _ZN7_thread7runningE
+<<<<<<< Updated upstream
 _ZN7_thread11getThreadIdEv
+=======
+_ZNK7_thread11getThreadIdEv
+>>>>>>> Stashed changes
 _ZN7_thread17setMaximumThreadsEi
 _ZN4_sem15createSemaphoreEj
 _ZN4_sem5closeEv

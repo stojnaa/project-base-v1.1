@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 1
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 1
+>>>>>>> Stashed changes
 
 
    1              		.file	"Semaphore.cpp"
@@ -58,7 +62,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
   48 002c 23349100 		sd	s1,8(sp)
   49 0030 23302101 		sd	s2,0(sp)
   50              		.cfi_offset 1, -8
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 2
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 2
+>>>>>>> Stashed changes
 
 
   51              		.cfi_offset 8, -16
@@ -118,7 +126,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
   98 0080 130101FE 		addi	sp,sp,-32
   99              		.cfi_def_cfa_offset 32
  100 0084 233C1100 		sd	ra,24(sp)
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 3
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 3
+>>>>>>> Stashed changes
 
 
  101 0088 23388100 		sd	s0,16(sp)
@@ -178,7 +190,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  148              		.cfi_def_cfa 8, 0
  149              	.LBB2:
   23:src/Semaphore.cpp ****     val = (int)init;
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 4
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 4
+>>>>>>> Stashed changes
 
 
  150              		.loc 1 23 5
@@ -238,7 +254,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  199              	.LVL15:
  200 010c 97000000 		call	_ZN4_semnwEm
  200      E7800000 
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 5
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 5
+>>>>>>> Stashed changes
 
 
  201              	.LVL16:
@@ -298,7 +318,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
   39:src/Semaphore.cpp ****     return 0;
  246              		.loc 1 39 5 is_stmt 1 discriminator 1
  247              		.loc 1 39 12 is_stmt 0 discriminator 1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 6
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 6
+>>>>>>> Stashed changes
 
 
  248 015c 13050000 		li	a0,0
@@ -358,7 +382,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
   70:src/Semaphore.cpp ****     if (n == 0) {
   71:src/Semaphore.cpp ****         return 0;
   72:src/Semaphore.cpp ****     }
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 7
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 7
+>>>>>>> Stashed changes
 
 
   73:src/Semaphore.cpp **** 
@@ -418,7 +446,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  116:src/Semaphore.cpp ****     node->next = nullptr;
  284              		.loc 1 116 5
  285              		.loc 1 116 16 is_stmt 0
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 8
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 8
+>>>>>>> Stashed changes
 
 
  286 0188 23B80500 		sd	zero,16(a1)
@@ -478,7 +510,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
   63:src/Semaphore.cpp ****         return -1;
  328              		.loc 1 63 5
   63:src/Semaphore.cpp ****         return -1;
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 9
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 9
+>>>>>>> Stashed changes
 
 
  329              		.loc 1 63 26 is_stmt 0
@@ -538,7 +574,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
   84:src/Semaphore.cpp **** 
  366              		.loc 1 84 5 is_stmt 1
   84:src/Semaphore.cpp **** 
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 10
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 10
+>>>>>>> Stashed changes
 
 
  367              		.loc 1 84 15 is_stmt 0
@@ -598,7 +638,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  405 0244 E34CD7F8 		blt	a4,a3,.L29
   75:src/Semaphore.cpp ****         return 0;
  406              		.loc 1 75 9 is_stmt 1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 11
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 11
+>>>>>>> Stashed changes
 
 
   75:src/Semaphore.cpp ****         return 0;
@@ -658,7 +702,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
   55:src/Semaphore.cpp **** }
  454              		.loc 1 55 17 is_stmt 0
  455 0280 93051000 		li	a1,1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 12
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 12
+>>>>>>> Stashed changes
 
 
  456 0284 97000000 		call	_ZN4_sem5waitNEj
@@ -718,7 +766,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  137:src/Semaphore.cpp ****         val -= (int)node->requested;
  499              		.loc 1 137 9 is_stmt 1
  500              		.loc 1 137 16 is_stmt 0
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 13
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 13
+>>>>>>> Stashed changes
 
 
  501 02c0 03A78400 		lw	a4,8(s1)
@@ -778,7 +830,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  133:src/Semaphore.cpp ****             tail = nullptr;
  539              		.loc 1 133 9 is_stmt 1
  540 02f8 E31407FC 		bnez	a4,.L41
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 14
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 14
+>>>>>>> Stashed changes
 
 
  541 02fc 6FF01FFC 		j	.L46
@@ -838,7 +894,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  586 0338 63940704 		bnez	a5,.L49
  100:src/Semaphore.cpp ****         return 0;
  587              		.loc 1 100 5 is_stmt 1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 15
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 15
+>>>>>>> Stashed changes
 
 
  588 033c 63960500 		bnez	a1,.L55
@@ -898,7 +958,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  630 0380 1305F0FF 		li	a0,-1
  631              	.LVL52:
  632 0384 67800000 		ret
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 16
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 16
+>>>>>>> Stashed changes
 
 
  633              		.cfi_endproc
@@ -958,7 +1022,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  684              		.cfi_offset 8, -16
  685              		.cfi_offset 9, -24
  686              		.cfi_offset 18, -32
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 17
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 17
+>>>>>>> Stashed changes
 
 
  687 03c8 13040102 		addi	s0,sp,32
@@ -1018,7 +1086,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  728 040c 6FF05FFC 		j	.L60
  729              	.LVL60:
  730              	.L59:
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 18
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 18
+>>>>>>> Stashed changes
 
 
  731              	.LBE5:
@@ -1078,7 +1150,11 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  775              		.loc 1 47 12 is_stmt 0
  776 0444 93071000 		li	a5,1
  777 0448 2302F500 		sb	a5,4(a0)
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 19
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 19
+>>>>>>> Stashed changes
 
 
   49:src/Semaphore.cpp ****     unblockAll();
@@ -1120,11 +1196,16 @@ GAS LISTING /tmp/ccDeqH6E.s 			page 1
  807              		.file 4 "src/../h/Thread.hpp"
  808              		.file 5 "src/../h/Scheduler.hpp"
  809              		.file 6 "src/../h/MemoryAllocator.hpp"
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccDeqH6E.s 			page 20
+=======
+GAS LISTING /tmp/ccNXAlf8.s 			page 20
+>>>>>>> Stashed changes
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Semaphore.cpp
+<<<<<<< Updated upstream
      /tmp/ccDeqH6E.s:8      .text:0000000000000000 _ZL23blocksForBytesSemaphorem
      /tmp/ccDeqH6E.s:12     .text:0000000000000000 .L0 
      /tmp/ccDeqH6E.s:14     .text:0000000000000000 .L0 
@@ -1797,6 +1878,680 @@ DEFINED SYMBOLS
      /tmp/ccDeqH6E.s:518    .text:00000000000002dc .LBE3
      /tmp/ccDeqH6E.s:531    .text:00000000000002f0 .LBB4
      /tmp/ccDeqH6E.s:556    .text:000000000000031c .LBE4
+=======
+     /tmp/ccNXAlf8.s:8      .text:0000000000000000 _ZL23blocksForBytesSemaphorem
+     /tmp/ccNXAlf8.s:12     .text:0000000000000000 .L0 
+     /tmp/ccNXAlf8.s:14     .text:0000000000000000 .L0 
+     /tmp/ccNXAlf8.s:15     .text:0000000000000004 .L0 
+     /tmp/ccNXAlf8.s:17     .text:0000000000000008 .L0 
+     /tmp/ccNXAlf8.s:19     .text:000000000000000c .L0 
+     /tmp/ccNXAlf8.s:21     .text:000000000000000c .L0 
+     /tmp/ccNXAlf8.s:22     .text:000000000000000c .L0 
+     /tmp/ccNXAlf8.s:25     .text:0000000000000010 .L0 
+     /tmp/ccNXAlf8.s:28     .text:0000000000000018 .L0 
+     /tmp/ccNXAlf8.s:29     .text:0000000000000018 .L0 
+     /tmp/ccNXAlf8.s:31     .text:000000000000001c .L0 
+     /tmp/ccNXAlf8.s:33     .text:0000000000000020 .L0 
+     /tmp/ccNXAlf8.s:39     .text:0000000000000020 _ZN4_semnwEm
+     /tmp/ccNXAlf8.s:42     .text:0000000000000020 .L0 
+     /tmp/ccNXAlf8.s:44     .text:0000000000000020 .L0 
+     /tmp/ccNXAlf8.s:45     .text:0000000000000024 .L0 
+     /tmp/ccNXAlf8.s:50     .text:0000000000000034 .L0 
+     /tmp/ccNXAlf8.s:51     .text:0000000000000034 .L0 
+     /tmp/ccNXAlf8.s:52     .text:0000000000000034 .L0 
+     /tmp/ccNXAlf8.s:53     .text:0000000000000034 .L0 
+     /tmp/ccNXAlf8.s:55     .text:0000000000000038 .L0 
+     /tmp/ccNXAlf8.s:58     .text:000000000000003c .L0 
+     /tmp/ccNXAlf8.s:59     .text:000000000000003c .L0 
+     /tmp/ccNXAlf8.s:63     .text:0000000000000048 .L0 
+     /tmp/ccNXAlf8.s:71     .text:0000000000000064 .L0 
+     /tmp/ccNXAlf8.s:72     .text:0000000000000068 .L0 
+     /tmp/ccNXAlf8.s:74     .text:000000000000006c .L0 
+     /tmp/ccNXAlf8.s:75     .text:000000000000006c .L0 
+     /tmp/ccNXAlf8.s:77     .text:0000000000000070 .L0 
+     /tmp/ccNXAlf8.s:79     .text:0000000000000074 .L0 
+     /tmp/ccNXAlf8.s:82     .text:0000000000000078 .L0 
+     /tmp/ccNXAlf8.s:84     .text:000000000000007c .L0 
+     /tmp/ccNXAlf8.s:90     .text:000000000000007c _ZN4_semdlEPv
+     /tmp/ccNXAlf8.s:93     .text:000000000000007c .L0 
+     /tmp/ccNXAlf8.s:95     .text:000000000000007c .L0 
+     /tmp/ccNXAlf8.s:96     .text:000000000000007c .L0 
+     /tmp/ccNXAlf8.s:98     .text:0000000000000080 .L0 
+     /tmp/ccNXAlf8.s:99     .text:0000000000000084 .L0 
+     /tmp/ccNXAlf8.s:103    .text:0000000000000090 .L0 
+     /tmp/ccNXAlf8.s:104    .text:0000000000000090 .L0 
+     /tmp/ccNXAlf8.s:105    .text:0000000000000090 .L0 
+     /tmp/ccNXAlf8.s:107    .text:0000000000000094 .L0 
+     /tmp/ccNXAlf8.s:110    .text:0000000000000098 .L0 
+     /tmp/ccNXAlf8.s:111    .text:0000000000000098 .L0 
+     /tmp/ccNXAlf8.s:114    .text:00000000000000a0 .L0 
+     /tmp/ccNXAlf8.s:118    .text:00000000000000ac .L0 
+     /tmp/ccNXAlf8.s:119    .text:00000000000000b0 .L0 
+     /tmp/ccNXAlf8.s:121    .text:00000000000000b4 .L0 
+     /tmp/ccNXAlf8.s:122    .text:00000000000000b4 .L0 
+     /tmp/ccNXAlf8.s:124    .text:00000000000000b8 .L0 
+     /tmp/ccNXAlf8.s:127    .text:00000000000000bc .L0 
+     /tmp/ccNXAlf8.s:132    .text:00000000000000c4 .L0 
+     /tmp/ccNXAlf8.s:138    .text:00000000000000c4 _ZN4_semC2Ej
+     /tmp/ccNXAlf8.s:141    .text:00000000000000c4 .L0 
+GAS LISTING /tmp/ccNXAlf8.s 			page 21
+
+
+     /tmp/ccNXAlf8.s:143    .text:00000000000000c4 .L0 
+     /tmp/ccNXAlf8.s:144    .text:00000000000000c8 .L0 
+     /tmp/ccNXAlf8.s:146    .text:00000000000000cc .L0 
+     /tmp/ccNXAlf8.s:148    .text:00000000000000d0 .L0 
+     /tmp/ccNXAlf8.s:151    .text:00000000000000d0 .L0 
+     /tmp/ccNXAlf8.s:152    .text:00000000000000d0 .L0 
+     /tmp/ccNXAlf8.s:154    .text:00000000000000d4 .L0 
+     /tmp/ccNXAlf8.s:155    .text:00000000000000d4 .L0 
+     /tmp/ccNXAlf8.s:157    .text:00000000000000d8 .L0 
+     /tmp/ccNXAlf8.s:158    .text:00000000000000d8 .L0 
+     /tmp/ccNXAlf8.s:160    .text:00000000000000dc .L0 
+     /tmp/ccNXAlf8.s:161    .text:00000000000000dc .L0 
+     /tmp/ccNXAlf8.s:164    .text:00000000000000e0 .L0 
+     /tmp/ccNXAlf8.s:165    .text:00000000000000e4 .L0 
+     /tmp/ccNXAlf8.s:166    .text:00000000000000e4 .L0 
+     /tmp/ccNXAlf8.s:168    .text:00000000000000e8 .L0 
+     /tmp/ccNXAlf8.s:170    .text:00000000000000ec .L0 
+     /tmp/ccNXAlf8.s:138    .text:00000000000000c4 _ZN4_semC1Ej
+     /tmp/ccNXAlf8.s:178    .text:00000000000000ec _ZN4_sem15createSemaphoreEj
+     /tmp/ccNXAlf8.s:181    .text:00000000000000ec .L0 
+     /tmp/ccNXAlf8.s:183    .text:00000000000000ec .L0 
+     /tmp/ccNXAlf8.s:184    .text:00000000000000f0 .L0 
+     /tmp/ccNXAlf8.s:189    .text:0000000000000100 .L0 
+     /tmp/ccNXAlf8.s:190    .text:0000000000000100 .L0 
+     /tmp/ccNXAlf8.s:191    .text:0000000000000100 .L0 
+     /tmp/ccNXAlf8.s:192    .text:0000000000000100 .L0 
+     /tmp/ccNXAlf8.s:194    .text:0000000000000104 .L0 
+     /tmp/ccNXAlf8.s:197    .text:0000000000000108 .L0 
+     /tmp/ccNXAlf8.s:198    .text:0000000000000108 .L0 
+     /tmp/ccNXAlf8.s:207    .text:0000000000000124 .L0 
+     /tmp/ccNXAlf8.s:209    .text:000000000000012c .L0 
+     /tmp/ccNXAlf8.s:211    .text:0000000000000130 .L0 
+     /tmp/ccNXAlf8.s:212    .text:0000000000000130 .L0 
+     /tmp/ccNXAlf8.s:214    .text:0000000000000134 .L0 
+     /tmp/ccNXAlf8.s:216    .text:0000000000000138 .L0 
+     /tmp/ccNXAlf8.s:218    .text:000000000000013c .L0 
+     /tmp/ccNXAlf8.s:220    .text:0000000000000140 .L0 
+     /tmp/ccNXAlf8.s:226    .text:0000000000000140 _ZN4_sem16destroySemaphoreEPS_
+     /tmp/ccNXAlf8.s:229    .text:0000000000000140 .L0 
+     /tmp/ccNXAlf8.s:231    .text:0000000000000140 .L0 
+     /tmp/ccNXAlf8.s:232    .text:0000000000000140 .L0 
+     /tmp/ccNXAlf8.s:234    .text:0000000000000144 .L0 
+     /tmp/ccNXAlf8.s:235    .text:0000000000000148 .L0 
+     /tmp/ccNXAlf8.s:238    .text:0000000000000150 .L0 
+     /tmp/ccNXAlf8.s:239    .text:0000000000000150 .L0 
+     /tmp/ccNXAlf8.s:241    .text:0000000000000154 .L0 
+     /tmp/ccNXAlf8.s:243    .text:0000000000000154 .L0 
+     /tmp/ccNXAlf8.s:244    .text:0000000000000154 .L0 
+     /tmp/ccNXAlf8.s:247    .text:000000000000015c .L0 
+     /tmp/ccNXAlf8.s:248    .text:000000000000015c .L0 
+     /tmp/ccNXAlf8.s:250    .text:0000000000000160 .L0 
+     /tmp/ccNXAlf8.s:251    .text:0000000000000164 .L0 
+     /tmp/ccNXAlf8.s:253    .text:0000000000000168 .L0 
+     /tmp/ccNXAlf8.s:254    .text:0000000000000168 .L0 
+     /tmp/ccNXAlf8.s:256    .text:000000000000016c .L0 
+     /tmp/ccNXAlf8.s:261    .text:0000000000000170 .L0 
+     /tmp/ccNXAlf8.s:264    .text:0000000000000174 .L0 
+GAS LISTING /tmp/ccNXAlf8.s 			page 22
+
+
+     /tmp/ccNXAlf8.s:265    .text:0000000000000178 .L0 
+     /tmp/ccNXAlf8.s:271    .text:0000000000000178 _ZN4_sem5blockEPNS_11BlockedNodeE
+     /tmp/ccNXAlf8.s:274    .text:0000000000000178 .L0 
+     /tmp/ccNXAlf8.s:276    .text:0000000000000178 .L0 
+     /tmp/ccNXAlf8.s:277    .text:000000000000017c .L0 
+     /tmp/ccNXAlf8.s:279    .text:0000000000000180 .L0 
+     /tmp/ccNXAlf8.s:281    .text:0000000000000184 .L0 
+     /tmp/ccNXAlf8.s:283    .text:0000000000000184 .L0 
+     /tmp/ccNXAlf8.s:285    .text:0000000000000188 .L0 
+     /tmp/ccNXAlf8.s:286    .text:0000000000000188 .L0 
+     /tmp/ccNXAlf8.s:288    .text:000000000000018c .L0 
+     /tmp/ccNXAlf8.s:289    .text:000000000000018c .L0 
+     /tmp/ccNXAlf8.s:291    .text:0000000000000190 .L0 
+     /tmp/ccNXAlf8.s:293    .text:0000000000000194 .L0 
+     /tmp/ccNXAlf8.s:295    .text:0000000000000198 .L0 
+     /tmp/ccNXAlf8.s:297    .text:000000000000019c .L0 
+     /tmp/ccNXAlf8.s:298    .text:000000000000019c .L0 
+     /tmp/ccNXAlf8.s:301    .text:00000000000001a0 .L0 
+     /tmp/ccNXAlf8.s:302    .text:00000000000001a4 .L0 
+     /tmp/ccNXAlf8.s:303    .text:00000000000001a4 .L0 
+     /tmp/ccNXAlf8.s:304    .text:00000000000001a4 .L0 
+     /tmp/ccNXAlf8.s:306    .text:00000000000001a8 .L0 
+     /tmp/ccNXAlf8.s:309    .text:00000000000001ac .L0 
+     /tmp/ccNXAlf8.s:311    .text:00000000000001ac .L0 
+     /tmp/ccNXAlf8.s:312    .text:00000000000001ac .L0 
+     /tmp/ccNXAlf8.s:314    .text:00000000000001b0 .L0 
+     /tmp/ccNXAlf8.s:315    .text:00000000000001b0 .L0 
+     /tmp/ccNXAlf8.s:317    .text:00000000000001b8 .L0 
+     /tmp/ccNXAlf8.s:323    .text:00000000000001b8 _ZN4_sem5waitNEj
+     /tmp/ccNXAlf8.s:326    .text:00000000000001b8 .L0 
+     /tmp/ccNXAlf8.s:328    .text:00000000000001b8 .L0 
+     /tmp/ccNXAlf8.s:329    .text:00000000000001b8 .L0 
+     /tmp/ccNXAlf8.s:330    .text:00000000000001b8 .L0 
+     /tmp/ccNXAlf8.s:333    .text:00000000000001c4 .L0 
+     /tmp/ccNXAlf8.s:335    .text:00000000000001c8 .L0 
+     /tmp/ccNXAlf8.s:336    .text:00000000000001c8 .L0 
+     /tmp/ccNXAlf8.s:338    .text:00000000000001cc .L0 
+     /tmp/ccNXAlf8.s:340    .text:00000000000001d0 .L0 
+     /tmp/ccNXAlf8.s:342    .text:00000000000001d4 .L0 
+     /tmp/ccNXAlf8.s:343    .text:00000000000001d4 .L0 
+     /tmp/ccNXAlf8.s:345    .text:00000000000001d8 .L0 
+     /tmp/ccNXAlf8.s:348    .text:00000000000001dc .L0 
+     /tmp/ccNXAlf8.s:349    .text:00000000000001e0 .L0 
+     /tmp/ccNXAlf8.s:352    .text:00000000000001e8 .L0 
+     /tmp/ccNXAlf8.s:353    .text:00000000000001e8 .L0 
+     /tmp/ccNXAlf8.s:355    .text:00000000000001ec .L0 
+     /tmp/ccNXAlf8.s:357    .text:00000000000001ec .L0 
+     /tmp/ccNXAlf8.s:358    .text:00000000000001ec .L0 
+     /tmp/ccNXAlf8.s:359    .text:00000000000001ec .L0 
+     /tmp/ccNXAlf8.s:361    .text:00000000000001f0 .L0 
+     /tmp/ccNXAlf8.s:362    .text:00000000000001f0 .L0 
+     /tmp/ccNXAlf8.s:364    .text:00000000000001f4 .L0 
+     /tmp/ccNXAlf8.s:365    .text:00000000000001f4 .L0 
+     /tmp/ccNXAlf8.s:367    .text:00000000000001f8 .L0 
+     /tmp/ccNXAlf8.s:368    .text:00000000000001f8 .L0 
+     /tmp/ccNXAlf8.s:370    .text:00000000000001fc .L0 
+     /tmp/ccNXAlf8.s:371    .text:00000000000001fc .L0 
+GAS LISTING /tmp/ccNXAlf8.s 			page 23
+
+
+     /tmp/ccNXAlf8.s:376    .text:0000000000000208 .L0 
+     /tmp/ccNXAlf8.s:377    .text:0000000000000208 .L0 
+     /tmp/ccNXAlf8.s:383    .text:0000000000000220 .L0 
+     /tmp/ccNXAlf8.s:384    .text:0000000000000220 .L0 
+     /tmp/ccNXAlf8.s:387    .text:0000000000000228 .L0 
+     /tmp/ccNXAlf8.s:388    .text:0000000000000228 .L0 
+     /tmp/ccNXAlf8.s:390    .text:000000000000022c .L0 
+     /tmp/ccNXAlf8.s:391    .text:0000000000000230 .L0 
+     /tmp/ccNXAlf8.s:393    .text:0000000000000234 .L0 
+     /tmp/ccNXAlf8.s:394    .text:0000000000000234 .L0 
+     /tmp/ccNXAlf8.s:396    .text:0000000000000238 .L0 
+     /tmp/ccNXAlf8.s:401    .text:000000000000023c .L0 
+     /tmp/ccNXAlf8.s:403    .text:0000000000000240 .L0 
+     /tmp/ccNXAlf8.s:405    .text:0000000000000244 .L0 
+     /tmp/ccNXAlf8.s:407    .text:0000000000000248 .L0 
+     /tmp/ccNXAlf8.s:408    .text:0000000000000248 .L0 
+     /tmp/ccNXAlf8.s:411    .text:0000000000000250 .L0 
+     /tmp/ccNXAlf8.s:412    .text:0000000000000250 .L0 
+     /tmp/ccNXAlf8.s:418    .text:0000000000000258 .L0 
+     /tmp/ccNXAlf8.s:424    .text:0000000000000260 .L0 
+     /tmp/ccNXAlf8.s:430    .text:0000000000000268 .L0 
+     /tmp/ccNXAlf8.s:433    .text:000000000000026c .L0 
+     /tmp/ccNXAlf8.s:434    .text:0000000000000270 .L0 
+     /tmp/ccNXAlf8.s:440    .text:0000000000000270 _ZN4_sem4waitEv
+     /tmp/ccNXAlf8.s:443    .text:0000000000000270 .L0 
+     /tmp/ccNXAlf8.s:445    .text:0000000000000270 .L0 
+     /tmp/ccNXAlf8.s:446    .text:0000000000000274 .L0 
+     /tmp/ccNXAlf8.s:449    .text:000000000000027c .L0 
+     /tmp/ccNXAlf8.s:450    .text:000000000000027c .L0 
+     /tmp/ccNXAlf8.s:452    .text:0000000000000280 .L0 
+     /tmp/ccNXAlf8.s:454    .text:0000000000000280 .L0 
+     /tmp/ccNXAlf8.s:455    .text:0000000000000280 .L0 
+     /tmp/ccNXAlf8.s:459    .text:000000000000028c .L0 
+     /tmp/ccNXAlf8.s:460    .text:0000000000000290 .L0 
+     /tmp/ccNXAlf8.s:462    .text:0000000000000294 .L0 
+     /tmp/ccNXAlf8.s:463    .text:0000000000000294 .L0 
+     /tmp/ccNXAlf8.s:465    .text:0000000000000298 .L0 
+     /tmp/ccNXAlf8.s:467    .text:000000000000029c .L0 
+     /tmp/ccNXAlf8.s:473    .text:000000000000029c _ZN4_sem12unblockReadyEv
+     /tmp/ccNXAlf8.s:476    .text:000000000000029c .L0 
+     /tmp/ccNXAlf8.s:478    .text:000000000000029c .L0 
+     /tmp/ccNXAlf8.s:479    .text:00000000000002a0 .L0 
+     /tmp/ccNXAlf8.s:484    .text:00000000000002b0 .L0 
+     /tmp/ccNXAlf8.s:485    .text:00000000000002b0 .L0 
+     /tmp/ccNXAlf8.s:486    .text:00000000000002b0 .L0 
+     /tmp/ccNXAlf8.s:487    .text:00000000000002b0 .L0 
+     /tmp/ccNXAlf8.s:489    .text:00000000000002b4 .L0 
+     /tmp/ccNXAlf8.s:496    .text:00000000000002bc .L0 
+     /tmp/ccNXAlf8.s:497    .text:00000000000002bc .L0 
+     /tmp/ccNXAlf8.s:500    .text:00000000000002c0 .L0 
+     /tmp/ccNXAlf8.s:501    .text:00000000000002c0 .L0 
+     /tmp/ccNXAlf8.s:503    .text:00000000000002c4 .L0 
+     /tmp/ccNXAlf8.s:506    .text:00000000000002cc .L0 
+     /tmp/ccNXAlf8.s:507    .text:00000000000002cc .L0 
+     /tmp/ccNXAlf8.s:509    .text:00000000000002d0 .L0 
+     /tmp/ccNXAlf8.s:510    .text:00000000000002d0 .L0 
+     /tmp/ccNXAlf8.s:512    .text:00000000000002d4 .L0 
+GAS LISTING /tmp/ccNXAlf8.s 			page 24
+
+
+     /tmp/ccNXAlf8.s:513    .text:00000000000002d4 .L0 
+     /tmp/ccNXAlf8.s:515    .text:00000000000002d8 .L0 
+     /tmp/ccNXAlf8.s:520    .text:00000000000002dc .L0 
+     /tmp/ccNXAlf8.s:521    .text:00000000000002dc .L0 
+     /tmp/ccNXAlf8.s:522    .text:00000000000002dc .L0 
+     /tmp/ccNXAlf8.s:524    .text:00000000000002e0 .L0 
+     /tmp/ccNXAlf8.s:526    .text:00000000000002e4 .L0 
+     /tmp/ccNXAlf8.s:528    .text:00000000000002e8 .L0 
+     /tmp/ccNXAlf8.s:530    .text:00000000000002ec .L0 
+     /tmp/ccNXAlf8.s:534    .text:00000000000002f0 .L0 
+     /tmp/ccNXAlf8.s:535    .text:00000000000002f0 .L0 
+     /tmp/ccNXAlf8.s:536    .text:00000000000002f0 .L0 
+     /tmp/ccNXAlf8.s:538    .text:00000000000002f4 .L0 
+     /tmp/ccNXAlf8.s:540    .text:00000000000002f8 .L0 
+     /tmp/ccNXAlf8.s:544    .text:0000000000000300 .L0 
+     /tmp/ccNXAlf8.s:545    .text:0000000000000300 .L0 
+     /tmp/ccNXAlf8.s:549    .text:000000000000030c .L0 
+     /tmp/ccNXAlf8.s:550    .text:000000000000030c .L0 
+     /tmp/ccNXAlf8.s:558    .text:000000000000031c .L0 
+     /tmp/ccNXAlf8.s:559    .text:0000000000000320 .L0 
+     /tmp/ccNXAlf8.s:561    .text:0000000000000324 .L0 
+     /tmp/ccNXAlf8.s:562    .text:0000000000000324 .L0 
+     /tmp/ccNXAlf8.s:564    .text:0000000000000328 .L0 
+     /tmp/ccNXAlf8.s:566    .text:000000000000032c .L0 
+     /tmp/ccNXAlf8.s:569    .text:0000000000000330 .L0 
+     /tmp/ccNXAlf8.s:571    .text:0000000000000334 .L0 
+     /tmp/ccNXAlf8.s:577    .text:0000000000000334 _ZN4_sem7signalNEj
+     /tmp/ccNXAlf8.s:580    .text:0000000000000334 .L0 
+     /tmp/ccNXAlf8.s:582    .text:0000000000000334 .L0 
+     /tmp/ccNXAlf8.s:583    .text:0000000000000334 .L0 
+     /tmp/ccNXAlf8.s:584    .text:0000000000000334 .L0 
+     /tmp/ccNXAlf8.s:586    .text:0000000000000338 .L0 
+     /tmp/ccNXAlf8.s:588    .text:000000000000033c .L0 
+     /tmp/ccNXAlf8.s:590    .text:0000000000000340 .L0 
+     /tmp/ccNXAlf8.s:593    .text:0000000000000344 .L0 
+     /tmp/ccNXAlf8.s:597    .text:0000000000000348 .L0 
+     /tmp/ccNXAlf8.s:598    .text:000000000000034c .L0 
+     /tmp/ccNXAlf8.s:601    .text:0000000000000354 .L0 
+     /tmp/ccNXAlf8.s:602    .text:0000000000000354 .L0 
+     /tmp/ccNXAlf8.s:604    .text:0000000000000358 .L0 
+     /tmp/ccNXAlf8.s:606    .text:0000000000000358 .L0 
+     /tmp/ccNXAlf8.s:607    .text:0000000000000358 .L0 
+     /tmp/ccNXAlf8.s:612    .text:0000000000000364 .L0 
+     /tmp/ccNXAlf8.s:613    .text:0000000000000364 .L0 
+     /tmp/ccNXAlf8.s:616    .text:000000000000036c .L0 
+     /tmp/ccNXAlf8.s:617    .text:000000000000036c .L0 
+     /tmp/ccNXAlf8.s:619    .text:0000000000000370 .L0 
+     /tmp/ccNXAlf8.s:620    .text:0000000000000374 .L0 
+     /tmp/ccNXAlf8.s:622    .text:0000000000000378 .L0 
+     /tmp/ccNXAlf8.s:623    .text:0000000000000378 .L0 
+     /tmp/ccNXAlf8.s:625    .text:000000000000037c .L0 
+     /tmp/ccNXAlf8.s:630    .text:0000000000000380 .L0 
+     /tmp/ccNXAlf8.s:633    .text:0000000000000388 .L0 
+     /tmp/ccNXAlf8.s:639    .text:0000000000000388 _ZN4_sem6signalEv
+     /tmp/ccNXAlf8.s:642    .text:0000000000000388 .L0 
+     /tmp/ccNXAlf8.s:644    .text:0000000000000388 .L0 
+     /tmp/ccNXAlf8.s:645    .text:000000000000038c .L0 
+GAS LISTING /tmp/ccNXAlf8.s 			page 25
+
+
+     /tmp/ccNXAlf8.s:648    .text:0000000000000394 .L0 
+     /tmp/ccNXAlf8.s:649    .text:0000000000000394 .L0 
+     /tmp/ccNXAlf8.s:651    .text:0000000000000398 .L0 
+     /tmp/ccNXAlf8.s:653    .text:0000000000000398 .L0 
+     /tmp/ccNXAlf8.s:654    .text:0000000000000398 .L0 
+     /tmp/ccNXAlf8.s:658    .text:00000000000003a4 .L0 
+     /tmp/ccNXAlf8.s:659    .text:00000000000003a8 .L0 
+     /tmp/ccNXAlf8.s:661    .text:00000000000003ac .L0 
+     /tmp/ccNXAlf8.s:662    .text:00000000000003ac .L0 
+     /tmp/ccNXAlf8.s:664    .text:00000000000003b0 .L0 
+     /tmp/ccNXAlf8.s:666    .text:00000000000003b4 .L0 
+     /tmp/ccNXAlf8.s:672    .text:00000000000003b4 _ZN4_sem10unblockAllEv
+     /tmp/ccNXAlf8.s:675    .text:00000000000003b4 .L0 
+     /tmp/ccNXAlf8.s:677    .text:00000000000003b4 .L0 
+     /tmp/ccNXAlf8.s:678    .text:00000000000003b8 .L0 
+     /tmp/ccNXAlf8.s:683    .text:00000000000003c8 .L0 
+     /tmp/ccNXAlf8.s:684    .text:00000000000003c8 .L0 
+     /tmp/ccNXAlf8.s:685    .text:00000000000003c8 .L0 
+     /tmp/ccNXAlf8.s:686    .text:00000000000003c8 .L0 
+     /tmp/ccNXAlf8.s:688    .text:00000000000003cc .L0 
+     /tmp/ccNXAlf8.s:693    .text:00000000000003d0 .L0 
+     /tmp/ccNXAlf8.s:694    .text:00000000000003d0 .L0 
+     /tmp/ccNXAlf8.s:695    .text:00000000000003d0 .L0 
+     /tmp/ccNXAlf8.s:697    .text:00000000000003d4 .L0 
+     /tmp/ccNXAlf8.s:701    .text:00000000000003d8 .L0 
+     /tmp/ccNXAlf8.s:702    .text:00000000000003d8 .L0 
+     /tmp/ccNXAlf8.s:703    .text:00000000000003d8 .L0 
+     /tmp/ccNXAlf8.s:705    .text:00000000000003dc .L0 
+     /tmp/ccNXAlf8.s:707    .text:00000000000003e0 .L0 
+     /tmp/ccNXAlf8.s:708    .text:00000000000003e0 .L0 
+     /tmp/ccNXAlf8.s:711    .text:00000000000003e8 .L0 
+     /tmp/ccNXAlf8.s:712    .text:00000000000003e8 .L0 
+     /tmp/ccNXAlf8.s:714    .text:00000000000003ec .L0 
+     /tmp/ccNXAlf8.s:715    .text:00000000000003ec .L0 
+     /tmp/ccNXAlf8.s:717    .text:00000000000003f0 .L0 
+     /tmp/ccNXAlf8.s:719    .text:00000000000003f4 .L0 
+     /tmp/ccNXAlf8.s:720    .text:00000000000003f4 .L0 
+     /tmp/ccNXAlf8.s:724    .text:0000000000000400 .L0 
+     /tmp/ccNXAlf8.s:725    .text:0000000000000400 .L0 
+     /tmp/ccNXAlf8.s:733    .text:0000000000000410 .L0 
+     /tmp/ccNXAlf8.s:734    .text:0000000000000410 .L0 
+     /tmp/ccNXAlf8.s:736    .text:0000000000000414 .L0 
+     /tmp/ccNXAlf8.s:737    .text:0000000000000418 .L0 
+     /tmp/ccNXAlf8.s:739    .text:000000000000041c .L0 
+     /tmp/ccNXAlf8.s:740    .text:000000000000041c .L0 
+     /tmp/ccNXAlf8.s:742    .text:0000000000000420 .L0 
+     /tmp/ccNXAlf8.s:744    .text:0000000000000424 .L0 
+     /tmp/ccNXAlf8.s:747    .text:0000000000000428 .L0 
+     /tmp/ccNXAlf8.s:749    .text:000000000000042c .L0 
+     /tmp/ccNXAlf8.s:755    .text:000000000000042c _ZN4_sem5closeEv
+     /tmp/ccNXAlf8.s:758    .text:000000000000042c .L0 
+     /tmp/ccNXAlf8.s:760    .text:000000000000042c .L0 
+     /tmp/ccNXAlf8.s:761    .text:000000000000042c .L0 
+     /tmp/ccNXAlf8.s:762    .text:000000000000042c .L0 
+     /tmp/ccNXAlf8.s:764    .text:0000000000000430 .L0 
+     /tmp/ccNXAlf8.s:766    .text:0000000000000434 .L0 
+     /tmp/ccNXAlf8.s:767    .text:0000000000000438 .L0 
+GAS LISTING /tmp/ccNXAlf8.s 			page 26
+
+
+     /tmp/ccNXAlf8.s:770    .text:0000000000000440 .L0 
+     /tmp/ccNXAlf8.s:771    .text:0000000000000440 .L0 
+     /tmp/ccNXAlf8.s:773    .text:0000000000000444 .L0 
+     /tmp/ccNXAlf8.s:775    .text:0000000000000444 .L0 
+     /tmp/ccNXAlf8.s:776    .text:0000000000000444 .L0 
+     /tmp/ccNXAlf8.s:779    .text:000000000000044c .L0 
+     /tmp/ccNXAlf8.s:780    .text:000000000000044c .L0 
+     /tmp/ccNXAlf8.s:783    .text:0000000000000454 .L0 
+     /tmp/ccNXAlf8.s:784    .text:0000000000000454 .L0 
+     /tmp/ccNXAlf8.s:786    .text:0000000000000458 .L0 
+     /tmp/ccNXAlf8.s:787    .text:000000000000045c .L0 
+     /tmp/ccNXAlf8.s:789    .text:0000000000000460 .L0 
+     /tmp/ccNXAlf8.s:790    .text:0000000000000460 .L0 
+     /tmp/ccNXAlf8.s:792    .text:0000000000000464 .L0 
+     /tmp/ccNXAlf8.s:797    .text:0000000000000468 .L0 
+     /tmp/ccNXAlf8.s:800    .text:000000000000046c .L0 
+     /tmp/ccNXAlf8.s:801    .text:0000000000000470 .L0 
+     /tmp/ccNXAlf8.s:810    .text:0000000000000470 .L0 
+     /tmp/ccNXAlf8.s:330    .text:00000000000001b8 .L0 
+     /tmp/ccNXAlf8.s:378    .text:000000000000020c .L0 
+     /tmp/ccNXAlf8.s:130    .text:00000000000000c0 .L8
+     /tmp/ccNXAlf8.s:259    .text:0000000000000170 .L17
+     /tmp/ccNXAlf8.s:299    .text:00000000000001a0 .L22
+     /tmp/ccNXAlf8.s:308    .text:00000000000001ac .L26
+     /tmp/ccNXAlf8.s:416    .text:0000000000000258 .L30
+     /tmp/ccNXAlf8.s:422    .text:0000000000000260 .L31
+     /tmp/ccNXAlf8.s:428    .text:0000000000000268 .L32
+     /tmp/ccNXAlf8.s:399    .text:000000000000023c .L36
+     /tmp/ccNXAlf8.s:346    .text:00000000000001dc .L29
+     /tmp/ccNXAlf8.s:517    .text:00000000000002dc .L42
+     /tmp/ccNXAlf8.s:542    .text:0000000000000300 .L45
+     /tmp/ccNXAlf8.s:555    .text:000000000000031c .L39
+     /tmp/ccNXAlf8.s:498    .text:00000000000002c0 .L41
+     /tmp/ccNXAlf8.s:493    .text:00000000000002bc .L46
+     /tmp/ccNXAlf8.s:628    .text:0000000000000380 .L49
+     /tmp/ccNXAlf8.s:595    .text:0000000000000348 .L55
+     /tmp/ccNXAlf8.s:730    .text:0000000000000410 .L59
+     /tmp/ccNXAlf8.s:691    .text:00000000000003d0 .L60
+     /tmp/ccNXAlf8.s:795    .text:0000000000000468 .L65
+     /tmp/ccNXAlf8.s:2379   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccNXAlf8.s:4003   .debug_str:00000000000006ef .LASF124
+     /tmp/ccNXAlf8.s:3855   .debug_str:00000000000002c1 .LASF125
+     /tmp/ccNXAlf8.s:3825   .debug_str:00000000000001b5 .LASF126
+     /tmp/ccNXAlf8.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccNXAlf8.s:804    .text:0000000000000470 .Letext0
+     /tmp/ccNXAlf8.s:3769   .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccNXAlf8.s:3925   .debug_str:000000000000049c .LASF0
+     /tmp/ccNXAlf8.s:3935   .debug_str:0000000000000501 .LASF1
+     /tmp/ccNXAlf8.s:3907   .debug_str:0000000000000412 .LASF2
+     /tmp/ccNXAlf8.s:3871   .debug_str:000000000000033e .LASF4
+     /tmp/ccNXAlf8.s:3981   .debug_str:0000000000000630 .LASF3
+     /tmp/ccNXAlf8.s:3799   .debug_str:00000000000000d1 .LASF5
+     /tmp/ccNXAlf8.s:3939   .debug_str:000000000000051b .LASF6
+     /tmp/ccNXAlf8.s:3923   .debug_str:0000000000000489 .LASF7
+     /tmp/ccNXAlf8.s:4019   .debug_str:0000000000000816 .LASF8
+     /tmp/ccNXAlf8.s:3853   .debug_str:00000000000002b3 .LASF9
+     /tmp/ccNXAlf8.s:3957   .debug_str:0000000000000581 .LASF10
+GAS LISTING /tmp/ccNXAlf8.s 			page 27
+
+
+     /tmp/ccNXAlf8.s:4009   .debug_str:00000000000007c0 .LASF11
+     /tmp/ccNXAlf8.s:3803   .debug_str:00000000000000df .LASF12
+     /tmp/ccNXAlf8.s:3777   .debug_str:0000000000000029 .LASF13
+     /tmp/ccNXAlf8.s:3815   .debug_str:000000000000014c .LASF14
+     /tmp/ccNXAlf8.s:3975   .debug_str:0000000000000602 .LASF15
+     /tmp/ccNXAlf8.s:3827   .debug_str:00000000000001d8 .LASF16
+     /tmp/ccNXAlf8.s:3869   .debug_str:0000000000000339 .LASF27
+     /tmp/ccNXAlf8.s:3785   .debug_str:0000000000000052 .LASF100
+     /tmp/ccNXAlf8.s:3943   .debug_str:0000000000000546 .LASF17
+     /tmp/ccNXAlf8.s:3795   .debug_str:00000000000000a3 .LASF18
+     /tmp/ccNXAlf8.s:3937   .debug_str:0000000000000514 .LASF19
+     /tmp/ccNXAlf8.s:4043   .debug_str:00000000000008c9 .LASF20
+     /tmp/ccNXAlf8.s:4027   .debug_str:000000000000085d .LASF21
+     /tmp/ccNXAlf8.s:3829   .debug_str:00000000000001ee .LASF23
+     /tmp/ccNXAlf8.s:3985   .debug_str:0000000000000648 .LASF42
+     /tmp/ccNXAlf8.s:3847   .debug_str:0000000000000289 .LASF44
+     /tmp/ccNXAlf8.s:3993   .debug_str:000000000000068c .LASF29
+     /tmp/ccNXAlf8.s:4033   .debug_str:0000000000000879 .LASF22
+     /tmp/ccNXAlf8.s:3807   .debug_str:0000000000000103 .LASF24
+     /tmp/ccNXAlf8.s:3831   .debug_str:00000000000001fb .LASF25
+     /tmp/ccNXAlf8.s:4049   .debug_str:00000000000008d8 .LASF26
+     /tmp/ccNXAlf8.s:3771   .debug_str:0000000000000000 .LASF28
+     /tmp/ccNXAlf8.s:4015   .debug_str:00000000000007fc .LASF30
+     /tmp/ccNXAlf8.s:3845   .debug_str:0000000000000284 .LASF31
+     /tmp/ccNXAlf8.s:3967   .debug_str:00000000000005c0 .LASF32
+     /tmp/ccNXAlf8.s:3945   .debug_str:000000000000054d .LASF33
+     /tmp/ccNXAlf8.s:3861   .debug_str:000000000000030e .LASF34
+     /tmp/ccNXAlf8.s:3779   .debug_str:0000000000000039 .LASF35
+     /tmp/ccNXAlf8.s:3787   .debug_str:000000000000005e .LASF36
+     /tmp/ccNXAlf8.s:3973   .debug_str:00000000000005fa .LASF37
+     /tmp/ccNXAlf8.s:3773   .debug_str:0000000000000006 .LASF38
+     /tmp/ccNXAlf8.s:3905   .debug_str:000000000000040b .LASF39
+     /tmp/ccNXAlf8.s:3833   .debug_str:000000000000020c .LASF40
+     /tmp/ccNXAlf8.s:3899   .debug_str:00000000000003e0 .LASF41
+     /tmp/ccNXAlf8.s:3881   .debug_str:0000000000000375 .LASF43
+     /tmp/ccNXAlf8.s:4013   .debug_str:00000000000007da .LASF45
+     /tmp/ccNXAlf8.s:3883   .debug_str:000000000000037b .LASF46
+     /tmp/ccNXAlf8.s:3931   .debug_str:00000000000004e3 .LASF47
+     /tmp/ccNXAlf8.s:3863   .debug_str:0000000000000320 .LASF117
+     /tmp/ccNXAlf8.s:3921   .debug_str:0000000000000472 .LASF119
+     /tmp/ccNXAlf8.s:3867   .debug_str:0000000000000331 .LASF48
+     /tmp/ccNXAlf8.s:3783   .debug_str:000000000000004c .LASF127
+     /tmp/ccNXAlf8.s:4005   .debug_str:00000000000007b3 .LASF49
+     /tmp/ccNXAlf8.s:3955   .debug_str:000000000000057b .LASF50
+     /tmp/ccNXAlf8.s:3947   .debug_str:0000000000000554 .LASF51
+     /tmp/ccNXAlf8.s:3873   .debug_str:0000000000000345 .LASF52
+     /tmp/ccNXAlf8.s:3961   .debug_str:00000000000005ad .LASF53
+     /tmp/ccNXAlf8.s:3835   .debug_str:0000000000000211 .LASF128
+     /tmp/ccNXAlf8.s:3977   .debug_str:0000000000000618 .LASF54
+     /tmp/ccNXAlf8.s:3851   .debug_str:00000000000002a3 .LASF55
+     /tmp/ccNXAlf8.s:3775   .debug_str:0000000000000019 .LASF56
+     /tmp/ccNXAlf8.s:4039   .debug_str:00000000000008ac .LASF57
+     /tmp/ccNXAlf8.s:3989   .debug_str:0000000000000674 .LASF58
+     /tmp/ccNXAlf8.s:3919   .debug_str:0000000000000461 .LASF59
+     /tmp/ccNXAlf8.s:3929   .debug_str:00000000000004c8 .LASF60
+     /tmp/ccNXAlf8.s:3965   .debug_str:00000000000005bb .LASF129
+     /tmp/ccNXAlf8.s:3887   .debug_str:0000000000000391 .LASF61
+GAS LISTING /tmp/ccNXAlf8.s 			page 28
+
+
+     /tmp/ccNXAlf8.s:3821   .debug_str:0000000000000180 .LASF62
+     /tmp/ccNXAlf8.s:3823   .debug_str:00000000000001a7 .LASF63
+     /tmp/ccNXAlf8.s:3927   .debug_str:00000000000004a9 .LASF64
+     /tmp/ccNXAlf8.s:4035   .debug_str:0000000000000889 .LASF130
+     /tmp/ccNXAlf8.s:3995   .debug_str:0000000000000699 .LASF131
+     /tmp/ccNXAlf8.s:3893   .debug_str:00000000000003b2 .LASF95
+     /tmp/ccNXAlf8.s:4023   .debug_str:000000000000082e .LASF97
+     /tmp/ccNXAlf8.s:3915   .debug_str:0000000000000449 .LASF65
+     /tmp/ccNXAlf8.s:3997   .debug_str:00000000000006b0 .LASF66
+     /tmp/ccNXAlf8.s:3879   .debug_str:000000000000036e .LASF67
+     /tmp/ccNXAlf8.s:3909   .debug_str:0000000000000420 .LASF68
+     /tmp/ccNXAlf8.s:4017   .debug_str:000000000000080d .LASF69
+     /tmp/ccNXAlf8.s:3941   .debug_str:000000000000052e .LASF70
+     /tmp/ccNXAlf8.s:4011   .debug_str:00000000000007cf .LASF71
+     /tmp/ccNXAlf8.s:4037   .debug_str:0000000000000892 .LASF72
+     /tmp/ccNXAlf8.s:3885   .debug_str:0000000000000388 .LASF73
+     /tmp/ccNXAlf8.s:3971   .debug_str:00000000000005e2 .LASF74
+     /tmp/ccNXAlf8.s:3911   .debug_str:0000000000000436 .LASF75
+     /tmp/ccNXAlf8.s:3817   .debug_str:0000000000000158 .LASF76
+     /tmp/ccNXAlf8.s:3897   .debug_str:00000000000003d3 .LASF77
+     /tmp/ccNXAlf8.s:3959   .debug_str:0000000000000590 .LASF78
+     /tmp/ccNXAlf8.s:3843   .debug_str:000000000000027c .LASF79
+     /tmp/ccNXAlf8.s:3949   .debug_str:000000000000055c .LASF80
+     /tmp/ccNXAlf8.s:4021   .debug_str:0000000000000826 .LASF81
+     /tmp/ccNXAlf8.s:3969   .debug_str:00000000000005d0 .LASF82
+     /tmp/ccNXAlf8.s:3793   .debug_str:0000000000000082 .LASF83
+     /tmp/ccNXAlf8.s:3809   .debug_str:000000000000011f .LASF84
+     /tmp/ccNXAlf8.s:3849   .debug_str:0000000000000297 .LASF85
+     /tmp/ccNXAlf8.s:3875   .debug_str:000000000000034d .LASF86
+     /tmp/ccNXAlf8.s:3877   .debug_str:0000000000000369 .LASF87
+     /tmp/ccNXAlf8.s:3865   .debug_str:000000000000032b .LASF88
+     /tmp/ccNXAlf8.s:3979   .debug_str:0000000000000628 .LASF89
+     /tmp/ccNXAlf8.s:3789   .debug_str:000000000000006f .LASF90
+     /tmp/ccNXAlf8.s:3889   .debug_str:000000000000039e .LASF91
+     /tmp/ccNXAlf8.s:3891   .debug_str:00000000000003a4 .LASF132
+     /tmp/ccNXAlf8.s:3859   .debug_str:00000000000002f1 .LASF133
+     /tmp/ccNXAlf8.s:3999   .debug_str:00000000000006c7 .LASF92
+     /tmp/ccNXAlf8.s:4007   .debug_str:00000000000007bb .LASF93
+     /tmp/ccNXAlf8.s:3951   .debug_str:0000000000000565 .LASF94
+     /tmp/ccNXAlf8.s:3987   .debug_str:0000000000000658 .LASF134
+     /tmp/ccNXAlf8.s:3805   .debug_str:00000000000000ef .LASF135
+     /tmp/ccNXAlf8.s:3819   .debug_str:0000000000000178 .LASF96
+     /tmp/ccNXAlf8.s:3837   .debug_str:0000000000000219 .LASF98
+     /tmp/ccNXAlf8.s:3917   .debug_str:0000000000000451 .LASF99
+     /tmp/ccNXAlf8.s:3813   .debug_str:0000000000000142 .LASF101
+     /tmp/ccNXAlf8.s:3991   .debug_str:0000000000000687 .LASF102
+     /tmp/ccNXAlf8.s:4031   .debug_str:0000000000000874 .LASF103
+     /tmp/ccNXAlf8.s:4041   .debug_str:00000000000008bd .LASF104
+     /tmp/ccNXAlf8.s:3797   .debug_str:00000000000000ad .LASF105
+     /tmp/ccNXAlf8.s:3801   .debug_str:00000000000000d8 .LASF106
+     /tmp/ccNXAlf8.s:3857   .debug_str:00000000000002d3 .LASF107
+     /tmp/ccNXAlf8.s:4045   .debug_str:00000000000008ce .LASF108
+     /tmp/ccNXAlf8.s:3903   .debug_str:00000000000003ee .LASF109
+     /tmp/ccNXAlf8.s:3895   .debug_str:00000000000003b7 .LASF110
+     /tmp/ccNXAlf8.s:3913   .debug_str:000000000000043f .LASF136
+     /tmp/ccNXAlf8.s:4025   .debug_str:0000000000000841 .LASF137
+     /tmp/ccNXAlf8.s:3901   .debug_str:00000000000003e5 .LASF111
+GAS LISTING /tmp/ccNXAlf8.s 			page 29
+
+
+     /tmp/ccNXAlf8.s:3791   .debug_str:0000000000000079 .LASF112
+     /tmp/ccNXAlf8.s:3953   .debug_str:000000000000056f .LASF113
+     /tmp/ccNXAlf8.s:4001   .debug_str:00000000000006d6 .LASF114
+     /tmp/ccNXAlf8.s:4047   .debug_str:00000000000008d3 .LASF115
+     /tmp/ccNXAlf8.s:3839   .debug_str:0000000000000231 .LASF116
+     /tmp/ccNXAlf8.s:4029   .debug_str:000000000000086a .LASF118
+     /tmp/ccNXAlf8.s:3841   .debug_str:000000000000024d .LASF120
+     /tmp/ccNXAlf8.s:673    .text:00000000000003b4 .LFB15
+     /tmp/ccNXAlf8.s:750    .text:000000000000042c .LFE15
+     /tmp/ccNXAlf8.s:3963   .debug_str:00000000000005b6 .LASF122
+     /tmp/ccNXAlf8.s:3407   .debug_loc:0000000000000000 .LLST13
+     /tmp/ccNXAlf8.s:698    .text:00000000000003d8 .LBB5
+     /tmp/ccNXAlf8.s:731    .text:0000000000000410 .LBE5
+     /tmp/ccNXAlf8.s:3933   .debug_str:00000000000004fc .LASF121
+     /tmp/ccNXAlf8.s:3425   .debug_loc:000000000000004c .LLST14
+     /tmp/ccNXAlf8.s:722    .text:0000000000000400 .LVL58
+     /tmp/ccNXAlf8.s:727    .text:000000000000040c .LVL59
+     /tmp/ccNXAlf8.s:474    .text:000000000000029c .LFB14
+     /tmp/ccNXAlf8.s:572    .text:0000000000000334 .LFE14
+     /tmp/ccNXAlf8.s:3432   .debug_loc:000000000000006f .LLST8
+     /tmp/ccNXAlf8.s:3761   .debug_ranges:0000000000000000 .Ldebug_ranges0
+     /tmp/ccNXAlf8.s:3450   .debug_loc:00000000000000bb .LLST9
+     /tmp/ccNXAlf8.s:547    .text:000000000000030c .LVL42
+     /tmp/ccNXAlf8.s:552    .text:0000000000000318 .LVL43
+     /tmp/ccNXAlf8.s:272    .text:0000000000000178 .LFB13
+     /tmp/ccNXAlf8.s:318    .text:00000000000001b8 .LFE13
+     /tmp/ccNXAlf8.s:578    .text:0000000000000334 .LFB12
+     /tmp/ccNXAlf8.s:634    .text:0000000000000388 .LFE12
+     /tmp/ccNXAlf8.s:3461   .debug_loc:00000000000000f1 .LLST10
+     /tmp/ccNXAlf8.s:3497   .debug_loc:000000000000017c .LLST11
+     /tmp/ccNXAlf8.s:614    .text:000000000000036c .LVL50
+     /tmp/ccNXAlf8.s:324    .text:00000000000001b8 .LFB11
+     /tmp/ccNXAlf8.s:435    .text:0000000000000270 .LFE11
+     /tmp/ccNXAlf8.s:3515   .debug_loc:00000000000001c8 .LLST5
+     /tmp/ccNXAlf8.s:3573   .debug_loc:00000000000002a5 .LLST6
+     /tmp/ccNXAlf8.s:374    .text:0000000000000208 .LVL25
+     /tmp/ccNXAlf8.s:381    .text:0000000000000220 .LVL26
+     /tmp/ccNXAlf8.s:385    .text:0000000000000228 .LVL27
+     /tmp/ccNXAlf8.s:640    .text:0000000000000388 .LFB10
+     /tmp/ccNXAlf8.s:667    .text:00000000000003b4 .LFE10
+     /tmp/ccNXAlf8.s:3596   .debug_loc:0000000000000305 .LLST12
+     /tmp/ccNXAlf8.s:656    .text:00000000000003a4 .LVL54
+     /tmp/ccNXAlf8.s:441    .text:0000000000000270 .LFB9
+     /tmp/ccNXAlf8.s:468    .text:000000000000029c .LFE9
+     /tmp/ccNXAlf8.s:3610   .debug_loc:000000000000033e .LLST7
+     /tmp/ccNXAlf8.s:457    .text:000000000000028c .LVL37
+     /tmp/ccNXAlf8.s:756    .text:000000000000042c .LFB8
+     /tmp/ccNXAlf8.s:802    .text:0000000000000470 .LFE8
+     /tmp/ccNXAlf8.s:3624   .debug_loc:0000000000000377 .LLST15
+     /tmp/ccNXAlf8.s:781    .text:0000000000000454 .LVL63
+     /tmp/ccNXAlf8.s:227    .text:0000000000000140 .LFB7
+     /tmp/ccNXAlf8.s:266    .text:0000000000000178 .LFE7
+     /tmp/ccNXAlf8.s:3649   .debug_loc:00000000000003d9 .LLST4
+     /tmp/ccNXAlf8.s:245    .text:000000000000015c .LVL19
+     /tmp/ccNXAlf8.s:179    .text:00000000000000ec .LFB6
+     /tmp/ccNXAlf8.s:221    .text:0000000000000140 .LFE6
+     /tmp/ccNXAlf8.s:3674   .debug_loc:000000000000043b .LLST3
+GAS LISTING /tmp/ccNXAlf8.s 			page 30
+
+
+     /tmp/ccNXAlf8.s:201    .text:0000000000000114 .LVL16
+     /tmp/ccNXAlf8.s:205    .text:0000000000000124 .LVL17
+     /tmp/ccNXAlf8.s:3781   .debug_str:000000000000003f .LASF138
+     /tmp/ccNXAlf8.s:139    .text:00000000000000c4 .LFB4
+     /tmp/ccNXAlf8.s:171    .text:00000000000000ec .LFE4
+     /tmp/ccNXAlf8.s:91     .text:000000000000007c .LFB2
+     /tmp/ccNXAlf8.s:133    .text:00000000000000c4 .LFE2
+     /tmp/ccNXAlf8.s:3688   .debug_loc:0000000000000474 .LLST2
+     /tmp/ccNXAlf8.s:112    .text:00000000000000a0 .LVL9
+     /tmp/ccNXAlf8.s:116    .text:00000000000000ac .LVL10
+     /tmp/ccNXAlf8.s:40     .text:0000000000000020 .LFB1
+     /tmp/ccNXAlf8.s:85     .text:000000000000007c .LFE1
+     /tmp/ccNXAlf8.s:3710   .debug_loc:00000000000004d3 .LLST1
+     /tmp/ccNXAlf8.s:60     .text:0000000000000044 .LVL4
+     /tmp/ccNXAlf8.s:65     .text:0000000000000054 .LVL5
+     /tmp/ccNXAlf8.s:69     .text:0000000000000064 .LVL6
+     /tmp/ccNXAlf8.s:3811   .debug_str:000000000000012a .LASF139
+     /tmp/ccNXAlf8.s:9      .text:0000000000000000 .LFB0
+     /tmp/ccNXAlf8.s:34     .text:0000000000000020 .LFE0
+     /tmp/ccNXAlf8.s:3983   .debug_str:0000000000000642 .LASF123
+     /tmp/ccNXAlf8.s:3728   .debug_loc:000000000000051f .LLST0
+     /tmp/ccNXAlf8.s:676    .text:00000000000003b4 .LVL55
+     /tmp/ccNXAlf8.s:690    .text:00000000000003d0 .LVL56
+     /tmp/ccNXAlf8.s:745    .text:0000000000000424 .LVL61
+     /tmp/ccNXAlf8.s:700    .text:00000000000003d8 .LVL57
+     /tmp/ccNXAlf8.s:729    .text:0000000000000410 .LVL60
+     /tmp/ccNXAlf8.s:477    .text:000000000000029c .LVL38
+     /tmp/ccNXAlf8.s:492    .text:00000000000002bc .LVL39
+     /tmp/ccNXAlf8.s:567    .text:000000000000032c .LVL45
+     /tmp/ccNXAlf8.s:516    .text:00000000000002dc .LVL40
+     /tmp/ccNXAlf8.s:533    .text:00000000000002f0 .LVL41
+     /tmp/ccNXAlf8.s:554    .text:000000000000031c .LVL44
+     /tmp/ccNXAlf8.s:581    .text:0000000000000334 .LVL46
+     /tmp/ccNXAlf8.s:591    .text:0000000000000344 .LVL47
+     /tmp/ccNXAlf8.s:594    .text:0000000000000348 .LVL48
+     /tmp/ccNXAlf8.s:627    .text:0000000000000380 .LVL51
+     /tmp/ccNXAlf8.s:631    .text:0000000000000384 .LVL52
+     /tmp/ccNXAlf8.s:609    .text:0000000000000360 .LVL49
+     /tmp/ccNXAlf8.s:327    .text:00000000000001b8 .LVL23
+     /tmp/ccNXAlf8.s:398    .text:000000000000023c .LVL28
+     /tmp/ccNXAlf8.s:413    .text:0000000000000254 .LVL29
+     /tmp/ccNXAlf8.s:415    .text:0000000000000258 .LVL30
+     /tmp/ccNXAlf8.s:419    .text:000000000000025c .LVL31
+     /tmp/ccNXAlf8.s:421    .text:0000000000000260 .LVL32
+     /tmp/ccNXAlf8.s:425    .text:0000000000000264 .LVL33
+     /tmp/ccNXAlf8.s:427    .text:0000000000000268 .LVL34
+     /tmp/ccNXAlf8.s:431    .text:000000000000026c .LVL35
+     /tmp/ccNXAlf8.s:372    .text:0000000000000200 .LVL24
+     /tmp/ccNXAlf8.s:643    .text:0000000000000388 .LVL53
+     /tmp/ccNXAlf8.s:444    .text:0000000000000270 .LVL36
+     /tmp/ccNXAlf8.s:759    .text:000000000000042c .LVL62
+     /tmp/ccNXAlf8.s:794    .text:0000000000000468 .LVL64
+     /tmp/ccNXAlf8.s:798    .text:000000000000046c .LVL65
+     /tmp/ccNXAlf8.s:230    .text:0000000000000140 .LVL18
+     /tmp/ccNXAlf8.s:258    .text:0000000000000170 .LVL20
+     /tmp/ccNXAlf8.s:262    .text:0000000000000174 .LVL21
+     /tmp/ccNXAlf8.s:182    .text:00000000000000ec .LVL14
+GAS LISTING /tmp/ccNXAlf8.s 			page 31
+
+
+     /tmp/ccNXAlf8.s:199    .text:000000000000010c .LVL15
+     /tmp/ccNXAlf8.s:94     .text:000000000000007c .LVL8
+     /tmp/ccNXAlf8.s:125    .text:00000000000000b8 .LVL11
+     /tmp/ccNXAlf8.s:129    .text:00000000000000c0 .LVL12
+     /tmp/ccNXAlf8.s:43     .text:0000000000000020 .LVL3
+     /tmp/ccNXAlf8.s:80     .text:0000000000000074 .LVL7
+     /tmp/ccNXAlf8.s:13     .text:0000000000000000 .LVL0
+     /tmp/ccNXAlf8.s:23     .text:0000000000000010 .LVL1
+     /tmp/ccNXAlf8.s:26     .text:0000000000000014 .LVL2
+     /tmp/ccNXAlf8.s:811    .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/ccNXAlf8.s:494    .text:00000000000002bc .LBB3
+     /tmp/ccNXAlf8.s:518    .text:00000000000002dc .LBE3
+     /tmp/ccNXAlf8.s:531    .text:00000000000002f0 .LBB4
+     /tmp/ccNXAlf8.s:556    .text:000000000000031c .LBE4
+>>>>>>> Stashed changes
 
 UNDEFINED SYMBOLS
 _ZN15MemoryAllocator11getInstanceEv

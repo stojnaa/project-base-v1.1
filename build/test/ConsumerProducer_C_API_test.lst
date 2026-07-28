@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 1
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 1
+>>>>>>> Stashed changes
 
 
    1              		.file	"ConsumerProducer_C_API_test.cpp"
@@ -58,7 +62,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
   21:test/ConsumerProducer_C_API_test.cpp ****     while ((key = getc()) != 0x1b) {
   22:test/ConsumerProducer_C_API_test.cpp ****         data->buffer->put(key);
   23:test/ConsumerProducer_C_API_test.cpp ****         i++;
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 2
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 2
+>>>>>>> Stashed changes
 
 
   24:test/ConsumerProducer_C_API_test.cpp **** 
@@ -118,7 +126,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
   25:test/ConsumerProducer_C_API_test.cpp ****             thread_dispatch();
   71              		.loc 1 25 9
   72 0068 E39207FC 		bnez	a5,.L2
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 3
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 3
+>>>>>>> Stashed changes
 
 
   73 006c 6FF09FFB 		j	.L6
@@ -178,7 +190,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  116              		.cfi_startproc
  117              	.LVL15:
  118 00b0 130101FE 		addi	sp,sp,-32
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 4
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 4
+>>>>>>> Stashed changes
 
 
  119              		.cfi_def_cfa_offset 32
@@ -238,7 +254,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
   42:test/ConsumerProducer_C_API_test.cpp **** 
  156              		.loc 1 42 9 is_stmt 1
   42:test/ConsumerProducer_C_API_test.cpp **** 
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 5
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 5
+>>>>>>> Stashed changes
 
 
  157              		.loc 1 42 10 is_stmt 0
@@ -298,7 +318,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
   51:test/ConsumerProducer_C_API_test.cpp **** 
   52:test/ConsumerProducer_C_API_test.cpp **** static void consumer(void *arg) {
  202              		.loc 1 52 33 is_stmt 1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 6
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 6
+>>>>>>> Stashed changes
 
 
  203              		.cfi_startproc
@@ -358,7 +382,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  240              	.LVL30:
  241              	.L14:
  242              	.LBE2:
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 7
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 7
+>>>>>>> Stashed changes
 
 
   56:test/ConsumerProducer_C_API_test.cpp ****     while (!threadEnd) {
@@ -418,7 +446,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  279              	.LVL35:
   66:test/ConsumerProducer_C_API_test.cpp ****             putc('\n');
  280              		.loc 1 66 9
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 8
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 8
+>>>>>>> Stashed changes
 
 
  281 01cc E39C04FA 		bnez	s1,.L14
@@ -478,7 +510,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  317              		.cfi_def_cfa 2, 48
  318 0210 83348101 		ld	s1,24(sp)
  319              		.cfi_restore 9
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 9
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 9
+>>>>>>> Stashed changes
 
 
  320 0214 03390101 		ld	s2,16(sp)
@@ -538,7 +574,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  351      000000
  352              	.LC6:
  353 00b8 42726F6A 		.string	"Broj proizvodjaca mora biti veci od nula!\n"
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 10
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 10
+>>>>>>> Stashed changes
 
 
  353      2070726F 
@@ -598,7 +638,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
   99:test/ConsumerProducer_C_API_test.cpp ****         printString("Broj proizvodjaca mora biti veci od nula!\n");
  100:test/ConsumerProducer_C_API_test.cpp ****         return;
  101:test/ConsumerProducer_C_API_test.cpp ****     }
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 11
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 11
+>>>>>>> Stashed changes
 
 
  102:test/ConsumerProducer_C_API_test.cpp **** 
@@ -658,7 +702,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  396 0260 9305E001 		li	a1,30
  397 0264 930404FA 		addi	s1,s0,-96
  398 0268 13850400 		mv	a0,s1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 12
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 12
+>>>>>>> Stashed changes
 
 
  399 026c 97000000 		call	_Z9getStringPci@plt
@@ -718,7 +766,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  433 02c4 13060000 		li	a2,0
  434 02c8 9305A000 		li	a1,10
  435 02cc 13050900 		mv	a0,s2
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 13
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 13
+>>>>>>> Stashed changes
 
 
  436 02d0 97000000 		call	_Z8printIntiii@plt
@@ -778,7 +830,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  472              	.L38:
   96:test/ConsumerProducer_C_API_test.cpp ****         return;
  473              		.loc 1 96 9 is_stmt 1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 14
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 14
+>>>>>>> Stashed changes
 
 
   96:test/ConsumerProducer_C_API_test.cpp ****         return;
@@ -838,7 +894,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  510 0388 1B071900 		addiw	a4,s2,1
  511              	.LVL63:
  110:test/ConsumerProducer_C_API_test.cpp **** 
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 15
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 15
+>>>>>>> Stashed changes
 
 
  512              		.loc 1 110 24 discriminator 3
@@ -898,7 +958,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  552              	.L28:
  124:test/ConsumerProducer_C_API_test.cpp ****     }
  553              		.loc 1 124 28 discriminator 4
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 16
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 16
+>>>>>>> Stashed changes
 
 
  554 03f4 13961700 		slli	a2,a5,1
@@ -958,7 +1022,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  592              	.LBE5:
  127:test/ConsumerProducer_C_API_test.cpp **** 
  593              		.loc 1 127 5 is_stmt 1
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 17
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 17
+>>>>>>> Stashed changes
 
 
  127:test/ConsumerProducer_C_API_test.cpp **** 
@@ -1018,7 +1086,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  633              	.LVL79:
  634              	.L23:
  136:test/ConsumerProducer_C_API_test.cpp **** 
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 18
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 18
+>>>>>>> Stashed changes
 
 
  137:test/ConsumerProducer_C_API_test.cpp **** }
@@ -1078,7 +1150,11 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  685 0011 00000000 		.4byte	.LEHB1-.LFB3
  686 0015 00000000 		.4byte	.LEHE1-.LEHB1
  687 0019 00000000 		.4byte	.L36-.LFB3
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 19
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 19
+>>>>>>> Stashed changes
 
 
  688 001d 00       		.byte	0
@@ -1108,11 +1184,16 @@ GAS LISTING /tmp/ccEfXpzO.s 			page 1
  2866      00000000 
  2867              		.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04) 9.4.0"
  2868              		.section	.note.GNU-stack,"",@progbits
+<<<<<<< Updated upstream
 GAS LISTING /tmp/ccEfXpzO.s 			page 20
+=======
+GAS LISTING /tmp/cchIVsUz.s 			page 20
+>>>>>>> Stashed changes
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ConsumerProducer_C_API_test.cpp
+<<<<<<< Updated upstream
      /tmp/ccEfXpzO.s:8      .text:0000000000000000 _ZL16producerKeyboardPv
      /tmp/ccEfXpzO.s:12     .text:0000000000000000 .L0 
      /tmp/ccEfXpzO.s:14     .text:0000000000000000 .L0 
@@ -1649,6 +1730,544 @@ DEFINED SYMBOLS
      /tmp/ccEfXpzO.s:676    .gcc_except_table:0000000000000000 .LLSDA3
 
 GAS LISTING /tmp/ccEfXpzO.s 			page 29
+=======
+     /tmp/cchIVsUz.s:8      .text:0000000000000000 _ZL16producerKeyboardPv
+     /tmp/cchIVsUz.s:12     .text:0000000000000000 .L0 
+     /tmp/cchIVsUz.s:14     .text:0000000000000000 .L0 
+     /tmp/cchIVsUz.s:15     .text:0000000000000004 .L0 
+     /tmp/cchIVsUz.s:20     .text:0000000000000014 .L0 
+     /tmp/cchIVsUz.s:21     .text:0000000000000014 .L0 
+     /tmp/cchIVsUz.s:22     .text:0000000000000014 .L0 
+     /tmp/cchIVsUz.s:23     .text:0000000000000014 .L0 
+     /tmp/cchIVsUz.s:25     .text:0000000000000018 .L0 
+     /tmp/cchIVsUz.s:29     .text:000000000000001c .L0 
+     /tmp/cchIVsUz.s:30     .text:000000000000001c .L0 
+     /tmp/cchIVsUz.s:31     .text:000000000000001c .L0 
+     /tmp/cchIVsUz.s:32     .text:000000000000001c .L0 
+     /tmp/cchIVsUz.s:37     .text:0000000000000024 .L0 
+     /tmp/cchIVsUz.s:38     .text:0000000000000024 .L0 
+     /tmp/cchIVsUz.s:42     .text:000000000000002c .L0 
+     /tmp/cchIVsUz.s:43     .text:000000000000002c .L0 
+     /tmp/cchIVsUz.s:44     .text:000000000000002c .L0 
+     /tmp/cchIVsUz.s:47     .text:0000000000000034 .L0 
+     /tmp/cchIVsUz.s:50     .text:0000000000000038 .L0 
+     /tmp/cchIVsUz.s:53     .text:0000000000000040 .L0 
+     /tmp/cchIVsUz.s:54     .text:0000000000000040 .L0 
+     /tmp/cchIVsUz.s:58     .text:000000000000004c .L0 
+     /tmp/cchIVsUz.s:59     .text:000000000000004c .L0 
+     /tmp/cchIVsUz.s:63     .text:0000000000000054 .L0 
+     /tmp/cchIVsUz.s:64     .text:0000000000000054 .L0 
+     /tmp/cchIVsUz.s:66     .text:0000000000000058 .L0 
+     /tmp/cchIVsUz.s:70     .text:0000000000000064 .L0 
+     /tmp/cchIVsUz.s:72     .text:0000000000000068 .L0 
+     /tmp/cchIVsUz.s:77     .text:0000000000000070 .L0 
+     /tmp/cchIVsUz.s:78     .text:0000000000000070 .L0 
+     /tmp/cchIVsUz.s:81     .text:000000000000007c .L0 
+     /tmp/cchIVsUz.s:82     .text:000000000000007c .L0 
+     /tmp/cchIVsUz.s:89     .text:000000000000008c .L0 
+     /tmp/cchIVsUz.s:90     .text:000000000000008c .L0 
+     /tmp/cchIVsUz.s:94     .text:0000000000000098 .L0 
+     /tmp/cchIVsUz.s:95     .text:000000000000009c .L0 
+     /tmp/cchIVsUz.s:97     .text:00000000000000a0 .L0 
+     /tmp/cchIVsUz.s:98     .text:00000000000000a0 .L0 
+     /tmp/cchIVsUz.s:100    .text:00000000000000a4 .L0 
+     /tmp/cchIVsUz.s:103    .text:00000000000000a8 .L0 
+     /tmp/cchIVsUz.s:106    .text:00000000000000ac .L0 
+     /tmp/cchIVsUz.s:108    .text:00000000000000b0 .L0 
+     /tmp/cchIVsUz.s:113    .text:00000000000000b0 _ZL8producerPv
+     /tmp/cchIVsUz.s:116    .text:00000000000000b0 .L0 
+     /tmp/cchIVsUz.s:118    .text:00000000000000b0 .L0 
+     /tmp/cchIVsUz.s:119    .text:00000000000000b4 .L0 
+     /tmp/cchIVsUz.s:124    .text:00000000000000c4 .L0 
+     /tmp/cchIVsUz.s:125    .text:00000000000000c4 .L0 
+     /tmp/cchIVsUz.s:126    .text:00000000000000c4 .L0 
+     /tmp/cchIVsUz.s:127    .text:00000000000000c4 .L0 
+     /tmp/cchIVsUz.s:129    .text:00000000000000c8 .L0 
+     /tmp/cchIVsUz.s:133    .text:00000000000000cc .L0 
+     /tmp/cchIVsUz.s:134    .text:00000000000000cc .L0 
+     /tmp/cchIVsUz.s:135    .text:00000000000000cc .L0 
+GAS LISTING /tmp/cchIVsUz.s 			page 21
+
+
+     /tmp/cchIVsUz.s:140    .text:00000000000000d4 .L0 
+     /tmp/cchIVsUz.s:141    .text:00000000000000d4 .L0 
+     /tmp/cchIVsUz.s:145    .text:00000000000000dc .L0 
+     /tmp/cchIVsUz.s:146    .text:00000000000000dc .L0 
+     /tmp/cchIVsUz.s:149    .text:00000000000000e8 .L0 
+     /tmp/cchIVsUz.s:150    .text:00000000000000e8 .L0 
+     /tmp/cchIVsUz.s:152    .text:00000000000000ec .L0 
+     /tmp/cchIVsUz.s:157    .text:00000000000000fc .L0 
+     /tmp/cchIVsUz.s:158    .text:00000000000000fc .L0 
+     /tmp/cchIVsUz.s:162    .text:0000000000000104 .L0 
+     /tmp/cchIVsUz.s:163    .text:0000000000000104 .L0 
+     /tmp/cchIVsUz.s:165    .text:0000000000000108 .L0 
+     /tmp/cchIVsUz.s:169    .text:0000000000000114 .L0 
+     /tmp/cchIVsUz.s:171    .text:0000000000000118 .L0 
+     /tmp/cchIVsUz.s:176    .text:0000000000000120 .L0 
+     /tmp/cchIVsUz.s:177    .text:0000000000000120 .L0 
+     /tmp/cchIVsUz.s:181    .text:000000000000012c .L0 
+     /tmp/cchIVsUz.s:182    .text:0000000000000130 .L0 
+     /tmp/cchIVsUz.s:184    .text:0000000000000134 .L0 
+     /tmp/cchIVsUz.s:185    .text:0000000000000134 .L0 
+     /tmp/cchIVsUz.s:187    .text:0000000000000138 .L0 
+     /tmp/cchIVsUz.s:190    .text:000000000000013c .L0 
+     /tmp/cchIVsUz.s:193    .text:0000000000000140 .L0 
+     /tmp/cchIVsUz.s:195    .text:0000000000000144 .L0 
+     /tmp/cchIVsUz.s:200    .text:0000000000000144 _ZL8consumerPv
+     /tmp/cchIVsUz.s:203    .text:0000000000000144 .L0 
+     /tmp/cchIVsUz.s:205    .text:0000000000000144 .L0 
+     /tmp/cchIVsUz.s:206    .text:0000000000000148 .L0 
+     /tmp/cchIVsUz.s:212    .text:000000000000015c .L0 
+     /tmp/cchIVsUz.s:213    .text:000000000000015c .L0 
+     /tmp/cchIVsUz.s:214    .text:000000000000015c .L0 
+     /tmp/cchIVsUz.s:215    .text:000000000000015c .L0 
+     /tmp/cchIVsUz.s:216    .text:000000000000015c .L0 
+     /tmp/cchIVsUz.s:218    .text:0000000000000160 .L0 
+     /tmp/cchIVsUz.s:222    .text:0000000000000164 .L0 
+     /tmp/cchIVsUz.s:223    .text:0000000000000164 .L0 
+     /tmp/cchIVsUz.s:224    .text:0000000000000164 .L0 
+     /tmp/cchIVsUz.s:230    .text:000000000000016c .L0 
+     /tmp/cchIVsUz.s:231    .text:000000000000016c .L0 
+     /tmp/cchIVsUz.s:237    .text:0000000000000178 .L0 
+     /tmp/cchIVsUz.s:238    .text:0000000000000178 .L0 
+     /tmp/cchIVsUz.s:244    .text:0000000000000184 .L0 
+     /tmp/cchIVsUz.s:245    .text:0000000000000184 .L0 
+     /tmp/cchIVsUz.s:249    .text:0000000000000190 .L0 
+     /tmp/cchIVsUz.s:250    .text:0000000000000190 .L0 
+     /tmp/cchIVsUz.s:254    .text:000000000000019c .L0 
+     /tmp/cchIVsUz.s:255    .text:000000000000019c .L0 
+     /tmp/cchIVsUz.s:259    .text:00000000000001a4 .L0 
+     /tmp/cchIVsUz.s:260    .text:00000000000001a4 .L0 
+     /tmp/cchIVsUz.s:265    .text:00000000000001b0 .L0 
+     /tmp/cchIVsUz.s:266    .text:00000000000001b0 .L0 
+     /tmp/cchIVsUz.s:268    .text:00000000000001b4 .L0 
+     /tmp/cchIVsUz.s:271    .text:00000000000001bc .L0 
+     /tmp/cchIVsUz.s:273    .text:00000000000001c0 .L0 
+     /tmp/cchIVsUz.s:276    .text:00000000000001c4 .L0 
+     /tmp/cchIVsUz.s:277    .text:00000000000001c4 .L0 
+     /tmp/cchIVsUz.s:281    .text:00000000000001cc .L0 
+GAS LISTING /tmp/cchIVsUz.s 			page 22
+
+
+     /tmp/cchIVsUz.s:287    .text:00000000000001d4 .L0 
+     /tmp/cchIVsUz.s:288    .text:00000000000001d4 .L0 
+     /tmp/cchIVsUz.s:292    .text:00000000000001e0 .L0 
+     /tmp/cchIVsUz.s:293    .text:00000000000001e0 .L0 
+     /tmp/cchIVsUz.s:300    .text:00000000000001ec .L0 
+     /tmp/cchIVsUz.s:301    .text:00000000000001ec .L0 
+     /tmp/cchIVsUz.s:302    .text:00000000000001ec .L0 
+     /tmp/cchIVsUz.s:306    .text:00000000000001f8 .L0 
+     /tmp/cchIVsUz.s:308    .text:00000000000001fc .L0 
+     /tmp/cchIVsUz.s:309    .text:00000000000001fc .L0 
+     /tmp/cchIVsUz.s:313    .text:0000000000000208 .L0 
+     /tmp/cchIVsUz.s:314    .text:000000000000020c .L0 
+     /tmp/cchIVsUz.s:316    .text:0000000000000210 .L0 
+     /tmp/cchIVsUz.s:317    .text:0000000000000210 .L0 
+     /tmp/cchIVsUz.s:319    .text:0000000000000214 .L0 
+     /tmp/cchIVsUz.s:321    .text:0000000000000218 .L0 
+     /tmp/cchIVsUz.s:324    .text:000000000000021c .L0 
+     /tmp/cchIVsUz.s:327    .text:0000000000000220 .L0 
+     /tmp/cchIVsUz.s:329    .text:0000000000000224 .L0 
+     /tmp/cchIVsUz.s:358    .text:0000000000000224 _Z22producerConsumer_C_APIv
+     /tmp/cchIVsUz.s:361    .text:0000000000000224 .L0 
+     /tmp/cchIVsUz.s:2865   .data.rel.local.DW.ref.__gxx_personality_v0:0000000000000000 DW.ref.__gxx_personality_v0
+     /tmp/cchIVsUz.s:364    .text:0000000000000224 .L0 
+     /tmp/cchIVsUz.s:365    .text:0000000000000228 .L0 
+     /tmp/cchIVsUz.s:374    .text:0000000000000248 .L0 
+     /tmp/cchIVsUz.s:375    .text:0000000000000248 .L0 
+     /tmp/cchIVsUz.s:376    .text:0000000000000248 .L0 
+     /tmp/cchIVsUz.s:377    .text:0000000000000248 .L0 
+     /tmp/cchIVsUz.s:378    .text:0000000000000248 .L0 
+     /tmp/cchIVsUz.s:379    .text:0000000000000248 .L0 
+     /tmp/cchIVsUz.s:380    .text:0000000000000248 .L0 
+     /tmp/cchIVsUz.s:381    .text:0000000000000248 .L0 
+     /tmp/cchIVsUz.s:383    .text:000000000000024c .L0 
+     /tmp/cchIVsUz.s:385    .text:000000000000024c .L0 
+     /tmp/cchIVsUz.s:387    .text:0000000000000250 .L0 
+     /tmp/cchIVsUz.s:388    .text:0000000000000250 .L0 
+     /tmp/cchIVsUz.s:389    .text:0000000000000250 .L0 
+     /tmp/cchIVsUz.s:390    .text:0000000000000250 .L0 
+     /tmp/cchIVsUz.s:395    .text:0000000000000260 .L0 
+     /tmp/cchIVsUz.s:396    .text:0000000000000260 .L0 
+     /tmp/cchIVsUz.s:402    .text:0000000000000274 .L0 
+     /tmp/cchIVsUz.s:403    .text:0000000000000274 .L0 
+     /tmp/cchIVsUz.s:409    .text:0000000000000284 .L0 
+     /tmp/cchIVsUz.s:410    .text:0000000000000284 .L0 
+     /tmp/cchIVsUz.s:414    .text:0000000000000294 .L0 
+     /tmp/cchIVsUz.s:415    .text:0000000000000294 .L0 
+     /tmp/cchIVsUz.s:420    .text:00000000000002a4 .L0 
+     /tmp/cchIVsUz.s:421    .text:00000000000002a4 .L0 
+     /tmp/cchIVsUz.s:427    .text:00000000000002b4 .L0 
+     /tmp/cchIVsUz.s:428    .text:00000000000002b4 .L0 
+     /tmp/cchIVsUz.s:432    .text:00000000000002c4 .L0 
+     /tmp/cchIVsUz.s:433    .text:00000000000002c4 .L0 
+     /tmp/cchIVsUz.s:439    .text:00000000000002d8 .L0 
+     /tmp/cchIVsUz.s:440    .text:00000000000002d8 .L0 
+     /tmp/cchIVsUz.s:444    .text:00000000000002e8 .L0 
+     /tmp/cchIVsUz.s:445    .text:00000000000002e8 .L0 
+     /tmp/cchIVsUz.s:451    .text:00000000000002fc .L0 
+GAS LISTING /tmp/cchIVsUz.s 			page 23
+
+
+     /tmp/cchIVsUz.s:452    .text:00000000000002fc .L0 
+     /tmp/cchIVsUz.s:456    .text:000000000000030c .L0 
+     /tmp/cchIVsUz.s:458    .text:0000000000000310 .L0 
+     /tmp/cchIVsUz.s:460    .text:0000000000000314 .L0 
+     /tmp/cchIVsUz.s:461    .text:0000000000000314 .L0 
+     /tmp/cchIVsUz.s:474    .text:0000000000000334 .L0 
+     /tmp/cchIVsUz.s:475    .text:0000000000000334 .L0 
+     /tmp/cchIVsUz.s:480    .text:0000000000000344 .L0 
+     /tmp/cchIVsUz.s:483    .text:0000000000000348 .L0 
+     /tmp/cchIVsUz.s:484    .text:0000000000000348 .L0 
+     /tmp/cchIVsUz.s:489    .text:0000000000000358 .L0 
+     /tmp/cchIVsUz.s:494    .text:0000000000000360 .L0 
+     /tmp/cchIVsUz.s:495    .text:0000000000000360 .L0 
+     /tmp/cchIVsUz.s:500    .text:0000000000000374 .L0 
+     /tmp/cchIVsUz.s:501    .text:0000000000000374 .L0 
+     /tmp/cchIVsUz.s:508    .text:0000000000000388 .L0 
+     /tmp/cchIVsUz.s:509    .text:0000000000000388 .L0 
+     /tmp/cchIVsUz.s:510    .text:0000000000000388 .L0 
+     /tmp/cchIVsUz.s:513    .text:000000000000038c .L0 
+     /tmp/cchIVsUz.s:523    .text:00000000000003a8 .L0 
+     /tmp/cchIVsUz.s:524    .text:00000000000003a8 .L0 
+     /tmp/cchIVsUz.s:530    .text:00000000000003bc .L0 
+     /tmp/cchIVsUz.s:531    .text:00000000000003bc .L0 
+     /tmp/cchIVsUz.s:533    .text:00000000000003c0 .L0 
+     /tmp/cchIVsUz.s:534    .text:00000000000003c0 .L0 
+     /tmp/cchIVsUz.s:537    .text:00000000000003cc .L0 
+     /tmp/cchIVsUz.s:538    .text:00000000000003cc .L0 
+     /tmp/cchIVsUz.s:545    .text:00000000000003e4 .L0 
+     /tmp/cchIVsUz.s:551    .text:00000000000003ec .L0 
+     /tmp/cchIVsUz.s:554    .text:00000000000003f4 .L0 
+     /tmp/cchIVsUz.s:558    .text:0000000000000400 .L0 
+     /tmp/cchIVsUz.s:562    .text:000000000000040c .L0 
+     /tmp/cchIVsUz.s:566    .text:0000000000000410 .L0 
+     /tmp/cchIVsUz.s:568    .text:0000000000000414 .L0 
+     /tmp/cchIVsUz.s:569    .text:0000000000000414 .L0 
+     /tmp/cchIVsUz.s:575    .text:0000000000000428 .L0 
+     /tmp/cchIVsUz.s:576    .text:0000000000000428 .L0 
+     /tmp/cchIVsUz.s:578    .text:000000000000042c .L0 
+     /tmp/cchIVsUz.s:579    .text:000000000000042c .L0 
+     /tmp/cchIVsUz.s:582    .text:0000000000000438 .L0 
+     /tmp/cchIVsUz.s:583    .text:0000000000000438 .L0 
+     /tmp/cchIVsUz.s:585    .text:000000000000043c .L0 
+     /tmp/cchIVsUz.s:587    .text:0000000000000440 .L0 
+     /tmp/cchIVsUz.s:594    .text:0000000000000454 .L0 
+     /tmp/cchIVsUz.s:595    .text:0000000000000454 .L0 
+     /tmp/cchIVsUz.s:599    .text:000000000000045c .L0 
+     /tmp/cchIVsUz.s:603    .text:0000000000000460 .L0 
+     /tmp/cchIVsUz.s:605    .text:0000000000000464 .L0 
+     /tmp/cchIVsUz.s:606    .text:0000000000000464 .L0 
+     /tmp/cchIVsUz.s:610    .text:0000000000000474 .L0 
+     /tmp/cchIVsUz.s:617    .text:000000000000047c .L0 
+     /tmp/cchIVsUz.s:618    .text:000000000000047c .L0 
+     /tmp/cchIVsUz.s:622    .text:000000000000048c .L0 
+     /tmp/cchIVsUz.s:623    .text:000000000000048c .L0 
+     /tmp/cchIVsUz.s:625    .text:0000000000000490 .L0 
+     /tmp/cchIVsUz.s:636    .text:00000000000004ac .L0 
+     /tmp/cchIVsUz.s:637    .text:00000000000004b0 .L0 
+GAS LISTING /tmp/cchIVsUz.s 			page 24
+
+
+     /tmp/cchIVsUz.s:638    .text:00000000000004b0 .L0 
+     /tmp/cchIVsUz.s:640    .text:00000000000004b4 .L0 
+     /tmp/cchIVsUz.s:642    .text:00000000000004b8 .L0 
+     /tmp/cchIVsUz.s:644    .text:00000000000004bc .L0 
+     /tmp/cchIVsUz.s:646    .text:00000000000004c0 .L0 
+     /tmp/cchIVsUz.s:649    .text:00000000000004c4 .L0 
+     /tmp/cchIVsUz.s:651    .text:00000000000004c8 .L0 
+     /tmp/cchIVsUz.s:653    .text:00000000000004cc .L0 
+     /tmp/cchIVsUz.s:655    .text:00000000000004d0 .L0 
+     /tmp/cchIVsUz.s:657    .text:00000000000004d4 .L0 
+     /tmp/cchIVsUz.s:661    .text:00000000000004d8 .L0 
+     /tmp/cchIVsUz.s:665    .text:00000000000004dc .L0 
+     /tmp/cchIVsUz.s:672    .text:00000000000004f4 .L0 
+     /tmp/cchIVsUz.s:697    .bss:0000000000000000 .LANCHOR0
+     /tmp/cchIVsUz.s:700    .bss:0000000000000000 _ZL9threadEnd
+     /tmp/cchIVsUz.s:705    .bss:0000000000000008 _ZL10waitForAll
+     /tmp/cchIVsUz.s:713    .text:00000000000004f4 .L0 
+     /tmp/cchIVsUz.s:79     .text:0000000000000074 .L0 
+     /tmp/cchIVsUz.s:146    .text:00000000000000dc .L0 
+     /tmp/cchIVsUz.s:245    .text:0000000000000184 .L0 
+     /tmp/cchIVsUz.s:334    .rodata.str1.8:0000000000000000 .LC0
+     /tmp/cchIVsUz.s:390    .text:0000000000000250 .L0 
+     /tmp/cchIVsUz.s:337    .rodata.str1.8:0000000000000020 .LC1
+     /tmp/cchIVsUz.s:410    .text:0000000000000284 .L0 
+     /tmp/cchIVsUz.s:340    .rodata.str1.8:0000000000000040 .LC2
+     /tmp/cchIVsUz.s:428    .text:00000000000002b4 .L0 
+     /tmp/cchIVsUz.s:343    .rodata.str1.8:0000000000000058 .LC3
+     /tmp/cchIVsUz.s:440    .text:00000000000002d8 .L0 
+     /tmp/cchIVsUz.s:346    .rodata.str1.8:0000000000000070 .LC4
+     /tmp/cchIVsUz.s:452    .text:00000000000002fc .L0 
+     /tmp/cchIVsUz.s:349    .rodata.str1.8:0000000000000078 .LC5
+     /tmp/cchIVsUz.s:475    .text:0000000000000334 .L0 
+     /tmp/cchIVsUz.s:352    .rodata.str1.8:00000000000000b8 .LC6
+     /tmp/cchIVsUz.s:484    .text:0000000000000348 .L0 
+     /tmp/cchIVsUz.s:496    .text:0000000000000364 .L0 
+     /tmp/cchIVsUz.s:534    .text:00000000000003c0 .L0 
+     /tmp/cchIVsUz.s:539    .text:00000000000003d0 .L0 
+     /tmp/cchIVsUz.s:551    .text:00000000000003ec .L0 
+     /tmp/cchIVsUz.s:579    .text:000000000000042c .L0 
+     /tmp/cchIVsUz.s:589    .text:0000000000000448 .L0 
+     /tmp/cchIVsUz.s:606    .text:0000000000000464 .L0 
+     /tmp/cchIVsUz.s:618    .text:000000000000047c .L0 
+     /tmp/cchIVsUz.s:40     .text:000000000000002c .L2
+     /tmp/cchIVsUz.s:75     .text:0000000000000070 .L3
+     /tmp/cchIVsUz.s:35     .text:0000000000000024 .L6
+     /tmp/cchIVsUz.s:143    .text:00000000000000dc .L8
+     /tmp/cchIVsUz.s:174    .text:0000000000000120 .L9
+     /tmp/cchIVsUz.s:138    .text:00000000000000d4 .L12
+     /tmp/cchIVsUz.s:241    .text:0000000000000184 .L14
+     /tmp/cchIVsUz.s:274    .text:00000000000001c4 .L16
+     /tmp/cchIVsUz.s:297    .text:00000000000001ec .L15
+     /tmp/cchIVsUz.s:227    .text:000000000000016c .L20
+     /tmp/cchIVsUz.s:235    .text:0000000000000178 .L21
+     /tmp/cchIVsUz.s:283    .text:00000000000001d4 .L22
+     /tmp/cchIVsUz.s:472    .text:0000000000000334 .L38
+     /tmp/cchIVsUz.s:481    .text:0000000000000348 .L39
+     /tmp/cchIVsUz.s:491    .text:0000000000000360 .L40
+GAS LISTING /tmp/cchIVsUz.s 			page 25
+
+
+     /tmp/cchIVsUz.s:488    .text:0000000000000358 .L25
+     /tmp/cchIVsUz.s:634    .text:00000000000004ac .L23
+     /tmp/cchIVsUz.s:564    .text:0000000000000410 .L29
+     /tmp/cchIVsUz.s:591    .text:0000000000000454 .L27
+     /tmp/cchIVsUz.s:549    .text:00000000000003ec .L35
+     /tmp/cchIVsUz.s:552    .text:00000000000003f4 .L28
+     /tmp/cchIVsUz.s:614    .text:000000000000047c .L30
+     /tmp/cchIVsUz.s:601    .text:0000000000000460 .L31
+     /tmp/cchIVsUz.s:631    .text:00000000000004a8 .L32
+     /tmp/cchIVsUz.s:391    .text:0000000000000258 .LEHB0
+     /tmp/cchIVsUz.s:359    .text:0000000000000224 .LFB3
+     /tmp/cchIVsUz.s:464    .text:0000000000000320 .LEHE0
+     /tmp/cchIVsUz.s:467    .text:0000000000000328 .LEHB1
+     /tmp/cchIVsUz.s:470    .text:0000000000000330 .LEHE1
+     /tmp/cchIVsUz.s:660    .text:00000000000004d8 .L36
+     /tmp/cchIVsUz.s:476    .text:000000000000033c .LEHB2
+     /tmp/cchIVsUz.s:671    .text:00000000000004f4 .LEHE2
+     /tmp/cchIVsUz.s:1787   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/cchIVsUz.s:2773   .debug_str:000000000000024d .LASF77
+     /tmp/cchIVsUz.s:2827   .debug_str:0000000000000466 .LASF78
+     /tmp/cchIVsUz.s:2809   .debug_str:00000000000003ef .LASF79
+     /tmp/cchIVsUz.s:5      .text:0000000000000000 .Ltext0
+     /tmp/cchIVsUz.s:708    .text:00000000000004f4 .Letext0
+     /tmp/cchIVsUz.s:2689   .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/cchIVsUz.s:2787   .debug_str:0000000000000351 .LASF0
+     /tmp/cchIVsUz.s:2757   .debug_str:00000000000001c1 .LASF1
+     /tmp/cchIVsUz.s:2743   .debug_str:000000000000016f .LASF2
+     /tmp/cchIVsUz.s:2713   .debug_str:000000000000008b .LASF4
+     /tmp/cchIVsUz.s:2755   .debug_str:00000000000001af .LASF3
+     /tmp/cchIVsUz.s:2695   .debug_str:0000000000000018 .LASF5
+     /tmp/cchIVsUz.s:2693   .debug_str:0000000000000005 .LASF6
+     /tmp/cchIVsUz.s:2733   .debug_str:0000000000000119 .LASF7
+     /tmp/cchIVsUz.s:2797   .debug_str:0000000000000393 .LASF8
+     /tmp/cchIVsUz.s:2709   .debug_str:0000000000000074 .LASF9
+     /tmp/cchIVsUz.s:2857   .debug_str:0000000000000524 .LASF10
+     /tmp/cchIVsUz.s:2737   .debug_str:0000000000000138 .LASF11
+     /tmp/cchIVsUz.s:2839   .debug_str:00000000000004b6 .LASF12
+     /tmp/cchIVsUz.s:2805   .debug_str:00000000000003d3 .LASF13
+     /tmp/cchIVsUz.s:2763   .debug_str:00000000000001f1 .LASF14
+     /tmp/cchIVsUz.s:2723   .debug_str:00000000000000c4 .LASF15
+     /tmp/cchIVsUz.s:2799   .debug_str:00000000000003a3 .LASF16
+     /tmp/cchIVsUz.s:2801   .debug_str:00000000000003b9 .LASF17
+     /tmp/cchIVsUz.s:2823   .debug_str:0000000000000457 .LASF19
+     /tmp/cchIVsUz.s:2703   .debug_str:0000000000000046 .LASF18
+     /tmp/cchIVsUz.s:2795   .debug_str:000000000000038e .LASF20
+     /tmp/cchIVsUz.s:2813   .debug_str:0000000000000421 .LASF28
+     /tmp/cchIVsUz.s:2825   .debug_str:000000000000045f .LASF21
+     /tmp/cchIVsUz.s:2781   .debug_str:0000000000000338 .LASF22
+     /tmp/cchIVsUz.s:2829   .debug_str:000000000000048b .LASF23
+     /tmp/cchIVsUz.s:2761   .debug_str:00000000000001e2 .LASF24
+     /tmp/cchIVsUz.s:2731   .debug_str:000000000000010b .LASF25
+     /tmp/cchIVsUz.s:2789   .debug_str:000000000000035e .LASF26
+     /tmp/cchIVsUz.s:2853   .debug_str:00000000000004fe .LASF27
+     /tmp/cchIVsUz.s:2843   .debug_str:00000000000004cd .LASF30
+     /tmp/cchIVsUz.s:2831   .debug_str:0000000000000490 .LASF29
+     /tmp/cchIVsUz.s:2715   .debug_str:0000000000000092 .LASF31
+     /tmp/cchIVsUz.s:2739   .debug_str:0000000000000147 .LASF80
+GAS LISTING /tmp/cchIVsUz.s 			page 26
+
+
+     /tmp/cchIVsUz.s:2791   .debug_str:0000000000000368 .LASF81
+     /tmp/cchIVsUz.s:2719   .debug_str:00000000000000b4 .LASF32
+     /tmp/cchIVsUz.s:2765   .debug_str:00000000000001fd .LASF33
+     /tmp/cchIVsUz.s:2775   .debug_str:0000000000000311 .LASF34
+     /tmp/cchIVsUz.s:2735   .debug_str:000000000000012c .LASF82
+     /tmp/cchIVsUz.s:2783   .debug_str:000000000000033d .LASF35
+     /tmp/cchIVsUz.s:2821   .debug_str:000000000000044d .LASF36
+     /tmp/cchIVsUz.s:2741   .debug_str:0000000000000158 .LASF37
+     /tmp/cchIVsUz.s:2855   .debug_str:0000000000000508 .LASF83
+     /tmp/cchIVsUz.s:673    .text:00000000000004f4 .LFE3
+     /tmp/cchIVsUz.s:2747   .debug_str:0000000000000182 .LASF38
+     /tmp/cchIVsUz.s:2391   .debug_loc:0000000000000000 .LLST14
+     /tmp/cchIVsUz.s:2845   .debug_str:00000000000004dc .LASF39
+     /tmp/cchIVsUz.s:2402   .debug_loc:0000000000000036 .LLST15
+     /tmp/cchIVsUz.s:2413   .debug_loc:000000000000006c .LLST16
+     /tmp/cchIVsUz.s:2819   .debug_str:0000000000000445 .LASF40
+     /tmp/cchIVsUz.s:2420   .debug_loc:000000000000008f .LLST17
+     /tmp/cchIVsUz.s:2833   .debug_str:0000000000000498 .LASF41
+     /tmp/cchIVsUz.s:2701   .debug_str:0000000000000041 .LASF42
+     /tmp/cchIVsUz.s:2433   .debug_loc:00000000000000c7 .LLST18
+     /tmp/cchIVsUz.s:543    .text:00000000000003e4 .LBB5
+     /tmp/cchIVsUz.s:592    .text:0000000000000454 .LBE5
+     /tmp/cchIVsUz.s:2441   .debug_loc:00000000000000eb .LLST19
+     /tmp/cchIVsUz.s:560    .text:000000000000040c .LVL69
+     /tmp/cchIVsUz.s:597    .text:000000000000045c .LBB6
+     /tmp/cchIVsUz.s:615    .text:000000000000047c .LBE6
+     /tmp/cchIVsUz.s:2448   .debug_loc:000000000000010e .LLST20
+     /tmp/cchIVsUz.s:608    .text:0000000000000474 .LVL73
+     /tmp/cchIVsUz.s:393    .text:0000000000000260 .LVL43
+     /tmp/cchIVsUz.s:400    .text:0000000000000274 .LVL44
+     /tmp/cchIVsUz.s:405    .text:0000000000000280 .LVL45
+     /tmp/cchIVsUz.s:412    .text:0000000000000294 .LVL47
+     /tmp/cchIVsUz.s:418    .text:00000000000002a4 .LVL48
+     /tmp/cchIVsUz.s:423    .text:00000000000002b0 .LVL49
+     /tmp/cchIVsUz.s:430    .text:00000000000002c4 .LVL51
+     /tmp/cchIVsUz.s:437    .text:00000000000002d8 .LVL52
+     /tmp/cchIVsUz.s:442    .text:00000000000002e8 .LVL53
+     /tmp/cchIVsUz.s:449    .text:00000000000002fc .LVL54
+     /tmp/cchIVsUz.s:454    .text:000000000000030c .LVL55
+     /tmp/cchIVsUz.s:463    .text:0000000000000320 .LVL56
+     /tmp/cchIVsUz.s:469    .text:0000000000000330 .LVL57
+     /tmp/cchIVsUz.s:478    .text:0000000000000344 .LVL58
+     /tmp/cchIVsUz.s:486    .text:0000000000000358 .LVL59
+     /tmp/cchIVsUz.s:498    .text:0000000000000374 .LVL61
+     /tmp/cchIVsUz.s:542    .text:00000000000003e4 .LVL66
+     /tmp/cchIVsUz.s:596    .text:000000000000045c .LVL71
+     /tmp/cchIVsUz.s:620    .text:000000000000048c .LVL76
+     /tmp/cchIVsUz.s:627    .text:000000000000049c .LVL77
+     /tmp/cchIVsUz.s:630    .text:00000000000004a8 .LVL78
+     /tmp/cchIVsUz.s:667    .text:00000000000004e8 .LVL83
+     /tmp/cchIVsUz.s:670    .text:00000000000004f4 .LVL84
+     /tmp/cchIVsUz.s:2837   .debug_str:00000000000004b1 .LASF43
+     /tmp/cchIVsUz.s:2721   .debug_str:00000000000000bb .LASF44
+     /tmp/cchIVsUz.s:201    .text:0000000000000144 .LFB2
+     /tmp/cchIVsUz.s:330    .text:0000000000000224 .LFE2
+     /tmp/cchIVsUz.s:2459   .debug_loc:0000000000000144 .LLST7
+     /tmp/cchIVsUz.s:2477   .debug_loc:0000000000000190 .LLST8
+GAS LISTING /tmp/cchIVsUz.s 			page 27
+
+
+     /tmp/cchIVsUz.s:2495   .debug_loc:00000000000001dc .LLST9
+     /tmp/cchIVsUz.s:2681   .debug_ranges:0000000000000000 .Ldebug_ranges0
+     /tmp/cchIVsUz.s:2519   .debug_loc:000000000000024c .LLST10
+     /tmp/cchIVsUz.s:232    .text:0000000000000174 .LVL28
+     /tmp/cchIVsUz.s:240    .text:0000000000000184 .LVL30
+     /tmp/cchIVsUz.s:252    .text:000000000000019c .LVL31
+     /tmp/cchIVsUz.s:263    .text:00000000000001b0 .LVL34
+     /tmp/cchIVsUz.s:285    .text:00000000000001d4 .LBB4
+     /tmp/cchIVsUz.s:298    .text:00000000000001ec .LBE4
+     /tmp/cchIVsUz.s:2526   .debug_loc:000000000000026f .LLST11
+     /tmp/cchIVsUz.s:290    .text:00000000000001e0 .LVL36
+     /tmp/cchIVsUz.s:296    .text:00000000000001ec .LVL38
+     /tmp/cchIVsUz.s:304    .text:00000000000001f8 .LVL39
+     /tmp/cchIVsUz.s:311    .text:0000000000000208 .LVL40
+     /tmp/cchIVsUz.s:2847   .debug_str:00000000000004e6 .LASF45
+     /tmp/cchIVsUz.s:114    .text:00000000000000b0 .LFB1
+     /tmp/cchIVsUz.s:196    .text:0000000000000144 .LFE1
+     /tmp/cchIVsUz.s:2533   .debug_loc:0000000000000292 .LLST4
+     /tmp/cchIVsUz.s:2551   .debug_loc:00000000000002de .LLST5
+     /tmp/cchIVsUz.s:2569   .debug_loc:000000000000032a .LLST6
+     /tmp/cchIVsUz.s:142    .text:00000000000000dc .LVL18
+     /tmp/cchIVsUz.s:155    .text:00000000000000fc .LVL19
+     /tmp/cchIVsUz.s:179    .text:000000000000012c .LVL22
+     /tmp/cchIVsUz.s:2803   .debug_str:00000000000003c2 .LASF46
+     /tmp/cchIVsUz.s:9      .text:0000000000000000 .LFB0
+     /tmp/cchIVsUz.s:109    .text:00000000000000b0 .LFE0
+     /tmp/cchIVsUz.s:2593   .debug_loc:000000000000039a .LLST0
+     /tmp/cchIVsUz.s:2611   .debug_loc:00000000000003e6 .LLST1
+     /tmp/cchIVsUz.s:2629   .debug_loc:0000000000000432 .LLST2
+     /tmp/cchIVsUz.s:2644   .debug_loc:000000000000047b .LLST3
+     /tmp/cchIVsUz.s:39     .text:000000000000002c .LVL3
+     /tmp/cchIVsUz.s:45     .text:0000000000000034 .LVL4
+     /tmp/cchIVsUz.s:56     .text:000000000000004c .LVL6
+     /tmp/cchIVsUz.s:87     .text:000000000000008c .LVL11
+     /tmp/cchIVsUz.s:92     .text:0000000000000098 .LVL12
+     /tmp/cchIVsUz.s:2767   .debug_str:0000000000000211 .LASF47
+     /tmp/cchIVsUz.s:2759   .debug_str:00000000000001d4 .LASF49
+     /tmp/cchIVsUz.s:2699   .debug_str:000000000000002f .LASF48
+     /tmp/cchIVsUz.s:2777   .debug_str:000000000000031c .LASF50
+     /tmp/cchIVsUz.s:2779   .debug_str:0000000000000325 .LASF51
+     /tmp/cchIVsUz.s:2769   .debug_str:0000000000000236 .LASF52
+     /tmp/cchIVsUz.s:2705   .debug_str:000000000000004c .LASF53
+     /tmp/cchIVsUz.s:2835   .debug_str:00000000000004a7 .LASF54
+     /tmp/cchIVsUz.s:2725   .debug_str:00000000000000da .LASF55
+     /tmp/cchIVsUz.s:2807   .debug_str:00000000000003e3 .LASF56
+     /tmp/cchIVsUz.s:2811   .debug_str:0000000000000412 .LASF57
+     /tmp/cchIVsUz.s:2849   .debug_str:00000000000004ef .LASF58
+     /tmp/cchIVsUz.s:2851   .debug_str:00000000000004f8 .LASF65
+     /tmp/cchIVsUz.s:2817   .debug_str:0000000000000438 .LASF67
+     /tmp/cchIVsUz.s:2751   .debug_str:0000000000000191 .LASF59
+     /tmp/cchIVsUz.s:2749   .debug_str:0000000000000188 .LASF60
+     /tmp/cchIVsUz.s:2729   .debug_str:00000000000000f6 .LASF61
+     /tmp/cchIVsUz.s:2815   .debug_str:0000000000000428 .LASF62
+     /tmp/cchIVsUz.s:2717   .debug_str:00000000000000a1 .LASF63
+     /tmp/cchIVsUz.s:2753   .debug_str:00000000000001a5 .LASF64
+     /tmp/cchIVsUz.s:2841   .debug_str:00000000000004c6 .LASF66
+     /tmp/cchIVsUz.s:2697   .debug_str:000000000000001f .LASF68
+GAS LISTING /tmp/cchIVsUz.s 			page 28
+
+
+     /tmp/cchIVsUz.s:2785   .debug_str:0000000000000342 .LASF69
+     /tmp/cchIVsUz.s:2707   .debug_str:000000000000005c .LASF70
+     /tmp/cchIVsUz.s:2727   .debug_str:00000000000000ed .LASF71
+     /tmp/cchIVsUz.s:2691   .debug_str:0000000000000000 .LASF72
+     /tmp/cchIVsUz.s:2793   .debug_str:0000000000000379 .LASF73
+     /tmp/cchIVsUz.s:2771   .debug_str:0000000000000242 .LASF74
+     /tmp/cchIVsUz.s:2711   .debug_str:0000000000000082 .LASF75
+     /tmp/cchIVsUz.s:2745   .debug_str:000000000000017d .LASF76
+     /tmp/cchIVsUz.s:425    .text:00000000000002b4 .LVL50
+     /tmp/cchIVsUz.s:546    .text:00000000000003e8 .LVL67
+     /tmp/cchIVsUz.s:659    .text:00000000000004d8 .LVL81
+     /tmp/cchIVsUz.s:663    .text:00000000000004dc .LVL82
+     /tmp/cchIVsUz.s:407    .text:0000000000000284 .LVL46
+     /tmp/cchIVsUz.s:647    .text:00000000000004c0 .LVL80
+     /tmp/cchIVsUz.s:492    .text:0000000000000360 .LVL60
+     /tmp/cchIVsUz.s:633    .text:00000000000004ac .LVL79
+     /tmp/cchIVsUz.s:506    .text:0000000000000388 .LVL62
+     /tmp/cchIVsUz.s:519    .text:00000000000003a4 .LVL64
+     /tmp/cchIVsUz.s:521    .text:00000000000003a8 .LVL65
+     /tmp/cchIVsUz.s:548    .text:00000000000003ec .LVL68
+     /tmp/cchIVsUz.s:600    .text:0000000000000460 .LVL72
+     /tmp/cchIVsUz.s:611    .text:0000000000000478 .LVL74
+     /tmp/cchIVsUz.s:613    .text:000000000000047c .LVL75
+     /tmp/cchIVsUz.s:204    .text:0000000000000144 .LVL25
+     /tmp/cchIVsUz.s:226    .text:000000000000016c .LVL27
+     /tmp/cchIVsUz.s:322    .text:0000000000000218 .LVL41
+     /tmp/cchIVsUz.s:221    .text:0000000000000164 .LVL26
+     /tmp/cchIVsUz.s:234    .text:0000000000000178 .LVL29
+     /tmp/cchIVsUz.s:257    .text:00000000000001a4 .LVL32
+     /tmp/cchIVsUz.s:279    .text:00000000000001cc .LVL35
+     /tmp/cchIVsUz.s:325    .text:000000000000021c .LVL42
+     /tmp/cchIVsUz.s:261    .text:00000000000001a8 .LVL33
+     /tmp/cchIVsUz.s:294    .text:00000000000001e4 .LVL37
+     /tmp/cchIVsUz.s:117    .text:00000000000000b0 .LVL15
+     /tmp/cchIVsUz.s:137    .text:00000000000000d4 .LVL17
+     /tmp/cchIVsUz.s:188    .text:0000000000000138 .LVL23
+     /tmp/cchIVsUz.s:132    .text:00000000000000cc .LVL16
+     /tmp/cchIVsUz.s:160    .text:0000000000000104 .LVL20
+     /tmp/cchIVsUz.s:173    .text:0000000000000120 .LVL21
+     /tmp/cchIVsUz.s:191    .text:000000000000013c .LVL24
+     /tmp/cchIVsUz.s:13     .text:0000000000000000 .LVL0
+     /tmp/cchIVsUz.s:34     .text:0000000000000024 .LVL2
+     /tmp/cchIVsUz.s:101    .text:00000000000000a4 .LVL13
+     /tmp/cchIVsUz.s:28     .text:000000000000001c .LVL1
+     /tmp/cchIVsUz.s:48     .text:0000000000000038 .LVL5
+     /tmp/cchIVsUz.s:74     .text:0000000000000070 .LVL8
+     /tmp/cchIVsUz.s:83     .text:0000000000000080 .LVL9
+     /tmp/cchIVsUz.s:85     .text:0000000000000084 .LVL10
+     /tmp/cchIVsUz.s:61     .text:0000000000000054 .LVL7
+     /tmp/cchIVsUz.s:104    .text:00000000000000a8 .LVL14
+     /tmp/cchIVsUz.s:714    .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/cchIVsUz.s:228    .text:000000000000016c .LBB2
+     /tmp/cchIVsUz.s:242    .text:0000000000000184 .LBE2
+     /tmp/cchIVsUz.s:247    .text:0000000000000190 .LBB3
+     /tmp/cchIVsUz.s:284    .text:00000000000001d4 .LBE3
+     /tmp/cchIVsUz.s:676    .gcc_except_table:0000000000000000 .LLSDA3
+
+GAS LISTING /tmp/cchIVsUz.s 			page 29
+>>>>>>> Stashed changes
 
 
 UNDEFINED SYMBOLS

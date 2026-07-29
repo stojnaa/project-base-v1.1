@@ -20,6 +20,12 @@ public:
         BLOCKED,
         FINISHED
     };
+    enum Priority
+    {
+        LOW = 0,
+        HIGH = 2,
+        MEDIUM = 1
+    };
 
     struct Context {
         uint64 ra;
@@ -43,9 +49,9 @@ public:
     void operator delete(void* ptr);
     void operator delete[](void* ptr);
 
-    _thread(Body body, void* arg, void* stackSpace);
+    _thread(Body body, void* arg, void* stackSpace, Priority priority = LOW);
 
-    static _thread* createThread(Body body, void* arg, void* stackSpace);
+    static _thread* createThread(Body body, void* arg, void* stackSpace, Priority priority = LOW);
     static int destroyThread(_thread* thread);
     static void dispatch();
     static int exit();
@@ -62,8 +68,10 @@ public:
     uint64 getTimeSlice() const;
 
     static _thread* running;
+    Priority getPriority() const;
 
 private:
+    Priority priority;
     Body body;
     void* arg;
     void* stack;

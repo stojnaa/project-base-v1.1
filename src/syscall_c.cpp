@@ -1,9 +1,10 @@
 #include "../h/syscall_c.hpp"
 
 static uint64 doSyscall(uint64 code, uint64 arg1 = 0, uint64 arg2 = 0,
-                        uint64 arg3 = 0, uint64 arg4 = 0) {
+                        uint64 arg3 = 0, uint64 arg4 = 0, uint64 arg5 = 0) {
     uint64 ret;
 
+    asm volatile("mv a5, %0" : : "r"(arg5));
     asm volatile("mv a4, %0" : : "r"(arg4));
     asm volatile("mv a3, %0" : : "r"(arg3));
     asm volatile("mv a2, %0" : : "r"(arg2));
@@ -32,7 +33,7 @@ int mem_free(void* ptr) {
 }
 
 
-int thread_create(thread_t* handle, void (*start_routine)(void*), void* arg){
+int thread_create(thread_t* handle, void (*start_routine)(void*), void* arg, ThreadPriority priority) {
     if (handle == nullptr || start_routine == nullptr){//handle je mesto gde kernel upisuje pokazivac na napravljenu nit
         return -1;
     }
@@ -48,7 +49,8 @@ int thread_create(thread_t* handle, void (*start_routine)(void*), void* arg){
             (uint64)handle,
             (uint64)start_routine,
             (uint64)arg,
-            stackTop
+            stackTop,
+            (uint64)priority
     );
 
     if (ret < 0) {

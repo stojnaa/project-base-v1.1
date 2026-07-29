@@ -12,7 +12,8 @@ void operator delete(void* ptr);
 
 class Thread {
 public:
-    Thread(void (*body)(void*), void* arg);
+    Thread(void (*body)(void*), void* arg, ThreadPriority priority = LOW);
+    Thread(ThreadPriority priority);
     virtual ~Thread();
 
     int start();
@@ -29,6 +30,7 @@ private:
     thread_t myHandle;
     void (*body)(void*);
     void* arg;
+    ThreadPriority priority;
 
     static void threadWrapper(void* thread);
 };

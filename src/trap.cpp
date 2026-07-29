@@ -20,6 +20,7 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
         uint64 arg2 = frame->a2;
         uint64 arg3 = frame->a3;
         uint64 arg4 = frame->a4;
+        uint64 arg5 = frame->a5;
 
         switch (syscallCode) {
             case 0x01: {
@@ -37,13 +38,14 @@ extern "C" void handleSupervisorTrap(TrapFrame* frame) {
                 _thread::Body body = (_thread::Body)arg2;
                 void* arg = (void*)arg3;
                 void* stackSpace = (void*)arg4;
+                _thread::Priority priority = (_thread::Priority)arg5;
 
                 if (handle == nullptr || body == nullptr || stackSpace == nullptr) {
                     frame->a0 = (uint64)-1;
                     break;
                 }
 
-                _thread* thread = _thread::createThread(body, arg, stackSpace);
+                _thread* thread = _thread::createThread(body, arg, stackSpace, priority);
 
                 if (thread == nullptr) {
                     frame->a0 = (uint64)-1;

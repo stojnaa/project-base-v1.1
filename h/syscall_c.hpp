@@ -16,11 +16,15 @@ const int EOF = -1;
 
 void* mem_alloc(size_t size);
 int mem_free(void* ptr);
-
+enum ThreadPriority {
+    LOW = 0,
+    MEDIUM = 1,
+    HIGH = 2
+};
 int thread_create(
     thread_t* handle,
     void (*start_routine)(void*),
-    void* arg
+    void* arg, ThreadPriority priority = LOW
 );
 
 int thread_exit();

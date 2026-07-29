@@ -1,15 +1,23 @@
 #include "../h/syscall_cpp.hpp"
 
-Thread::Thread(void (*body)(void*), void* arg) {
+Thread::Thread(void (*body)(void*), void* arg, ThreadPriority priority) {
     this->myHandle = nullptr;
     this->body = body;
     this->arg = arg;
+    this->priority = priority;
 }
 
 Thread::Thread() {
     this->myHandle = nullptr;
     this->body = nullptr;
     this->arg = nullptr;
+    this->priority = LOW;
+}
+Thread::Thread(ThreadPriority priority) {
+    this->myHandle = nullptr;
+    this->body = nullptr;
+    this->arg = nullptr;
+    this->priority = priority;
 }
 
 Thread::~Thread() {
@@ -17,10 +25,10 @@ Thread::~Thread() {
 
 int Thread::start() {
     if (body != nullptr) {
-        return thread_create(&myHandle, body, arg);
+        return thread_create(&myHandle, body, arg, priority);
     }
 
-    return thread_create(&myHandle, Thread::threadWrapper, this);//kada korisnik ocekuje da se izvrsi run(), pa se u thread wrapper poziva run
+    return thread_create(&myHandle, Thread::threadWrapper, this, priority);//kada korisnik ocekuje da se izvrsi run(), pa se u thread wrapper poziva run
 }
 
 void Thread::dispatch() {

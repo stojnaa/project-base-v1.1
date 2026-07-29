@@ -1,10 +1,16 @@
 #include "../h/Scheduler.hpp"
 #include "../h/Thread.hpp"
 
-_thread* Scheduler::head = nullptr;
-_thread* Scheduler::tail = nullptr;
+_thread* Scheduler::highHead = nullptr;
+_thread* Scheduler::highTail = nullptr;
 
-void Scheduler::put(_thread* thread) {
+_thread* Scheduler::mediumHead = nullptr;
+_thread* Scheduler::mediumTail = nullptr;
+
+_thread* Scheduler::lowHead = nullptr;
+_thread* Scheduler::lowTail = nullptr;
+
+void Scheduler::putInQueue(_thread* thread, _thread*& head, _thread*& tail) {
     if (thread == nullptr) {
         return;
     }
@@ -25,7 +31,7 @@ void Scheduler::put(_thread* thread) {
     }
 }
 
-_thread* Scheduler::get() {
+_thread* Scheduler::getFromQueue(_thread*& head, _thread*& tail) {
     if (head == nullptr) {
         return nullptr;
     }
@@ -42,7 +48,31 @@ _thread* Scheduler::get() {
 
     return thread;
 }
+void Scheduler::put(_thread* thread) {
+    if (thread == nullptr) {
+        return;
+    }
 
-bool Scheduler::isEmpty() {
-    return head == nullptr;
+    if (thread->getPriority() == _thread::HIGH) {
+        putInQueue(thread, highHead, highTail);
+    } else if (thread->getPriority() == _thread::MEDIUM) {
+        putInQueue(thread, mediumHead, mediumTail);
+    } else {
+        putInQueue(thread, lowHead, lowTail);
+    }
+}
+_thread* Scheduler::get() {
+    _thread* thread = getFromQueue(highHead, highTail);
+
+    if (thread != nullptr) {
+        return thread;
+    }
+
+    thread = getFromQueue(mediumHead, mediumTail);
+
+    if (thread != nullptr) {
+        return thread;
+    }
+
+    return getFromQueue(lowHead, lowTail);
 }

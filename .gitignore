@@ -1,0 +1,18 @@
+# Build output
+build/
+kernel
+kernel.asm
+*.o
+*.d
+*.lst
+
+# Debug files
+.gdbinit
+
+# IDE
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
